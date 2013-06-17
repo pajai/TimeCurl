@@ -15,13 +15,25 @@
 		4323D46B176EF79500A083AB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4323D46A176EF79500A083AB /* AppDelegate.m */; };
 		4323D46E176EF79500A083AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4323D46C176EF79500A083AB /* Main.storyboard */; };
 		4323D471176EF79500A083AB /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4323D470176EF79500A083AB /* FirstViewController.m */; };
-		4323D474176EF79500A083AB /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4323D473176EF79500A083AB /* SecondViewController.m */; };
 		4323D476176EF79500A083AB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4323D475176EF79500A083AB /* Images.xcassets */; };
 		4323D47D176EF79500A083AB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4323D47C176EF79500A083AB /* XCTest.framework */; };
 		4323D47E176EF79500A083AB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4323D45A176EF79500A083AB /* Foundation.framework */; };
 		4323D47F176EF79500A083AB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4323D45E176EF79500A083AB /* UIKit.framework */; };
 		4323D487176EF79500A083AB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4323D485176EF79500A083AB /* InfoPlist.strings */; };
 		4323D489176EF79500A083AB /* TimeWarpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4323D488176EF79500A083AB /* TimeWarpTests.m */; };
+		4323D498176F04BE00A083AB /* ProjectListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4323D497176F04BE00A083AB /* ProjectListController.m */; };
+		4323D499176F04BE00A083AB /* ProjectListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4323D497176F04BE00A083AB /* ProjectListController.m */; };
+		4323D49B176F078400A083AB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4323D49A176F078400A083AB /* CoreData.framework */; };
+		4323D4AC176F0B0000A083AB /* TimeSlot.m in Sources */ = {isa = PBXBuildFile; fileRef = 4323D4AB176F0B0000A083AB /* TimeSlot.m */; };
+		4323D4AD176F0B0000A083AB /* TimeSlot.m in Sources */ = {isa = PBXBuildFile; fileRef = 4323D4AB176F0B0000A083AB /* TimeSlot.m */; };
+		4323D4B0176F0B0100A083AB /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 4323D4AF176F0B0100A083AB /* Project.m */; };
+		4323D4B1176F0B0100A083AB /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 4323D4AF176F0B0100A083AB /* Project.m */; };
+		4323D4B4176F0B0100A083AB /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 4323D4B3176F0B0100A083AB /* Activity.m */; };
+		4323D4B5176F0B0100A083AB /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 4323D4B3176F0B0100A083AB /* Activity.m */; };
+		4345FA3D176F31FE002BBDB0 /* AddProjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4323D4B7176F0E6100A083AB /* AddProjectController.m */; };
+		4345FA3E176F31FF002BBDB0 /* AddProjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4323D4B7176F0E6100A083AB /* AddProjectController.m */; };
+		4345FA41176F3FFA002BBDB0 /* TimeWarp.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 4345FA40176F3FFA002BBDB0 /* TimeWarp.xcdatamodel */; };
+		4345FA42176F3FFA002BBDB0 /* TimeWarp.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 4345FA40176F3FFA002BBDB0 /* TimeWarp.xcdatamodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,14 +60,24 @@
 		4323D46D176EF79500A083AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4323D46F176EF79500A083AB /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
 		4323D470176EF79500A083AB /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		4323D472176EF79500A083AB /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		4323D473176EF79500A083AB /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		4323D475176EF79500A083AB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4323D47B176EF79500A083AB /* TimeWarpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeWarpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4323D47C176EF79500A083AB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		4323D484176EF79500A083AB /* TimeWarpTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TimeWarpTests-Info.plist"; sourceTree = "<group>"; };
 		4323D486176EF79500A083AB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4323D488176EF79500A083AB /* TimeWarpTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeWarpTests.m; sourceTree = "<group>"; };
+		4323D496176F04BE00A083AB /* ProjectListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectListController.h; sourceTree = "<group>"; };
+		4323D497176F04BE00A083AB /* ProjectListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectListController.m; sourceTree = "<group>"; };
+		4323D49A176F078400A083AB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		4323D4AA176F0B0000A083AB /* TimeSlot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeSlot.h; sourceTree = "<group>"; };
+		4323D4AB176F0B0000A083AB /* TimeSlot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeSlot.m; sourceTree = "<group>"; };
+		4323D4AE176F0B0100A083AB /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Project.h; sourceTree = "<group>"; };
+		4323D4AF176F0B0100A083AB /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Project.m; sourceTree = "<group>"; };
+		4323D4B2176F0B0100A083AB /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Activity.h; sourceTree = "<group>"; };
+		4323D4B3176F0B0100A083AB /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activity.m; sourceTree = "<group>"; };
+		4323D4B6176F0E6100A083AB /* AddProjectController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddProjectController.h; sourceTree = "<group>"; };
+		4323D4B7176F0E6100A083AB /* AddProjectController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddProjectController.m; sourceTree = "<group>"; };
+		4345FA40176F3FFA002BBDB0 /* TimeWarp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TimeWarp.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4323D49B176F078400A083AB /* CoreData.framework in Frameworks */,
 				4323D45D176EF79500A083AB /* CoreGraphics.framework in Frameworks */,
 				4323D45F176EF79500A083AB /* UIKit.framework in Frameworks */,
 				4323D45B176EF79500A083AB /* Foundation.framework in Frameworks */,
@@ -104,6 +127,7 @@
 		4323D459176EF79500A083AB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4323D49A176F078400A083AB /* CoreData.framework */,
 				4323D45A176EF79500A083AB /* Foundation.framework */,
 				4323D45C176EF79500A083AB /* CoreGraphics.framework */,
 				4323D45E176EF79500A083AB /* UIKit.framework */,
@@ -115,13 +139,13 @@
 		4323D460176EF79500A083AB /* TimeWarp */ = {
 			isa = PBXGroup;
 			children = (
+				4323D4A9176F0A7300A083AB /* controllers */,
+				4323D4A8176F0A6300A083AB /* model */,
 				4323D469176EF79500A083AB /* AppDelegate.h */,
 				4323D46A176EF79500A083AB /* AppDelegate.m */,
 				4323D46C176EF79500A083AB /* Main.storyboard */,
 				4323D46F176EF79500A083AB /* FirstViewController.h */,
 				4323D470176EF79500A083AB /* FirstViewController.m */,
-				4323D472176EF79500A083AB /* SecondViewController.h */,
-				4323D473176EF79500A083AB /* SecondViewController.m */,
 				4323D475176EF79500A083AB /* Images.xcassets */,
 				4323D461176EF79500A083AB /* Supporting Files */,
 			);
@@ -155,6 +179,31 @@
 				4323D485176EF79500A083AB /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4323D4A8176F0A6300A083AB /* model */ = {
+			isa = PBXGroup;
+			children = (
+				4345FA40176F3FFA002BBDB0 /* TimeWarp.xcdatamodel */,
+				4323D4AA176F0B0000A083AB /* TimeSlot.h */,
+				4323D4B2176F0B0100A083AB /* Activity.h */,
+				4323D4B3176F0B0100A083AB /* Activity.m */,
+				4323D4AE176F0B0100A083AB /* Project.h */,
+				4323D4AF176F0B0100A083AB /* Project.m */,
+				4323D4AB176F0B0000A083AB /* TimeSlot.m */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		4323D4A9176F0A7300A083AB /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4323D496176F04BE00A083AB /* ProjectListController.h */,
+				4323D497176F04BE00A083AB /* ProjectListController.m */,
+				4323D4B6176F0E6100A083AB /* AddProjectController.h */,
+				4323D4B7176F0E6100A083AB /* AddProjectController.m */,
+			);
+			name = controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,10 +303,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4323D474176EF79500A083AB /* SecondViewController.m in Sources */,
 				4323D46B176EF79500A083AB /* AppDelegate.m in Sources */,
+				4323D498176F04BE00A083AB /* ProjectListController.m in Sources */,
+				4323D4B4176F0B0100A083AB /* Activity.m in Sources */,
 				4323D471176EF79500A083AB /* FirstViewController.m in Sources */,
+				4323D4B0176F0B0100A083AB /* Project.m in Sources */,
+				4323D4AC176F0B0000A083AB /* TimeSlot.m in Sources */,
+				4345FA41176F3FFA002BBDB0 /* TimeWarp.xcdatamodel in Sources */,
 				4323D467176EF79500A083AB /* main.m in Sources */,
+				4345FA3D176F31FE002BBDB0 /* AddProjectController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,7 +319,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4323D4AD176F0B0000A083AB /* TimeSlot.m in Sources */,
+				4323D499176F04BE00A083AB /* ProjectListController.m in Sources */,
+				4323D4B1176F0B0100A083AB /* Project.m in Sources */,
+				4323D4B5176F0B0100A083AB /* Activity.m in Sources */,
+				4345FA3E176F31FF002BBDB0 /* AddProjectController.m in Sources */,
 				4323D489176EF79500A083AB /* TimeWarpTests.m in Sources */,
+				4345FA42176F3FFA002BBDB0 /* TimeWarp.xcdatamodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,6 +520,7 @@
 				4323D48E176EF79500A083AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4323D48F176EF79500A083AB /* Build configuration list for PBXNativeTarget "TimeWarpTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +529,7 @@
 				4323D491176EF79500A083AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
