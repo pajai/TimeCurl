@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		431535431770A1D600B5D825 /* GraduationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 431535421770A1D600B5D825 /* GraduationView.m */; };
 		431535441770A1D600B5D825 /* GraduationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 431535421770A1D600B5D825 /* GraduationView.m */; };
+		431535491773060800B5D825 /* SlotInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 431535481773060700B5D825 /* SlotInterval.m */; };
+		4315354A1773060800B5D825 /* SlotInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 431535481773060700B5D825 /* SlotInterval.m */; };
 		4323D45B176EF79500A083AB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4323D45A176EF79500A083AB /* Foundation.framework */; };
 		4323D45D176EF79500A083AB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4323D45C176EF79500A083AB /* CoreGraphics.framework */; };
 		4323D45F176EF79500A083AB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4323D45E176EF79500A083AB /* UIKit.framework */; };
@@ -56,6 +58,8 @@
 		431535411770A1D600B5D825 /* GraduationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraduationView.h; sourceTree = "<group>"; };
 		431535421770A1D600B5D825 /* GraduationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraduationView.m; sourceTree = "<group>"; };
 		431535461770A62800B5D825 /* GeometryConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeometryConstants.h; sourceTree = "<group>"; };
+		431535471773060700B5D825 /* SlotInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlotInterval.h; sourceTree = "<group>"; };
+		431535481773060700B5D825 /* SlotInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlotInterval.m; sourceTree = "<group>"; };
 		4323D457176EF79500A083AB /* TimeWarp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeWarp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4323D45A176EF79500A083AB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4323D45C176EF79500A083AB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -130,6 +134,8 @@
 			isa = PBXGroup;
 			children = (
 				431535461770A62800B5D825 /* GeometryConstants.h */,
+				431535471773060700B5D825 /* SlotInterval.h */,
+				431535481773060700B5D825 /* SlotInterval.m */,
 			);
 			name = misc;
 			sourceTree = "<group>";
@@ -348,6 +354,7 @@
 				431535431770A1D600B5D825 /* GraduationView.m in Sources */,
 				4345FA41176F3FFA002BBDB0 /* TimeWarp.xcdatamodel in Sources */,
 				4323D467176EF79500A083AB /* main.m in Sources */,
+				431535491773060800B5D825 /* SlotInterval.m in Sources */,
 				4345FA3D176F31FE002BBDB0 /* AddProjectController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,6 +367,7 @@
 				4379432617705E1400188F99 /* SelectTimeController.m in Sources */,
 				4323D499176F04BE00A083AB /* ProjectListController.m in Sources */,
 				4323D4B1176F0B0100A083AB /* Project.m in Sources */,
+				4315354A1773060800B5D825 /* SlotInterval.m in Sources */,
 				431535441770A1D600B5D825 /* GraduationView.m in Sources */,
 				4323D4B5176F0B0100A083AB /* Activity.m in Sources */,
 				4345FA3E176F31FF002BBDB0 /* AddProjectController.m in Sources */,

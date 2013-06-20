@@ -8,13 +8,20 @@
 
 #import <UIKit/UIKit.h>
 #import "GraduationView.h"
+#import "SlotInterval.h"
 
-@interface SelectTimeController : UIViewController {
+// states of our state machine to manage setting the slots begin and end time
+#define kStateNothing      0
+#define kStateSetSlotBegin 1
+#define kStateSetSlotEnd   2
+#define kStateSlotDone     3
 
-    UIView* _currentSlot;
-    int _currentStartY;
-    int _currentDeltaY;
+
+@interface SelectTimeController : UIViewController <UIGestureRecognizerDelegate> {
+
+    SlotInterval* _currentSlotInterval;
     BOOL _currentWasLargerThanOriginalMin; // original min is 1 hour
+    int  state;
 
 }
 
@@ -22,6 +29,6 @@
 @property (nonatomic, strong) IBOutlet GraduationView* graduationView;
 @property (nonatomic, strong) IBOutlet UILabel* currentSlotLabel;
 
-@property (nonatomic, strong) NSMutableArray* timeslots;
+@property (nonatomic, strong) NSMutableArray* timeSlotIntervals; // as array of DoublePair*
 
 @end

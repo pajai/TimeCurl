@@ -498,7 +498,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textView>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EWb-eh-9Iq" customClass="GraduationView">
+                                    <view multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EWb-eh-9Iq" customClass="GraduationView">
                                         <rect key="frame" x="70" y="0.0" width="250" height="1000"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
@@ -512,8 +512,8 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <connections>
-                                            <outletCollection property="gestureRecognizers" destination="RXN-aU-QpF" appends="YES" id="inP-qp-Bxd"/>
-                                            <outletCollection property="gestureRecognizers" destination="gXe-ni-zeg" appends="YES" id="Dzh-bh-KjU"/>
+                                            <outletCollection property="gestureRecognizers" destination="gXe-ni-zeg" appends="YES" id="pth-kC-5d4"/>
+                                            <outletCollection property="gestureRecognizers" destination="IMk-by-boY" appends="YES" id="BDp-gS-e6f"/>
                                         </connections>
                                     </view>
                                 </subviews>
@@ -543,14 +543,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GUn-Io-N8T" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="RXN-aU-QpF">
-                    <connections>
-                        <action selector="handleTap:" destination="uv1-zi-Dvb" id="RJd-FS-Js7"/>
-                    </connections>
-                </tapGestureRecognizer>
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.0" id="gXe-ni-zeg">
                     <connections>
                         <action selector="handlePress:" destination="uv1-zi-Dvb" id="9Xg-i7-xPF"/>
+                        <outlet property="delegate" destination="uv1-zi-Dvb" id="uwg-sK-epu"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.0" numberOfTouchesRequired="2" id="IMk-by-boY">
+                    <connections>
+                        <action selector="handlePress:" destination="uv1-zi-Dvb" id="gDj-Jh-CwP"/>
+                        <outlet property="delegate" destination="uv1-zi-Dvb" id="NJa-nF-nKO"/>
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>

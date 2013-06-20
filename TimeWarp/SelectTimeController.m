@@ -13,6 +13,9 @@
 
 @interface SelectTimeController ()
 - (void) initDailyCalendar;
+- (void) adaptViewForSlot:(SlotInterval*)slot;
+- (void) mergeSlots;
+- (void)removeSlot:(SlotInterval*)slot withRemoveList:(NSMutableArray*)toRemove;
 @end
 
 @implementation SelectTimeController
@@ -35,64 +38,170 @@
     NSLog(@"Done pressed");
 }
 
-- (IBAction)handleTap:(UITapGestureRecognizer*)sender
-{
-    int numberOfTouches = [sender numberOfTouches];
-    CGPoint lastTouch   = [sender locationOfTouch:(numberOfTouches-1) inView:self.graduationView];
-    NSLog(@"tap (%d, %0f,%0f)", numberOfTouches, lastTouch.x, lastTouch.y);
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    // allow the two gesture recognizers to recognize gestures at the same time
+    return YES;
 }
 
 - (IBAction)handlePress:(UILongPressGestureRecognizer*)sender
 {
     int numberOfTouches = [sender numberOfTouches];
-    CGPoint lastTouch   = [sender locationOfTouch:(numberOfTouches-1) inView:self.graduationView];
-    NSLog(@"long press (%d, %0f,%0f)", numberOfTouches, lastTouch.x, lastTouch.y);
+    //CGPoint bottom   = [sender locationOfTouch:(numberOfTouches-1) inView:self.graduationView];
+    CGPoint bottom = CGPointMake(0, 0);
+    for (int i = 0; i < numberOfTouches; i++) {
+        CGPoint location = [sender locationOfTouch:i inView:self.graduationView];
+        bottom = location.y >= bottom.y ? location : bottom;
+    }
 
-    double yModulo = fmod((lastTouch.y - STARTY), (DELTAY/4));
-    int yMult      = (int)((lastTouch.y - STARTY)/(DELTAY/4));
-    double ySlot   = lastTouch.y - yModulo;
-    NSLog(@"y mult: %d, y slot: %f", yMult, ySlot);
-
-    // gesture start
+    int slotIndex      = (int)((bottom.y - STARTY)/(DELTAY/4));
+    
+    NSString* stateStr = nil;
     if (sender.state == UIGestureRecognizerStateBegan) {
-        NSLog(@">>>>> state begin");
-        _currentSlot = [[UIView alloc] init];
-        _currentSlot.backgroundColor = [UIColor colorWithRed:124.0/255 green:177.0/255 blue:1.0 alpha:1.0];
-        _currentSlot.alpha = 0.4;
-        [self.graduationView addSubview:_currentSlot];
+        stateStr = @"began";
+    }
+    else if (sender.state == UIGestureRecognizerStateEnded) {
+        stateStr = @"ended";
+    }
+    else if (sender.state == UIGestureRecognizerStateChanged) {
+        stateStr = @"changed";
+    }
+    NSLog(@"press (%d, %0f, %0f, %@)", numberOfTouches, bottom.x, bottom.y, stateStr);
+
+    // kStateNothing -> kStateSetSlotBegin
+    if (state == kStateNothing && numberOfTouches == 1 && sender.state == UIGestureRecognizerStateBegan) {
+        state = kStateSetSlotBegin;
+
+        UIView* currentSlotView = [[UIView alloc] init];
+        currentSlotView.backgroundColor = [UIColor colorWithRed:124.0/255 green:177.0/255 blue:1.0 alpha:1.0];
+        currentSlotView.alpha = 0.4;
+        [self.graduationView addSubview:currentSlotView];
         
-        _currentStartY = ySlot;
-        _currentDeltaY = DELTAY;
+        _currentSlotInterval = [[SlotInterval alloc] init];
+        _currentSlotInterval.begin = 0.25 * slotIndex;
+        _currentSlotInterval.end = 0.25 * slotIndex + 1;
+        _currentSlotInterval.view = currentSlotView;
+        [self.timeSlotIntervals addObject:_currentSlotInterval];
+        
         _currentWasLargerThanOriginalMin = NO;
 
     }
-    // not the start -> derive the end position, cannot be less than 0.5 hour
-    else {
 
+    // kStateSetSlotBegin -> kStateSetSlotBegin
+    if (state == kStateSetSlotBegin && numberOfTouches == 1 && sender.state == UIGestureRecognizerStateChanged) {
+        // state remains the same
+        
+        // start of the slot is adapted
+        _currentSlotInterval.begin = 0.25 * slotIndex;
+        _currentSlotInterval.end = 0.25 * slotIndex + 1;
+    }
+
+    // kStateSetSlotBegin -> kStateSetSlotEnd
+    if (state == kStateSetSlotBegin && numberOfTouches == 2 && sender.state == UIGestureRecognizerStateBegan) {
+        state = kStateSetSlotEnd;
+    }
+
+    // kStateSetSlotEnd -> kStateSetSlotEnd
+    if (state == kStateSetSlotEnd && numberOfTouches == 2 &&
+        (sender.state == UIGestureRecognizerStateBegan || sender.state == UIGestureRecognizerStateChanged)) {
+        // state does not change
+
+        // modify the end time, cannot be less than 0.5 hour
         double originalMin = _currentWasLargerThanOriginalMin ? 0.5 : 1.0;
-        _currentDeltaY = ySlot >= _currentStartY + (DELTAY * originalMin) ? ySlot - _currentStartY : _currentDeltaY;
-        if (!_currentWasLargerThanOriginalMin && ySlot >= _currentStartY + DELTAY * originalMin) {
+        BOOL beyondMin = slotIndex >= _currentSlotInterval.begin + originalMin;
+        if (beyondMin) {
+            _currentSlotInterval.end = 0.25 * slotIndex;
             _currentWasLargerThanOriginalMin = YES;
         }
+        
+    }
+    
+    // kStateSetSlotBegin -> kStateNothing ||
+    // kStateSetSlotEnd -> kStateSlotDone
+    if ((state == kStateSetSlotBegin && numberOfTouches == 1 && sender.state == UIGestureRecognizerStateEnded) ||
+        (state == kStateSetSlotEnd && numberOfTouches == 2 && sender.state == UIGestureRecognizerStateEnded)) {
+        
+        state = kStateNothing;
+        
+        _currentSlotInterval = nil;
+        
+        [self mergeSlots];
 
     }
     
-    _currentSlot.frame = CGRectMake(0, _currentStartY, 250, _currentDeltaY);
-    
-    CGRect frame = self.currentSlotLabel.frame;
-    self.currentSlotLabel.frame = CGRectMake(frame.origin.x, ySlot - 20, frame.size.width, frame.size.height);
-    int totMin = 15 * yMult;
-    int hours  = totMin / 60;
-    int min    = totMin % 60;
-    NSString *currentStr = [NSString stringWithFormat:@"%02d:%02d", hours, min];
-    self.currentSlotLabel.text = currentStr;
-    self.currentSlotLabel.alpha = 1.0;
-    
-    if (sender.state == UIGestureRecognizerStateEnded) {
-        NSLog(@">>>>> state ended");
-        
-        self.currentSlotLabel.alpha = 0.0;
+    // if we are editing the begin or end -> adapt view
+    if ((state == kStateSetSlotBegin || state == kStateSetSlotEnd) && _currentSlotInterval != nil) {
+
+        [self adaptViewForSlot:_currentSlotInterval];
+
     }
+    
+//    CGRect frame = self.currentSlotLabel.frame;
+//    self.currentSlotLabel.frame = CGRectMake(frame.origin.x, ySlot - 20, frame.size.width, frame.size.height);
+//    int totMin = 15 * yMult;
+//    int hours  = totMin / 60;
+//    int min    = totMin % 60;
+//    NSString *currentStr = [NSString stringWithFormat:@"%02d:%02d", hours, min];
+//    self.currentSlotLabel.text = currentStr;
+//    self.currentSlotLabel.alpha = 1.0;
+    
+}
+
+- (void) adaptViewForSlot:(SlotInterval*)slot
+{
+    double yStart = STARTY + (slot.begin * DELTAY);
+    double yEnd   = STARTY + (slot.end * DELTAY);
+    double height = yEnd - yStart;
+    slot.view.frame = CGRectMake(0, yStart, 250, height);
+}
+
+- (void) mergeSlots
+{
+    [self.timeSlotIntervals sortUsingComparator:^(id a, id b) {
+        SlotInterval* slotA = (SlotInterval*)a;
+        SlotInterval* slotB = (SlotInterval*)b;
+        return slotA.begin < slotB.begin ? NSOrderedAscending :
+               (slotA.begin > slotB.begin ? NSOrderedDescending : NSOrderedSame);
+    }];
+    
+    SlotInterval* previousSlot = nil;
+    NSMutableArray* toRemove = [NSMutableArray array];
+    NSLog(@">>> merging slots");
+    for (SlotInterval* slot in self.timeSlotIntervals) {
+        NSLog(@"slot %.2f, %.2f", slot.begin, slot.end);
+        if (previousSlot != nil) {
+            
+            // current slot is contained in previous one -> remove current
+            if (previousSlot.begin <= slot.begin && previousSlot.end >= slot.end) {
+                [self removeSlot:slot withRemoveList:toRemove];
+            }
+            // previous slot is contained in current one -> remove previous
+            else if (slot.begin <= previousSlot.begin && slot.end >= previousSlot.end) {
+                [self removeSlot:previousSlot withRemoveList:toRemove];
+                previousSlot = slot;
+            }
+            // overlap of previous and current slot -> merge them into previous + remove current
+            else if (previousSlot.end >= slot.begin) {
+                previousSlot.end = slot.end;
+                [self adaptViewForSlot:previousSlot];
+                [self removeSlot:slot withRemoveList:toRemove];
+            }
+            else {
+                // no overlap
+                previousSlot = slot;
+            }
+            
+        }
+        else {
+            previousSlot = slot;
+        }
+    }
+    [self.timeSlotIntervals removeObjectsInArray:toRemove];
+}
+
+- (void)removeSlot:(SlotInterval*)slot withRemoveList:(NSMutableArray*)toRemove
+{
+    [toRemove addObject:slot];
+    [slot.view removeFromSuperview];
 }
 
 #pragma mark methods from UIViewController
@@ -110,8 +219,11 @@
 {
     [super viewDidLoad];
 
-    self.timeslots = [NSMutableArray array];
+    self.timeSlotIntervals = [NSMutableArray array];
     [self initDailyCalendar];
+    
+    state = kStateNothing;
+
 }
 
 //- (void)viewWillAppear:(BOOL)animated
