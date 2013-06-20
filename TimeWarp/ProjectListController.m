@@ -10,6 +10,8 @@
 #import "Project.h"
 #import "AppDelegate.h"
 #import "AddProjectController.h"
+#import "ModelUtils.h"
+
 
 @interface ProjectListController ()
 - (void) loadData;
@@ -19,12 +21,7 @@
 
 - (void) loadData
 {
-    NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription* entity = [NSEntityDescription entityForName:@"Project" inManagedObjectContext:[self managedObjectContext]];
-    [fetchRequest setEntity:entity];
-    NSError* error = nil;
-    self.projects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
-
+    self.projects = [ModelUtils fetchAllProjects];
     [self.tableView reloadData];
 }
 

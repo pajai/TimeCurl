@@ -10,6 +10,9 @@
 #import "AppDelegate.h"
 #import "Activity.h"
 #import "Project.h"
+#import "NewActivityController.h"
+#import "ModelUtils.h"
+#import "SlotInterval.h"
 
 
 @interface CurrentListController ()
@@ -70,6 +73,7 @@
 		NSLog(@"Current date minus one day");
         self.currentDate = [NSDate dateWithTimeInterval:-24*60*60 sinceDate:self.currentDate];
         [self updateUI];
+        [self.tableView reloadData];
     }
 }
 
@@ -79,8 +83,26 @@
 		NSLog(@"Current date plus one day");
         self.currentDate = [NSDate dateWithTimeInterval:24*60*60 sinceDate:self.currentDate];
         [self updateUI];
+        [self.tableView reloadData];
     }
 }
+
+#pragma mark transitions
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NewActivityController* controller = (NewActivityController*)segue.destinationViewController;
+    controller.currentDate = self.currentDate;
+    
+    if ([segue.identifier isEqualToString:@"EditActivity"]) {
+        
+        NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
+        Activity* activity = [self.activities objectAtIndex:indexPath.row];
+        controller.activity = activity;
+        
+    }
+}
+
 
 #pragma mark standard UIViewController methods
 
@@ -109,6 +131,13 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning

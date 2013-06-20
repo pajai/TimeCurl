@@ -11,6 +11,12 @@
 		431535441770A1D600B5D825 /* GraduationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 431535421770A1D600B5D825 /* GraduationView.m */; };
 		431535491773060800B5D825 /* SlotInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 431535481773060700B5D825 /* SlotInterval.m */; };
 		4315354A1773060800B5D825 /* SlotInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 431535481773060700B5D825 /* SlotInterval.m */; };
+		4315354D17735D0100B5D825 /* NewActivityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4315354C17735D0100B5D825 /* NewActivityController.m */; };
+		4315354E17735D0100B5D825 /* NewActivityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4315354C17735D0100B5D825 /* NewActivityController.m */; };
+		4315355117738F5D00B5D825 /* TimeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4315355017738F5D00B5D825 /* TimeUtils.m */; };
+		4315355217738F5D00B5D825 /* TimeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4315355017738F5D00B5D825 /* TimeUtils.m */; };
+		431535561773936000B5D825 /* ModelUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 431535551773936000B5D825 /* ModelUtils.m */; };
+		431535571773936000B5D825 /* ModelUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 431535551773936000B5D825 /* ModelUtils.m */; };
 		4323D45B176EF79500A083AB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4323D45A176EF79500A083AB /* Foundation.framework */; };
 		4323D45D176EF79500A083AB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4323D45C176EF79500A083AB /* CoreGraphics.framework */; };
 		4323D45F176EF79500A083AB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4323D45E176EF79500A083AB /* UIKit.framework */; };
@@ -60,6 +66,12 @@
 		431535461770A62800B5D825 /* GeometryConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeometryConstants.h; sourceTree = "<group>"; };
 		431535471773060700B5D825 /* SlotInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlotInterval.h; sourceTree = "<group>"; };
 		431535481773060700B5D825 /* SlotInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlotInterval.m; sourceTree = "<group>"; };
+		4315354B17735D0100B5D825 /* NewActivityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewActivityController.h; sourceTree = "<group>"; };
+		4315354C17735D0100B5D825 /* NewActivityController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewActivityController.m; sourceTree = "<group>"; };
+		4315354F17738F5D00B5D825 /* TimeUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeUtils.h; sourceTree = "<group>"; };
+		4315355017738F5D00B5D825 /* TimeUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeUtils.m; sourceTree = "<group>"; };
+		431535541773936000B5D825 /* ModelUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelUtils.h; sourceTree = "<group>"; };
+		431535551773936000B5D825 /* ModelUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelUtils.m; sourceTree = "<group>"; };
 		4323D457176EF79500A083AB /* TimeWarp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeWarp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4323D45A176EF79500A083AB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4323D45C176EF79500A083AB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -136,8 +148,19 @@
 				431535461770A62800B5D825 /* GeometryConstants.h */,
 				431535471773060700B5D825 /* SlotInterval.h */,
 				431535481773060700B5D825 /* SlotInterval.m */,
+				4315354F17738F5D00B5D825 /* TimeUtils.h */,
+				4315355017738F5D00B5D825 /* TimeUtils.m */,
 			);
 			name = misc;
+			sourceTree = "<group>";
+		};
+		431535531773933500B5D825 /* dao */ = {
+			isa = PBXGroup;
+			children = (
+				431535541773936000B5D825 /* ModelUtils.h */,
+				431535551773936000B5D825 /* ModelUtils.m */,
+			);
+			name = dao;
 			sourceTree = "<group>";
 		};
 		4323D44E176EF79500A083AB = {
@@ -175,6 +198,7 @@
 		4323D460176EF79500A083AB /* TimeWarp */ = {
 			isa = PBXGroup;
 			children = (
+				431535531773933500B5D825 /* dao */,
 				431535451770A5E800B5D825 /* misc */,
 				431535401770A1B000B5D825 /* view */,
 				4323D4A9176F0A7300A083AB /* controller */,
@@ -240,6 +264,8 @@
 				4323D4B7176F0E6100A083AB /* AddProjectController.m */,
 				4379431E1770384600188F99 /* CurrentListController.h */,
 				4379431F1770384600188F99 /* CurrentListController.m */,
+				4315354B17735D0100B5D825 /* NewActivityController.h */,
+				4315354C17735D0100B5D825 /* NewActivityController.m */,
 				4379432317705E1400188F99 /* SelectTimeController.h */,
 				4379432417705E1400188F99 /* SelectTimeController.m */,
 			);
@@ -344,10 +370,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4315355117738F5D00B5D825 /* TimeUtils.m in Sources */,
 				4323D46B176EF79500A083AB /* AppDelegate.m in Sources */,
 				4323D498176F04BE00A083AB /* ProjectListController.m in Sources */,
 				4323D4B4176F0B0100A083AB /* Activity.m in Sources */,
 				4323D4B0176F0B0100A083AB /* Project.m in Sources */,
+				431535561773936000B5D825 /* ModelUtils.m in Sources */,
+				4315354D17735D0100B5D825 /* NewActivityController.m in Sources */,
 				437943201770384600188F99 /* CurrentListController.m in Sources */,
 				4323D4AC176F0B0000A083AB /* TimeSlot.m in Sources */,
 				4379432517705E1400188F99 /* SelectTimeController.m in Sources */,
@@ -368,10 +397,13 @@
 				4323D499176F04BE00A083AB /* ProjectListController.m in Sources */,
 				4323D4B1176F0B0100A083AB /* Project.m in Sources */,
 				4315354A1773060800B5D825 /* SlotInterval.m in Sources */,
+				431535571773936000B5D825 /* ModelUtils.m in Sources */,
+				4315354E17735D0100B5D825 /* NewActivityController.m in Sources */,
 				431535441770A1D600B5D825 /* GraduationView.m in Sources */,
 				4323D4B5176F0B0100A083AB /* Activity.m in Sources */,
 				4345FA3E176F31FF002BBDB0 /* AddProjectController.m in Sources */,
 				437943211770384600188F99 /* CurrentListController.m in Sources */,
+				4315355217738F5D00B5D825 /* TimeUtils.m in Sources */,
 				4323D489176EF79500A083AB /* TimeWarpTests.m in Sources */,
 				4345FA42176F3FFA002BBDB0 /* TimeWarp.xcdatamodel in Sources */,
 			);

@@ -13,11 +13,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ActivityCell" rowHeight="80" id="UYJ-oi-eom">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ActivityCell" rowHeight="80" id="UYJ-oi-eom">
                                 <rect key="frame" x="0.0" y="22" width="320" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="79"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view alpha="0.29999999999999999" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="weZ-0A-hXx">
@@ -52,6 +52,9 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <segue destination="uhY-qe-vyJ" kind="push" identifier="EditActivity" id="WXs-YU-F0t"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewCell" rowHeight="60" id="H8Y-80-8IY">
                                 <rect key="frame" x="0.0" y="102" width="320" height="60"/>
@@ -82,7 +85,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="uhY-qe-vyJ" kind="push" trigger="accessoryAction" id="95V-tI-bBB"/>
+                                    <segue destination="uhY-qe-vyJ" kind="push" identifier="NewActivity" trigger="accessoryAction" id="95V-tI-bBB"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -329,10 +332,10 @@
             </objects>
             <point key="canvasLocation" x="134" y="-277"/>
         </scene>
-        <!--Add Project Controller - New Activity-->
+        <!--New Activity Controller - New Activity-->
         <scene sceneID="3dy-Vz-QDf">
             <objects>
-                <viewController id="uhY-qe-vyJ" customClass="AddProjectController" sceneMemberID="viewController">
+                <viewController id="uhY-qe-vyJ" customClass="NewActivityController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pW8-R5-3Qu">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -355,12 +358,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="13" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="kr2-cs-XAy">
-                                <rect key="frame" x="20" y="49" width="280" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="McM-bf-xsA">
                                 <rect key="frame" x="20" y="142" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -389,17 +386,28 @@
                                     <segue destination="uv1-zi-Dvb" kind="push" id="D9v-yh-SEb"/>
                                 </connections>
                             </button>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eg2-HD-cBo">
+                                <rect key="frame" x="0.0" y="-44" width="320" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="uhY-qe-vyJ" id="fUn-As-QON"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="New Activity" id="YU8-5P-VRk">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="t8T-Fj-U2s"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="t8T-Fj-U2s">
+                            <connections>
+                                <action selector="donePressed:" destination="uhY-qe-vyJ" id="pat-N2-Ke8"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="name" destination="kr2-cs-XAy" id="CNa-uh-WTn"/>
-                        <outlet property="note" destination="ZRR-lK-k6h" id="Kve-7E-xed"/>
-                        <outlet property="subname" destination="McM-bf-xsA" id="znK-aO-IzQ"/>
+                        <outlet property="noteTextView" destination="ZRR-lK-k6h" id="JwN-Za-hfH"/>
+                        <outlet property="pickerView" destination="eg2-HD-cBo" id="EUO-OU-n5y"/>
+                        <outlet property="timeTextField" destination="McM-bf-xsA" id="veP-d0-CDh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cEn-bU-ti8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -532,6 +540,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="ZuP-en-BQB">
                             <connections>
                                 <action selector="donePressed:" destination="uv1-zi-Dvb" id="uhb-gk-J8Q"/>
+                                <segue destination="xPq-aI-vRe" kind="unwind" unwindAction="doneSelectingTime:" id="alx-Wh-vEY"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -543,6 +552,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GUn-Io-N8T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="xPq-aI-vRe" userLabel="Exit" sceneMemberID="exit"/>
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.0" id="gXe-ni-zeg">
                     <connections>
                         <action selector="handlePress:" destination="uv1-zi-Dvb" id="9Xg-i7-xPF"/>
@@ -571,6 +581,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="K6g-Nv-E5m"/>
+        <segue reference="95V-tI-bBB"/>
+        <segue reference="Kiy-3Q-cXs"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -15,7 +15,7 @@
 - (void) initDailyCalendar;
 - (void) adaptViewForSlot:(SlotInterval*)slot;
 - (void) mergeSlots;
-- (void)removeSlot:(SlotInterval*)slot withRemoveList:(NSMutableArray*)toRemove;
+- (void) removeSlot:(SlotInterval*)slot withRemoveList:(NSMutableArray*)toRemove;
 @end
 
 @implementation SelectTimeController
