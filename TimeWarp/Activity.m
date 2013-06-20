@@ -17,4 +17,13 @@
 @dynamic project;
 @dynamic timeslots;
 
+- (double)duration
+{
+    double d = 0.0;
+    for (TimeSlot* timeSlot in self.timeslots) {
+        d += timeSlot.duration;
+    }
+    return d;
+}
+
 @end

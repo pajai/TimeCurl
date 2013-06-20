@@ -16,4 +16,9 @@
 @dynamic end;
 @dynamic activity;
 
+- (double)duration
+{
+    return [self.end timeIntervalSinceDate:self.start];
+}
+
 @end

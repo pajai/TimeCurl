@@ -17,4 +17,6 @@
 @property (nonatomic, retain) NSDate * end;
 @property (nonatomic, retain) Activity *activity;
 
+- (double)duration;
+
 @end

@@ -25,4 +25,6 @@
 - (void)addTimeslots:(NSSet *)values;
 - (void)removeTimeslots:(NSSet *)values;
 
+- (double)duration;
+
 @end
