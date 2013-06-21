@@ -17,6 +17,7 @@
 @dynamic project;
 @dynamic timeslots;
 
+// in hours
 - (double)duration
 {
     double d = 0.0;

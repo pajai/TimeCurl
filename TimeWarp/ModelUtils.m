@@ -30,6 +30,23 @@
     }
 }
 
++ (NSArray*) fetchAllActivities
+{
+    NSManagedObjectContext* managedObjectContext = [ModelUtils context];
+    NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription* entity = [NSEntityDescription entityForName:@"Activity" inManagedObjectContext:managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSError* error = nil;
+    NSArray* result = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+
+    if ([ModelUtils logError:error withMessage:@"fetch all activities"]) {
+        return nil;
+    }
+    else {
+        return result;
+    }
+}
+
 + (Project*) newProject
 {
     NSManagedObjectContext* managedObjectContext = [ModelUtils context];

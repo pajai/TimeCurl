@@ -7,7 +7,16 @@
 //
 
 #import "SlotInterval.h"
+#import "TimeUtils.h"
 
 @implementation SlotInterval
+
+- (NSString*) description
+{
+    return [NSString stringWithFormat:@"%@-%@",
+                     [TimeUtils timeStringFromDouble:self.begin],
+                     [TimeUtils timeStringFromDouble:self.end]];
+
+}
 
 @end

@@ -28,11 +28,7 @@
 
 - (void) loadData
 {
-    NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription* entity = [NSEntityDescription entityForName:@"Activity" inManagedObjectContext:[self managedObjectContext]];
-    [fetchRequest setEntity:entity];
-    NSError* error = nil;
-    self.activities = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    self.activities = [ModelUtils fetchAllActivities];
     
     // todo query for current period
     
@@ -178,7 +174,7 @@
         
         Project* project = activity.project;
         titleLabel.text = [NSString stringWithFormat:@"%@ (%@)", project.name, project.subname];
-        durationLabel.text = [NSString stringWithFormat:@"%f", [activity duration]];
+        durationLabel.text = [NSString stringWithFormat:@"%.2f", [activity duration]];
         noteTextView.text = activity.note;
         
     }

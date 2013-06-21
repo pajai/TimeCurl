@@ -14,6 +14,7 @@
 @interface ModelUtils : NSObject
 
 + (NSArray*) fetchAllProjects;
++ (NSArray*) fetchAllActivities;
 
 + (Project*) newProject;
 + (Activity*) newActivity;

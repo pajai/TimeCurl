@@ -16,7 +16,9 @@
 
 
 @interface NewActivityController ()
+- (void) updateTimeField;
 - (void) loadProjects;
+- (double)doubleHourFromDate:(NSDate*)date;
 @end
 
 @implementation NewActivityController
@@ -28,11 +30,14 @@
 
     SelectTimeController* sourceController = segue.sourceViewController;
     self.timeSlotIntervals = sourceController.timeSlotIntervals;
+    [self updateTimeField];
+}
+
+- (void) updateTimeField
+{
     NSString* timeString = nil;
     for (SlotInterval* slotInterval in self.timeSlotIntervals) {
-        NSString* slotString = [NSString stringWithFormat:@"%@-%@",
-                                    [TimeUtils timeStringFromDouble:slotInterval.begin],
-                                    [TimeUtils timeStringFromDouble:slotInterval.end]];
+        NSString* slotString = [slotInterval description];
         timeString = timeString == nil ? slotString : [NSString stringWithFormat:@"%@, %@", timeString, slotString];
     }
     self.timeTextField.text = timeString;
@@ -56,6 +61,7 @@
     }
     self.activity.timeslots = newSlots;
     self.activity.project = self.selectedProject;
+    self.activity.note = self.noteTextView.text;
     [ModelUtils saveContext];
     
     [self.navigationController popViewControllerAnimated:YES];
@@ -107,14 +113,46 @@
     AppDelegate* appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     self.managedObjectContext = appDelegate.managedObjectContext;
     
+    [self loadProjects];
+
     self.selectedProject = [self.projects objectAtIndex:0];
+    
+    if (self.activity != nil) {
+        
+        // init self.timeSlotIntervals
+        NSMutableArray* slotArray = [NSMutableArray array];
+        for (TimeSlot* timeSlot in self.activity.timeslots) {
+            SlotInterval* slotInterval = [[SlotInterval alloc] init];
+            slotInterval.begin = [self doubleHourFromDate:timeSlot.start];
+            slotInterval.end   = [self doubleHourFromDate:timeSlot.end];
+            [slotArray addObject:slotInterval];
+        }
+        self.timeSlotIntervals = slotArray;
+
+        // pre-fill the fields
+        self.selectedProject = self.activity.project;
+        NSInteger selectedProjectIndex = [self.projects indexOfObject:self.activity.project];
+        [self.pickerView selectRow:selectedProjectIndex inComponent:0 animated:NO];
+        self.noteTextView.text = self.activity.note;
+        [self updateTimeField];
+        
+        self.title = @"Edit Activity";
+    }
+
+}
+
+- (double)doubleHourFromDate:(NSDate*)date
+{
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDateComponents *components = [cal components:(NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit|NSHourCalendarUnit|NSMinuteCalendarUnit) fromDate:date];
+    int hour = [components hour];
+    int min  = [components minute];
+    return (1.0 * hour) + ((min * 1.0) / 60.0);
 }
 
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    [self loadProjects];
 }
 
 - (void)didReceiveMemoryWarning

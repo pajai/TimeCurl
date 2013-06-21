@@ -12,6 +12,6 @@
 
 @property (readwrite) double begin;
 @property (readwrite) double end;
-@property (nonatomic, strong) UIView* view;
+@property (nonatomic, weak) UIView* view;
 
 @end

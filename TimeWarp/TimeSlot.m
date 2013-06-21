@@ -16,9 +16,10 @@
 @dynamic end;
 @dynamic activity;
 
+// in hours
 - (double)duration
 {
-    return [self.end timeIntervalSinceDate:self.start];
+    return [self.end timeIntervalSinceDate:self.start] / 3600;
 }
 
 @end
