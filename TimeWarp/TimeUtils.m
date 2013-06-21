@@ -31,12 +31,21 @@
     return (int)mins;
 }
 
-+ (NSDate*) dateFromCurrentDate:(NSDate*)currentDate andDoubleHour:(double)hDouble
+// return a date for the current date, where the time is set to hDouble
++ (NSDate*) dateForDate:(NSDate*)date andHour:(double)hDouble
 {
     NSCalendar *cal = [NSCalendar currentCalendar];
-    NSDateComponents *components = [cal components:(NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit) fromDate:currentDate];
+    NSDateComponents *components = [cal components:(NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit) fromDate:date];
     [components setHour:[TimeUtils hourFromDouble:hDouble]];
     [components setMinute:[TimeUtils minuteFromDouble:hDouble]];
+    return [cal dateFromComponents:components];
+}
+
+// return a date for the given date, where the time is set to midnight
++ (NSDate*) dayForDate:(NSDate*) date
+{
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDateComponents *components = [cal components:(NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit) fromDate:date];
     return [cal dateFromComponents:components];
 }
 

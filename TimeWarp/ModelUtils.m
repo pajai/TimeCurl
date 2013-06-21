@@ -9,6 +9,7 @@
 #import "ModelUtils.h"
 #import "AppDelegate.h"
 #import <CoreData/CoreData.h>
+#import "TimeUtils.h"
 
 
 @implementation ModelUtils
@@ -32,6 +33,8 @@
 
 + (NSArray*) fetchAllActivities
 {
+    NSLog(@"Fetch all activities");
+    
     NSManagedObjectContext* managedObjectContext = [ModelUtils context];
     NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription* entity = [NSEntityDescription entityForName:@"Activity" inManagedObjectContext:managedObjectContext];
@@ -39,6 +42,32 @@
     NSError* error = nil;
     NSArray* result = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
 
+    if ([ModelUtils logError:error withMessage:@"fetch all activities"]) {
+        return nil;
+    }
+    else {
+        return result;
+    }
+}
+
++ (NSArray*) fetchActivitiesForDate:(NSDate*) date
+{
+    NSLog(@"Fetch activities for %@", date);
+    
+    NSManagedObjectContext* managedObjectContext = [ModelUtils context];
+    NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription* entity = [NSEntityDescription entityForName:@"Activity" inManagedObjectContext:managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    NSDate* day      = [TimeUtils dayForDate:date];
+    NSDate* dayAfter = [day dateByAddingTimeInterval:3600*24];
+    // TODO perhaps not the most efficient query
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"ANY self.timeslots.start >= %@ AND ANY self.timeslots.start < %@", day, dayAfter];
+    [fetchRequest setPredicate:predicate];
+    
+    NSError* error = nil;
+    NSArray* result = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
     if ([ModelUtils logError:error withMessage:@"fetch all activities"]) {
         return nil;
     }

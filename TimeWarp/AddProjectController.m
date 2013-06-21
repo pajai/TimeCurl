@@ -8,6 +8,7 @@
 
 #import "AddProjectController.h"
 #import "AppDelegate.h"
+#import "ModelUtils.h"
 
 @interface AddProjectController ()
 
@@ -28,20 +29,17 @@
         
     }
     else {
-        NSManagedObjectContext* context = self.managedObjectContext;
         
         if (self.project == nil) {
             // new project
             
-            Project* project = [NSEntityDescription insertNewObjectForEntityForName:@"Project" inManagedObjectContext:context];
+            Project* project = [ModelUtils newProject];
             project.name = self.name.text;
             project.subname = self.subname.text;
             project.note = self.note.text;
-            
-            NSError* error = nil;
-            if (![context save:&error]) {
-                NSLog(@"Error happened while creating project: %@", [error localizedDescription]);
-            }
+
+            [ModelUtils saveContext];
+
         }
         else {
             // update existing project
@@ -50,10 +48,7 @@
             self.project.subname = self.subname.text;
             self.project.note = self.note.text;
             
-            NSError* error = nil;
-            if (![context save:&error]) {
-                NSLog(@"Error happened while saving project: %@", [error localizedDescription]);
-            }
+            [ModelUtils saveContext];
         }
         
         [self.navigationController popViewControllerAnimated:YES];
@@ -73,9 +68,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    AppDelegate* appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-    self.managedObjectContext = appDelegate.managedObjectContext;
     
     if (self.project != nil) {
         

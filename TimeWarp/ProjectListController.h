@@ -11,9 +11,6 @@
 
 @interface ProjectListController : UITableViewController <NSFetchedResultsControllerDelegate>
 
-@property (nonatomic, strong) NSFetchedResultsController* fetchedResultsController;
-@property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
-
 @property (nonatomic, strong) NSArray* projects;
 
 // backup of the + button item (during edition)

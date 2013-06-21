@@ -39,8 +39,6 @@
 {
     [super viewDidLoad];
 
-    AppDelegate* appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-    self.managedObjectContext = appDelegate.managedObjectContext;
 }
 
 - (void)viewWillAppear:(BOOL)animated

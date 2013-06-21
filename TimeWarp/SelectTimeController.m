@@ -219,7 +219,11 @@
 {
     [super viewDidLoad];
 
-    self.timeSlotIntervals = [NSMutableArray array];
+    // is nil for a new activity -> create a mutable array
+    if (self.timeSlotIntervals == nil) {
+        self.timeSlotIntervals = [NSMutableArray array];
+    }
+
     [self initDailyCalendar];
     
     state = kStateNothing;

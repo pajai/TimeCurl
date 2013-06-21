@@ -54,8 +54,8 @@
     NSMutableSet* newSlots = [NSMutableSet set];
     for (SlotInterval* slot in self.timeSlotIntervals) {
         TimeSlot* newTimeSlot = [ModelUtils newTimeSlot];
-        newTimeSlot.start = [TimeUtils dateFromCurrentDate:self.currentDate andDoubleHour:slot.begin];
-        newTimeSlot.end   = [TimeUtils dateFromCurrentDate:self.currentDate andDoubleHour:slot.end];
+        newTimeSlot.start = [TimeUtils dateForDate:self.currentDate andHour:slot.begin];
+        newTimeSlot.end   = [TimeUtils dateForDate:self.currentDate andHour:slot.end];
         newTimeSlot.activity = self.activity;
         [newSlots addObject:newTimeSlot];
     }
@@ -70,6 +70,21 @@
 - (void) loadProjects
 {
     self.projects = [ModelUtils fetchAllProjects];
+}
+
+#pragma mark transitions
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"EditTime"]) {
+
+        if (self.activity != nil) {
+            SelectTimeController* controller = (SelectTimeController*)segue.destinationViewController;
+            controller.timeSlotIntervals = [NSMutableArray array];
+            [controller.timeSlotIntervals addObjectsFromArray:self.timeSlotIntervals];
+        }
+        
+    }
 }
 
 #pragma mark methods from UIPickerView (DataSource and Delegate)
@@ -110,9 +125,6 @@
 {
     [super viewDidLoad];
 
-    AppDelegate* appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-    self.managedObjectContext = appDelegate.managedObjectContext;
-    
     [self loadProjects];
 
     self.selectedProject = [self.projects objectAtIndex:0];

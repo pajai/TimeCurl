@@ -28,7 +28,7 @@
 
 - (void) loadData
 {
-    self.activities = [ModelUtils fetchAllActivities];
+    self.activities = [ModelUtils fetchActivitiesForDate:self.currentDate];
     
     // todo query for current period
     
@@ -69,7 +69,7 @@
 		NSLog(@"Current date minus one day");
         self.currentDate = [NSDate dateWithTimeInterval:-24*60*60 sinceDate:self.currentDate];
         [self updateUI];
-        [self.tableView reloadData];
+        [self loadData];
     }
 }
 
@@ -79,7 +79,7 @@
 		NSLog(@"Current date plus one day");
         self.currentDate = [NSDate dateWithTimeInterval:24*60*60 sinceDate:self.currentDate];
         [self updateUI];
-        [self.tableView reloadData];
+        [self loadData];
     }
 }
 
@@ -115,12 +115,7 @@
 {
     [super viewDidLoad];
 
-    AppDelegate* appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-    self.managedObjectContext = appDelegate.managedObjectContext;
-
-    [self loadData];
     [self initCurrentDate];
-    [self updateUI];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -133,7 +128,8 @@
 {
     [super viewWillAppear:animated];
     
-    [self.tableView reloadData];
+    [self loadData];
+    [self updateUI];
 }
 
 - (void)didReceiveMemoryWarning

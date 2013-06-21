@@ -14,9 +14,6 @@
 
 - (IBAction)donePressed:(id) sender;
 
-@property (nonatomic, strong) NSFetchedResultsController* fetchedResultsController;
-@property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
-
 @property (nonatomic, strong) Project* project;
 
 @property (nonatomic, strong) IBOutlet UITextField* name;

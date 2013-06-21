@@ -12,5 +12,10 @@
 + (NSString*)timeStringFromDouble:(double)hDouble;
 + (int)hourFromDouble:(double)hDouble;
 + (int)minuteFromDouble:(double)hDouble;
-+ (NSDate*) dateFromCurrentDate:(NSDate*)currentDate andDoubleHour:(double)hDouble;
+
+// return a date for the current date, where the time is set to hDouble
++ (NSDate*) dateForDate:(NSDate*)date andHour:(double)hDouble;
+
+// return a date for the given date, where the time is set to midnight
++ (NSDate*) dayForDate:(NSDate*) date;
 @end

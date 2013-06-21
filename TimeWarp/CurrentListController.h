@@ -12,9 +12,6 @@
 
 @interface CurrentListController : UITableViewController <NSFetchedResultsControllerDelegate>
 
-@property (nonatomic, strong) NSFetchedResultsController* fetchedResultsController;
-@property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
-
 @property (nonatomic, strong) NSArray* activities;
 
 @property (nonatomic, strong) NSDate* currentDate;

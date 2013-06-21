@@ -379,7 +379,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="uv1-zi-Dvb" kind="push" id="D9v-yh-SEb"/>
+                                    <segue destination="uv1-zi-Dvb" kind="push" identifier="EditTime" id="D9v-yh-SEb"/>
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eg2-HD-cBo">
@@ -571,48 +571,6 @@
         <image name="tabicon-project" width="30" height="30"/>
         <image name="tabicon-report" width="30" height="30"/>
     </resources>
-    <classes>
-        <class className="AddProjectController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddProjectController.h"/>
-            <relationships>
-                <relationship kind="action" name="donePressed:"/>
-                <relationship kind="outlet" name="name" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="note" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="subname" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="CurrentListController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CurrentListController.h"/>
-            <relationships>
-                <relationship kind="action" name="handleSwipeLeft:" candidateClass="UISwipeGestureRecognizer"/>
-                <relationship kind="action" name="handleSwipeRight:" candidateClass="UISwipeGestureRecognizer"/>
-            </relationships>
-        </class>
-        <class className="GraduationView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GraduationView.h"/>
-        </class>
-        <class className="NewActivityController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewActivityController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="noteTextView" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="pickerView" candidateClass="UIPickerView"/>
-                <relationship kind="outlet" name="timeTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="ProjectListController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProjectListController.h"/>
-        </class>
-        <class className="SelectTimeController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SelectTimeController.h"/>
-            <relationships>
-                <relationship kind="action" name="donePressed:"/>
-                <relationship kind="action" name="handlePress:" candidateClass="UILongPressGestureRecognizer"/>
-                <relationship kind="outlet" name="currentSlotLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="graduationView" candidateClass="GraduationView"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

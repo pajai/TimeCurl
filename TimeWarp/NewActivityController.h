@@ -21,7 +21,4 @@
 @property (nonatomic, strong) IBOutlet UITextView*  noteTextView;
 @property (nonatomic, strong) IBOutlet UIPickerView* pickerView;
 
-@property (nonatomic, strong) NSFetchedResultsController* fetchedResultsController;
-@property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
-
 @end
