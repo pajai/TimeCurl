@@ -16,6 +16,8 @@
 - (void) adaptViewForSlot:(SlotInterval*)slot;
 - (void) mergeSlots;
 - (void) removeSlot:(SlotInterval*)slot withRemoveList:(NSMutableArray*)toRemove;
+- (double) yStartForSlot:(SlotInterval*)slot;
+- (double) yEndForSlot:(SlotInterval*)slot;
 @end
 
 @implementation SelectTimeController
@@ -135,23 +137,49 @@
 
     }
     
-//    CGRect frame = self.currentSlotLabel.frame;
-//    self.currentSlotLabel.frame = CGRectMake(frame.origin.x, ySlot - 20, frame.size.width, frame.size.height);
-//    int totMin = 15 * yMult;
-//    int hours  = totMin / 60;
-//    int min    = totMin % 60;
-//    NSString *currentStr = [NSString stringWithFormat:@"%02d:%02d", hours, min];
-//    self.currentSlotLabel.text = currentStr;
-//    self.currentSlotLabel.alpha = 1.0;
+    // time label
+    CGRect frame = self.currentSlotLabel.frame;
+    if (state == kStateSetSlotBegin || state == kStateSetSlotEnd) {
+        int yPos;
+        
+        if (state == kStateSetSlotBegin) {
+            yPos = [self yStartForSlot:_currentSlotInterval] - 20;
+        }
+        else /* kStateSetSlotEnd */ {
+            yPos = [self yStartForSlot:_currentSlotInterval] + 5;
+        }
+        
+        self.currentSlotLabel.frame = CGRectMake(frame.origin.x, yPos, frame.size.width, frame.size.height);
+        int totMin = 15 * slotIndex;
+        int hours  = totMin / 60;
+        int min    = totMin % 60;
+        NSString *currentStr = [NSString stringWithFormat:@"%02d:%02d", hours, min];
+        self.currentSlotLabel.text = currentStr;
+        self.currentSlotLabel.alpha = 1.0;
+        
+    }
+    else {
+        self.currentSlotLabel.alpha = 0.0;
+    }
     
 }
 
 - (void) adaptViewForSlot:(SlotInterval*)slot
 {
-    double yStart = STARTY + (slot.begin * DELTAY);
-    double yEnd   = STARTY + (slot.end * DELTAY);
+    double yStart = [self yStartForSlot:slot];
+    double yEnd   = [self yEndForSlot:slot];
     double height = yEnd - yStart;
     slot.view.frame = CGRectMake(0, yStart, 250, height);
+}
+
+- (double) yStartForSlot:(SlotInterval*)slot
+{
+    return STARTY + (slot.begin * DELTAY);
+}
+
+- (double) yEndForSlot:(SlotInterval*)slot
+{
+    return STARTY + (slot.end * DELTAY);
 }
 
 - (void) mergeSlots
@@ -210,7 +238,8 @@
 - (void)removeSlot:(SlotInterval*)slot withRemoveList:(NSMutableArray*)toRemove
 {
     [toRemove addObject:slot];
-    [slot.view removeFromSuperview];
+    slot.view.alpha = 0.0;
+    //[slot.view removeFromSuperview];
 }
 
 #pragma mark methods from UIViewController

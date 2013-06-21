@@ -18,7 +18,7 @@
 @interface CurrentListController ()
 - (void) loadData;
 - (void) initCurrentDate;
-- (void) updateUI;
+- (void) updateTitle;
 - (BOOL) isToday;
 @end
 
@@ -40,16 +40,27 @@
     self.currentDate = [NSDate date];
 }
 
-- (void) updateUI
+- (void) updateTitle
 {
+    // total hours for that day
+    double totTime = 0.0;
+    for (Activity* activity in self.activities) {
+        totTime += [activity duration];
+    }
+
+    // date
+    NSString* dateString = nil;
     if ([self isToday]) {
-        self.title = @"Today";
+        dateString = @"Today";
     }
     else {
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-        self.title = [dateFormatter stringFromDate:self.currentDate];
+        dateString = [dateFormatter stringFromDate:self.currentDate];
     }
+    
+    // title
+    self.title = [NSString stringWithFormat:@"%@ (%.2f)", dateString, totTime];
 }
 
 - (BOOL) isToday
@@ -68,8 +79,8 @@
 	if (sender.state == UIGestureRecognizerStateEnded) {
 		NSLog(@"Current date minus one day");
         self.currentDate = [NSDate dateWithTimeInterval:-24*60*60 sinceDate:self.currentDate];
-        [self updateUI];
         [self loadData];
+        [self updateTitle];
     }
 }
 
@@ -78,8 +89,8 @@
 	if (sender.state == UIGestureRecognizerStateEnded) {
 		NSLog(@"Current date plus one day");
         self.currentDate = [NSDate dateWithTimeInterval:24*60*60 sinceDate:self.currentDate];
-        [self updateUI];
         [self loadData];
+        [self updateTitle];
     }
 }
 
@@ -129,7 +140,7 @@
     [super viewWillAppear:animated];
     
     [self loadData];
-    [self updateUI];
+    [self updateTitle];
 }
 
 - (void)didReceiveMemoryWarning

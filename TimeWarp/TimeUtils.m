@@ -16,7 +16,7 @@
 {
     double hours = floor(hDouble);
     double mins  = (hDouble - hours) * 60;
-    return [NSString stringWithFormat:@"%02.0f:%02.0f", hours, mins];
+    return [NSString stringWithFormat:@"%.0f:%02.0f", hours, mins];
 }
 
 + (int)hourFromDouble:(double)hDouble
