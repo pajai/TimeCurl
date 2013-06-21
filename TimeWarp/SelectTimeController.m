@@ -172,18 +172,27 @@
             
             // current slot is contained in previous one -> remove current
             if (previousSlot.begin <= slot.begin && previousSlot.end >= slot.end) {
+                [UIView beginAnimations:nil context:nil];
+                [UIView setAnimationDuration:0.5];
                 [self removeSlot:slot withRemoveList:toRemove];
+                [UIView commitAnimations];
             }
             // previous slot is contained in current one -> remove previous
             else if (slot.begin <= previousSlot.begin && slot.end >= previousSlot.end) {
+                [UIView beginAnimations:nil context:nil];
+                [UIView setAnimationDuration:0.5];
                 [self removeSlot:previousSlot withRemoveList:toRemove];
+                [UIView commitAnimations];
                 previousSlot = slot;
             }
             // overlap of previous and current slot -> merge them into previous + remove current
             else if (previousSlot.end >= slot.begin) {
+                [UIView beginAnimations:nil context:nil];
+                [UIView setAnimationDuration:0.5];
                 previousSlot.end = slot.end;
                 [self adaptViewForSlot:previousSlot];
                 [self removeSlot:slot withRemoveList:toRemove];
+                [UIView commitAnimations];
             }
             else {
                 // no overlap
