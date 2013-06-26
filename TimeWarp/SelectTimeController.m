@@ -28,9 +28,9 @@
 
 - (void) initDailyCalendar
 {
+    self.scrollView.scrollEnabled = YES;
     self.scrollView.contentSize = CGSizeMake(320, 1000);
     self.scrollView.contentOffset = CGPointMake(0, 319);
-    self.scrollView.scrollEnabled = YES;
     
     self.currentSlotLabel.alpha = 0;
     
@@ -38,13 +38,6 @@
         slotInterval.view = [self createSlotView];
         [self adaptViewForSlot:slotInterval];
     }
-}
-
-- (IBAction)donePressed:(id)sender
-{
-    self.scrollView.contentSize = CGSizeMake(320, 1000);
-    self.scrollView.contentOffset = CGPointMake(0, 319);
-    NSLog(@"Done pressed");
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
@@ -286,15 +279,6 @@
     
     state = kStateNothing;
 
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    self.scrollView.contentSize = CGSizeMake(320, 1000);
-    self.scrollView.contentOffset = CGPointMake(0, 319);
-    self.scrollView.scrollEnabled = YES;
 }
 
 - (void)didReceiveMemoryWarning

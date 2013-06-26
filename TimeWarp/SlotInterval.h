@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+// this class is used only in the time selection controller (SelectTimeController)
+// TODO: doppelt gemoppelt mit TimeSlot, refactor?
+
 @interface SlotInterval : NSObject
 
 @property (readwrite) double begin;
