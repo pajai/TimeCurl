@@ -103,6 +103,11 @@
     
 }
 
++ (void) deleteObject:(id)obj
+{
+    [[ModelUtils context] deleteObject:obj];
+}
+
 + (NSManagedObjectContext*) context
 {
     AppDelegate* appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];

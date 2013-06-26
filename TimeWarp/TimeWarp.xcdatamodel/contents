@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3381.3" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3381.3" systemVersion="13A497d" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Activity" representedClassName="Activity" syncable="YES">
         <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="project" maxCount="1" deletionRule="Deny" destinationEntity="Project" inverseName="activities" inverseEntity="Project" syncable="YES"/>
+        <relationship name="project" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="activities" inverseEntity="Project" syncable="YES"/>
         <relationship name="timeslots" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="TimeSlot" inverseName="activity" inverseEntity="TimeSlot" syncable="YES"/>
     </entity>
     <entity name="Project" representedClassName="Project" syncable="YES">
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="subname" attributeType="String" syncable="YES"/>
-        <relationship name="activities" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Activity" inverseName="project" inverseEntity="Activity" syncable="YES"/>
+        <relationship name="activities" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Activity" inverseName="project" inverseEntity="Activity" syncable="YES"/>
     </entity>
     <entity name="TimeSlot" representedClassName="TimeSlot" syncable="YES">
         <attribute name="end" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="start" optional="YES" attributeType="Date" syncable="YES"/>
-        <relationship name="activity" maxCount="1" deletionRule="Deny" destinationEntity="Activity" inverseName="timeslots" inverseEntity="Activity" syncable="YES"/>
+        <relationship name="activity" maxCount="1" deletionRule="Nullify" destinationEntity="Activity" inverseName="timeslots" inverseEntity="Activity" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Activity" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Project" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="TimeSlot" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Activity" positionX="0" positionY="-0" width="128" height="90"/>
+        <element name="Project" positionX="304" positionY="-150" width="128" height="103"/>
+        <element name="TimeSlot" positionX="304" positionY="153" width="128" height="90"/>
     </elements>
 </model>

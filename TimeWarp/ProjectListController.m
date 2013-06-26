@@ -21,7 +21,7 @@
 
 - (void) loadData
 {
-    self.projects = [ModelUtils fetchAllProjects];
+    self.projects = [NSMutableArray arrayWithArray:[ModelUtils fetchAllProjects]];
     [self.tableView reloadData];
 }
 
@@ -104,25 +104,37 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.projects count];
+    if (section == 0) {
+        return [self.projects count];
+    }
+    else {
+        return 1;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"ProjectCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    UILabel* nameLabel    = (UILabel*)[cell viewWithTag:100];
-    UILabel* subnameLabel = (UILabel*)[cell viewWithTag:101];
-    
-    Project* project = [self.projects objectAtIndex:indexPath.row];
-    nameLabel.text = project.name;
-    subnameLabel.text = project.subname;
+    UITableViewCell *cell = nil;
+    if (indexPath.section == 0) {
+        static NSString *CellIdentifier = @"ProjectCell";
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        
+        UILabel* nameLabel    = (UILabel*)[cell viewWithTag:100];
+        UILabel* subnameLabel = (UILabel*)[cell viewWithTag:101];
+        
+        Project* project = [self.projects objectAtIndex:indexPath.row];
+        nameLabel.text = project.name;
+        subnameLabel.text = project.subname;
+    }
+    else {
+        static NSString *CellIdentifier = @"NewCell";
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    }
     
     return cell;
 }
@@ -130,20 +142,24 @@
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return indexPath.section == 0;
 }
 
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+        
+        self.rowToDelete = indexPath;
+        Project* project = [self.projects objectAtIndex:self.rowToDelete.row];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning"
+                                                        message:[NSString stringWithFormat:@"Are you sure that you want to delete the project '%@ %@'? It will also delete all activities using that project.", project.name, project.subname]
+                                                       delegate:self
+                                              cancelButtonTitle:@"Cancel"
+                                              otherButtonTitles:@"Delete", nil];
+        [alert show];
+        
+    }
 }
 
 /*
@@ -161,5 +177,28 @@
     return YES;
 }
 */
+
+#pragma mark UIAlertView delegate methods
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1 && self.rowToDelete != nil) {
+        
+        Project* project = [self.projects objectAtIndex:self.rowToDelete.row];
+        [self.projects removeObject:project];
+        [ModelUtils deleteObject:project];
+        [ModelUtils saveContext];
+        
+        [self.tableView deleteRowsAtIndexPaths:@[self.rowToDelete] withRowAnimation:UITableViewRowAnimationFade];
+        self.rowToDelete = nil;
+
+    }
+    
+}
+
+- (void)alertViewCancel:(UIAlertView *)alertView
+{
+    self.rowToDelete = nil;
+}
 
 @end

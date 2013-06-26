@@ -22,6 +22,7 @@
 + (TimeSlot*) newTimeSlot;
 
 + (void) saveContext;
++ (void) deleteObject:(id)obj;
 
 + (NSManagedObjectContext*) context;
 + (BOOL) logError:(NSError*)error withMessage:(NSString*)msg;

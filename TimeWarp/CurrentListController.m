@@ -24,11 +24,46 @@
 
 @implementation CurrentListController
 
+#pragma mark - Edit Mode
+
+- (IBAction)enterEditMode:(id)sender
+{
+    // Add the done button
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
+                                             initWithTitle:@"Done"
+                                             style:UIBarButtonItemStyleDone
+                                             target:self
+                                             action:@selector(leaveEditMode:)];
+    
+    self.backupButtonRight = self.navigationItem.rightBarButtonItem;
+    self.navigationItem.rightBarButtonItem = nil;
+	
+    [self.tableView setEditing:YES animated:YES];
+    
+}
+
+- (IBAction)leaveEditMode:(id)sender
+{
+    // Add the edit button
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
+                                             initWithTitle:@"Edit"
+                                             style:UIBarButtonItemStylePlain
+                                             target:self
+                                             action:@selector(enterEditMode:)];
+    
+    self.navigationItem.rightBarButtonItem = self.backupButtonRight;
+    self.backupButtonRight = nil;
+    
+    [self.tableView setEditing:NO animated:YES];
+    
+}
+
+
 #pragma mark custom logic methods
 
 - (void) loadData
 {
-    self.activities = [ModelUtils fetchActivitiesForDate:self.currentDate];
+    self.activities = [NSMutableArray arrayWithArray:[ModelUtils fetchActivitiesForDate:self.currentDate]];
     
     // todo query for current period
     
@@ -195,28 +230,29 @@
     return cell;
 }
 
-/*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return indexPath.section == 0;
 }
-*/
 
-/*
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+        
+        // we don't show a confirmation here, since deleting an activity is not as destructive as
+        // deleting a project
+        
+        Activity* activity = [self.activities objectAtIndex:indexPath.row];
+        [self.activities removeObject:activity];
+        [ModelUtils deleteObject:activity];
+        [ModelUtils saveContext];
+        
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+    }
 }
-*/
 
 /*
 // Override to support rearranging the table view.

@@ -12,8 +12,11 @@
 
 @interface CurrentListController : UITableViewController <NSFetchedResultsControllerDelegate>
 
-@property (nonatomic, strong) NSArray* activities;
+@property (nonatomic, strong) NSMutableArray* activities;
 
 @property (nonatomic, strong) NSDate* currentDate;
+
+// backup of the + button item (during edition)
+@property (nonatomic, strong) UIBarButtonItem* backupButtonRight;
 
 @end

@@ -13,6 +13,8 @@
 
 @interface SelectTimeController ()
 - (void) initDailyCalendar;
+- (UIView*) createSlotView;
+- (void) createSlotIntervalWithBegin:(double)begin andEnd:(double)end;
 - (void) adaptViewForSlot:(SlotInterval*)slot;
 - (void) mergeSlots;
 - (void) removeSlot:(SlotInterval*)slot withRemoveList:(NSMutableArray*)toRemove;
@@ -31,6 +33,11 @@
     self.scrollView.scrollEnabled = YES;
     
     self.currentSlotLabel.alpha = 0;
+    
+    for (SlotInterval* slotInterval in self.timeSlotIntervals) {
+        slotInterval.view = [self createSlotView];
+        [self adaptViewForSlot:slotInterval];
+    }
 }
 
 - (IBAction)donePressed:(id)sender
@@ -41,6 +48,7 @@
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    
     // allow the two gesture recognizers to recognize gestures at the same time
     return YES;
 }
@@ -73,16 +81,7 @@
     if (state == kStateNothing && numberOfTouches == 1 && sender.state == UIGestureRecognizerStateBegan) {
         state = kStateSetSlotBegin;
 
-        UIView* currentSlotView = [[UIView alloc] init];
-        currentSlotView.backgroundColor = [UIColor colorWithRed:124.0/255 green:177.0/255 blue:1.0 alpha:1.0];
-        currentSlotView.alpha = 0.4;
-        [self.graduationView addSubview:currentSlotView];
-        
-        _currentSlotInterval = [[SlotInterval alloc] init];
-        _currentSlotInterval.begin = 0.25 * slotIndex;
-        _currentSlotInterval.end = 0.25 * slotIndex + 1;
-        _currentSlotInterval.view = currentSlotView;
-        [self.timeSlotIntervals addObject:_currentSlotInterval];
+        [self createSlotIntervalWithBegin:(0.25 * slotIndex) andEnd:(0.25 * slotIndex + 1)];
         
         _currentWasLargerThanOriginalMin = NO;
 
@@ -146,7 +145,7 @@
             yPos = [self yStartForSlot:_currentSlotInterval] - 20;
         }
         else /* kStateSetSlotEnd */ {
-            yPos = [self yStartForSlot:_currentSlotInterval] + 5;
+            yPos = [self yEndForSlot:_currentSlotInterval] + 5;
         }
         
         self.currentSlotLabel.frame = CGRectMake(frame.origin.x, yPos, frame.size.width, frame.size.height);
@@ -162,6 +161,25 @@
         self.currentSlotLabel.alpha = 0.0;
     }
     
+}
+
+- (UIView*) createSlotView
+{
+    UIView* currentSlotView = [[UIView alloc] init];
+    currentSlotView.backgroundColor = [UIColor colorWithRed:124.0/255 green:177.0/255 blue:1.0 alpha:1.0];
+    currentSlotView.alpha = 0.4;
+    [self.graduationView addSubview:currentSlotView];
+    return currentSlotView;
+}
+
+- (void) createSlotIntervalWithBegin:(double)begin andEnd:(double)end
+{
+    _currentSlotInterval = [[SlotInterval alloc] init];
+    _currentSlotInterval.begin = begin;
+    _currentSlotInterval.end = end;
+    _currentSlotInterval.view = [self createSlotView];
+    [self.timeSlotIntervals addObject:_currentSlotInterval];
+
 }
 
 - (void) adaptViewForSlot:(SlotInterval*)slot
@@ -239,7 +257,9 @@
 {
     [toRemove addObject:slot];
     slot.view.alpha = 0.0;
-    //[slot.view removeFromSuperview];
+    
+    // we don't remove slot.view from its superview, otherwise we don't get the
+    // animation effect, there are not so many views for it to be a problem.
 }
 
 #pragma mark methods from UIViewController
@@ -268,12 +288,14 @@
 
 }
 
-//- (void)viewWillAppear:(BOOL)animated
-//{
-//    [self viewWillAppear:animated];
-//    
-//    self.scrollView.scrollEnabled = YES;
-//}
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.scrollView.contentSize = CGSizeMake(320, 1000);
+    self.scrollView.contentOffset = CGPointMake(0, 319);
+    self.scrollView.scrollEnabled = YES;
+}
 
 - (void)didReceiveMemoryWarning
 {
