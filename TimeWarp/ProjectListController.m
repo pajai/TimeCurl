@@ -190,15 +190,12 @@
         [ModelUtils saveContext];
         
         [self.tableView deleteRowsAtIndexPaths:@[self.rowToDelete] withRowAnimation:UITableViewRowAnimationFade];
-        self.rowToDelete = nil;
 
     }
     
-}
-
-- (void)alertViewCancel:(UIAlertView *)alertView
-{
+    // free the ref to the previously saved index path
     self.rowToDelete = nil;
+    
 }
 
 @end

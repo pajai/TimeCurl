@@ -154,13 +154,13 @@
 			name = misc;
 			sourceTree = "<group>";
 		};
-		431535531773933500B5D825 /* dao */ = {
+		431535531773933500B5D825 /* persistence */ = {
 			isa = PBXGroup;
 			children = (
 				431535541773936000B5D825 /* ModelUtils.h */,
 				431535551773936000B5D825 /* ModelUtils.m */,
 			);
-			name = dao;
+			name = persistence;
 			sourceTree = "<group>";
 		};
 		4323D44E176EF79500A083AB = {
@@ -198,7 +198,7 @@
 		4323D460176EF79500A083AB /* TimeWarp */ = {
 			isa = PBXGroup;
 			children = (
-				431535531773933500B5D825 /* dao */,
+				431535531773933500B5D825 /* persistence */,
 				431535451770A5E800B5D825 /* misc */,
 				431535401770A1B000B5D825 /* view */,
 				4323D4A9176F0A7300A083AB /* controller */,
