@@ -10,9 +10,12 @@
 #import "GeometryConstants.h"
 #import <tgmath.h>
 
+#define kGraduationViewWidth 240
+
 
 @interface SelectTimeController ()
 - (void) initDailyCalendar;
+- (void) initLabels;
 - (UIView*) createSlotView;
 - (void) createSlotIntervalWithBegin:(double)begin andEnd:(double)end;
 - (void) adaptViewForSlot:(SlotInterval*)slot;
@@ -38,6 +41,23 @@
         slotInterval.view = [self createSlotView];
         [self adaptViewForSlot:slotInterval];
     }
+    
+    self.currentSlotLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1];
+}
+
+- (void) initLabels
+{
+    double startY = STARTY;
+    double dY     = DELTAY;
+    UIFont * font = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1];
+    for (int i = 0; i <= 24; i++) {
+        CGRect frame = CGRectMake(10, startY + i * dY - 10, 50, 20);
+        UILabel* label = [[UILabel alloc] initWithFrame:frame];
+        label.font = font;
+        label.text = [NSString stringWithFormat:@"%02d:00", i];
+        [self.scrollView addSubview:label];
+    }
+
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
@@ -180,7 +200,7 @@
     double yStart = [self yStartForSlot:slot];
     double yEnd   = [self yEndForSlot:slot];
     double height = yEnd - yStart;
-    slot.view.frame = CGRectMake(0, yStart, 250, height);
+    slot.view.frame = CGRectMake(0, yStart, kGraduationViewWidth, height);
 }
 
 - (double) yStartForSlot:(SlotInterval*)slot
@@ -276,6 +296,7 @@
     }
 
     [self initDailyCalendar];
+    [self initLabels];
     
     state = kStateNothing;
 
