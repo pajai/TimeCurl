@@ -14,12 +14,17 @@
 #import "ModelUtils.h"
 #import "SlotInterval.h"
 
+// TODO can we parameterize this?
+#define kTextViewWidth 300
+
 
 @interface CurrentListController ()
 - (void) loadData;
 - (void) initCurrentDate;
 - (void) updateTitle;
 - (BOOL) isToday;
+- (CGFloat) textViewHeightForActivity:(Activity*)activity;
+- (CGFloat) heightOfText:(NSString *)textToMesure widthOfTextView:(CGFloat)width withFont:(UIFont*)font;
 @end
 
 @implementation CurrentListController
@@ -213,6 +218,19 @@
         UILabel* titleLabel      = (UILabel*)[cell viewWithTag:100];
         UILabel* durationLabel   = (UILabel*)[cell viewWithTag:101];
         UITextView* noteTextView = (UITextView*)[cell viewWithTag:102];
+
+        CGFloat textViewHeight = [self textViewHeightForActivity:activity];
+        
+        // adapt note text view height
+        CGRect frame = noteTextView.frame;
+        frame.size.height = textViewHeight; //noteTextView.contentSize.height;
+        noteTextView.frame = frame;
+        
+        // adapt green rectangle height
+        UIView* greenBackground  = (UIView*)[cell viewWithTag:103];
+        frame = greenBackground.frame;
+        frame.size.height = textViewHeight + 20;
+        greenBackground.frame = frame;
         
         Project* project = activity.project;
         titleLabel.text = [NSString stringWithFormat:@"%@ (%@)", project.name, project.subname];
@@ -228,6 +246,35 @@
     }
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0) {
+        Activity* activity = [self.activities objectAtIndex:indexPath.row];
+        
+        // cell size: add 28 point to text view height
+        return [self textViewHeightForActivity:activity] + 28;
+    }
+    else {
+        return 57;
+    }
+}
+
+- (CGFloat) textViewHeightForActivity:(Activity*)activity
+{
+    // size of text view, but at least 45
+    UIFont * bodyFont = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    CGFloat textViewHeight = [self heightOfText:activity.note widthOfTextView:kTextViewWidth withFont:bodyFont];
+    textViewHeight = textViewHeight < 45 ? 45 : textViewHeight;
+    return textViewHeight;
+}
+
+- (CGFloat) heightOfText:(NSString *)textToMesure widthOfTextView:(CGFloat)width withFont:(UIFont*)font
+{
+    NSDictionary *stringAttributes = [NSDictionary dictionaryWithObject:font forKey: NSFontAttributeName];
+    CGRect rect = [textToMesure boundingRectWithSize:CGSizeMake(width - 20, FLT_MAX) options:(NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading) attributes:stringAttributes context:nil];
+    return rect.size.height;
 }
 
 // Override to support conditional editing of the table view.
