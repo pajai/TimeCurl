@@ -60,7 +60,7 @@
 {
 
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Share"
-                                                    message:@"Do you want to share the activities of the current month?."
+                                                    message:@"Do you want to share the activities of the current month by e-mail?"
                                                    delegate:self
                                           cancelButtonTitle:@"Cancel"
                                           otherButtonTitles:@"Ok", nil];
