@@ -48,6 +48,8 @@
 		437943211770384600188F99 /* CurrentListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4379431F1770384600188F99 /* CurrentListController.m */; };
 		4379432517705E1400188F99 /* SelectTimeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4379432417705E1400188F99 /* SelectTimeController.m */; };
 		4379432617705E1400188F99 /* SelectTimeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4379432417705E1400188F99 /* SelectTimeController.m */; };
+		43E6027117821A8500EAA813 /* OverviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E6027017821A8500EAA813 /* OverviewController.m */; };
+		43E6027217821A8500EAA813 /* OverviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E6027017821A8500EAA813 /* OverviewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +108,8 @@
 		4379431F1770384600188F99 /* CurrentListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentListController.m; sourceTree = "<group>"; };
 		4379432317705E1400188F99 /* SelectTimeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectTimeController.h; sourceTree = "<group>"; };
 		4379432417705E1400188F99 /* SelectTimeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectTimeController.m; sourceTree = "<group>"; };
+		43E6026F17821A8500EAA813 /* OverviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverviewController.h; sourceTree = "<group>"; };
+		43E6027017821A8500EAA813 /* OverviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverviewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -268,6 +272,8 @@
 				4315354C17735D0100B5D825 /* NewActivityController.m */,
 				4379432317705E1400188F99 /* SelectTimeController.h */,
 				4379432417705E1400188F99 /* SelectTimeController.m */,
+				43E6026F17821A8500EAA813 /* OverviewController.h */,
+				43E6027017821A8500EAA813 /* OverviewController.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -373,6 +379,7 @@
 				4315355117738F5D00B5D825 /* TimeUtils.m in Sources */,
 				4323D46B176EF79500A083AB /* AppDelegate.m in Sources */,
 				4323D498176F04BE00A083AB /* ProjectListController.m in Sources */,
+				43E6027117821A8500EAA813 /* OverviewController.m in Sources */,
 				4323D4B4176F0B0100A083AB /* Activity.m in Sources */,
 				4323D4B0176F0B0100A083AB /* Project.m in Sources */,
 				431535561773936000B5D825 /* ModelUtils.m in Sources */,
@@ -392,6 +399,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43E6027217821A8500EAA813 /* OverviewController.m in Sources */,
 				4323D4AD176F0B0000A083AB /* TimeSlot.m in Sources */,
 				4379432617705E1400188F99 /* SelectTimeController.m in Sources */,
 				4323D499176F04BE00A083AB /* ProjectListController.m in Sources */,

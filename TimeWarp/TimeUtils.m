@@ -49,4 +49,32 @@
     return [cal dateFromComponents:components];
 }
 
+// return a month start date for the given date, where the time is set to midnight
++ (NSDate*) monthForDate:(NSDate*) date
+{
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDateComponents *components = [cal components:(NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit) fromDate:date];
+    return [cal dateFromComponents:components];
+}
+
++ (NSDate*) decrementMonthForMonth:(NSDate*) month
+{
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    
+    NSDateComponents* minusOneMonth = [[NSDateComponents alloc] init];
+    [minusOneMonth setMonth:-1];
+    
+    return [cal dateByAddingComponents:minusOneMonth toDate:month options:0];
+}
+
++ (NSDate*) incrementMonthForMonth:(NSDate*) month
+{
+    NSCalendar *cal = [NSCalendar currentCalendar];
+
+    NSDateComponents* oneMonth = [[NSDateComponents alloc] init];
+    [oneMonth setMonth:1];
+
+    return [cal dateByAddingComponents:oneMonth toDate:month options:0];
+}
+
 @end

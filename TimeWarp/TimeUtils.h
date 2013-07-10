@@ -18,4 +18,11 @@
 
 // return a date for the given date, where the time is set to midnight
 + (NSDate*) dayForDate:(NSDate*) date;
+
+// return a month start date for the given date, where the time is set to midnight
++ (NSDate*) monthForDate:(NSDate*) date;
+
++ (NSDate*) decrementMonthForMonth:(NSDate*) month;
++ (NSDate*) incrementMonthForMonth:(NSDate*) month;
+
 @end

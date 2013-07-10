@@ -16,6 +16,7 @@
 + (NSArray*) fetchAllProjects;
 + (NSArray*) fetchAllActivities;
 + (NSArray*) fetchActivitiesForDate:(NSDate*) date;
++ (NSArray*) fetchActivitiesByDayForMonth:(NSDate*) date;
 
 + (Project*) newProject;
 + (Activity*) newActivity;

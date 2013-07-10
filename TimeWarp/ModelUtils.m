@@ -76,6 +76,53 @@
     }
 }
 
++ (NSArray*) fetchActivitiesByDayForMonth:(NSDate*) date
+{
+    NSLog(@"Fetch activities by day for month %@", date);
+    
+    NSManagedObjectContext* managedObjectContext = [ModelUtils context];
+    NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription* entity = [NSEntityDescription entityForName:@"Activity" inManagedObjectContext:managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    NSDate* month      = [TimeUtils monthForDate:date];
+    NSDate* monthAfter = [TimeUtils incrementMonthForMonth:month];
+    // TODO perhaps not the most efficient query
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"ANY self.timeslots.start >= %@ AND ANY self.timeslots.start < %@", month, monthAfter];
+    [fetchRequest setPredicate:predicate];
+    
+    // TODO desc sort
+    //NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"timeslots.@min.start" ascending:NO];
+    //NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+    //[fetchRequest setSortDescriptors:sortDescriptors];
+    
+    NSError* error = nil;
+    NSArray* result = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    if ([ModelUtils logError:error withMessage:@"fetch all activities"]) {
+        return nil;
+    }
+
+    NSMutableArray* activitiesByDay = [NSMutableArray array];
+    NSDate* currentDay = nil;
+    NSMutableArray* activitiesForSingleDay = nil;
+    for (Activity* activity in result) {
+        TimeSlot* anySlot = (TimeSlot*)[activity.timeslots anyObject];
+        NSDate* actDay = [TimeUtils dayForDate:anySlot.start];
+        
+        if (![actDay isEqual:currentDay]) {
+            activitiesForSingleDay = [NSMutableArray array];
+            [activitiesByDay addObject:activitiesForSingleDay];
+            currentDay = actDay;
+        }
+        
+        [activitiesForSingleDay addObject:activity];
+    }
+    
+    return activitiesByDay;
+
+}
+
 + (Project*) newProject
 {
     NSManagedObjectContext* managedObjectContext = [ModelUtils context];

@@ -70,8 +70,6 @@
 {
     self.activities = [NSMutableArray arrayWithArray:[ModelUtils fetchActivitiesForDate:self.currentDate]];
     
-    // todo query for current period
-    
     [self.tableView reloadData];
 }
 
