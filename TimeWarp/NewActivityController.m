@@ -52,16 +52,37 @@
     }
     
     NSMutableSet* newSlots = [NSMutableSet set];
+    NSInteger i = 0;
+    NSArray* existingSlots = self.activity.timeslots.allObjects;
     for (SlotInterval* slot in self.timeSlotIntervals) {
-        TimeSlot* newTimeSlot = [ModelUtils newTimeSlot];
-        newTimeSlot.start = [TimeUtils dateForDate:self.currentDate andHour:slot.begin];
-        newTimeSlot.end   = [TimeUtils dateForDate:self.currentDate andHour:slot.end];
-        newTimeSlot.activity = self.activity;
-        [newSlots addObject:newTimeSlot];
+        TimeSlot* timeSlot = nil;
+        
+        // try to reuse an existing slot
+        if (i < [existingSlots count]) {
+            timeSlot = [existingSlots objectAtIndex:i];
+        }
+        // nothing found? -> create a new one
+        else {
+            timeSlot = [ModelUtils newTimeSlot];
+        }
+        
+        timeSlot.start = [TimeUtils dateForDate:self.currentDate andHour:slot.begin];
+        timeSlot.end   = [TimeUtils dateForDate:self.currentDate andHour:slot.end];
+        timeSlot.activity = self.activity;
+        [newSlots addObject:timeSlot];
+        
+        i++;
     }
     self.activity.timeslots = newSlots;
     self.activity.project = self.selectedProject;
     self.activity.note = self.noteTextView.text;
+    
+    // delete old slots which are not used anymore
+    for (int j = i; j < [existingSlots count]; j++) {
+        TimeSlot* slot = [existingSlots objectAtIndex:j];
+        [ModelUtils deleteObject:slot];
+    }
+    
     [ModelUtils saveContext];
     
     [self.navigationController popViewControllerAnimated:YES];
@@ -151,6 +172,10 @@
         self.title = @"Edit Activity";
     }
 
+    // editing case -> take the currentDate from the activity
+    if (self.activity != nil && self.currentDate == nil) {
+        self.currentDate = ((TimeSlot*)self.activity.timeslots.anyObject).start;
+    }
 }
 
 - (double)doubleHourFromDate:(NSDate*)date
@@ -165,6 +190,7 @@
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
 }
 
 - (void)didReceiveMemoryWarning

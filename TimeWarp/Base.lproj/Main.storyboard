@@ -143,7 +143,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="10" reuseIdentifier="DayTitleCell" rowHeight="30" id="bS7-Yp-Xhg">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="10" reuseIdentifier="DayTitleCell" rowHeight="30" id="bS7-Yp-Xhg">
                                 <rect key="frame" x="0.0" y="1" width="320" height="30"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bS7-Yp-Xhg" id="Qz6-FB-JMR">
@@ -154,7 +154,7 @@
                                             <rect key="frame" x="8" y="7" width="250" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" white="0.84306569340000004" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" red="0.70588235294117641" green="0.70588235294117641" blue="0.70588235294117641" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="H" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gbH-O0-srD">
@@ -167,11 +167,11 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="10" reuseIdentifier="ActivityCell" rowHeight="64" id="HNQ-2G-ve5">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="10" reuseIdentifier="ActivityCell" rowHeight="64" id="HNQ-2G-ve5">
                                 <rect key="frame" x="0.0" y="31" width="320" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HNQ-2G-ve5" id="VqM-0O-JRj">
-                                    <rect key="frame" x="0.0" y="0.0" width="322" height="63"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="289" height="63"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="r8P-qJ-zVG">
@@ -208,6 +208,9 @@
                                         <outletCollection property="gestureRecognizers" destination="Hu1-IC-oKP" appends="YES" id="ZcT-ka-qTI"/>
                                     </connections>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="uhY-qe-vyJ" kind="push" identifier="EditActivity" id="Yqo-Fh-mSz"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -236,7 +239,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1321" y="572"/>
+            <point key="canvasLocation" x="1321" y="-276"/>
         </scene>
         <!--Navigation Controller - Report-->
         <scene sceneID="Xsd-le-ciW">
@@ -253,7 +256,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pdk-hk-ic1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="787" y="571"/>
+            <point key="canvasLocation" x="787" y="-277"/>
         </scene>
         <!--Project List Controller - Projects-->
         <scene sceneID="Oub-wZ-WHh">
@@ -332,7 +335,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n6I-Rn-Cbb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1319" y="-277"/>
+            <point key="canvasLocation" x="1319" y="559"/>
         </scene>
         <!--Add Project Controller - New Project-->
         <scene sceneID="Tik-Sq-O8E">
@@ -398,7 +401,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kLZ-0E-JIn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1842" y="-277"/>
+            <point key="canvasLocation" x="1842" y="559"/>
         </scene>
         <!--Navigation Controller - Projects-->
         <scene sceneID="kUd-Cd-nyz">
@@ -415,7 +418,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tos-qq-ZKt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="787" y="-277"/>
+            <point key="canvasLocation" x="787" y="559"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Vex-rW-GRa">
@@ -443,23 +446,23 @@
             <objects>
                 <viewController id="uhY-qe-vyJ" customClass="NewActivityController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pW8-R5-3Qu">
-                        <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sQa-Hv-MrZ">
-                                <rect key="frame" x="20" y="20" width="52" height="21"/>
+                                <rect key="frame" x="20" y="20" width="70" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yY0-HJ-bph">
-                                <rect key="frame" x="20" y="113" width="37" height="21"/>
+                                <rect key="frame" x="20" y="113" width="70" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eCt-fB-XJl">
-                                <rect key="frame" x="20" y="210" width="42" height="21"/>
+                                <rect key="frame" x="20" y="210" width="70" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -607,6 +610,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="sRH-ER-JoI"/>
-        <segue reference="WXs-YU-F0t"/>
+        <segue reference="Yqo-Fh-mSz"/>
     </inferredMetricsTieBreakers>
 </document>

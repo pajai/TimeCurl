@@ -145,7 +145,7 @@
 {
     NSError* error = nil;
     if (![[ModelUtils context] save:&error]) {
-        NSLog(@"Error happened while creating project: %@", [error localizedDescription]);
+        NSLog(@"Error happened while saving context: %@", [error localizedDescription]);
     }
     
 }

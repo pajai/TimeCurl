@@ -11,6 +11,7 @@
 #import "TimeUtils.h"
 #import "CHCSVParser.h"
 #import "MailComposeHandler.h"
+#import "NewActivityController.h"
 
 
 @interface OverviewController ()
@@ -142,6 +143,23 @@
     // free the reference to the mail compose handler, that we don't need at that point
     self.mailComposeHandler = nil;
 }
+
+#pragma mark transitions
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NewActivityController* controller = (NewActivityController*)segue.destinationViewController;
+    // don't set controller.currentDate -> taken from the activity
+    
+    if ([segue.identifier isEqualToString:@"EditActivity"]) {
+        
+        NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
+        Activity* activity = [[self.activitiesByDay objectAtIndex:indexPath.section] objectAtIndex:indexPath.row - 1];
+        controller.activity = activity;
+        
+    }
+}
+
 
 #pragma mark common methods from UIViewController
 
