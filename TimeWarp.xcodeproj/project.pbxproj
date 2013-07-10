@@ -50,6 +50,10 @@
 		4379432617705E1400188F99 /* SelectTimeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4379432417705E1400188F99 /* SelectTimeController.m */; };
 		43E6027117821A8500EAA813 /* OverviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E6027017821A8500EAA813 /* OverviewController.m */; };
 		43E6027217821A8500EAA813 /* OverviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E6027017821A8500EAA813 /* OverviewController.m */; };
+		43E70430178DBF5B00CB5AA2 /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E7042F178DBF5B00CB5AA2 /* CHCSVParser.m */; };
+		43E70431178DBF5B00CB5AA2 /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E7042F178DBF5B00CB5AA2 /* CHCSVParser.m */; };
+		43E70435178DC2F000CB5AA2 /* MailComposeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E70433178DC2F000CB5AA2 /* MailComposeHandler.m */; };
+		43E70436178DC2F000CB5AA2 /* MailComposeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E70433178DC2F000CB5AA2 /* MailComposeHandler.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +114,11 @@
 		4379432417705E1400188F99 /* SelectTimeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectTimeController.m; sourceTree = "<group>"; };
 		43E6026F17821A8500EAA813 /* OverviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverviewController.h; sourceTree = "<group>"; };
 		43E6027017821A8500EAA813 /* OverviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverviewController.m; sourceTree = "<group>"; };
+		43E7042E178DBF5B00CB5AA2 /* CHCSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCSVParser.h; sourceTree = "<group>"; };
+		43E7042F178DBF5B00CB5AA2 /* CHCSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCSVParser.m; sourceTree = "<group>"; };
+		43E70432178DC2F000CB5AA2 /* MailComposeHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailComposeHandler.h; sourceTree = "<group>"; };
+		43E70433178DC2F000CB5AA2 /* MailComposeHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailComposeHandler.m; sourceTree = "<group>"; };
+		43E70434178DC2F000CB5AA2 /* MailComposeCallbackDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailComposeCallbackDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +158,9 @@
 		431535451770A5E800B5D825 /* misc */ = {
 			isa = PBXGroup;
 			children = (
+				43E70432178DC2F000CB5AA2 /* MailComposeHandler.h */,
+				43E70433178DC2F000CB5AA2 /* MailComposeHandler.m */,
+				43E70434178DC2F000CB5AA2 /* MailComposeCallbackDelegate.h */,
 				431535461770A62800B5D825 /* GeometryConstants.h */,
 				431535471773060700B5D825 /* SlotInterval.h */,
 				431535481773060700B5D825 /* SlotInterval.m */,
@@ -202,6 +214,7 @@
 		4323D460176EF79500A083AB /* TimeWarp */ = {
 			isa = PBXGroup;
 			children = (
+				43E7042D178DBF5B00CB5AA2 /* CHCSVParser */,
 				431535531773933500B5D825 /* persistence */,
 				431535451770A5E800B5D825 /* misc */,
 				431535401770A1B000B5D825 /* view */,
@@ -276,6 +289,15 @@
 				43E6027017821A8500EAA813 /* OverviewController.m */,
 			);
 			name = controller;
+			sourceTree = "<group>";
+		};
+		43E7042D178DBF5B00CB5AA2 /* CHCSVParser */ = {
+			isa = PBXGroup;
+			children = (
+				43E7042E178DBF5B00CB5AA2 /* CHCSVParser.h */,
+				43E7042F178DBF5B00CB5AA2 /* CHCSVParser.m */,
+			);
+			path = CHCSVParser;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -380,9 +402,11 @@
 				4323D46B176EF79500A083AB /* AppDelegate.m in Sources */,
 				4323D498176F04BE00A083AB /* ProjectListController.m in Sources */,
 				43E6027117821A8500EAA813 /* OverviewController.m in Sources */,
+				43E70435178DC2F000CB5AA2 /* MailComposeHandler.m in Sources */,
 				4323D4B4176F0B0100A083AB /* Activity.m in Sources */,
 				4323D4B0176F0B0100A083AB /* Project.m in Sources */,
 				431535561773936000B5D825 /* ModelUtils.m in Sources */,
+				43E70430178DBF5B00CB5AA2 /* CHCSVParser.m in Sources */,
 				4315354D17735D0100B5D825 /* NewActivityController.m in Sources */,
 				437943201770384600188F99 /* CurrentListController.m in Sources */,
 				4323D4AC176F0B0000A083AB /* TimeSlot.m in Sources */,
@@ -399,6 +423,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43E70436178DC2F000CB5AA2 /* MailComposeHandler.m in Sources */,
 				43E6027217821A8500EAA813 /* OverviewController.m in Sources */,
 				4323D4AD176F0B0000A083AB /* TimeSlot.m in Sources */,
 				4379432617705E1400188F99 /* SelectTimeController.m in Sources */,
@@ -411,6 +436,7 @@
 				4323D4B5176F0B0100A083AB /* Activity.m in Sources */,
 				4345FA3E176F31FF002BBDB0 /* AddProjectController.m in Sources */,
 				437943211770384600188F99 /* CurrentListController.m in Sources */,
+				43E70431178DBF5B00CB5AA2 /* CHCSVParser.m in Sources */,
 				4315355217738F5D00B5D825 /* TimeUtils.m in Sources */,
 				4323D489176EF79500A083AB /* TimeWarpTests.m in Sources */,
 				4345FA42176F3FFA002BBDB0 /* TimeWarp.xcdatamodel in Sources */,

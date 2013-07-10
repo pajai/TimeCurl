@@ -7,12 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MailComposeHandler.h"
+#import "MailComposeCallbackDelegate.h"
 
-@interface OverviewController : UITableViewController {
+@interface OverviewController : UITableViewController <UIAlertViewDelegate, MailComposeCallbackDelegate> {
     
     NSDateFormatter* _dateFormatter;
     
 }
+
+@property (nonatomic, strong) MailComposeHandler* mailComposeHandler;
 
 @property (nonatomic, strong) NSMutableArray* activitiesByDay;
 

@@ -9,6 +9,8 @@
 #import "OverviewController.h"
 #import "ModelUtils.h"
 #import "TimeUtils.h"
+#import "CHCSVParser.h"
+#import "MailComposeHandler.h"
 
 
 @interface OverviewController ()
@@ -55,7 +57,14 @@
 
 - (IBAction) sharePressed:(id)sender
 {
-    NSLog(@"TODO implement CSV share functionality");
+
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Share"
+                                                    message:@"Do you want to share the activities of the current month?."
+                                                   delegate:self
+                                          cancelButtonTitle:@"Cancel"
+                                          otherButtonTitles:@"Ok", nil];
+    [alert show];
+
 }
 
 - (IBAction)handleSwipeRight:(UISwipeGestureRecognizer *)sender
@@ -76,6 +85,62 @@
         [self loadData];
         [self updateTitle];
     }
+}
+
+#pragma mark UIAlertView delegate methods
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        
+        // filename
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyy-MM"];
+        NSString* dateStr = [dateFormatter stringFromDate:self.currentDate];
+        NSString* fileName = [NSString stringWithFormat:@"activities-%@.csv", dateStr];
+
+        // date formatter for activity date (with day precision)
+        NSDateFormatter *activityDateFormatter = [[NSDateFormatter alloc] init];
+        [activityDateFormatter setDateStyle:NSDateFormatterShortStyle];
+        
+        // construct CSV file
+        NSString* tempPath = [NSTemporaryDirectory() stringByAppendingPathComponent:fileName];
+        CHCSVWriter* writer = [[CHCSVWriter alloc] initForWritingToCSVFile:tempPath];
+
+        [writer writeField:@"Date"];
+        [writer writeField:@"Project"];
+        [writer writeField:@"Activity Note"];
+        [writer writeField:@"Duration [h]"];
+        [writer finishLine];
+        for (NSArray* dayActivities in self.activitiesByDay) {
+            for (Activity* activity in dayActivities) {
+                [writer writeField:[activityDateFormatter stringFromDate:((TimeSlot*)activity.timeslots.anyObject).start]];
+                [writer writeField:[NSString stringWithFormat:@"%@ (%@)", activity.project.name, activity.project.subname]];
+                [writer writeField:activity.note];
+                [writer writeField:[NSString stringWithFormat:@"%.2f", [activity duration]]];
+                [writer finishLine];
+            }
+        }
+        [writer closeStream];
+        
+        self.mailComposeHandler = [[MailComposeHandler alloc] init];
+        self.mailComposeHandler.subject = [NSString stringWithFormat:@"Time tracking for %@", dateStr];
+        self.mailComposeHandler.attachmentName = fileName;
+        self.mailComposeHandler.attachmentData = [NSData dataWithContentsOfFile:tempPath];
+        self.mailComposeHandler.attachmentMime = @"text/csv";
+        self.mailComposeHandler.delegate = self;
+        //
+        [self.mailComposeHandler prepareMailComposeViewController];
+		[self presentViewController:self.mailComposeHandler.mailComposeController animated:YES completion:nil];
+    }
+}
+
+#pragma mark callback method from MailComposeCallbackDelegate
+
+- (void) mailComposeCallback
+{
+    // free the reference to the mail compose handler, that we don't need at that point
+    self.mailComposeHandler = nil;
 }
 
 #pragma mark common methods from UIViewController
