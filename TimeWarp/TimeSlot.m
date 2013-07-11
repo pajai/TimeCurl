@@ -19,7 +19,7 @@
 // in hours
 - (double)duration
 {
-    return [self.end timeIntervalSinceDate:self.start] / 3600;
+    return [self.end doubleValue] - [self.start doubleValue];
 }
 
 @end

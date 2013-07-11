@@ -13,9 +13,9 @@
 
 @interface TimeSlot : NSManagedObject
 
-@property (nonatomic, retain) NSDate * start;
-@property (nonatomic, retain) NSDate * end;
-@property (nonatomic, retain) Activity *activity;
+@property (nonatomic, retain) NSNumber * start;
+@property (nonatomic, retain) NSNumber * end;
+@property (nonatomic, retain) Activity * activity;
 
 - (double)duration;
 

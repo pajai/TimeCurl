@@ -13,7 +13,8 @@
 
 @interface Activity : NSManagedObject
 
-@property (nonatomic, retain) NSString * note;
+@property (nonatomic, retain) NSDate *date;
+@property (nonatomic, retain) NSString *note;
 @property (nonatomic, retain) Project *project;
 @property (nonatomic, retain) NSSet *timeslots;
 @end

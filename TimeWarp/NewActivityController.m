@@ -66,8 +66,8 @@
             timeSlot = [ModelUtils newTimeSlot];
         }
         
-        timeSlot.start = [TimeUtils dateForDate:self.currentDate andHour:slot.begin];
-        timeSlot.end   = [TimeUtils dateForDate:self.currentDate andHour:slot.end];
+        timeSlot.start = @(slot.begin);
+        timeSlot.end   = @(slot.end);
         timeSlot.activity = self.activity;
         [newSlots addObject:timeSlot];
         
@@ -75,6 +75,7 @@
     }
     self.activity.timeslots = newSlots;
     self.activity.project = self.selectedProject;
+    self.activity.date = self.currentDate;
     self.activity.note = self.noteTextView.text;
     
     // delete old slots which are not used anymore
@@ -156,8 +157,8 @@
         NSMutableArray* slotArray = [NSMutableArray array];
         for (TimeSlot* timeSlot in self.activity.timeslots) {
             SlotInterval* slotInterval = [[SlotInterval alloc] init];
-            slotInterval.begin = [self doubleHourFromDate:timeSlot.start];
-            slotInterval.end   = [self doubleHourFromDate:timeSlot.end];
+            slotInterval.begin = [timeSlot.start doubleValue];
+            slotInterval.end   = [timeSlot.end doubleValue];
             [slotArray addObject:slotInterval];
         }
         self.timeSlotIntervals = slotArray;
@@ -174,7 +175,7 @@
 
     // editing case -> take the currentDate from the activity
     if (self.activity != nil && self.currentDate == nil) {
-        self.currentDate = ((TimeSlot*)self.activity.timeslots.anyObject).start;
+        self.currentDate = self.activity.date;
     }
 }
 

@@ -446,7 +446,7 @@
             <objects>
                 <viewController id="uhY-qe-vyJ" customClass="NewActivityController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pW8-R5-3Qu">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sQa-Hv-MrZ">
@@ -610,6 +610,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="sRH-ER-JoI"/>
-        <segue reference="Yqo-Fh-mSz"/>
+        <segue reference="yD7-jT-iHR"/>
     </inferredMetricsTieBreakers>
 </document>

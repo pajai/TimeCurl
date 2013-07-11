@@ -115,7 +115,7 @@
         [writer finishLine];
         for (NSArray* dayActivities in self.activitiesByDay) {
             for (Activity* activity in dayActivities) {
-                [writer writeField:[activityDateFormatter stringFromDate:((TimeSlot*)activity.timeslots.anyObject).start]];
+                [writer writeField:[activityDateFormatter stringFromDate:activity.date]];
                 [writer writeField:[NSString stringWithFormat:@"%@ (%@)", activity.project.name, activity.project.subname]];
                 [writer writeField:activity.note];
                 [writer writeField:[NSString stringWithFormat:@"%.2f", [activity duration]]];
@@ -230,8 +230,8 @@
         
         NSArray* activitiesForDay = [self.activitiesByDay objectAtIndex:indexPath.section];
         
-        TimeSlot* slot = ((Activity*)activitiesForDay[0]).timeslots.anyObject;
-        NSString* dateString = [_dateFormatter stringFromDate:slot.start];
+        Activity* activity = (Activity*)activitiesForDay[0];
+        NSString* dateString = [_dateFormatter stringFromDate:activity.date];
         dayLabel.text = dateString;
         
         // TODO duration

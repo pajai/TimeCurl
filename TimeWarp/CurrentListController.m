@@ -137,13 +137,19 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     NewActivityController* controller = (NewActivityController*)segue.destinationViewController;
-    // don't set controller.currentDate -> taken from the activity
  
     if ([segue.identifier isEqualToString:@"EditActivity"]) {
         
         NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
         Activity* activity = [self.activities objectAtIndex:indexPath.row];
         controller.activity = activity;
+        
+        // don't set controller.currentDate -> taken from the activity
+        
+    }
+    else if ([segue.identifier isEqualToString:@"NewActivity"]){
+
+        controller.currentDate = self.currentDate;
         
     }
 }

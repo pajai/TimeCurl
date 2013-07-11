@@ -62,7 +62,7 @@
     NSDate* day      = [TimeUtils dayForDate:date];
     NSDate* dayAfter = [day dateByAddingTimeInterval:3600*24];
     // TODO perhaps not the most efficient query
-    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"ANY self.timeslots.start >= %@ AND ANY self.timeslots.start < %@", day, dayAfter];
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"self.date >= %@ AND self.date < %@", day, dayAfter];
     [fetchRequest setPredicate:predicate];
     
     NSError* error = nil;
@@ -88,13 +88,12 @@
     NSDate* month      = [TimeUtils monthForDate:date];
     NSDate* monthAfter = [TimeUtils incrementMonthForMonth:month];
     // TODO perhaps not the most efficient query
-    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"ANY self.timeslots.start >= %@ AND ANY self.timeslots.start < %@", month, monthAfter];
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"self.date >= %@ AND self.date < %@", month, monthAfter];
     [fetchRequest setPredicate:predicate];
     
-    // TODO desc sort
-    //NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"timeslots.@min.start" ascending:NO];
-    //NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
-    //[fetchRequest setSortDescriptors:sortDescriptors];
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+    [fetchRequest setSortDescriptors:sortDescriptors];
     
     NSError* error = nil;
     NSArray* result = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
@@ -107,8 +106,7 @@
     NSDate* currentDay = nil;
     NSMutableArray* activitiesForSingleDay = nil;
     for (Activity* activity in result) {
-        TimeSlot* anySlot = (TimeSlot*)[activity.timeslots anyObject];
-        NSDate* actDay = [TimeUtils dayForDate:anySlot.start];
+        NSDate* actDay = [TimeUtils dayForDate:activity.date];
         
         if (![actDay isEqual:currentDay]) {
             activitiesForSingleDay = [NSMutableArray array];

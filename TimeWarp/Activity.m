@@ -13,6 +13,7 @@
 
 @implementation Activity
 
+@dynamic date;
 @dynamic note;
 @dynamic project;
 @dynamic timeslots;
