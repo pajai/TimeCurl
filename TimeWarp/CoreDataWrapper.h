@@ -11,7 +11,7 @@
 #import "Activity.h"
 #import "TimeSlot.h"
 
-@interface ModelUtils : NSObject
+@interface CoreDataWrapper : NSObject
 
 @property (strong, nonatomic) NSManagedObjectModel* managedObjectModel;
 @property (strong, nonatomic) NSManagedObjectContext* managedObjectContext;

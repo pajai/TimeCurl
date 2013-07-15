@@ -10,7 +10,7 @@
 #import "Project.h"
 #import "AppDelegate.h"
 #import "AddProjectController.h"
-#import "ModelUtils.h"
+#import "CoreDataWrapper.h"
 
 
 @interface ProjectListController ()
@@ -21,7 +21,7 @@
 
 - (void) loadData
 {
-    self.projects = [NSMutableArray arrayWithArray:[[ModelUtils shared] fetchAllProjects]];
+    self.projects = [NSMutableArray arrayWithArray:[[CoreDataWrapper shared] fetchAllProjects]];
     [self.tableView reloadData];
 }
 
@@ -186,8 +186,8 @@
         
         Project* project = [self.projects objectAtIndex:self.rowToDelete.row];
         [self.projects removeObject:project];
-        [[ModelUtils shared] deleteObject:project];
-        [[ModelUtils shared] saveContext];
+        [[CoreDataWrapper shared] deleteObject:project];
+        [[CoreDataWrapper shared] saveContext];
         
         [self.tableView deleteRowsAtIndexPaths:@[self.rowToDelete] withRowAnimation:UITableViewRowAnimationFade];
 

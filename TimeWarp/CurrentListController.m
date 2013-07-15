@@ -11,7 +11,7 @@
 #import "Activity.h"
 #import "Project.h"
 #import "NewActivityController.h"
-#import "ModelUtils.h"
+#import "CoreDataWrapper.h"
 #import "SlotInterval.h"
 
 // TODO can we parameterize this?
@@ -68,7 +68,7 @@
 
 - (void) loadData
 {
-    self.activities = [NSMutableArray arrayWithArray:[[ModelUtils shared] fetchActivitiesForDate:self.currentDate]];
+    self.activities = [NSMutableArray arrayWithArray:[[CoreDataWrapper shared] fetchActivitiesForDate:self.currentDate]];
     
     [self.tableView reloadData];
 }
@@ -297,8 +297,8 @@
         
         Activity* activity = [self.activities objectAtIndex:indexPath.row];
         [self.activities removeObject:activity];
-        [[ModelUtils shared] deleteObject:activity];
-        [[ModelUtils shared] saveContext];
+        [[CoreDataWrapper shared] deleteObject:activity];
+        [[CoreDataWrapper shared] saveContext];
         
         [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         

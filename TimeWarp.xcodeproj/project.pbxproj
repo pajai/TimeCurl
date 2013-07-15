@@ -15,8 +15,8 @@
 		4315354E17735D0100B5D825 /* NewActivityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4315354C17735D0100B5D825 /* NewActivityController.m */; };
 		4315355117738F5D00B5D825 /* TimeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4315355017738F5D00B5D825 /* TimeUtils.m */; };
 		4315355217738F5D00B5D825 /* TimeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4315355017738F5D00B5D825 /* TimeUtils.m */; };
-		431535561773936000B5D825 /* ModelUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 431535551773936000B5D825 /* ModelUtils.m */; };
-		431535571773936000B5D825 /* ModelUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 431535551773936000B5D825 /* ModelUtils.m */; };
+		431535561773936000B5D825 /* CoreDataWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 431535551773936000B5D825 /* CoreDataWrapper.m */; };
+		431535571773936000B5D825 /* CoreDataWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 431535551773936000B5D825 /* CoreDataWrapper.m */; };
 		4323D45B176EF79500A083AB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4323D45A176EF79500A083AB /* Foundation.framework */; };
 		4323D45D176EF79500A083AB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4323D45C176EF79500A083AB /* CoreGraphics.framework */; };
 		4323D45F176EF79500A083AB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4323D45E176EF79500A083AB /* UIKit.framework */; };
@@ -76,8 +76,8 @@
 		4315354C17735D0100B5D825 /* NewActivityController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewActivityController.m; sourceTree = "<group>"; };
 		4315354F17738F5D00B5D825 /* TimeUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeUtils.h; sourceTree = "<group>"; };
 		4315355017738F5D00B5D825 /* TimeUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeUtils.m; sourceTree = "<group>"; };
-		431535541773936000B5D825 /* ModelUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelUtils.h; sourceTree = "<group>"; };
-		431535551773936000B5D825 /* ModelUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelUtils.m; sourceTree = "<group>"; };
+		431535541773936000B5D825 /* CoreDataWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataWrapper.h; sourceTree = "<group>"; };
+		431535551773936000B5D825 /* CoreDataWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataWrapper.m; sourceTree = "<group>"; };
 		4323D457176EF79500A083AB /* TimeWarp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeWarp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4323D45A176EF79500A083AB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4323D45C176EF79500A083AB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -174,8 +174,8 @@
 		431535531773933500B5D825 /* persistence */ = {
 			isa = PBXGroup;
 			children = (
-				431535541773936000B5D825 /* ModelUtils.h */,
-				431535551773936000B5D825 /* ModelUtils.m */,
+				431535541773936000B5D825 /* CoreDataWrapper.h */,
+				431535551773936000B5D825 /* CoreDataWrapper.m */,
 			);
 			name = persistence;
 			sourceTree = "<group>";
@@ -415,7 +415,7 @@
 				43E70435178DC2F000CB5AA2 /* MailComposeHandler.m in Sources */,
 				4323D4B4176F0B0100A083AB /* Activity.m in Sources */,
 				4323D4B0176F0B0100A083AB /* Project.m in Sources */,
-				431535561773936000B5D825 /* ModelUtils.m in Sources */,
+				431535561773936000B5D825 /* CoreDataWrapper.m in Sources */,
 				43E70430178DBF5B00CB5AA2 /* CHCSVParser.m in Sources */,
 				4315354D17735D0100B5D825 /* NewActivityController.m in Sources */,
 				437943201770384600188F99 /* CurrentListController.m in Sources */,
@@ -440,7 +440,7 @@
 				4323D499176F04BE00A083AB /* ProjectListController.m in Sources */,
 				4323D4B1176F0B0100A083AB /* Project.m in Sources */,
 				4315354A1773060800B5D825 /* SlotInterval.m in Sources */,
-				431535571773936000B5D825 /* ModelUtils.m in Sources */,
+				431535571773936000B5D825 /* CoreDataWrapper.m in Sources */,
 				4315354E17735D0100B5D825 /* NewActivityController.m in Sources */,
 				431535441770A1D600B5D825 /* GraduationView.m in Sources */,
 				4323D4B5176F0B0100A083AB /* Activity.m in Sources */,

@@ -8,7 +8,7 @@
 
 #import "AddProjectController.h"
 #import "AppDelegate.h"
-#import "ModelUtils.h"
+#import "CoreDataWrapper.h"
 
 @interface AddProjectController ()
 
@@ -33,12 +33,12 @@
         if (self.project == nil) {
             // new project
             
-            Project* project = [[ModelUtils shared] newProject];
+            Project* project = [[CoreDataWrapper shared] newProject];
             project.name = self.name.text;
             project.subname = self.subname.text;
             project.note = self.note.text;
 
-            [[ModelUtils shared] saveContext];
+            [[CoreDataWrapper shared] saveContext];
 
         }
         else {
@@ -48,7 +48,7 @@
             self.project.subname = self.subname.text;
             self.project.note = self.note.text;
             
-            [[ModelUtils shared] saveContext];
+            [[CoreDataWrapper shared] saveContext];
         }
         
         [self.navigationController popViewControllerAnimated:YES];

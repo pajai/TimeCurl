@@ -6,23 +6,23 @@
 //  Copyright (c) 2013 zuehlke. All rights reserved.
 //
 
-#import "ModelUtils.h"
+#import "CoreDataWrapper.h"
 #import "AppDelegate.h"
 #import <CoreData/CoreData.h>
 #import "TimeUtils.h"
 
 
 
-@implementation ModelUtils
+@implementation CoreDataWrapper
 
 + (instancetype)shared
 {
-    static ModelUtils *sharedInstance = nil;
+    static CoreDataWrapper *sharedInstance = nil;
     static dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^{
         if (sharedInstance == nil){
-            sharedInstance = [[ModelUtils alloc] init];
+            sharedInstance = [[CoreDataWrapper alloc] init];
         }
     });
     return sharedInstance;

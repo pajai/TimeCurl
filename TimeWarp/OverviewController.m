@@ -7,7 +7,7 @@
 //
 
 #import "OverviewController.h"
-#import "ModelUtils.h"
+#import "CoreDataWrapper.h"
 #import "TimeUtils.h"
 #import "CHCSVParser.h"
 #import "MailComposeHandler.h"
@@ -27,7 +27,7 @@
 
 - (void) loadData
 {
-    self.activitiesByDay = [NSMutableArray arrayWithArray:[[ModelUtils shared] fetchActivitiesByDayForMonth:self.currentDate]];
+    self.activitiesByDay = [NSMutableArray arrayWithArray:[[CoreDataWrapper shared] fetchActivitiesByDayForMonth:self.currentDate]];
     
     [self.tableView reloadData];
 }

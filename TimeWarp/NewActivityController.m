@@ -11,7 +11,7 @@
 #import "SlotInterval.h"
 #import "AppDelegate.h"
 #import "TimeUtils.h"
-#import "ModelUtils.h"
+#import "CoreDataWrapper.h"
 #import "Project.h"
 
 
@@ -48,7 +48,7 @@
     NSLog(@"NewActivityController: done pressed");
     
     if (self.activity == nil) {
-        self.activity = [[ModelUtils shared] newActivity];
+        self.activity = [[CoreDataWrapper shared] newActivity];
     }
     
     NSMutableSet* newSlots = [NSMutableSet set];
@@ -63,7 +63,7 @@
         }
         // nothing found? -> create a new one
         else {
-            timeSlot = [[ModelUtils shared] newTimeSlot];
+            timeSlot = [[CoreDataWrapper shared] newTimeSlot];
         }
         
         timeSlot.start = @(slot.begin);
@@ -81,17 +81,17 @@
     // delete old slots which are not used anymore
     for (int j = i; j < [existingSlots count]; j++) {
         TimeSlot* slot = [existingSlots objectAtIndex:j];
-        [[ModelUtils shared] deleteObject:slot];
+        [[CoreDataWrapper shared] deleteObject:slot];
     }
     
-    [[ModelUtils shared] saveContext];
+    [[CoreDataWrapper shared] saveContext];
     
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void) loadProjects
 {
-    self.projects = [[ModelUtils shared] fetchAllProjects];
+    self.projects = [[CoreDataWrapper shared] fetchAllProjects];
 }
 
 #pragma mark transitions
