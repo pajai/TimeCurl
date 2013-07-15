@@ -68,7 +68,7 @@
 
 - (void) loadData
 {
-    self.activities = [NSMutableArray arrayWithArray:[ModelUtils fetchActivitiesForDate:self.currentDate]];
+    self.activities = [NSMutableArray arrayWithArray:[[ModelUtils shared] fetchActivitiesForDate:self.currentDate]];
     
     [self.tableView reloadData];
 }
@@ -297,8 +297,8 @@
         
         Activity* activity = [self.activities objectAtIndex:indexPath.row];
         [self.activities removeObject:activity];
-        [ModelUtils deleteObject:activity];
-        [ModelUtils saveContext];
+        [[ModelUtils shared] deleteObject:activity];
+        [[ModelUtils shared] saveContext];
         
         [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         

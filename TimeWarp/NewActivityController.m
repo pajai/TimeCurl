@@ -48,7 +48,7 @@
     NSLog(@"NewActivityController: done pressed");
     
     if (self.activity == nil) {
-        self.activity = [ModelUtils newActivity];
+        self.activity = [[ModelUtils shared] newActivity];
     }
     
     NSMutableSet* newSlots = [NSMutableSet set];
@@ -63,7 +63,7 @@
         }
         // nothing found? -> create a new one
         else {
-            timeSlot = [ModelUtils newTimeSlot];
+            timeSlot = [[ModelUtils shared] newTimeSlot];
         }
         
         timeSlot.start = @(slot.begin);
@@ -81,17 +81,17 @@
     // delete old slots which are not used anymore
     for (int j = i; j < [existingSlots count]; j++) {
         TimeSlot* slot = [existingSlots objectAtIndex:j];
-        [ModelUtils deleteObject:slot];
+        [[ModelUtils shared] deleteObject:slot];
     }
     
-    [ModelUtils saveContext];
+    [[ModelUtils shared] saveContext];
     
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void) loadProjects
 {
-    self.projects = [ModelUtils fetchAllProjects];
+    self.projects = [[ModelUtils shared] fetchAllProjects];
 }
 
 #pragma mark transitions

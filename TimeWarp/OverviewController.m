@@ -27,7 +27,7 @@
 
 - (void) loadData
 {
-    self.activitiesByDay = [NSMutableArray arrayWithArray:[ModelUtils fetchActivitiesByDayForMonth:self.currentDate]];
+    self.activitiesByDay = [NSMutableArray arrayWithArray:[[ModelUtils shared] fetchActivitiesByDayForMonth:self.currentDate]];
     
     [self.tableView reloadData];
 }

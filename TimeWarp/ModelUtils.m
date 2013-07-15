@@ -12,18 +12,97 @@
 #import "TimeUtils.h"
 
 
+
 @implementation ModelUtils
 
-+ (NSArray*) fetchAllProjects
++ (instancetype)shared
 {
-    NSManagedObjectContext* managedObjectContext = [ModelUtils context];
+    static ModelUtils *sharedInstance = nil;
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        if (sharedInstance == nil){
+            sharedInstance = [[ModelUtils alloc] init];
+        }
+    });
+    return sharedInstance;
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        // initialization
+    }
+    return self;
+}
+
+#pragma mark needed for CoreData
+
+- (NSManagedObjectContext*) managedObjectContext
+{
+    if (_managedObjectContext != nil) {
+        return _managedObjectContext;
+    }
+    NSPersistentStoreCoordinator* coordinator = [self persistentStoreCoordinator];
+    if (coordinator != nil) {
+        _managedObjectContext = [[NSManagedObjectContext alloc] init];
+        [_managedObjectContext setPersistentStoreCoordinator:coordinator];
+    }
+    
+    return _managedObjectContext;
+}
+
+- (NSManagedObjectModel*) managedObjectModel
+{
+    if (_managedObjectModel != nil) {
+        return _managedObjectModel;
+    }
+    _managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
+    
+    return _managedObjectModel;
+}
+
+- (NSPersistentStoreCoordinator*) persistentStoreCoordinator
+{
+    if (_persistentStoreCoordinator != nil) {
+        return _persistentStoreCoordinator;
+    }
+    NSURL *storeUrl = [[self applicationDocumentsDirectory]    URLByAppendingPathComponent:@"TimeWarp.sqlite"]; //actual SDK style for blank db
+    NSLog(@"app dir: ---%@---", [self applicationDocumentsDirectory]);
+    NSLog(@"store url: ---%@---", storeUrl);
+    
+    NSError* error = nil;
+    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
+    
+    NSDictionary* options = @{NSPersistentStoreUbiquitousContentNameKey: @"",
+                              NSPersistentStoreUbiquitousContentURLKey:  @""};
+    //(NSPersistentStoreUbiquitousContentNameKey,NSPersistentStoreUbiquitousContentURLKey)
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:options error:&error]) {
+        NSLog(@"Error during store creation: %@, %@", [error localizedDescription], [error userInfo]);
+    }
+    
+    return _persistentStoreCoordinator;
+}
+
+- (NSURL *)applicationDocumentsDirectory
+{
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+
+#pragma mark utility methods
+
+- (NSArray*) fetchAllProjects
+{
+    NSManagedObjectContext* managedObjectContext = [self managedObjectContext];
     NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription* entity = [NSEntityDescription entityForName:@"Project" inManagedObjectContext:managedObjectContext];
     [fetchRequest setEntity:entity];
     NSError* error = nil;
     NSArray* result = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
 
-    if ([ModelUtils logError:error withMessage:@"fetch all projects"]) {
+    if ([self logError:error withMessage:@"fetch all projects"]) {
         return nil;
     }
     else {
@@ -31,18 +110,18 @@
     }
 }
 
-+ (NSArray*) fetchAllActivities
+- (NSArray*) fetchAllActivities
 {
     NSLog(@"Fetch all activities");
     
-    NSManagedObjectContext* managedObjectContext = [ModelUtils context];
+    NSManagedObjectContext* managedObjectContext = [self managedObjectContext];
     NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription* entity = [NSEntityDescription entityForName:@"Activity" inManagedObjectContext:managedObjectContext];
     [fetchRequest setEntity:entity];
     NSError* error = nil;
     NSArray* result = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
 
-    if ([ModelUtils logError:error withMessage:@"fetch all activities"]) {
+    if ([self logError:error withMessage:@"fetch all activities"]) {
         return nil;
     }
     else {
@@ -50,11 +129,11 @@
     }
 }
 
-+ (NSArray*) fetchActivitiesForDate:(NSDate*) date
+- (NSArray*) fetchActivitiesForDate:(NSDate*) date
 {
     NSLog(@"Fetch activities for %@", date);
     
-    NSManagedObjectContext* managedObjectContext = [ModelUtils context];
+    NSManagedObjectContext* managedObjectContext = [self managedObjectContext];
     NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription* entity = [NSEntityDescription entityForName:@"Activity" inManagedObjectContext:managedObjectContext];
     [fetchRequest setEntity:entity];
@@ -68,7 +147,7 @@
     NSError* error = nil;
     NSArray* result = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
-    if ([ModelUtils logError:error withMessage:@"fetch all activities"]) {
+    if ([self logError:error withMessage:@"fetch all activities"]) {
         return nil;
     }
     else {
@@ -76,11 +155,11 @@
     }
 }
 
-+ (NSArray*) fetchActivitiesByDayForMonth:(NSDate*) date
+- (NSArray*) fetchActivitiesByDayForMonth:(NSDate*) date
 {
     NSLog(@"Fetch activities by day for month %@", date);
     
-    NSManagedObjectContext* managedObjectContext = [ModelUtils context];
+    NSManagedObjectContext* managedObjectContext = [self managedObjectContext];
     NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription* entity = [NSEntityDescription entityForName:@"Activity" inManagedObjectContext:managedObjectContext];
     [fetchRequest setEntity:entity];
@@ -98,7 +177,7 @@
     NSError* error = nil;
     NSArray* result = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
-    if ([ModelUtils logError:error withMessage:@"fetch all activities"]) {
+    if ([self logError:error withMessage:@"fetch all activities"]) {
         return nil;
     }
 
@@ -121,45 +200,40 @@
 
 }
 
-+ (Project*) newProject
+- (Project*) newProject
 {
-    NSManagedObjectContext* managedObjectContext = [ModelUtils context];
+    NSManagedObjectContext* managedObjectContext = [self managedObjectContext];
     return [NSEntityDescription insertNewObjectForEntityForName:@"Project" inManagedObjectContext:managedObjectContext];
 }
 
-+ (Activity*) newActivity
+- (Activity*) newActivity
 {
-    NSManagedObjectContext* managedObjectContext = [ModelUtils context];
+    NSManagedObjectContext* managedObjectContext = [self managedObjectContext];
     return [NSEntityDescription insertNewObjectForEntityForName:@"Activity" inManagedObjectContext:managedObjectContext];
 }
 
-+ (TimeSlot*) newTimeSlot
+- (TimeSlot*) newTimeSlot
 {
-    NSManagedObjectContext* managedObjectContext = [ModelUtils context];
+    NSManagedObjectContext* managedObjectContext = [self managedObjectContext];
     return [NSEntityDescription insertNewObjectForEntityForName:@"TimeSlot" inManagedObjectContext:managedObjectContext];
 }
 
-+ (void) saveContext
+- (void) saveContext
 {
     NSError* error = nil;
-    if (![[ModelUtils context] save:&error]) {
+    if (![[self managedObjectContext] save:&error]) {
         NSLog(@"Error happened while saving context: %@", [error localizedDescription]);
     }
     
 }
 
-+ (void) deleteObject:(id)obj
+- (void) deleteObject:(id)obj
 {
-    [[ModelUtils context] deleteObject:obj];
+    NSManagedObjectContext* managedObjectContext = [self managedObjectContext];
+    [managedObjectContext deleteObject:obj];
 }
 
-+ (NSManagedObjectContext*) context
-{
-    AppDelegate* appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-    return appDelegate.managedObjectContext;
-}
-
-+ (BOOL) logError:(NSError*)error withMessage:(NSString*)msg {
+- (BOOL) logError:(NSError*)error withMessage:(NSString*)msg {
     if (error != nil) {
         NSLog(@"Error - %@: %@, %@", msg, [error localizedDescription], [error userInfo]);
         return YES;

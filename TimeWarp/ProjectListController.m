@@ -21,7 +21,7 @@
 
 - (void) loadData
 {
-    self.projects = [NSMutableArray arrayWithArray:[ModelUtils fetchAllProjects]];
+    self.projects = [NSMutableArray arrayWithArray:[[ModelUtils shared] fetchAllProjects]];
     [self.tableView reloadData];
 }
 
@@ -186,8 +186,8 @@
         
         Project* project = [self.projects objectAtIndex:self.rowToDelete.row];
         [self.projects removeObject:project];
-        [ModelUtils deleteObject:project];
-        [ModelUtils saveContext];
+        [[ModelUtils shared] deleteObject:project];
+        [[ModelUtils shared] saveContext];
         
         [self.tableView deleteRowsAtIndexPaths:@[self.rowToDelete] withRowAnimation:UITableViewRowAnimationFade];
 

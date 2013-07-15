@@ -33,12 +33,12 @@
         if (self.project == nil) {
             // new project
             
-            Project* project = [ModelUtils newProject];
+            Project* project = [[ModelUtils shared] newProject];
             project.name = self.name.text;
             project.subname = self.subname.text;
             project.note = self.note.text;
 
-            [ModelUtils saveContext];
+            [[ModelUtils shared] saveContext];
 
         }
         else {
@@ -48,7 +48,7 @@
             self.project.subname = self.subname.text;
             self.project.note = self.note.text;
             
-            [ModelUtils saveContext];
+            [[ModelUtils shared] saveContext];
         }
         
         [self.navigationController popViewControllerAnimated:YES];

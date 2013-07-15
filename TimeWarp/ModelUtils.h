@@ -13,19 +13,27 @@
 
 @interface ModelUtils : NSObject
 
-+ (NSArray*) fetchAllProjects;
-+ (NSArray*) fetchAllActivities;
-+ (NSArray*) fetchActivitiesForDate:(NSDate*) date;
-+ (NSArray*) fetchActivitiesByDayForMonth:(NSDate*) date;
+@property (strong, nonatomic) NSManagedObjectModel* managedObjectModel;
+@property (strong, nonatomic) NSManagedObjectContext* managedObjectContext;
+@property (strong, nonatomic) NSPersistentStoreCoordinator* persistentStoreCoordinator;
 
-+ (Project*) newProject;
-+ (Activity*) newActivity;
-+ (TimeSlot*) newTimeSlot;
++ (instancetype)shared;
 
-+ (void) saveContext;
-+ (void) deleteObject:(id)obj;
+- (NSURL *)applicationDocumentsDirectory;
 
-+ (NSManagedObjectContext*) context;
-+ (BOOL) logError:(NSError*)error withMessage:(NSString*)msg;
+- (NSArray*) fetchAllProjects;
+- (NSArray*) fetchAllActivities;
+- (NSArray*) fetchActivitiesForDate:(NSDate*) date;
+- (NSArray*) fetchActivitiesByDayForMonth:(NSDate*) date;
+
+- (Project*) newProject;
+- (Activity*) newActivity;
+- (TimeSlot*) newTimeSlot;
+
+- (void) saveContext;
+- (void) deleteObject:(id)obj;
+
+- (BOOL) logError:(NSError*)error withMessage:(NSString*)msg;
+
 
 @end
