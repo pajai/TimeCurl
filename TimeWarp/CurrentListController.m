@@ -132,6 +132,12 @@
     }
 }
 
+- (void) storeDidChange
+{
+    [self loadData];
+}
+
+
 #pragma mark transitions
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -185,6 +191,7 @@
     
     [self loadData];
     [self updateTitle];
+    [CoreDataWrapper shared].storeChangeDelegate = self;
 }
 
 - (void)didReceiveMemoryWarning

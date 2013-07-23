@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "MailComposeHandler.h"
 #import "MailComposeCallbackDelegate.h"
+#import "StoreChangeDelegate.h"
 
-@interface OverviewController : UITableViewController <UIAlertViewDelegate, MailComposeCallbackDelegate> {
+
+@interface OverviewController : UITableViewController <UIAlertViewDelegate, MailComposeCallbackDelegate, StoreChangeDelegate> {
     
     NSDateFormatter* _dateFormatter;
     

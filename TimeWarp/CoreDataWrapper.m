@@ -11,6 +11,14 @@
 #import <CoreData/CoreData.h>
 #import "TimeUtils.h"
 
+NSString * const DPModelName        = @"ItemModel";
+NSString * const DPStoreName        = @"TimeWarp.sqlite";
+NSString * const DPUbiquitousName   = @"com~timewarp~coredataicloud";
+
+
+@interface CoreDataWrapper ()
+
+@end
 
 
 @implementation CoreDataWrapper
@@ -46,10 +54,9 @@
     }
     NSPersistentStoreCoordinator* coordinator = [self persistentStoreCoordinator];
     if (coordinator != nil) {
-        _managedObjectContext = [[NSManagedObjectContext alloc] init];
+        _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
         [_managedObjectContext setPersistentStoreCoordinator:coordinator];
     }
-    
     return _managedObjectContext;
 }
 
@@ -58,6 +65,12 @@
     if (_managedObjectModel != nil) {
         return _managedObjectModel;
     }
+    
+    // new
+    //NSURL *modelURL = [[NSBundle mainBundle] URLForResource:DPModelName withExtension:@"momd"];
+    //_managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+    
+    // old
     _managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
     
     return _managedObjectModel;
@@ -68,19 +81,37 @@
     if (_persistentStoreCoordinator != nil) {
         return _persistentStoreCoordinator;
     }
-    NSURL *storeUrl = [[self applicationDocumentsDirectory]    URLByAppendingPathComponent:@"TimeWarp.sqlite"]; //actual SDK style for blank db
-    NSLog(@"app dir: ---%@---", [self applicationDocumentsDirectory]);
-    NSLog(@"store url: ---%@---", storeUrl);
     
-    NSError* error = nil;
-    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:DPStoreName];
     
-    NSDictionary* options = @{NSPersistentStoreUbiquitousContentNameKey: @"",
-                              NSPersistentStoreUbiquitousContentURLKey:  @""};
-    //(NSPersistentStoreUbiquitousContentNameKey,NSPersistentStoreUbiquitousContentURLKey)
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:options error:&error]) {
-        NSLog(@"Error during store creation: %@, %@", [error localizedDescription], [error userInfo]);
+    NSError *error = nil;
+    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
+    NSDictionary *options = @{ NSMigratePersistentStoresAutomaticallyOption : @YES,
+                               NSInferMappingModelAutomaticallyOption : @YES,
+                               NSPersistentStoreUbiquitousContentNameKey : DPUbiquitousName
+                               };
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
+                                                   configuration:nil
+                                                             URL:storeURL
+                                                         options:options
+                                                           error:&error])
+    {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
     }
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(persistentStoreDidImportUbiquitiousContentChanges:)
+                                                 name:NSPersistentStoreDidImportUbiquitousContentChangesNotification
+                                               object:_persistentStoreCoordinator];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(storesWillChange:)
+                                                 name:NSPersistentStoreCoordinatorStoresWillChangeNotification
+                                               object:_persistentStoreCoordinator];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(storesDidChange:)
+                                                 name:NSPersistentStoreCoordinatorStoresDidChangeNotification
+                                               object:_persistentStoreCoordinator];
     
     return _persistentStoreCoordinator;
 }
@@ -90,6 +121,60 @@
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
+# pragma iCloud Support
+
+- (void)persistentStoreDidImportUbiquitiousContentChanges:(NSNotification *)changeNotification
+{
+    NSLog(@">>>> MERGE CANDIDATE");
+
+    NSManagedObjectContext *moc = [self managedObjectContext];
+    [moc performBlock:^{
+        NSDictionary *userInfo = [changeNotification userInfo];
+        NSLog(@">>>> BEGIN");
+        NSLog(@"%@", userInfo);
+        NSLog(@">>>> END");
+        if (([userInfo objectForKey:NSInsertedObjectsKey] > 0) &&
+            ([userInfo objectForKey:NSUpdatedObjectsKey] > 0) &&
+            ([userInfo objectForKey:NSDeletedObjectsKey] > 0))
+        {
+            NSLog(@">>>> MERGE");
+            [moc mergeChangesFromContextDidSaveNotification:changeNotification];
+            [self.storeChangeDelegate storeDidChange];
+        }
+    }];
+}
+
+- (void)storesWillChange:(NSNotification *)n
+{
+    NSManagedObjectContext *moc = [self managedObjectContext];
+    [moc performBlockAndWait:^{
+        NSError *error = nil;
+        if ([moc hasChanges]) {
+            [moc save:&error];
+        }
+        [moc reset];
+    }];
+    //reset user interface
+    
+    NSLog(@">>>> Stores Will Change, TODO update UI");
+    NSLog(@">>>> BEGIN");
+    NSDictionary *userInfo = [n userInfo];
+    NSLog(@"%@", userInfo);
+    NSLog(@">>>> END");
+
+}
+
+- (void)storesDidChange:(NSNotification *)n
+{
+    //refresh user interface
+    
+    NSLog(@">>>> Stores Did Change, TODO update UI");
+    NSLog(@">>>> BEGIN");
+    NSDictionary *userInfo = [n userInfo];
+    NSLog(@"%@", userInfo);
+    NSLog(@">>>> END");
+
+}
 
 #pragma mark utility methods
 

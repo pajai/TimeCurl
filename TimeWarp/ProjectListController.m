@@ -41,9 +41,17 @@
 
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void) storeDidChange
 {
     [self loadData];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self loadData];
+    [CoreDataWrapper shared].storeChangeDelegate = self;
 }
 
 - (void)didReceiveMemoryWarning

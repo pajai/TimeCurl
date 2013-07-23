@@ -10,16 +10,22 @@
 #import "Project.h"
 #import "Activity.h"
 #import "TimeSlot.h"
+#import "StoreChangeDelegate.h"
 
 @interface CoreDataWrapper : NSObject
 
 @property (strong, nonatomic) NSManagedObjectModel* managedObjectModel;
 @property (strong, nonatomic) NSManagedObjectContext* managedObjectContext;
 @property (strong, nonatomic) NSPersistentStoreCoordinator* persistentStoreCoordinator;
+@property (weak, nonatomic) id<StoreChangeDelegate> storeChangeDelegate;
 
 + (instancetype)shared;
 
 - (NSURL *)applicationDocumentsDirectory;
+
+- (void)persistentStoreDidImportUbiquitiousContentChanges:(NSNotification *)changeNotification;
+- (void)storesWillChange:(NSNotification *)n;
+- (void)storesDidChange:(NSNotification *)n;
 
 - (NSArray*) fetchAllProjects;
 - (NSArray*) fetchAllActivities;

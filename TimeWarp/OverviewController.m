@@ -194,6 +194,7 @@
     
     [self loadData];
     [self updateTitle];
+    [CoreDataWrapper shared].storeChangeDelegate = self;
 }
 
 - (void)didReceiveMemoryWarning

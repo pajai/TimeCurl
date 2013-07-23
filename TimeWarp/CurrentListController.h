@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import "StoreChangeDelegate.h"
 
 
-@interface CurrentListController : UITableViewController <NSFetchedResultsControllerDelegate>
+@interface CurrentListController : UITableViewController <NSFetchedResultsControllerDelegate, StoreChangeDelegate>
 
 @property (nonatomic, strong) NSMutableArray* activities;
 

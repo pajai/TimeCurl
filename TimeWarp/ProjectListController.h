@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import "StoreChangeDelegate.h"
 
-@interface ProjectListController : UITableViewController <NSFetchedResultsControllerDelegate, UIAlertViewDelegate>
+@interface ProjectListController : UITableViewController <NSFetchedResultsControllerDelegate, UIAlertViewDelegate, StoreChangeDelegate>
 
 @property (nonatomic, strong) NSMutableArray* projects;
 
