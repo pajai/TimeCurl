@@ -11,10 +11,15 @@
 #import "AppDelegate.h"
 #import "AddProjectController.h"
 #import "CoreDataWrapper.h"
+#import "DTCustomColoredAccessory.h"
 
 
 @interface ProjectListController ()
+
+@property (strong, nonatomic) UIColor* blueColor;
+
 - (void) loadData;
+
 @end
 
 @implementation ProjectListController
@@ -39,6 +44,8 @@
 {
     [super viewDidLoad];
 
+    [self.tableView setSeparatorColor:[UIColor colorWithRed:(191.0/255) green:(221.0/255) blue:1.0 alpha:1.0]];
+    self.blueColor = [UIColor colorWithRed:0.0 green:(121.0/255) blue:1.0 alpha:1.0];
 }
 
 - (void) storeDidChange
@@ -129,8 +136,13 @@
 {
     UITableViewCell *cell = nil;
     if (indexPath.section == 0) {
+
         static NSString *CellIdentifier = @"ProjectCell";
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        
+        DTCustomColoredAccessory *accessory = [DTCustomColoredAccessory accessoryWithColor:self.blueColor];
+        accessory.highlightedColor = self.blueColor;
+        cell.accessoryView = accessory;
         
         UILabel* nameLabel    = (UILabel*)[cell viewWithTag:100];
         UILabel* subnameLabel = (UILabel*)[cell viewWithTag:101];
@@ -138,6 +150,7 @@
         Project* project = [self.projects objectAtIndex:indexPath.row];
         nameLabel.text = project.name;
         subnameLabel.text = project.subname;
+
     }
     else {
         static NSString *CellIdentifier = @"NewCell";
@@ -145,6 +158,17 @@
     }
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    if (indexPath.section == 0) {
+        return 44;
+    }
+    else {
+        return 82;
+    }
+
 }
 
 // Override to support conditional editing of the table view.

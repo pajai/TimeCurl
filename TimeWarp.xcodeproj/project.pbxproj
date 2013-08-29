@@ -39,6 +39,7 @@
 		4323D4B1176F0B0100A083AB /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 4323D4AF176F0B0100A083AB /* Project.m */; };
 		4323D4B4176F0B0100A083AB /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 4323D4B3176F0B0100A083AB /* Activity.m */; };
 		4323D4B5176F0B0100A083AB /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 4323D4B3176F0B0100A083AB /* Activity.m */; };
+		432B79D117CFF3CD00041A7D /* DTCustomColoredAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 432B79D017CFF3CD00041A7D /* DTCustomColoredAccessory.m */; };
 		43395AF517CF74A900F04CB2 /* TSQCalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 43395AEE17CF74A900F04CB2 /* TSQCalendarCell.m */; };
 		43395AF617CF74A900F04CB2 /* TSQCalendarMonthHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 43395AF017CF74A900F04CB2 /* TSQCalendarMonthHeaderCell.m */; };
 		43395AF717CF74A900F04CB2 /* TSQCalendarRowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 43395AF217CF74A900F04CB2 /* TSQCalendarRowCell.m */; };
@@ -112,6 +113,8 @@
 		4323D4B6176F0E6100A083AB /* AddProjectController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddProjectController.h; sourceTree = "<group>"; };
 		4323D4B7176F0E6100A083AB /* AddProjectController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddProjectController.m; sourceTree = "<group>"; };
 		4326CE11179E7D820053F781 /* StoreChangeDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreChangeDelegate.h; sourceTree = "<group>"; };
+		432B79CF17CFF3CD00041A7D /* DTCustomColoredAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTCustomColoredAccessory.h; sourceTree = "<group>"; };
+		432B79D017CFF3CD00041A7D /* DTCustomColoredAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTCustomColoredAccessory.m; sourceTree = "<group>"; };
 		43395AEB17CF74A900F04CB2 /* TimesSquare-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TimesSquare-Prefix.pch"; sourceTree = "<group>"; };
 		43395AEC17CF74A900F04CB2 /* TimesSquare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimesSquare.h; sourceTree = "<group>"; };
 		43395AED17CF74A900F04CB2 /* TSQCalendarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSQCalendarCell.h; sourceTree = "<group>"; };
@@ -184,6 +187,8 @@
 				431535481773060700B5D825 /* SlotInterval.m */,
 				4315354F17738F5D00B5D825 /* TimeUtils.h */,
 				4315355017738F5D00B5D825 /* TimeUtils.m */,
+				432B79CF17CFF3CD00041A7D /* DTCustomColoredAccessory.h */,
+				432B79D017CFF3CD00041A7D /* DTCustomColoredAccessory.m */,
 			);
 			name = misc;
 			sourceTree = "<group>";
@@ -449,6 +454,7 @@
 				4323D46B176EF79500A083AB /* AppDelegate.m in Sources */,
 				4323D498176F04BE00A083AB /* ProjectListController.m in Sources */,
 				43E6027117821A8500EAA813 /* OverviewController.m in Sources */,
+				432B79D117CFF3CD00041A7D /* DTCustomColoredAccessory.m in Sources */,
 				43395AF617CF74A900F04CB2 /* TSQCalendarMonthHeaderCell.m in Sources */,
 				43395AF817CF74A900F04CB2 /* TSQCalendarView.m in Sources */,
 				43E70435178DC2F000CB5AA2 /* MailComposeHandler.m in Sources */,
