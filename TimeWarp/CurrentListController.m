@@ -13,6 +13,8 @@
 #import "NewActivityController.h"
 #import "CoreDataWrapper.h"
 #import "SlotInterval.h"
+#import "SelectDayController.h"
+
 
 // TODO can we parameterize this?
 #define kTextViewWidth 300
@@ -28,6 +30,15 @@
 @end
 
 @implementation CurrentListController
+
+#pragma mark action for unwind segue from SelectDayController
+
+- (IBAction)doneSelectingDay:(UIStoryboardSegue *)segue {
+    NSLog(@"Done selecting day");
+    
+    SelectDayController* sourceController = segue.sourceViewController;
+    self.currentDate = sourceController.currentDate;
+}
 
 #pragma mark - Edit Mode
 
@@ -142,10 +153,10 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NewActivityController* controller = (NewActivityController*)segue.destinationViewController;
  
     if ([segue.identifier isEqualToString:@"EditActivity"]) {
         
+        NewActivityController* controller = (NewActivityController*)segue.destinationViewController;
         NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
         Activity* activity = [self.activities objectAtIndex:indexPath.row];
         controller.activity = activity;
@@ -153,11 +164,19 @@
         // don't set controller.currentDate -> taken from the activity
         
     }
-    else if ([segue.identifier isEqualToString:@"NewActivity"]){
+    else if ([segue.identifier isEqualToString:@"NewActivity"]) {
 
+        NewActivityController* controller = (NewActivityController*)segue.destinationViewController;
         controller.currentDate = self.currentDate;
         
     }
+    else if ([segue.identifier isEqualToString:@"SelectDay"]) {
+        
+        SelectDayController* controller = (SelectDayController*)segue.destinationViewController;
+        controller.currentDate = self.currentDate;
+        
+    }
+    
 }
 
 
