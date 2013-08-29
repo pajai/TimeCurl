@@ -433,6 +433,7 @@
             <objects>
                 <tabBarController id="8YX-ce-x5E" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="JQR-rB-NYL">
                         <rect key="frame" x="0.0" y="431" width="320" height="49"/>
@@ -449,10 +450,10 @@
             </objects>
             <point key="canvasLocation" x="134" y="-277"/>
         </scene>
-        <!--Select Day Controller-->
+        <!--Select Day Controller - Day Selection-->
         <scene sceneID="CwP-3f-Yz3">
             <objects>
-                <viewController id="g9U-bX-AQn" customClass="SelectDayController" sceneMemberID="viewController">
+                <viewController title="Day Selection" id="g9U-bX-AQn" customClass="SelectDayController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4JF-i7-LB2" customClass="TSQCalendarView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

@@ -8,16 +8,50 @@
 
 #import "AppDelegate.h"
 
+@interface AppDelegate ()
+- (void) customizeAppearance;
+@end
+
 @implementation AppDelegate
 
+
+#pragma mark custom private methods
+
+- (void) customizeAppearance
+{
+    self.window.tintAdjustmentMode = UIViewTintAdjustmentModeNormal;
+    
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:(83.0/255) green:(90.0/255) blue:(107.0/255) alpha:1]];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIColor whiteColor],
+      NSForegroundColorAttributeName,
+      nil]];
+
+    [[UITabBar appearance] setBackgroundImage:[UIImage imageNamed:@"tabbar-background"]];
+    [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"tabbar-selected"]];
+    [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
+    
+    // title text in the tab bar always white (also when not selected)
+    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                                        [UIColor whiteColor],
+                                                                        NSForegroundColorAttributeName,
+                                                                        nil]
+                               forState:UIControlStateNormal];
+    
+    UITabBarController* tabBarController = (UITabBarController*)self.window.rootViewController;
+    for (UITabBarItem* item in tabBarController.tabBar.items) {
+        item.image = [item.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    }
+}
 
 #pragma mark usual app delegate methods
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 
-    
-    
+    [self customizeAppearance];
     
     return YES;
 }
