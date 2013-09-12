@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ColorUtils : NSObject
+@interface UIConstants : NSObject
 
 @property (strong, nonatomic) UIColor* deepBlueColor;
 @property (strong, nonatomic) UIColor* lightBlueColor;

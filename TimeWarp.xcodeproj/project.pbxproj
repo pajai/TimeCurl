@@ -61,7 +61,7 @@
 		43E70431178DBF5B00CB5AA2 /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E7042F178DBF5B00CB5AA2 /* CHCSVParser.m */; };
 		43E70435178DC2F000CB5AA2 /* MailComposeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E70433178DC2F000CB5AA2 /* MailComposeHandler.m */; };
 		43E70436178DC2F000CB5AA2 /* MailComposeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E70433178DC2F000CB5AA2 /* MailComposeHandler.m */; };
-		43FECC2217D0823E003179B6 /* ColorUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FECC2117D0823E003179B6 /* ColorUtils.m */; };
+		43FECC2217D0823E003179B6 /* UIConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FECC2117D0823E003179B6 /* UIConstants.m */; };
 		43FECC2417D08525003179B6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43FECC2317D08525003179B6 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
@@ -145,8 +145,8 @@
 		43E70432178DC2F000CB5AA2 /* MailComposeHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailComposeHandler.h; sourceTree = "<group>"; };
 		43E70433178DC2F000CB5AA2 /* MailComposeHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailComposeHandler.m; sourceTree = "<group>"; };
 		43E70434178DC2F000CB5AA2 /* MailComposeCallbackDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailComposeCallbackDelegate.h; sourceTree = "<group>"; };
-		43FECC2017D0823E003179B6 /* ColorUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorUtils.h; sourceTree = "<group>"; };
-		43FECC2117D0823E003179B6 /* ColorUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorUtils.m; sourceTree = "<group>"; };
+		43FECC2017D0823E003179B6 /* UIConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIConstants.h; sourceTree = "<group>"; };
+		43FECC2117D0823E003179B6 /* UIConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIConstants.m; sourceTree = "<group>"; };
 		43FECC2317D08525003179B6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -200,8 +200,8 @@
 				4315355017738F5D00B5D825 /* TimeUtils.m */,
 				432B79CF17CFF3CD00041A7D /* DTCustomColoredAccessory.h */,
 				432B79D017CFF3CD00041A7D /* DTCustomColoredAccessory.m */,
-				43FECC2017D0823E003179B6 /* ColorUtils.h */,
-				43FECC2117D0823E003179B6 /* ColorUtils.m */,
+				43FECC2017D0823E003179B6 /* UIConstants.h */,
+				43FECC2117D0823E003179B6 /* UIConstants.m */,
 			);
 			name = misc;
 			sourceTree = "<group>";
@@ -466,7 +466,7 @@
 			files = (
 				4315355117738F5D00B5D825 /* TimeUtils.m in Sources */,
 				4323D46B176EF79500A083AB /* AppDelegate.m in Sources */,
-				43FECC2217D0823E003179B6 /* ColorUtils.m in Sources */,
+				43FECC2217D0823E003179B6 /* UIConstants.m in Sources */,
 				4323D498176F04BE00A083AB /* ProjectListController.m in Sources */,
 				43E6027117821A8500EAA813 /* OverviewController.m in Sources */,
 				432B79D117CFF3CD00041A7D /* DTCustomColoredAccessory.m in Sources */,

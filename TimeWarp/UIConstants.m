@@ -6,19 +6,19 @@
 //  Copyright (c) 2013 zuehlke. All rights reserved.
 //
 
-#import "ColorUtils.h"
+#import "UIConstants.h"
 
 
-@implementation ColorUtils
+@implementation UIConstants
 
 + (instancetype)shared
 {
-    static ColorUtils *sharedInstance = nil;
+    static UIConstants *sharedInstance = nil;
     static dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^{
         if (sharedInstance == nil){
-            sharedInstance = [[ColorUtils alloc] init];
+            sharedInstance = [[UIConstants alloc] init];
         }
     });
     return sharedInstance;
