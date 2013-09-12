@@ -198,6 +198,12 @@
     [CoreDataWrapper shared].storeChangeDelegate = self;
 }
 
+- (void) storeDidChange
+{
+    [self loadData];
+    [self updateTitle];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
