@@ -14,6 +14,10 @@
 #import "DTCustomColoredAccessory.h"
 
 
+#define kProjectCellHeight 44.0
+#define kNewCellHeight 82.0
+
+
 @interface ProjectListController ()
 
 @property (strong, nonatomic) UIColor* blueColor;
@@ -168,10 +172,10 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     if (indexPath.section == 0) {
-        return 44;
+        return kProjectCellHeight;
     }
     else {
-        return 82;
+        return kNewCellHeight;
     }
 
 }
