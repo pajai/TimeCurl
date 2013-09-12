@@ -159,6 +159,38 @@
 
 #pragma mark transitions
 
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    if ([identifier isEqualToString:@"NewActivity"]) {
+        
+        /*
+         * For a new activity, check that we have at least one project
+         */
+        
+        // TODO: get the number of projects without loading them
+        
+        NSArray* projects = [[CoreDataWrapper shared] fetchAllProjects];
+        if ([projects count] == 0) {
+            // show an error message
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning"
+                                                            message:@"Please insert a project first (in the tab Projects)!"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+            
+            // We need to deselect the row. Since we know which cell it was (new activity cell),
+            // we can directly construct the index path for it.
+            [self.tableView deselectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1] animated:YES];
+        }
+        
+        return [projects count] > 0;
+    }
+    else {
+        return YES;
+    }
+}
+
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
  
@@ -358,17 +390,5 @@
     return YES;
 }
 */
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-
- */
 
 @end

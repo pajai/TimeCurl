@@ -368,9 +368,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4323D456176EF79500A083AB /* TimeWarp */ = {
+		4323D456176EF79500A083AB /* TimeCurl */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4323D48C176EF79500A083AB /* Build configuration list for PBXNativeTarget "TimeWarp" */;
+			buildConfigurationList = 4323D48C176EF79500A083AB /* Build configuration list for PBXNativeTarget "TimeCurl" */;
 			buildPhases = (
 				4323D453176EF79500A083AB /* Sources */,
 				4323D454176EF79500A083AB /* Frameworks */,
@@ -380,7 +380,7 @@
 			);
 			dependencies = (
 			);
-			name = TimeWarp;
+			name = TimeCurl;
 			productName = TimeWarp;
 			productReference = 4323D457176EF79500A083AB /* TimeWarp.app */;
 			productType = "com.apple.product-type.application";
@@ -438,7 +438,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4323D456176EF79500A083AB /* TimeWarp */,
+				4323D456176EF79500A083AB /* TimeCurl */,
 				4323D47A176EF79500A083AB /* TimeWarpTests */,
 			);
 		};
@@ -530,7 +530,7 @@
 /* Begin PBXTargetDependency section */
 		4323D481176EF79500A083AB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4323D456176EF79500A083AB /* TimeWarp */;
+			target = 4323D456176EF79500A083AB /* TimeCurl */;
 			targetProxy = 4323D480176EF79500A083AB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -725,7 +725,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4323D48C176EF79500A083AB /* Build configuration list for PBXNativeTarget "TimeWarp" */ = {
+		4323D48C176EF79500A083AB /* Build configuration list for PBXNativeTarget "TimeCurl" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4323D48D176EF79500A083AB /* Debug */,

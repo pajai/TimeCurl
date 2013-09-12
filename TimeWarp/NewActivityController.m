@@ -184,33 +184,35 @@
 
     [self loadProjects];
 
-    self.selectedProject = [self.projects objectAtIndex:0];
-    
-    if (self.activity != nil) {
+    if ([self.projects count] > 0) {
+        self.selectedProject = [self.projects objectAtIndex:0];
         
-        // init self.timeSlotIntervals
-        NSMutableArray* slotArray = [NSMutableArray array];
-        for (TimeSlot* timeSlot in self.activity.timeslots) {
-            SlotInterval* slotInterval = [[SlotInterval alloc] init];
-            slotInterval.begin = [timeSlot.start doubleValue];
-            slotInterval.end   = [timeSlot.end doubleValue];
-            [slotArray addObject:slotInterval];
+        if (self.activity != nil) {
+            
+            // init self.timeSlotIntervals
+            NSMutableArray* slotArray = [NSMutableArray array];
+            for (TimeSlot* timeSlot in self.activity.timeslots) {
+                SlotInterval* slotInterval = [[SlotInterval alloc] init];
+                slotInterval.begin = [timeSlot.start doubleValue];
+                slotInterval.end   = [timeSlot.end doubleValue];
+                [slotArray addObject:slotInterval];
+            }
+            self.timeSlotIntervals = slotArray;
+            
+            // pre-fill the fields
+            self.selectedProject = self.activity.project;
+            NSInteger selectedProjectIndex = [self.projects indexOfObject:self.activity.project];
+            [self.pickerView selectRow:selectedProjectIndex inComponent:0 animated:NO];
+            self.noteTextView.text = self.activity.note;
+            [self updateTimeField];
+            
+            self.title = @"Edit Activity";
         }
-        self.timeSlotIntervals = slotArray;
-
-        // pre-fill the fields
-        self.selectedProject = self.activity.project;
-        NSInteger selectedProjectIndex = [self.projects indexOfObject:self.activity.project];
-        [self.pickerView selectRow:selectedProjectIndex inComponent:0 animated:NO];
-        self.noteTextView.text = self.activity.note;
-        [self updateTimeField];
         
-        self.title = @"Edit Activity";
-    }
-
-    // editing case -> take the currentDate from the activity
-    if (self.activity != nil && self.currentDate == nil) {
-        self.currentDate = self.activity.date;
+        // editing case -> take the currentDate from the activity
+        if (self.activity != nil && self.currentDate == nil) {
+            self.currentDate = self.activity.date;
+        }
     }
 }
 
