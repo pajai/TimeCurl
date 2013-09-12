@@ -45,6 +45,11 @@
     [super viewDidLoad];
 
     [self.tableView setSeparatorColor:[UIColor colorWithRed:(191.0/255) green:(221.0/255) blue:1.0 alpha:1.0]];
+    
+    // not sure why we need to set the footer to an empty view, we get otherwise the separator repeating
+    // itself when there are just few cells in the table
+    [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
+    
     self.blueColor = [UIColor colorWithRed:0.0 green:(121.0/255) blue:1.0 alpha:1.0];
 }
 
