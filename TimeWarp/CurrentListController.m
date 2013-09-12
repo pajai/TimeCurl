@@ -112,8 +112,9 @@
         dateString = [dateFormatter stringFromDate:self.currentDate];
     }
     
-    // title
-    self.title = [NSString stringWithFormat:@"%@ (%.2f)", dateString, totTime];
+    // change the nav title
+    // rem: if we change self.title, we change also the tab title
+    self.navigationController.navigationBar.topItem.title = [NSString stringWithFormat:@"%@ (%.2f)", dateString, totTime];
 }
 
 - (BOOL) isToday
