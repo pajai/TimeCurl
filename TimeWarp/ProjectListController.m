@@ -21,8 +21,6 @@
 
 @interface ProjectListController ()
 
-@property (strong, nonatomic) UIColor* blueColor;
-
 - (void) loadData;
 
 @end
@@ -54,8 +52,6 @@
     // not sure why we need to set the footer to an empty view, we get otherwise the separator repeating
     // itself when there are just few cells in the table
     [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
-    
-    self.blueColor = [[UIConstants shared] deepBlueColor];
 }
 
 - (void) storeDidChange
@@ -150,8 +146,8 @@
         static NSString *CellIdentifier = @"ProjectCell";
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
         
-        DTCustomColoredAccessory *accessory = [DTCustomColoredAccessory accessoryWithColor:self.blueColor];
-        accessory.highlightedColor = self.blueColor;
+        DTCustomColoredAccessory *accessory = [DTCustomColoredAccessory accessoryWithColor:[UIConstants shared].deepBlueColor];
+        accessory.highlightedColor = [UIConstants shared].deepBlueColor;
         cell.accessoryView = accessory;
         
         UILabel* nameLabel    = (UILabel*)[cell viewWithTag:100];
