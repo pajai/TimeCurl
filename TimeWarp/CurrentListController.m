@@ -14,10 +14,13 @@
 #import "CoreDataWrapper.h"
 #import "SlotInterval.h"
 #import "SelectDayController.h"
+#import "DTCustomColoredAccessory.h"
+#import "UIConstants.h"
+#import "UIUtils.h"
 
 
 // TODO can we parameterize this?
-#define kTextViewWidth 251
+#define kTextViewWidth 221.0
 #define kBodyFontSize 12.0
 #define kMinCellTextViewHeight 32.0
 #define kCellHeightAdditionWrtTextView 32.0
@@ -202,6 +205,8 @@
 
     [self initCurrentDate];
     
+    [UIUtils setEmptyFooterView:self.tableView];
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -254,6 +259,8 @@
         UILabel* durationLabel   = (UILabel*)[cell viewWithTag:101];
         UITextView* noteTextView = (UITextView*)[cell viewWithTag:102];
         
+        cell.accessoryView = [DTCustomColoredAccessory accessoryWithSingleColor:[UIConstants shared].deepBlueColor];
+        
         CGFloat textViewHeight = [self textViewHeightForActivity:activity];
         
         // adapt note text view height
@@ -282,7 +289,7 @@
     if (indexPath.section == 0) {
         Activity* activity = [self.activities objectAtIndex:indexPath.row];
         
-        // cell size: add 28 point to text view height
+        // cell size: add kCellHeightAdditionWrtTextView point to text view height
         CGFloat height = [self textViewHeightForActivity:activity] + kCellHeightAdditionWrtTextView;
         return height;
     }

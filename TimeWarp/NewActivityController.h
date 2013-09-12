@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Activity.h"
 
-@interface NewActivityController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
+@interface NewActivityController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, strong) NSArray* projects;
 @property (nonatomic, strong) Project* selectedProject;

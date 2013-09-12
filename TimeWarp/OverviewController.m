@@ -12,6 +12,15 @@
 #import "CHCSVParser.h"
 #import "MailComposeHandler.h"
 #import "NewActivityController.h"
+#import "DTCustomColoredAccessory.h"
+#import "UIConstants.h"
+#import "UIUtils.h"
+
+
+#define kDayCellHeight 30
+#define kActivityCellHeightNonEmptyNote 70
+#define kActivityCellHeightEmptyNote 52
+
 
 
 @interface OverviewController ()
@@ -182,6 +191,8 @@
     _dateFormatter = [[NSDateFormatter alloc] init];
     [_dateFormatter setDateFormat:@"EEEE d"];
 
+    [UIUtils setEmptyFooterView:self.tableView];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -259,17 +270,19 @@
 
         Activity* activity = (Activity*)[self.activitiesByDay objectAtIndex:indexPath.section][indexPath.row - 1];
         
-        UILabel* titleLabel      = (UILabel*)[cell viewWithTag:100];
-        UILabel* durationLabel   = (UILabel*)[cell viewWithTag:101];
-        UITextView* noteTextView = (UITextView*)[cell viewWithTag:102];
+        UILabel* titleLabel    = (UILabel*)[cell viewWithTag:100];
+        UILabel* durationLabel = (UILabel*)[cell viewWithTag:101];
+        UILabel* noteLabel     = (UILabel*)[cell viewWithTag:102];
+        
+        cell.accessoryView = [DTCustomColoredAccessory accessoryWithSingleColor:[UIConstants shared].deepBlueColor];
         
         // TODO dynamic height? -> cf CurrentListController
         
         Project* project = activity.project;
         titleLabel.text = [NSString stringWithFormat:@"%@ (%@)", project.name, project.subname];
         durationLabel.text = [NSString stringWithFormat:@"%.2f", [activity duration]];
-        noteTextView.text = activity.note;
-        
+        noteLabel.text = activity.note;
+        [noteLabel sizeToFit];
     }
     
     return cell;
@@ -278,11 +291,19 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 0) {
-        return 30;
+        return kDayCellHeight;
     }
     else {
-        // activity cell
-        return 64;
+
+        Activity* activity = (Activity*)[self.activitiesByDay objectAtIndex:indexPath.section][indexPath.row - 1];
+        NSString* trimmedNote = [activity.note stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        if ([trimmedNote length] > 0) {
+            return kActivityCellHeightNonEmptyNote;
+        }
+        else {
+            return kActivityCellHeightEmptyNote;
+        }
+
     }
 }
 

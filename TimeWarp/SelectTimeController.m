@@ -178,9 +178,7 @@
 
 - (UIView*) createSlotView
 {
-    UIView* currentSlotView = [[UIView alloc] init];
-    currentSlotView.backgroundColor = [UIColor colorWithRed:124.0/255 green:177.0/255 blue:1.0 alpha:1.0];
-    currentSlotView.alpha = 0.4;
+    UIImageView* currentSlotView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"timeslot"]];
     [self.graduationView addSubview:currentSlotView];
     return currentSlotView;
 }

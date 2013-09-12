@@ -55,6 +55,7 @@
 		4379432617705E1400188F99 /* SelectTimeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4379432417705E1400188F99 /* SelectTimeController.m */; };
 		43BAFD6F17CF89C700B6A4FC /* SelectDayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BAFD6E17CF89C700B6A4FC /* SelectDayController.m */; };
 		43C6E41017E1BD7B004A953A /* UITextFieldWithInset.m in Sources */ = {isa = PBXBuildFile; fileRef = 43C6E40F17E1BD7B004A953A /* UITextFieldWithInset.m */; };
+		43DDFE3017E24F940037F9E0 /* UIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DDFE2F17E24F940037F9E0 /* UIUtils.m */; };
 		43E6027117821A8500EAA813 /* OverviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E6027017821A8500EAA813 /* OverviewController.m */; };
 		43E6027217821A8500EAA813 /* OverviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E6027017821A8500EAA813 /* OverviewController.m */; };
 		43E70430178DBF5B00CB5AA2 /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E7042F178DBF5B00CB5AA2 /* CHCSVParser.m */; };
@@ -138,6 +139,9 @@
 		43BAFD6E17CF89C700B6A4FC /* SelectDayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectDayController.m; sourceTree = "<group>"; };
 		43C6E40E17E1BD7B004A953A /* UITextFieldWithInset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITextFieldWithInset.h; sourceTree = "<group>"; };
 		43C6E40F17E1BD7B004A953A /* UITextFieldWithInset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITextFieldWithInset.m; sourceTree = "<group>"; };
+		43DDFE2E17E24F940037F9E0 /* UIUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIUtils.h; sourceTree = "<group>"; };
+		43DDFE2F17E24F940037F9E0 /* UIUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIUtils.m; sourceTree = "<group>"; };
+		43DDFE3117E258A00037F9E0 /* SelectTimeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectTimeController.h; sourceTree = "<group>"; };
 		43E6026F17821A8500EAA813 /* OverviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverviewController.h; sourceTree = "<group>"; };
 		43E6027017821A8500EAA813 /* OverviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverviewController.m; sourceTree = "<group>"; };
 		43E7042E178DBF5B00CB5AA2 /* CHCSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCSVParser.h; sourceTree = "<group>"; };
@@ -202,6 +206,8 @@
 				432B79D017CFF3CD00041A7D /* DTCustomColoredAccessory.m */,
 				43FECC2017D0823E003179B6 /* UIConstants.h */,
 				43FECC2117D0823E003179B6 /* UIConstants.m */,
+				43DDFE2E17E24F940037F9E0 /* UIUtils.h */,
+				43DDFE2F17E24F940037F9E0 /* UIUtils.m */,
 			);
 			name = misc;
 			sourceTree = "<group>";
@@ -323,6 +329,7 @@
 				4379431F1770384600188F99 /* CurrentListController.m */,
 				4315354B17735D0100B5D825 /* NewActivityController.h */,
 				4315354C17735D0100B5D825 /* NewActivityController.m */,
+				43DDFE3117E258A00037F9E0 /* SelectTimeController.h */,
 				4379432417705E1400188F99 /* SelectTimeController.m */,
 				43E6026F17821A8500EAA813 /* OverviewController.h */,
 				43E6027017821A8500EAA813 /* OverviewController.m */,
@@ -475,6 +482,7 @@
 				43E70435178DC2F000CB5AA2 /* MailComposeHandler.m in Sources */,
 				4323D4B4176F0B0100A083AB /* Activity.m in Sources */,
 				4323D4B0176F0B0100A083AB /* Project.m in Sources */,
+				43DDFE3017E24F940037F9E0 /* UIUtils.m in Sources */,
 				43C6E41017E1BD7B004A953A /* UITextFieldWithInset.m in Sources */,
 				43395AF517CF74A900F04CB2 /* TSQCalendarCell.m in Sources */,
 				431535561773936000B5D825 /* CoreDataWrapper.m in Sources */,

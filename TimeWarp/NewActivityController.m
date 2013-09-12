@@ -16,6 +16,7 @@
 
 
 @interface NewActivityController ()
+@property (readwrite) BOOL resetTimeInProgress;
 - (void) updateTimeField;
 - (void) loadProjects;
 - (double)doubleHourFromDate:(NSDate*)date;
@@ -94,6 +95,38 @@
     self.projects = [[CoreDataWrapper shared] fetchAllProjects];
 }
 
+- (IBAction)resetTime:(UILongPressGestureRecognizer*)sender
+{
+    // we don't want two concurrent events
+    if (!self.resetTimeInProgress) {
+        self.resetTimeInProgress = YES;
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Reset Time"
+                                                        message:@"Do you want to reset the time for this activity?"
+                                                       delegate:self
+                                              cancelButtonTitle:@"Cancel"
+                                              otherButtonTitles:@"Reset", nil];
+        [alert show];
+    }
+}
+
+#pragma mark UIAlertView delegate methods
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    // from that point, we handle again resetTime events
+    self.resetTimeInProgress = NO;
+    
+    // reset button
+    if (buttonIndex == 1) {
+
+        // reset time slot array
+        self.timeSlotIntervals = [NSMutableArray array];
+        [self updateTimeField];
+        
+    }
+    
+}
+
 #pragma mark transitions
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -146,6 +179,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.resetTimeInProgress = NO;
 
     [self loadProjects];
 

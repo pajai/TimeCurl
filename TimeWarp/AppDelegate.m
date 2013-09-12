@@ -21,7 +21,6 @@
 {
     self.window.tintAdjustmentMode = UIViewTintAdjustmentModeNormal;
     
-    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:(83.0/255) green:(90.0/255) blue:(107.0/255) alpha:1]];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setTitleTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:

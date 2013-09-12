@@ -13,6 +13,7 @@
 #import "CoreDataWrapper.h"
 #import "DTCustomColoredAccessory.h"
 #import "UIConstants.h"
+#import "UIUtils.h"
 
 
 #define kProjectCellHeight 44.0
@@ -48,10 +49,8 @@
     [super viewDidLoad];
 
     [self.tableView setSeparatorColor:[[UIConstants shared] lightBlueColor]];
-    
-    // not sure why we need to set the footer to an empty view, we get otherwise the separator repeating
-    // itself when there are just few cells in the table
-    [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
+
+    [UIUtils setEmptyFooterView:self.tableView];
 }
 
 - (void) storeDidChange
@@ -146,9 +145,7 @@
         static NSString *CellIdentifier = @"ProjectCell";
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
         
-        DTCustomColoredAccessory *accessory = [DTCustomColoredAccessory accessoryWithColor:[UIConstants shared].deepBlueColor];
-        accessory.highlightedColor = [UIConstants shared].deepBlueColor;
-        cell.accessoryView = accessory;
+        cell.accessoryView = [DTCustomColoredAccessory accessoryWithSingleColor:[UIConstants shared].deepBlueColor];
         
         UILabel* nameLabel    = (UILabel*)[cell viewWithTag:100];
         UILabel* subnameLabel = (UILabel*)[cell viewWithTag:101];
