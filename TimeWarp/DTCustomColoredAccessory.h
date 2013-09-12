@@ -18,6 +18,10 @@
 @property (nonatomic, retain) UIColor *accessoryColor;
 @property (nonatomic, retain) UIColor *highlightedColor;
 
+// return a custom accessory according to the given color (hightlighted color can be set separately)
 + (DTCustomColoredAccessory *)accessoryWithColor:(UIColor *)color;
+
+// return a custom accessory according to the given color (hightlighted color same as given one)
++ (DTCustomColoredAccessory *)accessoryWithSingleColor:(UIColor *)color;
 
 @end

@@ -25,6 +25,15 @@
 	return ret;
 }
 
++ (DTCustomColoredAccessory *)accessoryWithSingleColor:(UIColor *)color
+{
+	DTCustomColoredAccessory *ret = [[DTCustomColoredAccessory alloc] initWithFrame:CGRectMake(0, 0, 11.0, 15.0)];
+	ret.accessoryColor = color;
+    ret.highlightedColor = color;
+    
+	return ret;
+}
+
 - (void)drawRect:(CGRect)rect
 {
 	// (x,y) is the tip of the arrow
