@@ -17,6 +17,8 @@
 @property (strong, nonatomic) NSManagedObjectModel* managedObjectModel;
 @property (strong, nonatomic) NSManagedObjectContext* managedObjectContext;
 @property (strong, nonatomic) NSPersistentStoreCoordinator* persistentStoreCoordinator;
+
+// TODO use the notification framework
 @property (weak, nonatomic) id<StoreChangeDelegate> storeChangeDelegate;
 
 + (instancetype)shared;
