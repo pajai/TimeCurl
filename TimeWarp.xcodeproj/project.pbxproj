@@ -54,12 +54,15 @@
 		4379432517705E1400188F99 /* SelectTimeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4379432417705E1400188F99 /* SelectTimeController.m */; };
 		4379432617705E1400188F99 /* SelectTimeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4379432417705E1400188F99 /* SelectTimeController.m */; };
 		43BAFD6F17CF89C700B6A4FC /* SelectDayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BAFD6E17CF89C700B6A4FC /* SelectDayController.m */; };
+		43C6E41017E1BD7B004A953A /* UITextFieldWithInset.m in Sources */ = {isa = PBXBuildFile; fileRef = 43C6E40F17E1BD7B004A953A /* UITextFieldWithInset.m */; };
 		43E6027117821A8500EAA813 /* OverviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E6027017821A8500EAA813 /* OverviewController.m */; };
 		43E6027217821A8500EAA813 /* OverviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E6027017821A8500EAA813 /* OverviewController.m */; };
 		43E70430178DBF5B00CB5AA2 /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E7042F178DBF5B00CB5AA2 /* CHCSVParser.m */; };
 		43E70431178DBF5B00CB5AA2 /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E7042F178DBF5B00CB5AA2 /* CHCSVParser.m */; };
 		43E70435178DC2F000CB5AA2 /* MailComposeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E70433178DC2F000CB5AA2 /* MailComposeHandler.m */; };
 		43E70436178DC2F000CB5AA2 /* MailComposeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E70433178DC2F000CB5AA2 /* MailComposeHandler.m */; };
+		43FECC2217D0823E003179B6 /* ColorUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FECC2117D0823E003179B6 /* ColorUtils.m */; };
+		43FECC2417D08525003179B6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43FECC2317D08525003179B6 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +136,8 @@
 		4391EF2C17901DAC00581C11 /* TimeWarp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TimeWarp.entitlements; sourceTree = "<group>"; };
 		43BAFD6D17CF89C700B6A4FC /* SelectDayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectDayController.h; sourceTree = "<group>"; };
 		43BAFD6E17CF89C700B6A4FC /* SelectDayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectDayController.m; sourceTree = "<group>"; };
+		43C6E40E17E1BD7B004A953A /* UITextFieldWithInset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITextFieldWithInset.h; sourceTree = "<group>"; };
+		43C6E40F17E1BD7B004A953A /* UITextFieldWithInset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITextFieldWithInset.m; sourceTree = "<group>"; };
 		43E6026F17821A8500EAA813 /* OverviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverviewController.h; sourceTree = "<group>"; };
 		43E6027017821A8500EAA813 /* OverviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverviewController.m; sourceTree = "<group>"; };
 		43E7042E178DBF5B00CB5AA2 /* CHCSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCSVParser.h; sourceTree = "<group>"; };
@@ -140,6 +145,9 @@
 		43E70432178DC2F000CB5AA2 /* MailComposeHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailComposeHandler.h; sourceTree = "<group>"; };
 		43E70433178DC2F000CB5AA2 /* MailComposeHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailComposeHandler.m; sourceTree = "<group>"; };
 		43E70434178DC2F000CB5AA2 /* MailComposeCallbackDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailComposeCallbackDelegate.h; sourceTree = "<group>"; };
+		43FECC2017D0823E003179B6 /* ColorUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorUtils.h; sourceTree = "<group>"; };
+		43FECC2117D0823E003179B6 /* ColorUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorUtils.m; sourceTree = "<group>"; };
+		43FECC2317D08525003179B6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +155,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43FECC2417D08525003179B6 /* QuartzCore.framework in Frameworks */,
 				4323D49B176F078400A083AB /* CoreData.framework in Frameworks */,
 				4323D45D176EF79500A083AB /* CoreGraphics.framework in Frameworks */,
 				4323D45F176EF79500A083AB /* UIKit.framework in Frameworks */,
@@ -172,6 +181,8 @@
 			children = (
 				431535411770A1D600B5D825 /* GraduationView.h */,
 				431535421770A1D600B5D825 /* GraduationView.m */,
+				43C6E40E17E1BD7B004A953A /* UITextFieldWithInset.h */,
+				43C6E40F17E1BD7B004A953A /* UITextFieldWithInset.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -189,6 +200,8 @@
 				4315355017738F5D00B5D825 /* TimeUtils.m */,
 				432B79CF17CFF3CD00041A7D /* DTCustomColoredAccessory.h */,
 				432B79D017CFF3CD00041A7D /* DTCustomColoredAccessory.m */,
+				43FECC2017D0823E003179B6 /* ColorUtils.h */,
+				43FECC2117D0823E003179B6 /* ColorUtils.m */,
 			);
 			name = misc;
 			sourceTree = "<group>";
@@ -226,6 +239,7 @@
 		4323D459176EF79500A083AB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				43FECC2317D08525003179B6 /* QuartzCore.framework */,
 				4323D49A176F078400A083AB /* CoreData.framework */,
 				4323D45A176EF79500A083AB /* Foundation.framework */,
 				4323D45C176EF79500A083AB /* CoreGraphics.framework */,
@@ -452,6 +466,7 @@
 			files = (
 				4315355117738F5D00B5D825 /* TimeUtils.m in Sources */,
 				4323D46B176EF79500A083AB /* AppDelegate.m in Sources */,
+				43FECC2217D0823E003179B6 /* ColorUtils.m in Sources */,
 				4323D498176F04BE00A083AB /* ProjectListController.m in Sources */,
 				43E6027117821A8500EAA813 /* OverviewController.m in Sources */,
 				432B79D117CFF3CD00041A7D /* DTCustomColoredAccessory.m in Sources */,
@@ -460,6 +475,7 @@
 				43E70435178DC2F000CB5AA2 /* MailComposeHandler.m in Sources */,
 				4323D4B4176F0B0100A083AB /* Activity.m in Sources */,
 				4323D4B0176F0B0100A083AB /* Project.m in Sources */,
+				43C6E41017E1BD7B004A953A /* UITextFieldWithInset.m in Sources */,
 				43395AF517CF74A900F04CB2 /* TSQCalendarCell.m in Sources */,
 				431535561773936000B5D825 /* CoreDataWrapper.m in Sources */,
 				43E70430178DBF5B00CB5AA2 /* CHCSVParser.m in Sources */,
@@ -620,12 +636,13 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = TimeWarp/TimeWarp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TimeWarp/TimeWarp-Prefix.pch";
 				INFOPLIST_FILE = "TimeWarp/TimeWarp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -637,12 +654,13 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = TimeWarp/TimeWarp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TimeWarp/TimeWarp-Prefix.pch";
 				INFOPLIST_FILE = "TimeWarp/TimeWarp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

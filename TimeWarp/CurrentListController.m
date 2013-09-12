@@ -17,7 +17,11 @@
 
 
 // TODO can we parameterize this?
-#define kTextViewWidth 300
+#define kTextViewWidth 251
+#define kBodyFontSize 12.0
+#define kMinCellTextViewHeight 32.0
+#define kCellHeightAdditionWrtTextView 32.0
+#define kNewCellHeight 82.0
 
 
 @interface CurrentListController ()
@@ -248,19 +252,13 @@
         UILabel* titleLabel      = (UILabel*)[cell viewWithTag:100];
         UILabel* durationLabel   = (UILabel*)[cell viewWithTag:101];
         UITextView* noteTextView = (UITextView*)[cell viewWithTag:102];
-
+        
         CGFloat textViewHeight = [self textViewHeightForActivity:activity];
         
         // adapt note text view height
         CGRect frame = noteTextView.frame;
-        frame.size.height = textViewHeight; //noteTextView.contentSize.height;
+        frame.size.height = textViewHeight;
         noteTextView.frame = frame;
-        
-        // adapt green rectangle height
-        UIView* greenBackground  = (UIView*)[cell viewWithTag:103];
-        frame = greenBackground.frame;
-        frame.size.height = textViewHeight + 20;
-        greenBackground.frame = frame;
         
         Project* project = activity.project;
         titleLabel.text = [NSString stringWithFormat:@"%@ (%@)", project.name, project.subname];
@@ -284,19 +282,25 @@
         Activity* activity = [self.activities objectAtIndex:indexPath.row];
         
         // cell size: add 28 point to text view height
-        return [self textViewHeightForActivity:activity] + 28;
+        CGFloat height = [self textViewHeightForActivity:activity] + kCellHeightAdditionWrtTextView;
+        return height;
     }
     else {
-        return 57;
+        return kNewCellHeight;
     }
 }
 
 - (CGFloat) textViewHeightForActivity:(Activity*)activity
 {
-    // size of text view, but at least 45
-    UIFont * bodyFont = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    /*
+     * TODO: we could use dynamic font size, see e.g. [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+     *       sticking to fix size system fonts for now
+     */
+    
+    // size of text view, but at least kMinCellTextViewHeight
+    UIFont * bodyFont = [UIFont systemFontOfSize:kBodyFontSize];
     CGFloat textViewHeight = [self heightOfText:activity.note widthOfTextView:kTextViewWidth withFont:bodyFont];
-    textViewHeight = textViewHeight < 45 ? 45 : textViewHeight;
+    textViewHeight = textViewHeight < kMinCellTextViewHeight ? kMinCellTextViewHeight : textViewHeight;
     return textViewHeight;
 }
 
