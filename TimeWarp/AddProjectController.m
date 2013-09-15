@@ -88,4 +88,22 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark State Restauration
+
+- (void)encodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    [coder encodeObject:self.name.text forKey:@"name"];
+    [coder encodeObject:self.subname.text forKey:@"subname"];
+    [coder encodeObject:self.note.text forKey:@"note"];
+    [super encodeRestorableStateWithCoder:coder];
+}
+
+- (void)decodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    self.name.text = [coder decodeObjectForKey:@"name"];
+    self.subname.text = [coder decodeObjectForKey:@"subname"];
+    self.note.text = [coder decodeObjectForKey:@"note"];
+    [super decodeRestorableStateWithCoder:coder];
+}
+
 @end

@@ -237,4 +237,23 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark State Restauration
+
+// TODO not working for this controller
+
+- (void)encodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    [coder encodeInteger:[self.pickerView selectedRowInComponent:0] forKey:@"pickerindex"];
+    [coder encodeObject:self.noteTextView.text forKey:@"note"];
+    [super encodeRestorableStateWithCoder:coder];
+}
+
+- (void)decodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    NSInteger pickerIndex = [coder decodeIntegerForKey:@"pickerindex"];
+    [self.pickerView selectRow:pickerIndex inComponent:0 animated:NO];
+    self.noteTextView.text = [coder decodeObjectForKey:@"note"];
+    [super decodeRestorableStateWithCoder:coder];
+}
+
 @end
