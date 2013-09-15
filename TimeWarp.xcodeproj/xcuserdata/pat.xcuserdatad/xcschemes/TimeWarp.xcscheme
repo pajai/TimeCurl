@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4323D456176EF79500A083AB"
-               BuildableName = "TimeWarp.app"
+               BuildableName = "TimeCurl.app"
                BlueprintName = "TimeCurl"
                ReferencedContainer = "container:TimeWarp.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4323D456176EF79500A083AB"
-            BuildableName = "TimeWarp.app"
+            BuildableName = "TimeCurl.app"
             BlueprintName = "TimeCurl"
             ReferencedContainer = "container:TimeWarp.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4323D456176EF79500A083AB"
-            BuildableName = "TimeWarp.app"
+            BuildableName = "TimeCurl.app"
             BlueprintName = "TimeCurl"
             ReferencedContainer = "container:TimeWarp.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4323D456176EF79500A083AB"
-            BuildableName = "TimeWarp.app"
+            BuildableName = "TimeCurl.app"
             BlueprintName = "TimeCurl"
             ReferencedContainer = "container:TimeWarp.xcodeproj">
          </BuildableReference>

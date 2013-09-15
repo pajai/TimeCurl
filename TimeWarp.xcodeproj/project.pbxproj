@@ -88,7 +88,7 @@
 		4315355017738F5D00B5D825 /* TimeUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeUtils.m; sourceTree = "<group>"; };
 		431535541773936000B5D825 /* CoreDataWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataWrapper.h; sourceTree = "<group>"; };
 		431535551773936000B5D825 /* CoreDataWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataWrapper.m; sourceTree = "<group>"; };
-		4323D457176EF79500A083AB /* TimeWarp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeWarp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4323D457176EF79500A083AB /* TimeCurl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeCurl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4323D45A176EF79500A083AB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4323D45C176EF79500A083AB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		4323D45E176EF79500A083AB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -134,7 +134,7 @@
 		4379431E1770384600188F99 /* CurrentListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentListController.h; sourceTree = "<group>"; };
 		4379431F1770384600188F99 /* CurrentListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentListController.m; sourceTree = "<group>"; };
 		4379432417705E1400188F99 /* SelectTimeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectTimeController.m; sourceTree = "<group>"; };
-		4391EF2C17901DAC00581C11 /* TimeWarp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TimeWarp.entitlements; sourceTree = "<group>"; };
+		4391EF2C17901DAC00581C11 /* TimeCurl.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TimeCurl.entitlements; sourceTree = "<group>"; };
 		43BAFD6D17CF89C700B6A4FC /* SelectDayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectDayController.h; sourceTree = "<group>"; };
 		43BAFD6E17CF89C700B6A4FC /* SelectDayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectDayController.m; sourceTree = "<group>"; };
 		43C6E40E17E1BD7B004A953A /* UITextFieldWithInset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITextFieldWithInset.h; sourceTree = "<group>"; };
@@ -236,7 +236,7 @@
 		4323D458176EF79500A083AB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4323D457176EF79500A083AB /* TimeWarp.app */,
+				4323D457176EF79500A083AB /* TimeCurl.app */,
 				4323D47B176EF79500A083AB /* TimeWarpTests.xctest */,
 			);
 			name = Products;
@@ -259,7 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				43395AEA17CF74A900F04CB2 /* TimesSquare */,
-				4391EF2C17901DAC00581C11 /* TimeWarp.entitlements */,
+				4391EF2C17901DAC00581C11 /* TimeCurl.entitlements */,
 				43E7042D178DBF5B00CB5AA2 /* CHCSVParser */,
 				431535531773933500B5D825 /* persistence */,
 				431535451770A5E800B5D825 /* misc */,
@@ -382,7 +382,7 @@
 			);
 			name = TimeCurl;
 			productName = TimeWarp;
-			productReference = 4323D457176EF79500A083AB /* TimeWarp.app */;
+			productReference = 4323D457176EF79500A083AB /* TimeCurl.app */;
 			productType = "com.apple.product-type.application";
 		};
 		4323D47A176EF79500A083AB /* TimeWarpTests */ = {
@@ -642,7 +642,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_ENTITLEMENTS = TimeWarp/TimeWarp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = TimeWarp/TimeCurl.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -660,7 +660,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_ENTITLEMENTS = TimeWarp/TimeWarp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = TimeWarp/TimeCurl.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

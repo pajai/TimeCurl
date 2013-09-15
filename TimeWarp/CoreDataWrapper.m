@@ -12,8 +12,8 @@
 #import "TimeUtils.h"
 
 NSString * const DPModelName        = @"ItemModel";
-NSString * const DPStoreName        = @"TimeWarp.sqlite";
-NSString * const DPUbiquitousName   = @"com~timewarp~coredataicloud";
+NSString * const DPStoreName        = @"TimeCurl.sqlite";
+NSString * const DPUbiquitousName   = @"com~timecurl~coredataicloud";
 
 
 @interface CoreDataWrapper ()
