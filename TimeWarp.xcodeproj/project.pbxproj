@@ -62,6 +62,10 @@
 		43E70431178DBF5B00CB5AA2 /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E7042F178DBF5B00CB5AA2 /* CHCSVParser.m */; };
 		43E70435178DC2F000CB5AA2 /* MailComposeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E70433178DC2F000CB5AA2 /* MailComposeHandler.m */; };
 		43E70436178DC2F000CB5AA2 /* MailComposeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E70433178DC2F000CB5AA2 /* MailComposeHandler.m */; };
+		43F75F6817E6565900051035 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43F75F6217E6565900051035 /* libTestFlight.a */; };
+		43F75F6917E6565900051035 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 43F75F6317E6565900051035 /* README.md */; };
+		43F75F6A17E6565900051035 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 43F75F6417E6565900051035 /* release_notes.md */; };
+		43F75F6C17E656F400051035 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 43F75F6B17E656F400051035 /* libz.dylib */; };
 		43FECC2217D0823E003179B6 /* UIConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FECC2117D0823E003179B6 /* UIConstants.m */; };
 		43FECC2417D08525003179B6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43FECC2317D08525003179B6 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
@@ -149,6 +153,13 @@
 		43E70432178DC2F000CB5AA2 /* MailComposeHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailComposeHandler.h; sourceTree = "<group>"; };
 		43E70433178DC2F000CB5AA2 /* MailComposeHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailComposeHandler.m; sourceTree = "<group>"; };
 		43E70434178DC2F000CB5AA2 /* MailComposeCallbackDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailComposeCallbackDelegate.h; sourceTree = "<group>"; };
+		43F75F6217E6565900051035 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		43F75F6317E6565900051035 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		43F75F6417E6565900051035 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
+		43F75F6517E6565900051035 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
+		43F75F6617E6565900051035 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
+		43F75F6717E6565900051035 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		43F75F6B17E656F400051035 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		43FECC2017D0823E003179B6 /* UIConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIConstants.h; sourceTree = "<group>"; };
 		43FECC2117D0823E003179B6 /* UIConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIConstants.m; sourceTree = "<group>"; };
 		43FECC2317D08525003179B6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -159,9 +170,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43F75F6C17E656F400051035 /* libz.dylib in Frameworks */,
 				43FECC2417D08525003179B6 /* QuartzCore.framework in Frameworks */,
 				4323D49B176F078400A083AB /* CoreData.framework in Frameworks */,
 				4323D45D176EF79500A083AB /* CoreGraphics.framework in Frameworks */,
+				43F75F6817E6565900051035 /* libTestFlight.a in Frameworks */,
 				4323D45F176EF79500A083AB /* UIKit.framework in Frameworks */,
 				4323D45B176EF79500A083AB /* Foundation.framework in Frameworks */,
 			);
@@ -245,6 +258,7 @@
 		4323D459176EF79500A083AB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				43F75F6B17E656F400051035 /* libz.dylib */,
 				43FECC2317D08525003179B6 /* QuartzCore.framework */,
 				4323D49A176F078400A083AB /* CoreData.framework */,
 				4323D45A176EF79500A083AB /* Foundation.framework */,
@@ -258,6 +272,7 @@
 		4323D460176EF79500A083AB /* TimeWarp */ = {
 			isa = PBXGroup;
 			children = (
+				43F75F6117E6565900051035 /* TestFlight */,
 				43395AEA17CF74A900F04CB2 /* TimesSquare */,
 				4391EF2C17901DAC00581C11 /* TimeCurl.entitlements */,
 				43E7042D178DBF5B00CB5AA2 /* CHCSVParser */,
@@ -365,6 +380,19 @@
 			path = CHCSVParser;
 			sourceTree = "<group>";
 		};
+		43F75F6117E6565900051035 /* TestFlight */ = {
+			isa = PBXGroup;
+			children = (
+				43F75F6217E6565900051035 /* libTestFlight.a */,
+				43F75F6317E6565900051035 /* README.md */,
+				43F75F6417E6565900051035 /* release_notes.md */,
+				43F75F6517E6565900051035 /* TestFlight+AsyncLogging.h */,
+				43F75F6617E6565900051035 /* TestFlight+ManualSessions.h */,
+				43F75F6717E6565900051035 /* TestFlight.h */,
+			);
+			path = TestFlight;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -449,8 +477,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43F75F6A17E6565900051035 /* release_notes.md in Resources */,
 				4379431D176F706D00188F99 /* Entitlements.plist in Resources */,
 				4323D476176EF79500A083AB /* Images.xcassets in Resources */,
+				43F75F6917E6565900051035 /* README.md in Resources */,
 				4323D465176EF79500A083AB /* InfoPlist.strings in Resources */,
 				4323D46E176EF79500A083AB /* Main.storyboard in Resources */,
 			);
@@ -649,6 +679,10 @@
 				GCC_PREFIX_HEADER = "TimeWarp/TimeWarp-Prefix.pch";
 				INFOPLIST_FILE = "TimeWarp/TimeWarp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/pat/Documents/XCode_Projects/iPhone/Zuehlke/TimeWarp/TimeWarp/TestFlight,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -667,6 +701,10 @@
 				GCC_PREFIX_HEADER = "TimeWarp/TimeWarp-Prefix.pch";
 				INFOPLIST_FILE = "TimeWarp/TimeWarp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/pat/Documents/XCode_Projects/iPhone/Zuehlke/TimeWarp/TimeWarp/TestFlight,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;

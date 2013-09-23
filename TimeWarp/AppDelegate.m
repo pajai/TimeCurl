@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "TestFlight.h"
+
 
 @interface AppDelegate ()
 - (void) customizeAppearance;
@@ -49,7 +51,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-
+    [TestFlight takeOff:@"748e6e09-80bb-43e3-af4b-ac49f558665c"];
+    
     [self customizeAppearance];
     
     return YES;
