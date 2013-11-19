@@ -20,20 +20,25 @@
 
 
 // TODO can we parameterize this?
-#define kTextViewWidth 221.0
+#define kTextViewWidthPortrait  228.0
+#define kTextViewWidthLandscape 476.0
 #define kBodyFontSize 12.0
 #define kMinCellTextViewHeight 32.0
-#define kCellHeightAdditionWrtTextView 32.0
+#define kCellHeightAdditionWrtTextView 52.0
 #define kNewCellHeight 82.0
 
 
 @interface CurrentListController ()
+
+@property (nonatomic,readwrite) NSInteger textViewWidth;
+
 - (void) loadData;
 - (void) initCurrentDate;
 - (void) updateTitle;
 - (BOOL) isToday;
 - (CGFloat) textViewHeightForActivity:(Activity*)activity;
 - (CGFloat) heightOfText:(NSString *)textToMesure widthOfTextView:(CGFloat)width withFont:(UIFont*)font;
+
 @end
 
 @implementation CurrentListController
@@ -239,6 +244,8 @@
     
     [UIUtils setEmptyFooterView:self.tableView];
 
+    self.textViewWidth = kTextViewWidthPortrait;
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -253,6 +260,15 @@
     [self loadData];
     [self updateTitle];
     [CoreDataWrapper shared].storeChangeDelegate = self;
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
+    
+    self.textViewWidth = UIInterfaceOrientationIsPortrait(toInterfaceOrientation) ? kTextViewWidthPortrait : kTextViewWidthLandscape;
+    
+    NSLog(@"Interface orientation change");
 }
 
 - (void)didReceiveMemoryWarning
@@ -293,13 +309,6 @@
         
         cell.accessoryView = [DTCustomColoredAccessory accessoryWithSingleColor:[UIConstants shared].deepBlueColor];
         
-        CGFloat textViewHeight = [self textViewHeightForActivity:activity];
-        
-        // adapt note text view height
-        CGRect frame = noteTextView.frame;
-        frame.size.height = textViewHeight;
-        noteTextView.frame = frame;
-        
         Project* project = activity.project;
         titleLabel.text = [NSString stringWithFormat:@"%@ (%@)", project.name, project.subname];
         durationLabel.text = [NSString stringWithFormat:@"%.2f", [activity duration]];
@@ -339,7 +348,7 @@
     
     // size of text view, but at least kMinCellTextViewHeight
     UIFont * bodyFont = [UIFont systemFontOfSize:kBodyFontSize];
-    CGFloat textViewHeight = [self heightOfText:activity.note widthOfTextView:kTextViewWidth withFont:bodyFont];
+    CGFloat textViewHeight = [self heightOfText:activity.note widthOfTextView:self.textViewWidth withFont:bodyFont];
     textViewHeight = textViewHeight < kMinCellTextViewHeight ? kMinCellTextViewHeight : textViewHeight;
     return textViewHeight;
 }
@@ -347,7 +356,7 @@
 - (CGFloat) heightOfText:(NSString *)textToMesure widthOfTextView:(CGFloat)width withFont:(UIFont*)font
 {
     NSDictionary *stringAttributes = [NSDictionary dictionaryWithObject:font forKey: NSFontAttributeName];
-    CGRect rect = [textToMesure boundingRectWithSize:CGSizeMake(width - 20, FLT_MAX) options:(NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading) attributes:stringAttributes context:nil];
+    CGRect rect = [textToMesure boundingRectWithSize:CGSizeMake(width, FLT_MAX) options:(NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading) attributes:stringAttributes context:nil];
     return rect.size.height;
 }
 
