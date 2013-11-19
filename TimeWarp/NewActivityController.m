@@ -16,10 +16,13 @@
 
 
 @interface NewActivityController ()
+
 @property (readwrite) BOOL resetTimeInProgress;
+
 - (void) updateTimeField;
 - (void) loadProjects;
 - (double)doubleHourFromDate:(NSDate*)date;
+
 @end
 
 @implementation NewActivityController
@@ -214,6 +217,8 @@
             self.currentDate = self.activity.date;
         }
     }
+    
+    self.noteTextView.tintColor = [UIColor blackColor];
 }
 
 - (double)doubleHourFromDate:(NSDate*)date
