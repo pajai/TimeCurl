@@ -48,6 +48,10 @@
 		4345FA3E176F31FF002BBDB0 /* AddProjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4323D4B7176F0E6100A083AB /* AddProjectController.m */; };
 		4345FA41176F3FFA002BBDB0 /* TimeWarp.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 4345FA40176F3FFA002BBDB0 /* TimeWarp.xcdatamodel */; };
 		4345FA42176F3FFA002BBDB0 /* TimeWarp.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 4345FA40176F3FFA002BBDB0 /* TimeWarp.xcdatamodel */; };
+		43627711183C073A00825199 /* TPKeyboardAvoidingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4362770A183C073A00825199 /* TPKeyboardAvoidingCollectionView.m */; };
+		43627712183C073A00825199 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4362770C183C073A00825199 /* TPKeyboardAvoidingScrollView.m */; };
+		43627713183C073A00825199 /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4362770E183C073A00825199 /* TPKeyboardAvoidingTableView.m */; };
+		43627714183C073A00825199 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 43627710183C073A00825199 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		4379431D176F706D00188F99 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4379431C176F706D00188F99 /* Entitlements.plist */; };
 		437943201770384600188F99 /* CurrentListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4379431F1770384600188F99 /* CurrentListController.m */; };
 		437943211770384600188F99 /* CurrentListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4379431F1770384600188F99 /* CurrentListController.m */; };
@@ -62,6 +66,10 @@
 		43E70431178DBF5B00CB5AA2 /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E7042F178DBF5B00CB5AA2 /* CHCSVParser.m */; };
 		43E70435178DC2F000CB5AA2 /* MailComposeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E70433178DC2F000CB5AA2 /* MailComposeHandler.m */; };
 		43E70436178DC2F000CB5AA2 /* MailComposeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E70433178DC2F000CB5AA2 /* MailComposeHandler.m */; };
+		43F75F6817E6565900051035 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43F75F6217E6565900051035 /* libTestFlight.a */; };
+		43F75F6917E6565900051035 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 43F75F6317E6565900051035 /* README.md */; };
+		43F75F6A17E6565900051035 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 43F75F6417E6565900051035 /* release_notes.md */; };
+		43F75F6C17E656F400051035 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 43F75F6B17E656F400051035 /* libz.dylib */; };
 		43FECC2217D0823E003179B6 /* UIConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FECC2117D0823E003179B6 /* UIConstants.m */; };
 		43FECC2417D08525003179B6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43FECC2317D08525003179B6 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
@@ -130,6 +138,14 @@
 		43395AF317CF74A900F04CB2 /* TSQCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSQCalendarView.h; sourceTree = "<group>"; };
 		43395AF417CF74A900F04CB2 /* TSQCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSQCalendarView.m; sourceTree = "<group>"; };
 		4345FA40176F3FFA002BBDB0 /* TimeWarp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TimeWarp.xcdatamodel; sourceTree = "<group>"; };
+		43627709183C073A00825199 /* TPKeyboardAvoidingCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingCollectionView.h; sourceTree = "<group>"; };
+		4362770A183C073A00825199 /* TPKeyboardAvoidingCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingCollectionView.m; sourceTree = "<group>"; };
+		4362770B183C073A00825199 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
+		4362770C183C073A00825199 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
+		4362770D183C073A00825199 /* TPKeyboardAvoidingTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingTableView.h; sourceTree = "<group>"; };
+		4362770E183C073A00825199 /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingTableView.m; sourceTree = "<group>"; };
+		4362770F183C073A00825199 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
+		43627710183C073A00825199 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
 		4379431C176F706D00188F99 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		4379431E1770384600188F99 /* CurrentListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentListController.h; sourceTree = "<group>"; };
 		4379431F1770384600188F99 /* CurrentListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentListController.m; sourceTree = "<group>"; };
@@ -149,6 +165,13 @@
 		43E70432178DC2F000CB5AA2 /* MailComposeHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailComposeHandler.h; sourceTree = "<group>"; };
 		43E70433178DC2F000CB5AA2 /* MailComposeHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailComposeHandler.m; sourceTree = "<group>"; };
 		43E70434178DC2F000CB5AA2 /* MailComposeCallbackDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailComposeCallbackDelegate.h; sourceTree = "<group>"; };
+		43F75F6217E6565900051035 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		43F75F6317E6565900051035 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		43F75F6417E6565900051035 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
+		43F75F6517E6565900051035 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
+		43F75F6617E6565900051035 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
+		43F75F6717E6565900051035 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		43F75F6B17E656F400051035 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		43FECC2017D0823E003179B6 /* UIConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIConstants.h; sourceTree = "<group>"; };
 		43FECC2117D0823E003179B6 /* UIConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIConstants.m; sourceTree = "<group>"; };
 		43FECC2317D08525003179B6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -159,9 +182,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43F75F6C17E656F400051035 /* libz.dylib in Frameworks */,
 				43FECC2417D08525003179B6 /* QuartzCore.framework in Frameworks */,
 				4323D49B176F078400A083AB /* CoreData.framework in Frameworks */,
 				4323D45D176EF79500A083AB /* CoreGraphics.framework in Frameworks */,
+				43F75F6817E6565900051035 /* libTestFlight.a in Frameworks */,
 				4323D45F176EF79500A083AB /* UIKit.framework in Frameworks */,
 				4323D45B176EF79500A083AB /* Foundation.framework in Frameworks */,
 			);
@@ -245,6 +270,7 @@
 		4323D459176EF79500A083AB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				43F75F6B17E656F400051035 /* libz.dylib */,
 				43FECC2317D08525003179B6 /* QuartzCore.framework */,
 				4323D49A176F078400A083AB /* CoreData.framework */,
 				4323D45A176EF79500A083AB /* Foundation.framework */,
@@ -258,6 +284,8 @@
 		4323D460176EF79500A083AB /* TimeWarp */ = {
 			isa = PBXGroup;
 			children = (
+				43627708183C073A00825199 /* TPKeyboardAvoiding */,
+				43F75F6117E6565900051035 /* TestFlight */,
 				43395AEA17CF74A900F04CB2 /* TimesSquare */,
 				4391EF2C17901DAC00581C11 /* TimeCurl.entitlements */,
 				43E7042D178DBF5B00CB5AA2 /* CHCSVParser */,
@@ -356,6 +384,21 @@
 			path = TimesSquare;
 			sourceTree = "<group>";
 		};
+		43627708183C073A00825199 /* TPKeyboardAvoiding */ = {
+			isa = PBXGroup;
+			children = (
+				43627709183C073A00825199 /* TPKeyboardAvoidingCollectionView.h */,
+				4362770A183C073A00825199 /* TPKeyboardAvoidingCollectionView.m */,
+				4362770B183C073A00825199 /* TPKeyboardAvoidingScrollView.h */,
+				4362770C183C073A00825199 /* TPKeyboardAvoidingScrollView.m */,
+				4362770D183C073A00825199 /* TPKeyboardAvoidingTableView.h */,
+				4362770E183C073A00825199 /* TPKeyboardAvoidingTableView.m */,
+				4362770F183C073A00825199 /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
+				43627710183C073A00825199 /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
+			);
+			path = TPKeyboardAvoiding;
+			sourceTree = "<group>";
+		};
 		43E7042D178DBF5B00CB5AA2 /* CHCSVParser */ = {
 			isa = PBXGroup;
 			children = (
@@ -363,6 +406,19 @@
 				43E7042F178DBF5B00CB5AA2 /* CHCSVParser.m */,
 			);
 			path = CHCSVParser;
+			sourceTree = "<group>";
+		};
+		43F75F6117E6565900051035 /* TestFlight */ = {
+			isa = PBXGroup;
+			children = (
+				43F75F6217E6565900051035 /* libTestFlight.a */,
+				43F75F6317E6565900051035 /* README.md */,
+				43F75F6417E6565900051035 /* release_notes.md */,
+				43F75F6517E6565900051035 /* TestFlight+AsyncLogging.h */,
+				43F75F6617E6565900051035 /* TestFlight+ManualSessions.h */,
+				43F75F6717E6565900051035 /* TestFlight.h */,
+			);
+			path = TestFlight;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -449,8 +505,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43F75F6A17E6565900051035 /* release_notes.md in Resources */,
 				4379431D176F706D00188F99 /* Entitlements.plist in Resources */,
 				4323D476176EF79500A083AB /* Images.xcassets in Resources */,
+				43F75F6917E6565900051035 /* README.md in Resources */,
 				4323D465176EF79500A083AB /* InfoPlist.strings in Resources */,
 				4323D46E176EF79500A083AB /* Main.storyboard in Resources */,
 			);
@@ -477,8 +535,10 @@
 				4323D498176F04BE00A083AB /* ProjectListController.m in Sources */,
 				43E6027117821A8500EAA813 /* OverviewController.m in Sources */,
 				432B79D117CFF3CD00041A7D /* DTCustomColoredAccessory.m in Sources */,
+				43627711183C073A00825199 /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				43395AF617CF74A900F04CB2 /* TSQCalendarMonthHeaderCell.m in Sources */,
 				43395AF817CF74A900F04CB2 /* TSQCalendarView.m in Sources */,
+				43627712183C073A00825199 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				43E70435178DC2F000CB5AA2 /* MailComposeHandler.m in Sources */,
 				4323D4B4176F0B0100A083AB /* Activity.m in Sources */,
 				4323D4B0176F0B0100A083AB /* Project.m in Sources */,
@@ -490,11 +550,13 @@
 				4315354D17735D0100B5D825 /* NewActivityController.m in Sources */,
 				437943201770384600188F99 /* CurrentListController.m in Sources */,
 				4323D4AC176F0B0000A083AB /* TimeSlot.m in Sources */,
+				43627713183C073A00825199 /* TPKeyboardAvoidingTableView.m in Sources */,
 				4379432517705E1400188F99 /* SelectTimeController.m in Sources */,
 				43395AF717CF74A900F04CB2 /* TSQCalendarRowCell.m in Sources */,
 				431535431770A1D600B5D825 /* GraduationView.m in Sources */,
 				4345FA41176F3FFA002BBDB0 /* TimeWarp.xcdatamodel in Sources */,
 				4323D467176EF79500A083AB /* main.m in Sources */,
+				43627714183C073A00825199 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				43BAFD6F17CF89C700B6A4FC /* SelectDayController.m in Sources */,
 				431535491773060800B5D825 /* SlotInterval.m in Sources */,
 				4345FA3D176F31FE002BBDB0 /* AddProjectController.m in Sources */,
@@ -649,6 +711,10 @@
 				GCC_PREFIX_HEADER = "TimeWarp/TimeWarp-Prefix.pch";
 				INFOPLIST_FILE = "TimeWarp/TimeWarp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/pat/Documents/XCode_Projects/iPhone/Zuehlke/TimeWarp/TimeWarp/TestFlight,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -667,6 +733,10 @@
 				GCC_PREFIX_HEADER = "TimeWarp/TimeWarp-Prefix.pch";
 				INFOPLIST_FILE = "TimeWarp/TimeWarp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/pat/Documents/XCode_Projects/iPhone/Zuehlke/TimeWarp/TimeWarp/TestFlight,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
