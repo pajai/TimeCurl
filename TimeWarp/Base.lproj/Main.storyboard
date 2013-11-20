@@ -532,6 +532,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <outletCollection property="gestureRecognizers" destination="9n1-Yc-Q5v" appends="YES" id="8SY-Nc-Kl5"/>
                                             <segue destination="uv1-zi-Dvb" kind="push" identifier="EditTime" id="ncq-BP-Qq6"/>
                                         </connections>
                                     </button>
@@ -658,6 +659,11 @@
     </scenes>
     <resources>
         <image name="frame-new" width="3" height="3"/>
+        <image name="frame-new" width="3" height="3"/>
+        <image name="frame-rounded" width="16" height="16"/>
+        <image name="frame-rounded" width="16" height="16"/>
+        <image name="frame-rounded" width="16" height="16"/>
+        <image name="frame-rounded" width="16" height="16"/>
         <image name="frame-rounded" width="16" height="16"/>
         <image name="icon-activity-list" width="14" height="22"/>
         <image name="icon-project-list" width="20" height="22"/>
