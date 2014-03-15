@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "TestFlight.h"
+#import "Flurry.h"
 
 @interface AppDelegate ()
 - (void) customizeAppearance;
@@ -54,9 +55,20 @@
     
     [self customizeAppearance];
     
+    [self setupFlurry];
+    
     return YES;
 }
-							
+
+- (void)setupFlurry
+{
+    //note: iOS only allows one crash reporting tool per app; if using another, set to: NO
+    [Flurry setCrashReportingEnabled:YES];
+    
+    // Replace YOUR_API_KEY with the api key in the downloaded package
+    [Flurry startSession:@"T7WKQGFT7ZG2WDHZCK62"];
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
