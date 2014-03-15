@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "CoreDataWrapper.h"
 #import "UIConstants.h"
+#import "Flurry.h"
 
 @interface AddProjectController ()
 
@@ -80,6 +81,13 @@
         self.title = @"Edit Project";
     }
 
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [Flurry logEvent:@"Add Project"];
 }
 
 - (void)didReceiveMemoryWarning

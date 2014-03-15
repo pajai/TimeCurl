@@ -17,6 +17,7 @@
 #import "DTCustomColoredAccessory.h"
 #import "UIConstants.h"
 #import "UIUtils.h"
+#import "Flurry.h"
 
 
 // TODO can we parameterize this?
@@ -260,6 +261,8 @@
     [self loadData];
     [self updateTitle];
     [CoreDataWrapper shared].storeChangeDelegate = self;
+    
+    [Flurry logEvent:@"Tab Activities"];
 }
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration

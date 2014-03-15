@@ -13,6 +13,7 @@
 #import "TimeUtils.h"
 #import "CoreDataWrapper.h"
 #import "Project.h"
+#import "Flurry.h"
 
 
 @interface NewActivityController ()
@@ -234,6 +235,7 @@
 {
     [super viewWillAppear:animated];
     
+    [Flurry logEvent:@"Add Activity"];
 }
 
 - (void)didReceiveMemoryWarning

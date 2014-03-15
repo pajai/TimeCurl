@@ -14,6 +14,7 @@
 #import "DTCustomColoredAccessory.h"
 #import "UIConstants.h"
 #import "UIUtils.h"
+#import "Flurry.h"
 
 
 #define kProjectCellHeight 44.0
@@ -64,6 +65,8 @@
     
     [self loadData];
     [CoreDataWrapper shared].storeChangeDelegate = self;
+    
+    [Flurry logEvent:@"Tab Projects"];
 }
 
 - (void)didReceiveMemoryWarning

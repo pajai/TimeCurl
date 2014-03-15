@@ -9,6 +9,7 @@
 #import "SelectTimeController.h"
 #import "GeometryConstants.h"
 #import <tgmath.h>
+#import "Flurry.h"
 
 #define kGraduationViewWidth 240
 
@@ -298,6 +299,13 @@
     
     state = kStateNothing;
 
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [Flurry logEvent:@"Enter Time Span"];
 }
 
 - (void)didReceiveMemoryWarning
