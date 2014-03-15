@@ -743,9 +743,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/pat/Documents/XCode_Projects/iPhone/Zuehlke/TimeWarp/TimeWarp/TestFlight,
 					"$(PROJECT_DIR)/TimeWarp/Flurry-iOS-4.3.2/Flurry",
-					"$(PROJECT_DIR)/TimeWarp/Flurry-iOS-4.3.2/FlurryAds",
 					"$(PROJECT_DIR)/TimeWarp/TestFlightSDK3",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -768,9 +766,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/pat/Documents/XCode_Projects/iPhone/Zuehlke/TimeWarp/TimeWarp/TestFlight,
 					"$(PROJECT_DIR)/TimeWarp/Flurry-iOS-4.3.2/Flurry",
-					"$(PROJECT_DIR)/TimeWarp/Flurry-iOS-4.3.2/FlurryAds",
 					"$(PROJECT_DIR)/TimeWarp/TestFlightSDK3",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";

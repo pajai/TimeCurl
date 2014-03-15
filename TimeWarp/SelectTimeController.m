@@ -69,7 +69,7 @@
 
 - (IBAction)handlePress:(UILongPressGestureRecognizer*)sender
 {
-    int numberOfTouches = [sender numberOfTouches];
+    NSUInteger numberOfTouches = [sender numberOfTouches];
     //CGPoint bottom   = [sender locationOfTouch:(numberOfTouches-1) inView:self.graduationView];
     CGPoint bottom = CGPointMake(0, 0);
     for (int i = 0; i < numberOfTouches; i++) {
@@ -89,7 +89,7 @@
     else if (sender.state == UIGestureRecognizerStateChanged) {
         stateStr = @"changed";
     }
-    NSLog(@"press (%d, %0f, %0f, %@)", numberOfTouches, bottom.x, bottom.y, stateStr);
+    NSLog(@"press (%lu, %0f, %0f, %@)", (unsigned long)numberOfTouches, bottom.x, bottom.y, stateStr);
 
     // kStateNothing -> kStateSetSlotBegin
     if (state == kStateNothing && numberOfTouches == 1 && sender.state == UIGestureRecognizerStateBegan) {

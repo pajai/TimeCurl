@@ -84,7 +84,7 @@
     self.activity.note = self.noteTextView.text;
     
     // delete old slots which are not used anymore
-    for (int j = i; j < [existingSlots count]; j++) {
+    for (NSInteger j = i; j < [existingSlots count]; j++) {
         TimeSlot* slot = [existingSlots objectAtIndex:j];
         [[CoreDataWrapper shared] deleteObject:slot];
     }
@@ -226,8 +226,8 @@
 {
     NSCalendar *cal = [NSCalendar currentCalendar];
     NSDateComponents *components = [cal components:(NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit|NSHourCalendarUnit|NSMinuteCalendarUnit) fromDate:date];
-    int hour = [components hour];
-    int min  = [components minute];
+    NSInteger hour = [components hour];
+    NSInteger min  = [components minute];
     return (1.0 * hour) + ((min * 1.0) / 60.0);
 }
 
