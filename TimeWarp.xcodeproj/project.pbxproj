@@ -52,9 +52,6 @@
 		43627712183C073A00825199 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4362770C183C073A00825199 /* TPKeyboardAvoidingScrollView.m */; };
 		43627713183C073A00825199 /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4362770E183C073A00825199 /* TPKeyboardAvoidingTableView.m */; };
 		43627714183C073A00825199 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 43627710183C073A00825199 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
-		4362771C183C122300825199 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43627716183C122300825199 /* libTestFlight.a */; };
-		4362771D183C122300825199 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 43627717183C122300825199 /* README.md */; };
-		4362771E183C122300825199 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 43627718183C122300825199 /* release_notes.md */; };
 		43627720183D5E6E00825199 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4362771F183D5E6E00825199 /* libz.dylib */; };
 		4379431D176F706D00188F99 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4379431C176F706D00188F99 /* Entitlements.plist */; };
 		437943201770384600188F99 /* CurrentListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4379431F1770384600188F99 /* CurrentListController.m */; };
@@ -64,6 +61,9 @@
 		438C69FC18D4F90300BF1F58 /* libFlurry_4.3.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 438C696518D4F90300BF1F58 /* libFlurry_4.3.2.a */; };
 		438C6A8E18D4F97200BF1F58 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 438C6A8D18D4F97200BF1F58 /* SystemConfiguration.framework */; };
 		438C6A9018D4F98500BF1F58 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 438C6A8F18D4F98500BF1F58 /* Security.framework */; };
+		438C6A9818D5049600BF1F58 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 438C6A9218D5049600BF1F58 /* libTestFlight.a */; };
+		438C6A9918D5049600BF1F58 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 438C6A9318D5049600BF1F58 /* README.md */; };
+		438C6A9A18D5049600BF1F58 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 438C6A9418D5049600BF1F58 /* release_notes.md */; };
 		43BAFD6F17CF89C700B6A4FC /* SelectDayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BAFD6E17CF89C700B6A4FC /* SelectDayController.m */; };
 		43C6E41017E1BD7B004A953A /* UITextFieldWithInset.m in Sources */ = {isa = PBXBuildFile; fileRef = 43C6E40F17E1BD7B004A953A /* UITextFieldWithInset.m */; };
 		43DDFE3017E24F940037F9E0 /* UIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DDFE2F17E24F940037F9E0 /* UIUtils.m */; };
@@ -149,12 +149,6 @@
 		4362770E183C073A00825199 /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingTableView.m; sourceTree = "<group>"; };
 		4362770F183C073A00825199 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
 		43627710183C073A00825199 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
-		43627716183C122300825199 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
-		43627717183C122300825199 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		43627718183C122300825199 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
-		43627719183C122300825199 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
-		4362771A183C122300825199 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
-		4362771B183C122300825199 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		4362771F183D5E6E00825199 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		4379431C176F706D00188F99 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		4379431E1770384600188F99 /* CurrentListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentListController.h; sourceTree = "<group>"; };
@@ -164,6 +158,12 @@
 		438C696518D4F90300BF1F58 /* libFlurry_4.3.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_4.3.2.a; sourceTree = "<group>"; };
 		438C6A8D18D4F97200BF1F58 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		438C6A8F18D4F98500BF1F58 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		438C6A9218D5049600BF1F58 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		438C6A9318D5049600BF1F58 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		438C6A9418D5049600BF1F58 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
+		438C6A9518D5049600BF1F58 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
+		438C6A9618D5049600BF1F58 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
+		438C6A9718D5049600BF1F58 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		4391EF2C17901DAC00581C11 /* TimeCurl.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TimeCurl.entitlements; sourceTree = "<group>"; };
 		43BAFD6D17CF89C700B6A4FC /* SelectDayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectDayController.h; sourceTree = "<group>"; };
 		43BAFD6E17CF89C700B6A4FC /* SelectDayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectDayController.m; sourceTree = "<group>"; };
@@ -194,8 +194,8 @@
 				43627720183D5E6E00825199 /* libz.dylib in Frameworks */,
 				43FECC2417D08525003179B6 /* QuartzCore.framework in Frameworks */,
 				4323D49B176F078400A083AB /* CoreData.framework in Frameworks */,
+				438C6A9818D5049600BF1F58 /* libTestFlight.a in Frameworks */,
 				4323D45D176EF79500A083AB /* CoreGraphics.framework in Frameworks */,
-				4362771C183C122300825199 /* libTestFlight.a in Frameworks */,
 				4323D45F176EF79500A083AB /* UIKit.framework in Frameworks */,
 				4323D45B176EF79500A083AB /* Foundation.framework in Frameworks */,
 				438C69FC18D4F90300BF1F58 /* libFlurry_4.3.2.a in Frameworks */,
@@ -296,8 +296,8 @@
 		4323D460176EF79500A083AB /* TimeWarp */ = {
 			isa = PBXGroup;
 			children = (
+				438C6A9118D5049600BF1F58 /* TestFlightSDK3 */,
 				438C696218D4F90300BF1F58 /* Flurry-iOS-4.3.2 */,
-				43627715183C122300825199 /* TestFlight */,
 				43627708183C073A00825199 /* TPKeyboardAvoiding */,
 				43395AEA17CF74A900F04CB2 /* TimesSquare */,
 				4391EF2C17901DAC00581C11 /* TimeCurl.entitlements */,
@@ -412,19 +412,6 @@
 			path = TPKeyboardAvoiding;
 			sourceTree = "<group>";
 		};
-		43627715183C122300825199 /* TestFlight */ = {
-			isa = PBXGroup;
-			children = (
-				43627716183C122300825199 /* libTestFlight.a */,
-				43627717183C122300825199 /* README.md */,
-				43627718183C122300825199 /* release_notes.md */,
-				43627719183C122300825199 /* TestFlight+AsyncLogging.h */,
-				4362771A183C122300825199 /* TestFlight+ManualSessions.h */,
-				4362771B183C122300825199 /* TestFlight.h */,
-			);
-			path = TestFlight;
-			sourceTree = "<group>";
-		};
 		438C696218D4F90300BF1F58 /* Flurry-iOS-4.3.2 */ = {
 			isa = PBXGroup;
 			children = (
@@ -440,6 +427,19 @@
 				438C696518D4F90300BF1F58 /* libFlurry_4.3.2.a */,
 			);
 			path = Flurry;
+			sourceTree = "<group>";
+		};
+		438C6A9118D5049600BF1F58 /* TestFlightSDK3 */ = {
+			isa = PBXGroup;
+			children = (
+				438C6A9218D5049600BF1F58 /* libTestFlight.a */,
+				438C6A9318D5049600BF1F58 /* README.md */,
+				438C6A9418D5049600BF1F58 /* release_notes.md */,
+				438C6A9518D5049600BF1F58 /* TestFlight+AsyncLogging.h */,
+				438C6A9618D5049600BF1F58 /* TestFlight+ManualSessions.h */,
+				438C6A9718D5049600BF1F58 /* TestFlight.h */,
+			);
+			path = TestFlightSDK3;
 			sourceTree = "<group>";
 		};
 		43E7042D178DBF5B00CB5AA2 /* CHCSVParser */ = {
@@ -535,10 +535,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4362771E183C122300825199 /* release_notes.md in Resources */,
+				438C6A9A18D5049600BF1F58 /* release_notes.md in Resources */,
 				4379431D176F706D00188F99 /* Entitlements.plist in Resources */,
 				4323D476176EF79500A083AB /* Images.xcassets in Resources */,
-				4362771D183C122300825199 /* README.md in Resources */,
+				438C6A9918D5049600BF1F58 /* README.md in Resources */,
 				4323D465176EF79500A083AB /* InfoPlist.strings in Resources */,
 				4323D46E176EF79500A083AB /* Main.storyboard in Resources */,
 			);
@@ -746,6 +746,7 @@
 					/Users/pat/Documents/XCode_Projects/iPhone/Zuehlke/TimeWarp/TimeWarp/TestFlight,
 					"$(PROJECT_DIR)/TimeWarp/Flurry-iOS-4.3.2/Flurry",
 					"$(PROJECT_DIR)/TimeWarp/Flurry-iOS-4.3.2/FlurryAds",
+					"$(PROJECT_DIR)/TimeWarp/TestFlightSDK3",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "C8CDEE43-D76A-43EC-9E3D-3724888E1F1A";
@@ -770,6 +771,7 @@
 					/Users/pat/Documents/XCode_Projects/iPhone/Zuehlke/TimeWarp/TimeWarp/TestFlight,
 					"$(PROJECT_DIR)/TimeWarp/Flurry-iOS-4.3.2/Flurry",
 					"$(PROJECT_DIR)/TimeWarp/Flurry-iOS-4.3.2/FlurryAds",
+					"$(PROJECT_DIR)/TimeWarp/TestFlightSDK3",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "C8CDEE43-D76A-43EC-9E3D-3724888E1F1A";
