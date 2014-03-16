@@ -46,7 +46,8 @@
 
 #pragma mark action for unwind segue from SelectDayController
 
-- (IBAction)doneSelectingDay:(UIStoryboardSegue *)segue {
+- (IBAction)doneSelectingDay:(UIStoryboardSegue *)segue
+{
     NSLog(@"Done selecting day");
     
     SelectDayController* sourceController = segue.sourceViewController;
@@ -120,10 +121,11 @@
         [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
         dateString = [dateFormatter stringFromDate:self.currentDate];
     }
+    NSString* titleString = [NSString stringWithFormat:@"%@ (%.2f)", dateString, totTime];
     
     // change the nav title
     // rem: if we change self.title, we change also the tab title
-    self.navigationController.navigationBar.topItem.title = [NSString stringWithFormat:@"%@ (%.2f)", dateString, totTime];
+    self.navigationController.navigationBar.topItem.title = titleString;
 }
 
 - (BOOL) isToday
@@ -259,10 +261,16 @@
     [super viewWillAppear:animated];
     
     [self loadData];
-    [self updateTitle];
     [CoreDataWrapper shared].storeChangeDelegate = self;
     
     [Flurry logEvent:@"Tab Activities"];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    // if we do this call from viewWillAppear, we might get a wrong controller shown,
+    // hence we don't change the right navbar title
+    [self updateTitle];
 }
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
