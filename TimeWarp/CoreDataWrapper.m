@@ -203,6 +203,11 @@ NSString * const DPUbiquitousName   = @"com~timecurl~coredataicloud";
     NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription* entity = [NSEntityDescription entityForName:@"Activity" inManagedObjectContext:managedObjectContext];
     [fetchRequest setEntity:entity];
+    
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+    [fetchRequest setSortDescriptors:sortDescriptors];
+
     NSError* error = nil;
     NSArray* result = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
 
@@ -240,6 +245,12 @@ NSString * const DPUbiquitousName   = @"com~timecurl~coredataicloud";
     }
 }
 
+- (NSArray*) fetchAllActivitiesByDay
+{
+    NSArray* allActivities = [self fetchAllActivities];
+    return [self groupActivitiesByDay:allActivities];
+}
+
 - (NSArray*) fetchActivitiesByDayForMonth:(NSDate*) date
 {
     NSLog(@"Fetch activities by day for month %@", date);
@@ -266,10 +277,15 @@ NSString * const DPUbiquitousName   = @"com~timecurl~coredataicloud";
         return nil;
     }
 
+    return [self groupActivitiesByDay:result];
+}
+
+- (NSArray*) groupActivitiesByDay:(NSArray*)activities
+{
     NSMutableArray* activitiesByDay = [NSMutableArray array];
     NSDate* currentDay = nil;
     NSMutableArray* activitiesForSingleDay = nil;
-    for (Activity* activity in result) {
+    for (Activity* activity in activities) {
         NSDate* actDay = [TimeUtils dayForDate:activity.date];
         
         if (![actDay isEqual:currentDay]) {
@@ -282,7 +298,6 @@ NSString * const DPUbiquitousName   = @"com~timecurl~coredataicloud";
     }
     
     return activitiesByDay;
-
 }
 
 - (Project*) newProject
