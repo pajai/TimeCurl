@@ -10,6 +10,8 @@
 #import "Activity.h"
 #import "Project.h"
 #import "TimeSlot.h"
+#import "CoreDataWrapper.h"
+#import "NotificationConstants.h"
 
 
 @interface ModelSerializer ()
@@ -27,6 +29,8 @@
     }
     return self;
 }
+
+#pragma mark - export
 
 - (NSData*) serializeProjects:(NSArray*)projects;
 {
@@ -94,6 +98,98 @@
     timeSlotDict[@"end"]   = timeSlot.end;
     return timeSlotDict;
 }
+
+
+#pragma mark - import
+
+- (void) importFileFromUrl:(NSURL*)url
+{
+    NSError* error = nil;
+    NSData* data = [NSData dataWithContentsOfURL:url options:NSDataReadingUncached error:&error];
+    if (error) {
+        NSLog(@"Failed reading the data from the url %@, error: %@", url, [error localizedDescription]);
+        [self showError:[NSString stringWithFormat:@"An error occured while importing the file."]];
+        return;
+    }
+    
+    NSObject* object = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    if (error) {
+        NSLog(@"Failed to convert the data to JSON objects, error: %@", [error localizedDescription]);
+        [self showError:[NSString stringWithFormat:@"An error occured while importing the file."]];
+        return;
+    }
+    
+    if (![object isKindOfClass:[NSDictionary class]]) {
+        NSLog(@"The imported JSON object is not of the right type, should be a dictionary, is %@", [object class]);
+        [self showError:[NSString stringWithFormat:@"An error occured while importing the file."]];
+        return;
+    }
+    
+    NSDictionary* dict = (NSDictionary*)object;
+    if (![self dataHasValidHeader:dict]) {
+        NSLog(@"The imported data is not compatible with TimeCurl format version 1");
+        [self showError:[NSString stringWithFormat:@"The imported data is not compatible with the current TimeCurl format version. You can only import data with the same app version used to export it."]];
+        return;
+    }
+    
+    NSArray* projArray = dict[@"data"];
+    [self mapToProjects:projArray];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:DATA_REFRESH_AFTER_IMPORT object:nil];
+    
+}
+
+- (void) showError:(NSString*)message
+{
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [alert show];
+}
+
+- (void) mapToProjects:(NSArray*)projArray
+{
+    for (NSDictionary* projDict in projArray) {
+        Project* project = [[CoreDataWrapper shared] newProject];
+        project.name = projDict[@"name"];
+        project.subname = projDict[@"subname"];
+        project.note = projDict[@"note"];
+        [[CoreDataWrapper shared] saveContext];
+        [self mapToActivities:projDict[@"activities"] forProject:project];
+    }
+}
+
+- (void) mapToActivities:(NSArray*)actArray forProject:(Project*)project
+{
+    for (NSDictionary* actDict in actArray) {
+        Activity* activity = [[CoreDataWrapper shared] newActivity];
+        activity.project = project;
+        activity.note = actDict[@"note"];
+        activity.date = [self.dateFormatter dateFromString:actDict[@"date"]];
+        [self mapToTimeSlots:actDict[@"timeslots"] forActivity:activity];
+        [[CoreDataWrapper shared] saveContext];
+    }
+}
+
+- (void) mapToTimeSlots:(NSArray*)slotArray forActivity:(Activity*)activity
+{
+    NSMutableSet* timeSlots = [NSMutableSet setWithCapacity:[slotArray count]];
+    for (NSDictionary* slotDict in slotArray) {
+        TimeSlot* timeSlot = [[CoreDataWrapper shared] newTimeSlot];
+        timeSlot.activity = activity;
+        timeSlot.start = slotDict[@"start"];
+        timeSlot.end   = slotDict[@"end"];
+        [timeSlots addObject:timeSlot];
+    }
+    activity.timeslots = timeSlots;
+}
+
+- (BOOL) dataHasValidHeader:(NSDictionary*)dict
+{
+    return [dict[@"name"] isEqualToString:@"TimeCurl"]&&
+           [dict[@"version"] isEqualToString:@"1"] &&
+           dict[@"data"];
+}
+
+
 
 @end
 

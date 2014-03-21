@@ -12,4 +12,6 @@
 
 - (NSData*) serializeProjects:(NSArray*)projects;
 
+- (void) importFileFromUrl:(NSURL*)url;
+
 @end

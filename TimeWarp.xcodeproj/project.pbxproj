@@ -133,6 +133,7 @@
 		432B79D017CFF3CD00041A7D /* DTCustomColoredAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTCustomColoredAccessory.m; sourceTree = "<group>"; };
 		4335F3A818DB90A5006294FE /* ModelSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelSerializer.h; sourceTree = "<group>"; };
 		4335F3A918DB90A5006294FE /* ModelSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelSerializer.m; sourceTree = "<group>"; };
+		4335F3AB18DCE444006294FE /* NotificationConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationConstants.h; sourceTree = "<group>"; };
 		4345FA40176F3FFA002BBDB0 /* TimeWarp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TimeWarp.xcdatamodel; sourceTree = "<group>"; };
 		43627709183C073A00825199 /* TPKeyboardAvoidingCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingCollectionView.h; sourceTree = "<group>"; };
 		4362770A183C073A00825199 /* TPKeyboardAvoidingCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingCollectionView.m; sourceTree = "<group>"; };
@@ -246,6 +247,7 @@
 				43FECC2117D0823E003179B6 /* UIConstants.m */,
 				43DDFE2E17E24F940037F9E0 /* UIUtils.h */,
 				43DDFE2F17E24F940037F9E0 /* UIUtils.m */,
+				4335F3AB18DCE444006294FE /* NotificationConstants.h */,
 			);
 			name = misc;
 			sourceTree = "<group>";

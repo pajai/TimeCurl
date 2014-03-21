@@ -9,13 +9,18 @@
 #import "AppDelegate.h"
 #import "TestFlight.h"
 #import "Flurry.h"
+#import "ModelSerializer.h"
 
 @interface AppDelegate ()
+
+// used for a data import
+@property (strong, nonatomic) NSURL* tmpFileURL;
+
 - (void) customizeAppearance;
 @end
 
-@implementation AppDelegate
 
+@implementation AppDelegate
 
 #pragma mark custom private methods
 
@@ -57,8 +62,45 @@
     
     [self setupFlurry];
     
+    [self handleImportData:launchOptions];
+    
     return YES;
 }
+
+
+- (BOOL) application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    if (url && [url isFileURL]) {
+        self.tmpFileURL = url;
+        [self showImportConfirmation];
+    }
+    return YES;
+}
+
+- (void) handleImportData:(NSDictionary*)launchOptions
+{
+    NSURL* url = (NSURL*)[launchOptions valueForKey:UIApplicationLaunchOptionsURLKey];
+    if (url && [url isFileURL]) {
+        self.tmpFileURL = url;
+        [self showImportConfirmation];
+    }
+}
+
+- (void) showImportConfirmation
+{
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Import" message:@"Are you sure that you want to import this data set?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
+    [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        NSURL* tmpFileURL = self.tmpFileURL;
+        self.tmpFileURL = nil;
+        [[[ModelSerializer alloc] init] importFileFromUrl:tmpFileURL];
+    }
+}
+
 
 - (void)setupFlurry
 {

@@ -166,12 +166,10 @@ NSString * const DPUbiquitousName   = @"com~timecurl~coredataicloud";
 
 - (void)storesDidChange:(NSNotification *)n
 {
-    //refresh user interface
-    
-    NSLog(@">>>> Stores Did Change, TODO update UI");
     NSLog(@">>>> BEGIN");
     NSDictionary *userInfo = [n userInfo];
     NSLog(@"%@", userInfo);
+    [self.storeChangeDelegate storeDidChange];
     NSLog(@">>>> END");
 
 }

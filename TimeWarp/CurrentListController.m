@@ -18,6 +18,7 @@
 #import "UIConstants.h"
 #import "UIUtils.h"
 #import "Flurry.h"
+#import "NotificationConstants.h"
 
 
 // TODO can we parameterize this?
@@ -94,7 +95,6 @@
 - (void) loadData
 {
     self.activities = [NSMutableArray arrayWithArray:[[CoreDataWrapper shared] fetchActivitiesForDate:self.currentDate]];
-    
     [self.tableView reloadData];
 }
 
@@ -248,12 +248,6 @@
     [UIUtils setEmptyFooterView:self.tableView];
 
     self.textViewWidth = kTextViewWidthPortrait;
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -264,6 +258,11 @@
     [CoreDataWrapper shared].storeChangeDelegate = self;
     
     [Flurry logEvent:@"Tab Activities"];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(dataRefreshedAfterImport)
+                                                 name:DATA_REFRESH_AFTER_IMPORT
+                                               object:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -271,6 +270,20 @@
     // if we do this call from viewWillAppear, we might get a wrong controller shown,
     // hence we don't change the right navbar title
     [self updateTitle];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:DATA_REFRESH_AFTER_IMPORT
+                                                  object:nil];
+}
+
+- (void)dataRefreshedAfterImport
+{
+    [self loadData];
 }
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
