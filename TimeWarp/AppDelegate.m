@@ -56,7 +56,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [TestFlight takeOff:@"748e6e09-80bb-43e3-af4b-ac49f558665c"];
+    [TestFlight takeOff:@"5c072121-1334-494b-893f-3b412fd77af1"];
     
     [self customizeAppearance];
     
