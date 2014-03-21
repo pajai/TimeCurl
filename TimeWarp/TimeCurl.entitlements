@@ -4,7 +4,7 @@
 <dict>
 	<key>com.apple.developer.ubiquity-container-identifiers</key>
 	<array>
-		<string>$(TeamIdentifierPrefix)com.zuehlke.TimeWarp</string>
+		<string>$(TeamIdentifierPrefix)com.extrabright.TimeCurl</string>
 	</array>
 </dict>
 </plist>
