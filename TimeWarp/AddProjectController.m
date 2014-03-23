@@ -96,6 +96,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark UITextField delegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return NO;
+}
+
 #pragma mark State Restauration
 
 - (void)encodeRestorableStateWithCoder:(NSCoder *)coder

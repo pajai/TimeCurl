@@ -180,7 +180,7 @@
         NSArray* projects = [[CoreDataWrapper shared] fetchAllProjects];
         if ([projects count] == 0) {
             // show an error message
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning"
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Project Yet"
                                                             message:@"Please insert a project first (in the tab Projects)!"
                                                            delegate:nil
                                                   cancelButtonTitle:@"OK"

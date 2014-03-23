@@ -210,7 +210,7 @@
         
         self.rowToDelete = indexPath;
         Project* project = [self.projects objectAtIndex:self.rowToDelete.row];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning"
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Confirmation"
                                                         message:[NSString stringWithFormat:@"Are you sure that you want to delete the project '%@ %@'? It will also delete all activities using that project.", project.name, project.subname]
                                                        delegate:self
                                               cancelButtonTitle:@"Cancel"
