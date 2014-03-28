@@ -615,8 +615,15 @@
                                         <rect key="frame" x="80" y="0.0" width="240" height="1000"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xCR-hW-ueN">
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label start" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xCR-hW-ueN">
                                                 <rect key="frame" x="0.0" y="12" width="56" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <color key="textColor" red="0.1333333333" green="0.4823529412" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label end" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kjQ-lr-n9Z">
+                                                <rect key="frame" x="0.0" y="42" width="56" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                 <color key="textColor" red="0.1333333333" green="0.4823529412" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -625,8 +632,8 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <connections>
-                                            <outletCollection property="gestureRecognizers" destination="gXe-ni-zeg" appends="YES" id="pth-kC-5d4"/>
-                                            <outletCollection property="gestureRecognizers" destination="IMk-by-boY" appends="YES" id="BDp-gS-e6f"/>
+                                            <outletCollection property="gestureRecognizers" destination="gXe-ni-zeg" appends="YES" id="T0G-0o-Q9R"/>
+                                            <outletCollection property="gestureRecognizers" destination="IMk-by-boY" appends="YES" id="Iaq-qr-8IV"/>
                                         </connections>
                                     </view>
                                 </subviews>
@@ -651,14 +658,15 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="currentSlotLabel" destination="xCR-hW-ueN" id="68X-1Q-fuL"/>
                         <outlet property="graduationView" destination="EWb-eh-9Iq" id="502-zS-dNk"/>
                         <outlet property="scrollView" destination="dm1-re-PAc" id="o8s-xz-Qy2"/>
+                        <outlet property="slotLabelEnd" destination="kjQ-lr-n9Z" id="Osr-Z0-fwf"/>
+                        <outlet property="slotLabelStart" destination="xCR-hW-ueN" id="NEw-OB-GLf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GUn-Io-N8T" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="xPq-aI-vRe" userLabel="Exit" sceneMemberID="exit"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.0" id="gXe-ni-zeg">
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="gXe-ni-zeg">
                     <connections>
                         <action selector="handlePress:" destination="uv1-zi-Dvb" id="9Xg-i7-xPF"/>
                     </connections>

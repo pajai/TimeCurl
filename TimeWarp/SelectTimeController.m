@@ -10,21 +10,16 @@
 #import "GeometryConstants.h"
 #import <tgmath.h>
 #import "Flurry.h"
+#import "SlotView.h"
 
 #define kGraduationViewWidth 240
 
 
-@interface SelectTimeController ()
-- (void) initDailyCalendar;
-- (void) initLabels;
-- (UIView*) createSlotView;
-- (void) createSlotIntervalWithBegin:(double)begin andEnd:(double)end;
-- (void) adaptViewForSlot:(SlotInterval*)slot;
-- (void) mergeSlots;
-- (void) removeSlot:(SlotInterval*)slot withRemoveList:(NSMutableArray*)toRemove;
-- (double) yStartForSlot:(SlotInterval*)slot;
-- (double) yEndForSlot:(SlotInterval*)slot;
-@end
+typedef NS_ENUM(NSInteger, TimeLabelType) {
+    TimeLabelStart,
+    TimeLabelEnd,
+};
+
 
 @implementation SelectTimeController
 
@@ -36,14 +31,16 @@
     self.scrollView.contentSize = CGSizeMake(320, 1000);
     self.scrollView.contentOffset = CGPointMake(0, 319);
     
-    self.currentSlotLabel.alpha = 0;
+    self.slotLabelStart.alpha = 0;
+    self.slotLabelEnd.alpha = 0;
     
     for (SlotInterval* slotInterval in self.timeSlotIntervals) {
-        slotInterval.view = [self createSlotView];
+        slotInterval.view = [self createSlotView:slotInterval];
         [self adaptViewForSlot:slotInterval];
     }
     
-    self.currentSlotLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1];
+    self.slotLabelStart.font = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1];
+    self.slotLabelEnd.font   = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1];
 }
 
 - (void) initLabels
@@ -67,18 +64,50 @@
     return YES;
 }
 
-- (IBAction)handlePress:(UILongPressGestureRecognizer*)sender
+- (void) moveSlotTop:(SlotInterval*)slotInterval withDelta:(CGFloat)delta
+{
+    slotInterval.begin += delta/DELTAY;
+    [self adaptViewForSlot:slotInterval];
+    [self showTimeLabels:slotInterval];
+}
+
+- (void) moveSlotBottom:(SlotInterval*)slotInterval withDelta:(CGFloat)delta
+{
+    slotInterval.end += delta/DELTAY;
+    [self adaptViewForSlot:slotInterval];
+    [self showTimeLabels:slotInterval];
+}
+
+- (void) moveEndSlot:(SlotInterval*)slotInterval
+{
+    slotInterval.begin = [self roundToQuarterHour:slotInterval.begin];
+    slotInterval.end   = [self roundToQuarterHour:slotInterval.end];
+    [self adaptViewForSlot:slotInterval];
+    [self mergeSlots];
+    [self hideTimeLabels];
+}
+
+- (int) getSlotIndex:(UILongPressGestureRecognizer*)sender
 {
     NSUInteger numberOfTouches = [sender numberOfTouches];
-    //CGPoint bottom   = [sender locationOfTouch:(numberOfTouches-1) inView:self.graduationView];
     CGPoint bottom = CGPointMake(0, 0);
     for (int i = 0; i < numberOfTouches; i++) {
         CGPoint location = [sender locationOfTouch:i inView:self.graduationView];
         bottom = location.y >= bottom.y ? location : bottom;
     }
-
-    int slotIndex      = (int)((bottom.y - STARTY)/(DELTAY/4));
     
+    int slotIndex      = [self computeSlotIndex:bottom.y];
+    return slotIndex;
+}
+
+- (int) computeSlotIndex:(CGFloat)y
+{
+    return (int)((y - STARTY)/(DELTAY/4));
+}
+
+- (void) logPressEvent:(UILongPressGestureRecognizer*)sender withTime:(double)time
+{
+    NSUInteger numberOfTouches = [sender numberOfTouches];
     NSString* stateStr = nil;
     if (sender.state == UIGestureRecognizerStateBegan) {
         stateStr = @"began";
@@ -89,8 +118,27 @@
     else if (sender.state == UIGestureRecognizerStateChanged) {
         stateStr = @"changed";
     }
-    NSLog(@"press (%lu, %0f, %0f, %@)", (unsigned long)numberOfTouches, bottom.x, bottom.y, stateStr);
+    NSLog(@"press (%lu, %0f, %@)", (unsigned long)numberOfTouches, time, stateStr);
+}
 
+- (BOOL) isPressInExistingSlot:(double)time
+{
+    for (SlotInterval* slotInterval in self.timeSlotIntervals) {
+        if (time >= slotInterval.begin && time <= slotInterval.end) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+- (IBAction)handlePress:(UILongPressGestureRecognizer*)sender
+{
+    int slotIndex = [self getSlotIndex:sender];
+    double time = 0.25 * slotIndex;
+    [self logPressEvent:sender withTime:time];
+    
+    NSUInteger numberOfTouches = [sender numberOfTouches];
+    //
     // kStateNothing -> kStateSetSlotBegin
     if (state == kStateNothing && numberOfTouches == 1 && sender.state == UIGestureRecognizerStateBegan) {
         state = kStateSetSlotBegin;
@@ -150,36 +198,61 @@
 
     }
     
-    // time label
-    CGRect frame = self.currentSlotLabel.frame;
     if (state == kStateSetSlotBegin || state == kStateSetSlotEnd) {
-        int yPos;
-        
-        if (state == kStateSetSlotBegin) {
-            yPos = [self yStartForSlot:_currentSlotInterval] - 20;
-        }
-        else /* kStateSetSlotEnd */ {
-            yPos = [self yEndForSlot:_currentSlotInterval] + 5;
-        }
-        
-        self.currentSlotLabel.frame = CGRectMake(frame.origin.x, yPos, frame.size.width, frame.size.height);
-        int totMin = 15 * slotIndex;
-        int hours  = totMin / 60;
-        int min    = totMin % 60;
-        NSString *currentStr = [NSString stringWithFormat:@"%02d:%02d", hours, min];
-        self.currentSlotLabel.text = currentStr;
-        self.currentSlotLabel.alpha = 1.0;
-        
+        [self showTimeLabels:_currentSlotInterval];
     }
     else {
-        self.currentSlotLabel.alpha = 0.0;
+        [self hideTimeLabels];
     }
-    
 }
 
-- (UIView*) createSlotView
+- (void) showTimeLabels:(SlotInterval*)slotInterval
 {
-    UIImageView* currentSlotView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"timeslot"]];
+    [self setTimeLabel:self.slotLabelStart withTime:slotInterval.begin forType:TimeLabelStart];
+    [self setTimeLabel:self.slotLabelEnd   withTime:slotInterval.end   forType:TimeLabelEnd];
+}
+
+- (void) hideTimeLabels
+{
+    self.slotLabelStart.alpha = 0.0;
+    self.slotLabelEnd.alpha   = 0.0;
+}
+
+- (void) setTimeLabel:(UILabel*)label withTime:(double)time forType:(TimeLabelType)labelType
+{
+    int yPos;
+    
+    if (labelType == TimeLabelStart) {
+        yPos = [self yPosForSlot:time] - 20;
+    }
+    else /* TimeLabelEnd */ {
+        yPos = [self yPosForSlot:time] + 5;
+    }
+    
+    label.frame = CGRectMake(label.frame.origin.x, yPos, label.frame.size.width, label.frame.size.height);
+    double roundedTime = [self roundToQuarterHour:time];
+    label.text = [self timeToString:roundedTime];
+    label.alpha = 1.0;
+    
+    if (labelType == TimeLabelStart) {
+        NSLog(@"%@", label);
+    }
+}
+
+- (NSString*) timeToString:(double)time
+{
+    int totMin = 15 * 4 * time;
+    int hours  = totMin / 60;
+    int min    = totMin % 60;
+    return [NSString stringWithFormat:@"%02d:%02d", hours, min];
+
+}
+
+- (UIView*) createSlotView:(SlotInterval*)slotInterval
+{
+    SlotView* currentSlotView = [[SlotView alloc] init];
+    currentSlotView.selectTimeController = self;
+    currentSlotView.slotInterval = slotInterval;
     [self.graduationView addSubview:currentSlotView];
     return currentSlotView;
 }
@@ -189,27 +262,27 @@
     _currentSlotInterval = [[SlotInterval alloc] init];
     _currentSlotInterval.begin = begin;
     _currentSlotInterval.end = end;
-    _currentSlotInterval.view = [self createSlotView];
+    _currentSlotInterval.view = [self createSlotView:_currentSlotInterval];
     [self.timeSlotIntervals addObject:_currentSlotInterval];
 
 }
 
 - (void) adaptViewForSlot:(SlotInterval*)slot
 {
-    double yStart = [self yStartForSlot:slot];
-    double yEnd   = [self yEndForSlot:slot];
+    double yStart = [self yPosForSlot:slot.begin];
+    double yEnd   = [self yPosForSlot:slot.end];
     double height = yEnd - yStart;
     slot.view.frame = CGRectMake(0, yStart, kGraduationViewWidth, height);
 }
 
-- (double) yStartForSlot:(SlotInterval*)slot
+- (double) yPosForSlot:(double)time
 {
-    return STARTY + (slot.begin * DELTAY);
+    return STARTY + (time * DELTAY);
 }
 
-- (double) yEndForSlot:(SlotInterval*)slot
+- (double) roundToQuarterHour:(double)time
 {
-    return STARTY + (slot.end * DELTAY);
+    return round(time * 4.0) / 4.0;
 }
 
 - (void) mergeSlots

@@ -27,8 +27,13 @@
 
 @property (nonatomic, strong) IBOutlet UIScrollView* scrollView;
 @property (nonatomic, strong) IBOutlet GraduationView* graduationView;
-@property (nonatomic, strong) IBOutlet UILabel* currentSlotLabel;
+@property (nonatomic, strong) IBOutlet UILabel* slotLabelStart;
+@property (nonatomic, strong) IBOutlet UILabel* slotLabelEnd;
 
 @property (nonatomic, strong) NSMutableArray* timeSlotIntervals; // as array of DoublePair*
+
+- (void) moveSlotTop:(SlotInterval*)slotInterval withDelta:(CGFloat)delta;
+- (void) moveSlotBottom:(SlotInterval*)slotInterval withDelta:(CGFloat)delta;
+- (void) moveEndSlot:(SlotInterval*)slotInterval;
 
 @end
