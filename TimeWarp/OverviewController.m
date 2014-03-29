@@ -341,10 +341,10 @@
     // section for report
     else {
         return [self.reportDictionary count] == 0 ?
-                // no entries in the report -> header cell and 'no report' cell
-                2 :
-                // otherwise, number of entries + header cell
-                [self.reportDictionary count] + 1;
+                // no entries in the report -> header cell, 'no report' cell and footer cell
+                3 :
+                // otherwise, number of entries + header cell + footer cell
+                [self.reportDictionary count] + 2;
     }
     
 }
@@ -371,11 +371,21 @@
         }
         else {
             if ([self.reportDictionary count] == 0) {
-                return [self createReportNoneCell:indexPath forTableView:tableView];
+                if (indexPath.row == 1) {
+                    return [self createReportNoneCell:indexPath forTableView:tableView];
+                }
+                else {
+                    return [self createReportFooterCell:indexPath forTableView:tableView];
+                }
             }
             // report line cell
             else {
-                return [self createReportLineCell:indexPath forTableView:tableView];
+                if (indexPath.row > [self.reportDictionary count]) {
+                    return [self createReportFooterCell:indexPath forTableView:tableView];
+                }
+                else {
+                    return [self createReportLineCell:indexPath forTableView:tableView];
+                }
             }
         }
     }
@@ -459,6 +469,12 @@
 - (UITableViewCell*) createReportNoneCell:(NSIndexPath*)indexPath forTableView:(UITableView*)tableView
 {
     static NSString *CellIdentifier = @"ReportNone";
+    return [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+}
+
+- (UITableViewCell*) createReportFooterCell:(NSIndexPath*)indexPath forTableView:(UITableView*)tableView
+{
+    static NSString *CellIdentifier = @"ReportFooter";
     return [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
 }
 
