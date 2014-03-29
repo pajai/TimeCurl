@@ -36,7 +36,7 @@
     for (int i = 0; i <= 24; i++) {
         // hour graduation
         CGContextMoveToPoint   (context, 0,   startY + i * dY);
-        CGContextAddLineToPoint(context, 250, startY + i * dY);
+        CGContextAddLineToPoint(context, self.frame.size.width, startY + i * dY);
     }
     
     CGContextStrokePath(context);

@@ -9,7 +9,7 @@
 #import "SlotView.h"
 #import "SelectTimeController.h"
 
-#define kResizeThumbSize 20
+#define kResizeThumbSize 25
 
 @interface SlotView ()
 
@@ -28,6 +28,8 @@
     if (self) {
         // Initialization code
         self.userInteractionEnabled = YES;
+        
+        self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     }
     return self;
 }

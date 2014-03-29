@@ -22,7 +22,7 @@
 {
     if ([self.name.text length] == 0 || [self.subname.text length] == 0) {
 
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry"
                                                         message:@"At least the project name and sub name should be set!"
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"

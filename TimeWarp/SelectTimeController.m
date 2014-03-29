@@ -12,8 +12,6 @@
 #import "Flurry.h"
 #import "SlotView.h"
 
-#define kGraduationViewWidth 240
-
 
 typedef NS_ENUM(NSInteger, TimeLabelType) {
     TimeLabelStart,
@@ -36,7 +34,6 @@ typedef NS_ENUM(NSInteger, TimeLabelType) {
     
     for (SlotInterval* slotInterval in self.timeSlotIntervals) {
         slotInterval.view = [self createSlotView:slotInterval];
-        [self adaptViewForSlot:slotInterval];
     }
     
     self.slotLabelStart.font = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1];
@@ -119,16 +116,6 @@ typedef NS_ENUM(NSInteger, TimeLabelType) {
         stateStr = @"changed";
     }
     NSLog(@"press (%lu, %0f, %@)", (unsigned long)numberOfTouches, time, stateStr);
-}
-
-- (BOOL) isPressInExistingSlot:(double)time
-{
-    for (SlotInterval* slotInterval in self.timeSlotIntervals) {
-        if (time >= slotInterval.begin && time <= slotInterval.end) {
-            return YES;
-        }
-    }
-    return NO;
 }
 
 - (IBAction)handlePress:(UILongPressGestureRecognizer*)sender
@@ -272,7 +259,7 @@ typedef NS_ENUM(NSInteger, TimeLabelType) {
     double yStart = [self yPosForSlot:slot.begin];
     double yEnd   = [self yPosForSlot:slot.end];
     double height = yEnd - yStart;
-    slot.view.frame = CGRectMake(0, yStart, kGraduationViewWidth, height);
+    slot.view.frame = CGRectMake(0, yStart, self.graduationView.frame.size.width - 10, height);
 }
 
 - (double) yPosForSlot:(double)time
@@ -371,13 +358,16 @@ typedef NS_ENUM(NSInteger, TimeLabelType) {
     [self initLabels];
     
     state = kStateNothing;
-
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
+    for (SlotInterval* slotInterval in self.timeSlotIntervals) {
+        [self adaptViewForSlot:slotInterval];
+    }
+
     [Flurry logEvent:@"Enter Time Span"];
 }
 
