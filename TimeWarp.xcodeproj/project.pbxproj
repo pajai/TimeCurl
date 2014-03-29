@@ -563,7 +563,7 @@
 				ORGANIZATIONNAME = zuehlke;
 				TargetAttributes = {
 					4323D456176EF79500A083AB = {
-						DevelopmentTeam = 33AUWD68J4;
+						DevelopmentTeam = 2WXN38VLT5;
 						SystemCapabilities = {
 							com.apple.iCloud = {
 								enabled = 1;
