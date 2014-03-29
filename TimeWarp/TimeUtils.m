@@ -57,24 +57,44 @@
     return [cal dateFromComponents:components];
 }
 
-+ (NSDate*) decrementMonthForMonth:(NSDate*) month
++ (NSDate*) decrementYearForDate:(NSDate*) date
+{
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    
+    NSDateComponents* minusOneMonth = [[NSDateComponents alloc] init];
+    [minusOneMonth setYear:-1];
+    
+    return [cal dateByAddingComponents:minusOneMonth toDate:date options:0];
+}
+
++ (NSDate*) incrementYearForDate:(NSDate*) date
+{
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    
+    NSDateComponents* minusOneMonth = [[NSDateComponents alloc] init];
+    [minusOneMonth setYear:1];
+    
+    return [cal dateByAddingComponents:minusOneMonth toDate:date options:0];
+}
+
++ (NSDate*) decrementMonthForDate:(NSDate*) date
 {
     NSCalendar *cal = [NSCalendar currentCalendar];
     
     NSDateComponents* minusOneMonth = [[NSDateComponents alloc] init];
     [minusOneMonth setMonth:-1];
     
-    return [cal dateByAddingComponents:minusOneMonth toDate:month options:0];
+    return [cal dateByAddingComponents:minusOneMonth toDate:date options:0];
 }
 
-+ (NSDate*) incrementMonthForMonth:(NSDate*) month
++ (NSDate*) incrementMonthForDate:(NSDate*) date
 {
     NSCalendar *cal = [NSCalendar currentCalendar];
 
     NSDateComponents* oneMonth = [[NSDateComponents alloc] init];
     [oneMonth setMonth:1];
 
-    return [cal dateByAddingComponents:oneMonth toDate:month options:0];
+    return [cal dateByAddingComponents:oneMonth toDate:date options:0];
 }
 
 @end

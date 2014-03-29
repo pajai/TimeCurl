@@ -75,6 +75,17 @@
 		43E70435178DC2F000CB5AA2 /* MailComposeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E70433178DC2F000CB5AA2 /* MailComposeHandler.m */; };
 		43E70436178DC2F000CB5AA2 /* MailComposeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E70433178DC2F000CB5AA2 /* MailComposeHandler.m */; };
 		43EF206E18E3802800AF4702 /* SlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 43EF206D18E3802800AF4702 /* SlotView.m */; };
+		43EF209218E71E1800AF4702 /* CalendarPreviousMonth.png in Resources */ = {isa = PBXBuildFile; fileRef = 43EF208618E71E1800AF4702 /* CalendarPreviousMonth.png */; };
+		43EF209318E71E1800AF4702 /* CalendarPreviousMonth@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 43EF208718E71E1800AF4702 /* CalendarPreviousMonth@2x.png */; };
+		43EF209418E71E1800AF4702 /* CalendarRow.png in Resources */ = {isa = PBXBuildFile; fileRef = 43EF208818E71E1800AF4702 /* CalendarRow.png */; };
+		43EF209518E71E1800AF4702 /* CalendarRow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 43EF208918E71E1800AF4702 /* CalendarRow@2x.png */; };
+		43EF209618E71E1800AF4702 /* CalendarRowBottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 43EF208A18E71E1800AF4702 /* CalendarRowBottom.png */; };
+		43EF209718E71E1800AF4702 /* CalendarRowBottom@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 43EF208B18E71E1800AF4702 /* CalendarRowBottom@2x.png */; };
+		43EF209818E71E1800AF4702 /* CalendarSelectedDate.png in Resources */ = {isa = PBXBuildFile; fileRef = 43EF208C18E71E1800AF4702 /* CalendarSelectedDate.png */; };
+		43EF209918E71E1800AF4702 /* CalendarSelectedDate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 43EF208D18E71E1800AF4702 /* CalendarSelectedDate@2x.png */; };
+		43EF209A18E71E1800AF4702 /* CalendarTodaysDate.png in Resources */ = {isa = PBXBuildFile; fileRef = 43EF208E18E71E1800AF4702 /* CalendarTodaysDate.png */; };
+		43EF209B18E71E1800AF4702 /* CalendarTodaysDate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 43EF208F18E71E1800AF4702 /* CalendarTodaysDate@2x.png */; };
+		43EF209C18E71E1800AF4702 /* TSQTACalendarRowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 43EF209118E71E1800AF4702 /* TSQTACalendarRowCell.m */; };
 		43FECC2217D0823E003179B6 /* UIConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FECC2117D0823E003179B6 /* UIConstants.m */; };
 		43FECC2417D08525003179B6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43FECC2317D08525003179B6 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
@@ -186,6 +197,18 @@
 		43E70434178DC2F000CB5AA2 /* MailComposeCallbackDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailComposeCallbackDelegate.h; sourceTree = "<group>"; };
 		43EF206C18E3802800AF4702 /* SlotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlotView.h; sourceTree = "<group>"; };
 		43EF206D18E3802800AF4702 /* SlotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlotView.m; sourceTree = "<group>"; };
+		43EF208618E71E1800AF4702 /* CalendarPreviousMonth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CalendarPreviousMonth.png; sourceTree = "<group>"; };
+		43EF208718E71E1800AF4702 /* CalendarPreviousMonth@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CalendarPreviousMonth@2x.png"; sourceTree = "<group>"; };
+		43EF208818E71E1800AF4702 /* CalendarRow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CalendarRow.png; sourceTree = "<group>"; };
+		43EF208918E71E1800AF4702 /* CalendarRow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CalendarRow@2x.png"; sourceTree = "<group>"; };
+		43EF208A18E71E1800AF4702 /* CalendarRowBottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CalendarRowBottom.png; sourceTree = "<group>"; };
+		43EF208B18E71E1800AF4702 /* CalendarRowBottom@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CalendarRowBottom@2x.png"; sourceTree = "<group>"; };
+		43EF208C18E71E1800AF4702 /* CalendarSelectedDate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CalendarSelectedDate.png; sourceTree = "<group>"; };
+		43EF208D18E71E1800AF4702 /* CalendarSelectedDate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CalendarSelectedDate@2x.png"; sourceTree = "<group>"; };
+		43EF208E18E71E1800AF4702 /* CalendarTodaysDate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CalendarTodaysDate.png; sourceTree = "<group>"; };
+		43EF208F18E71E1800AF4702 /* CalendarTodaysDate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CalendarTodaysDate@2x.png"; sourceTree = "<group>"; };
+		43EF209018E71E1800AF4702 /* TSQTACalendarRowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSQTACalendarRowCell.h; path = TimeSquareCustomize/TSQTACalendarRowCell.h; sourceTree = "<group>"; };
+		43EF209118E71E1800AF4702 /* TSQTACalendarRowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSQTACalendarRowCell.m; path = TimeSquareCustomize/TSQTACalendarRowCell.m; sourceTree = "<group>"; };
 		43FECC2017D0823E003179B6 /* UIConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIConstants.h; sourceTree = "<group>"; };
 		43FECC2117D0823E003179B6 /* UIConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIConstants.m; sourceTree = "<group>"; };
 		43FECC2317D08525003179B6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -306,6 +329,7 @@
 		4323D460176EF79500A083AB /* TimeWarp */ = {
 			isa = PBXGroup;
 			children = (
+				43EF208418E71D2F00AF4702 /* TimesSquareCustomize */,
 				438C6A9B18D5BDBA00BF1F58 /* TimesSquare */,
 				438C6A9118D5049600BF1F58 /* TestFlightSDK3 */,
 				438C696218D4F90300BF1F58 /* Flurry-iOS-4.3.2 */,
@@ -463,6 +487,34 @@
 			path = CHCSVParser;
 			sourceTree = "<group>";
 		};
+		43EF208418E71D2F00AF4702 /* TimesSquareCustomize */ = {
+			isa = PBXGroup;
+			children = (
+				43EF208518E71E1800AF4702 /* images */,
+				43EF209018E71E1800AF4702 /* TSQTACalendarRowCell.h */,
+				43EF209118E71E1800AF4702 /* TSQTACalendarRowCell.m */,
+			);
+			name = TimesSquareCustomize;
+			sourceTree = "<group>";
+		};
+		43EF208518E71E1800AF4702 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				43EF208618E71E1800AF4702 /* CalendarPreviousMonth.png */,
+				43EF208718E71E1800AF4702 /* CalendarPreviousMonth@2x.png */,
+				43EF208818E71E1800AF4702 /* CalendarRow.png */,
+				43EF208918E71E1800AF4702 /* CalendarRow@2x.png */,
+				43EF208A18E71E1800AF4702 /* CalendarRowBottom.png */,
+				43EF208B18E71E1800AF4702 /* CalendarRowBottom@2x.png */,
+				43EF208C18E71E1800AF4702 /* CalendarSelectedDate.png */,
+				43EF208D18E71E1800AF4702 /* CalendarSelectedDate@2x.png */,
+				43EF208E18E71E1800AF4702 /* CalendarTodaysDate.png */,
+				43EF208F18E71E1800AF4702 /* CalendarTodaysDate@2x.png */,
+			);
+			name = images;
+			path = TimeSquareCustomize/images;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -548,10 +600,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				438C6A9A18D5049600BF1F58 /* release_notes.md in Resources */,
+				43EF209218E71E1800AF4702 /* CalendarPreviousMonth.png in Resources */,
+				43EF209B18E71E1800AF4702 /* CalendarTodaysDate@2x.png in Resources */,
 				4379431D176F706D00188F99 /* Entitlements.plist in Resources */,
+				43EF209918E71E1800AF4702 /* CalendarSelectedDate@2x.png in Resources */,
 				4323D476176EF79500A083AB /* Images.xcassets in Resources */,
+				43EF209718E71E1800AF4702 /* CalendarRowBottom@2x.png in Resources */,
 				438C6A9918D5049600BF1F58 /* README.md in Resources */,
+				43EF209518E71E1800AF4702 /* CalendarRow@2x.png in Resources */,
 				4323D465176EF79500A083AB /* InfoPlist.strings in Resources */,
+				43EF209418E71E1800AF4702 /* CalendarRow.png in Resources */,
+				43EF209818E71E1800AF4702 /* CalendarSelectedDate.png in Resources */,
+				43EF209318E71E1800AF4702 /* CalendarPreviousMonth@2x.png in Resources */,
+				43EF209A18E71E1800AF4702 /* CalendarTodaysDate.png in Resources */,
+				43EF209618E71E1800AF4702 /* CalendarRowBottom.png in Resources */,
 				4323D46E176EF79500A083AB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -591,6 +653,7 @@
 				43C6E41017E1BD7B004A953A /* UITextFieldWithInset.m in Sources */,
 				431535561773936000B5D825 /* CoreDataWrapper.m in Sources */,
 				43E70430178DBF5B00CB5AA2 /* CHCSVParser.m in Sources */,
+				43EF209C18E71E1800AF4702 /* TSQTACalendarRowCell.m in Sources */,
 				4315354D17735D0100B5D825 /* NewActivityController.m in Sources */,
 				437943201770384600188F99 /* CurrentListController.m in Sources */,
 				4323D4AC176F0B0000A083AB /* TimeSlot.m in Sources */,

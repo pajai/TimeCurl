@@ -8,6 +8,7 @@
 
 #import "SelectDayController.h"
 #import "TimeUtils.h"
+#import "TSQTACalendarRowCell.h"
 
 @interface SelectDayController ()
 
@@ -38,12 +39,22 @@
 {
     [super viewDidLoad];
 
-    self.calendarView.firstDate = [TimeUtils decrementMonthForMonth:self.currentDate];
-    self.calendarView.lastDate  = [TimeUtils incrementMonthForMonth:self.currentDate];
+    self.calendarView.rowCellClass = [TSQTACalendarRowCell class];
+    self.calendarView.firstDate = [TimeUtils decrementYearForDate:self.currentDate];
+    self.calendarView.lastDate  = [TimeUtils incrementYearForDate:self.currentDate];
+    self.calendarView.backgroundColor = [UIColor colorWithRed:0.84f green:0.85f blue:0.86f alpha:1.0f];
+    self.calendarView.pagingEnabled = YES;
+    CGFloat onePixel = 1.0f / [UIScreen mainScreen].scale;
+    self.calendarView.contentInset = UIEdgeInsetsMake(0.0f, onePixel, 0.0f, onePixel);
     self.calendarView.selectedDate = self.currentDate;
     self.calendarView.delegate = self;
-    [self.calendarView scrollToDate:self.currentDate animated:NO];
     
+}
+
+- (void)viewDidLayoutSubviews;
+{
+    // Set the calendar view to show today date on start
+    [self.calendarView scrollToDate:self.currentDate animated:NO];
 }
 
 - (void)didReceiveMemoryWarning

@@ -22,7 +22,9 @@
 // return a month start date for the given date, where the time is set to midnight
 + (NSDate*) monthForDate:(NSDate*) date;
 
-+ (NSDate*) decrementMonthForMonth:(NSDate*) month;
-+ (NSDate*) incrementMonthForMonth:(NSDate*) month;
++ (NSDate*) decrementMonthForDate:(NSDate*) date;
++ (NSDate*) incrementMonthForDate:(NSDate*) date;
++ (NSDate*) decrementYearForDate:(NSDate*) date;
++ (NSDate*) incrementYearForDate:(NSDate*) date;
 
 @end
