@@ -87,13 +87,18 @@
     }
     
     // date
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"MMM yyyy"];
-    NSString* dateString = [dateFormatter stringFromDate:self.currentDate];
+    NSString* dateString = [self getDateString];
     
     // change the nav title
     // rem: if we change self.title, we change also the tab title
     self.navigationController.navigationBar.topItem.title = [NSString stringWithFormat:@"%@ (%.2f)", dateString, totTime];
+}
+
+- (NSString*) getDateString
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MMM yyyy"];
+    return [dateFormatter stringFromDate:self.currentDate];
 }
 
 - (IBAction) sharePressed:(id)sender
@@ -425,7 +430,14 @@
 - (UITableViewCell*) createReportHeaderCell:(NSIndexPath*)indexPath forTableView:(UITableView*)tableView
 {
     static NSString *CellIdentifier = @"ReportHeader";
-    return [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    UILabel* reportLabel = (UILabel*) [cell viewWithTag:100];
+    NSString* dateString = [self getDateString];
+    NSString* title = [NSString stringWithFormat:@"Report for %@", dateString];
+    reportLabel.text = title;
+    
+    return cell;
 }
 
 - (UITableViewCell*) createReportLineCell:(NSIndexPath*)indexPath forTableView:(UITableView*)tableView
