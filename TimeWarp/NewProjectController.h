@@ -10,7 +10,7 @@
 #import <CoreData/CoreData.h>
 #import "Project.h"
 
-@interface AddProjectController : UIViewController <NSFetchedResultsControllerDelegate>
+@interface NewProjectController : UIViewController <NSFetchedResultsControllerDelegate>
 
 - (IBAction)donePressed:(id) sender;
 

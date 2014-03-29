@@ -9,7 +9,7 @@
 #import "ProjectListController.h"
 #import "Project.h"
 #import "AppDelegate.h"
-#import "AddProjectController.h"
+#import "NewProjectController.h"
 #import "CoreDataWrapper.h"
 #import "DTCustomColoredAccessory.h"
 #import "UIConstants.h"
@@ -103,7 +103,7 @@
         
         NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
         Project* project = [self.projects objectAtIndex:indexPath.row];
-        AddProjectController* controller = (AddProjectController*)segue.destinationViewController;
+        NewProjectController* controller = (NewProjectController*)segue.destinationViewController;
         controller.project = project;
 
     }

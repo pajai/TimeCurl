@@ -6,17 +6,17 @@
 //  Copyright (c) 2013 zuehlke. All rights reserved.
 //
 
-#import "AddProjectController.h"
+#import "NewProjectController.h"
 #import "AppDelegate.h"
 #import "CoreDataWrapper.h"
 #import "UIConstants.h"
 #import "Flurry.h"
 
-@interface AddProjectController ()
+@interface NewProjectController ()
 
 @end
 
-@implementation AddProjectController
+@implementation NewProjectController
 
 - (IBAction)donePressed:(id) sender
 {

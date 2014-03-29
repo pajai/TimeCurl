@@ -148,10 +148,10 @@
             </objects>
             <point key="canvasLocation" x="787" y="-1124"/>
         </scene>
-        <!--Overview Controller - Title-->
+        <!--Report Controller - Title-->
         <scene sceneID="9jQ-Mo-D4n">
             <objects>
-                <tableViewController restorationIdentifier="OverviewController" id="P3M-kh-JSr" customClass="OverviewController" sceneMemberID="viewController">
+                <tableViewController restorationIdentifier="OverviewController" id="P3M-kh-JSr" customClass="ReportController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" id="mX9-wx-kRc">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -449,10 +449,10 @@
             </objects>
             <point key="canvasLocation" x="1319" y="559"/>
         </scene>
-        <!--Add Project Controller - New Project-->
+        <!--New Project Controller - New Project-->
         <scene sceneID="Tik-Sq-O8E">
             <objects>
-                <viewController restorationIdentifier="AddProjectController" id="hLD-yb-vPw" customClass="AddProjectController" sceneMemberID="viewController">
+                <viewController restorationIdentifier="AddProjectController" id="hLD-yb-vPw" customClass="NewProjectController" sceneMemberID="viewController">
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="acJ-bk-MC5">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

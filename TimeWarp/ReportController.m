@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 zuehlke. All rights reserved.
 //
 
-#import "OverviewController.h"
+#import "ReportController.h"
 #import "CoreDataWrapper.h"
 #import "TimeUtils.h"
 #import "CHCSVParser.h"
@@ -26,7 +26,7 @@
 
 
 
-@interface OverviewController ()
+@interface ReportController ()
 
 @property (nonatomic, strong) MailComposeHandler* mailComposeHandler;
 @property (nonatomic, strong) NSArray* activitiesByDay;
@@ -38,7 +38,7 @@
 - (void) updateTitle;
 @end
 
-@implementation OverviewController
+@implementation ReportController
 
 
 #pragma mark custom methods
