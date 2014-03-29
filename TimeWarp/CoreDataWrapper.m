@@ -251,7 +251,13 @@ NSString * const DPUbiquitousName   = @"com~timecurl~coredataicloud";
 
 - (NSArray*) fetchActivitiesByDayForMonth:(NSDate*) date
 {
-    NSLog(@"Fetch activities by day for month %@", date);
+    NSArray* activities = [self fetchActivitiesForMonth:date];
+    return [self groupActivitiesByDay:activities];
+}
+
+- (NSArray*) fetchActivitiesForMonth:(NSDate*) date
+{
+    NSLog(@"Fetch activities for month %@", date);
     
     NSManagedObjectContext* managedObjectContext = [self managedObjectContext];
     NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
@@ -259,7 +265,7 @@ NSString * const DPUbiquitousName   = @"com~timecurl~coredataicloud";
     [fetchRequest setEntity:entity];
     
     NSDate* month      = [TimeUtils monthForDate:date];
-    NSDate* monthAfter = [TimeUtils incrementMonthForMonth:month];
+    NSDate* monthAfter = [TimeUtils incrementMonthForDate:month];
     // TODO perhaps not the most efficient query
     NSPredicate* predicate = [NSPredicate predicateWithFormat:@"self.date >= %@ AND self.date < %@", month, monthAfter];
     [fetchRequest setPredicate:predicate];
@@ -271,11 +277,11 @@ NSString * const DPUbiquitousName   = @"com~timecurl~coredataicloud";
     NSError* error = nil;
     NSArray* result = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
-    if ([self logError:error withMessage:@"fetch all activities"]) {
+    if ([self logError:error withMessage:@"fetch activities for month"]) {
         return nil;
     }
-
-    return [self groupActivitiesByDay:result];
+    
+    return result;
 }
 
 - (NSArray*) groupActivitiesByDay:(NSArray*)activities

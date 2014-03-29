@@ -27,6 +27,12 @@
 
 
 @interface OverviewController ()
+
+@property (nonatomic, strong) MailComposeHandler* mailComposeHandler;
+@property (nonatomic, strong) NSArray* activitiesByDay;
+@property (nonatomic, strong) NSDate* currentDate;
+@property (strong, nonatomic) NSMutableDictionary* reportDictionary;
+
 - (void) loadData;
 - (void) initCurrentDate;
 - (void) updateTitle;
@@ -39,9 +45,30 @@
 
 - (void) loadData
 {
-    self.activitiesByDay = [NSMutableArray arrayWithArray:[[CoreDataWrapper shared] fetchActivitiesByDayForMonth:self.currentDate]];
+    NSArray* activities = [[CoreDataWrapper shared] fetchActivitiesForMonth:self.currentDate];
+    [self createReportForActivities:activities];
+    
+    self.activitiesByDay = [[CoreDataWrapper shared] groupActivitiesByDay:activities];
     
     [self.tableView reloadData];
+}
+
+- (void) createReportForActivities:(NSArray*)activities
+{
+    NSMutableDictionary* report = [NSMutableDictionary dictionaryWithCapacity:10];
+    for (Activity* activity in activities) {
+        NSString* projectLabel = [self createLabelForProject:activity.project];
+        if (!report[projectLabel]) {
+            report[projectLabel] = @0.0;
+        }
+        report[projectLabel] = [NSNumber numberWithDouble:[report[projectLabel] doubleValue] + activity.duration];
+    }
+    self.reportDictionary = report;
+}
+
+- (NSString*) createLabelForProject:(Project*)project
+{
+    return [NSString stringWithFormat:@"%@, %@", project.name, project.subname];
 }
 
 - (void) initCurrentDate
@@ -85,7 +112,7 @@
 {
 	if (sender.state == UIGestureRecognizerStateEnded) {
 		NSLog(@"Current date minus one month");
-        self.currentDate = [TimeUtils decrementMonthForMonth:self.currentDate];
+        self.currentDate = [TimeUtils decrementMonthForDate:self.currentDate];
         [self loadData];
         [self updateTitle];
     }
@@ -95,7 +122,7 @@
 {
 	if (sender.state == UIGestureRecognizerStateEnded) {
 		NSLog(@"Current date plus one month");
-        self.currentDate = [TimeUtils incrementMonthForMonth:self.currentDate];
+        self.currentDate = [TimeUtils incrementMonthForDate:self.currentDate];
         [self loadData];
         [self updateTitle];
     }
@@ -295,85 +322,169 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [self.activitiesByDay count];
+    // +1 for the report section
+    return [self.activitiesByDay count] + 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // +1 is for the day title cell
-    return [[self.activitiesByDay objectAtIndex:section] count] + 1;
+    // sections for each day
+    if (section < [self.activitiesByDay count]) {
+        // +1 is for the day title cell
+        return [[self.activitiesByDay objectAtIndex:section] count] + 1;
+    }
+    // section for report
+    else {
+        return [self.reportDictionary count] == 0 ?
+                // no entries in the report -> header cell and 'no report' cell
+                2 :
+                // otherwise, number of entries + header cell
+                [self.reportDictionary count] + 1;
+    }
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell* cell = nil;
-    
-    // case day title cell
-    if (indexPath.row == 0) {
-        
-        static NSString *CellIdentifier = @"DayTitleCell";
-        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-        
-        UILabel* dayLabel      = (UILabel*)[cell viewWithTag:100];
-        UILabel* durationLabel = (UILabel*)[cell viewWithTag:101];
-        
-        NSArray* activitiesForDay = [self.activitiesByDay objectAtIndex:indexPath.section];
-        
-        Activity* activity = (Activity*)activitiesForDay[0];
-        NSString* dateString = [_dateFormatter stringFromDate:activity.date];
-        dayLabel.text = dateString;
-        
-        // TODO duration
-        double dailyDuration = 0;
-        for (Activity* act in activitiesForDay) {
-            dailyDuration += [act duration];
+    // day sections
+    if (indexPath.section < [self.activitiesByDay count]) {
+        // case day title cell
+        if (indexPath.row == 0) {
+            
+            return [self createDayHeaderCell:indexPath forTableView:tableView];
         }
-        durationLabel.text = [NSString stringWithFormat:@"%.2f", dailyDuration];
-        
-        
+        // case day activity
+        else {
+            
+            return [self createDayActivityCell:indexPath forTableView:tableView];
+        }
     }
-    // case day activity
+    // report section
     else {
-        
-        static NSString *CellIdentifier = @"ActivityCell";
-        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-
-        Activity* activity = (Activity*)[self.activitiesByDay objectAtIndex:indexPath.section][indexPath.row - 1];
-        
-        UILabel* titleLabel    = (UILabel*)[cell viewWithTag:100];
-        UILabel* durationLabel = (UILabel*)[cell viewWithTag:101];
-        UILabel* noteLabel     = (UILabel*)[cell viewWithTag:102];
-        
-        cell.accessoryView = [DTCustomColoredAccessory accessoryWithSingleColor:[UIConstants shared].deepBlueColor];
-        
-        // TODO dynamic height? -> cf CurrentListController
-        
-        Project* project = activity.project;
-        titleLabel.text = [NSString stringWithFormat:@"%@ (%@)", project.name, project.subname];
-        durationLabel.text = [NSString stringWithFormat:@"%.2f", [activity duration]];
-        noteLabel.text = activity.note;
-        [noteLabel sizeToFit];
+        if (indexPath.row == 0) {
+            return [self createReportHeaderCell:indexPath forTableView:tableView];
+        }
+        else {
+            if ([self.reportDictionary count] == 0) {
+                return [self createReportNoneCell:indexPath forTableView:tableView];
+            }
+            // report line cell
+            else {
+                return [self createReportLineCell:indexPath forTableView:tableView];
+            }
+        }
     }
+}
+
+- (UITableViewCell*) createDayHeaderCell:(NSIndexPath*)indexPath forTableView:(UITableView*)tableView
+{
+    static NSString *CellIdentifier = @"DayTitleCell";
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    UILabel* dayLabel      = (UILabel*)[cell viewWithTag:100];
+    UILabel* durationLabel = (UILabel*)[cell viewWithTag:101];
+    
+    NSArray* activitiesForDay = [self.activitiesByDay objectAtIndex:indexPath.section];
+    
+    Activity* activity = (Activity*)activitiesForDay[0];
+    NSString* dateString = [_dateFormatter stringFromDate:activity.date];
+    dayLabel.text = dateString;
+    
+    // TODO duration
+    double dailyDuration = 0;
+    for (Activity* act in activitiesForDay) {
+        dailyDuration += [act duration];
+    }
+    durationLabel.text = [NSString stringWithFormat:@"%.2f", dailyDuration];
+    return cell;
+}
+
+- (UITableViewCell*) createDayActivityCell:(NSIndexPath*)indexPath forTableView:(UITableView*)tableView
+{
+    static NSString *CellIdentifier = @"ActivityCell";
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    Activity* activity = (Activity*)[self.activitiesByDay objectAtIndex:indexPath.section][indexPath.row - 1];
+    
+    UILabel* titleLabel    = (UILabel*)[cell viewWithTag:100];
+    UILabel* durationLabel = (UILabel*)[cell viewWithTag:101];
+    UILabel* noteLabel     = (UILabel*)[cell viewWithTag:102];
+    
+    cell.accessoryView = [DTCustomColoredAccessory accessoryWithSingleColor:[UIConstants shared].deepBlueColor];
+    
+    // TODO dynamic height? -> cf CurrentListController
+    
+    Project* project = activity.project;
+    titleLabel.text = [NSString stringWithFormat:@"%@ (%@)", project.name, project.subname];
+    durationLabel.text = [NSString stringWithFormat:@"%.2f", [activity duration]];
+    noteLabel.text = activity.note;
+    [noteLabel sizeToFit];
+    return cell;
+}
+
+- (UITableViewCell*) createReportHeaderCell:(NSIndexPath*)indexPath forTableView:(UITableView*)tableView
+{
+    static NSString *CellIdentifier = @"ReportHeader";
+    return [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+}
+
+- (UITableViewCell*) createReportLineCell:(NSIndexPath*)indexPath forTableView:(UITableView*)tableView
+{
+    static NSString *CellIdentifier = @"ReportLine";
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    NSString* text  = [self.reportDictionary allKeys][indexPath.row - 1];
+    NSNumber* hours = self.reportDictionary[text];
+    
+    UILabel* projectLabel = (UILabel*) [cell viewWithTag:100];
+    UILabel* hoursLabel   = (UILabel*) [cell viewWithTag:101];
+    
+    projectLabel.text = text;
+    hoursLabel.text = [NSString stringWithFormat:@"%.2f", [hours doubleValue]];
     
     return cell;
 }
 
+- (UITableViewCell*) createReportNoneCell:(NSIndexPath*)indexPath forTableView:(UITableView*)tableView
+{
+    static NSString *CellIdentifier = @"ReportNone";
+    return [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0) {
-        return kDayCellHeight;
-    }
-    else {
-
-        Activity* activity = (Activity*)[self.activitiesByDay objectAtIndex:indexPath.section][indexPath.row - 1];
-        NSString* trimmedNote = [activity.note stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-        if ([trimmedNote length] > 0) {
-            return kActivityCellHeightNonEmptyNote;
+    if (indexPath.section < [self.activitiesByDay count]) {
+        if (indexPath.row == 0) {
+            return kDayCellHeight;
         }
         else {
-            return kActivityCellHeightEmptyNote;
+            return [self heightForDayActivity:indexPath];
         }
+    }
+    // report section
+    else {
+        return [self heightForReportCell:indexPath];
+    }
+}
 
+- (CGFloat) heightForDayActivity:(NSIndexPath*)indexPath
+{
+    Activity* activity = (Activity*)[self.activitiesByDay objectAtIndex:indexPath.section][indexPath.row - 1];
+    NSString* trimmedNote = [activity.note stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    if ([trimmedNote length] > 0) {
+        return kActivityCellHeightNonEmptyNote;
+    }
+    else {
+        return kActivityCellHeightEmptyNote;
+    }
+}
+
+- (CGFloat) heightForReportCell:(NSIndexPath*)indexPath
+{
+    if (indexPath.row == 0) {
+        return 71.0;
+    }
+    else {
+        return 27.0;
     }
 }
 

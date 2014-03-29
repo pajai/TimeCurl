@@ -18,10 +18,4 @@
     
 }
 
-@property (nonatomic, strong) MailComposeHandler* mailComposeHandler;
-
-@property (nonatomic, strong) NSMutableArray* activitiesByDay;
-
-@property (nonatomic, strong) NSDate* currentDate;
-
 @end

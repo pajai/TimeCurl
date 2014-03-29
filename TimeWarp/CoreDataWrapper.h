@@ -30,9 +30,13 @@
 - (void)storesDidChange:(NSNotification *)n;
 
 - (NSArray*) fetchAllProjects;
+
 - (NSArray*) fetchAllActivities;
+- (NSArray*) fetchActivitiesForMonth:(NSDate*) date;
 - (NSArray*) fetchActivitiesForDate:(NSDate*) date;
 - (NSArray*) fetchActivitiesByDayForMonth:(NSDate*) date;
+
+- (NSArray*) groupActivitiesByDay:(NSArray*)activities;
 
 - (Project*) newProject;
 - (Activity*) newActivity;
