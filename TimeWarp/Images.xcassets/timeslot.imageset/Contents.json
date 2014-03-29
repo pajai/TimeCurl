@@ -4,14 +4,14 @@
       "resizing" : {
         "mode" : "9-part",
         "center" : {
-          "mode" : "fill",
-          "width" : 1,
+          "mode" : "stretch",
+          "width" : 38,
           "height" : 1
         },
         "capInsets" : {
           "bottom" : 9,
           "top" : 8,
-          "right" : 41,
+          "right" : 6,
           "left" : 41
         }
       },
@@ -23,14 +23,14 @@
       "resizing" : {
         "mode" : "9-part",
         "center" : {
-          "mode" : "fill",
-          "width" : 1,
+          "mode" : "stretch",
+          "width" : 80,
           "height" : 1
         },
         "capInsets" : {
           "bottom" : 18,
           "top" : 17,
-          "right" : 80,
+          "right" : 79,
           "left" : 80
         }
       },
