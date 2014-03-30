@@ -18,6 +18,9 @@
 #import "Flurry.h"
 #import "ModelSerializer.h"
 #import "NotificationConstants.h"
+#import "ConfigureReportController.h"
+#import "PrefsConstants.h"
+#import "Project+Additions.h"
 
 
 #define kDayCellHeight 30
@@ -30,11 +33,14 @@
 
 @property (nonatomic, strong) MailComposeHandler* mailComposeHandler;
 @property (nonatomic, strong) NSArray* activitiesByDay;
-@property (nonatomic, strong) NSDate* currentDate;
+@property (nonatomic, strong) NSDate* periodStart;
 @property (strong, nonatomic) NSMutableDictionary* reportDictionary;
 
+@property (readwrite) NSInteger periodicityNb;
+@property (strong, nonatomic) NSString* periodicityUnit;
+
 - (void) loadData;
-- (void) initCurrentDate;
+- (void) initDateAndPeriodicity;
 - (void) updateTitle;
 @end
 
@@ -45,7 +51,9 @@
 
 - (void) loadData
 {
-    NSArray* activities = [[CoreDataWrapper shared] fetchActivitiesForMonth:self.currentDate];
+    NSDate* nextPeriodStart = [TimeUtils incrementDate:self.periodStart forUnitString:self.periodicityUnit andNb:self.periodicityNb];
+    
+    NSArray* activities = [[CoreDataWrapper shared] fetchActivitiesBetweenDate:self.periodStart andExclusiveDate:nextPeriodStart];
     [self createReportForActivities:activities];
     
     self.activitiesByDay = [[CoreDataWrapper shared] groupActivitiesByDay:activities];
@@ -57,7 +65,7 @@
 {
     NSMutableDictionary* report = [NSMutableDictionary dictionaryWithCapacity:10];
     for (Activity* activity in activities) {
-        NSString* projectLabel = [self createLabelForProject:activity.project];
+        NSString* projectLabel = [activity.project label];
         if (!report[projectLabel]) {
             report[projectLabel] = @0.0;
         }
@@ -66,14 +74,35 @@
     self.reportDictionary = report;
 }
 
-- (NSString*) createLabelForProject:(Project*)project
+- (void) initDateAndPeriodicity
 {
-    return [NSString stringWithFormat:@"%@, %@", project.name, project.subname];
+    NSUserDefaults* prefs = [NSUserDefaults standardUserDefaults];
+    self.periodicityNb   = [prefs integerForKey:PREFS_PERIODICITY_NB];
+    self.periodicityUnit = [prefs stringForKey: PREFS_PERIODICITY_UNIT];
+
+    self.periodStart = [prefs objectForKey:PREFS_PERIOD_START];
+    NSDate* newPeriodStart = [self computeCurrentPeriodStart:self.periodStart withNb:self.periodicityNb andUnitString:self.periodicityUnit];
+    if (![newPeriodStart isEqualToDate:self.periodStart]) {
+        [prefs setObject:newPeriodStart forKey:PREFS_PERIOD_START];
+        [prefs synchronize];
+        self.periodStart = newPeriodStart;
+    }
 }
 
-- (void) initCurrentDate
+- (NSDate*) computeCurrentPeriodStart:(NSDate*)date withNb:(NSInteger)nb andUnitString:(NSString*)unitString
 {
-    self.currentDate = [NSDate date];
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDateComponents* dateComponents = [TimeUtils dateComponentForUnitString:unitString withNb:nb];
+
+    NSDate* today = [NSDate date];
+    NSDate* previousDate = date;
+    while ([date compare:today] == NSOrderedAscending) {
+        previousDate = date;
+        date = [cal dateByAddingComponents:dateComponents toDate:date options:0];
+    }
+
+    /* previousDate is the last date before today, in the periodicity given by unitString, nb and periodStart */
+    return previousDate;
 }
 
 - (void) updateTitle
@@ -97,8 +126,30 @@
 - (NSString*) getDateString
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"MMM yyyy"];
-    return [dateFormatter stringFromDate:self.currentDate];
+
+    NSString* dateString = nil;
+    if ([self.periodicityUnit isEqualToString:@"month"]) {
+        [dateFormatter setDateFormat:@"MMM yyyy"];
+        dateString = [dateFormatter stringFromDate:self.periodStart];
+    }
+    else {
+        [dateFormatter setDateStyle:NSDateFormatterShortStyle];
+        dateString = [dateFormatter stringFromDate:self.periodStart];
+        NSString* plural = self.periodicityNb == 1 ? @"" : @"s";
+        dateString = [NSString stringWithFormat:@"%@, %i %@%@", dateString, self.periodicityNb, self.periodicityUnit, plural];
+    }
+    return dateString;
+}
+
+- (IBAction) configureReportDone:(UIStoryboardSegue *)segue
+{
+    NSLog(@"Done configuring report");
+    
+    ConfigureReportController* configureReportController = (ConfigureReportController*)segue.sourceViewController;
+    self.periodicityNb = configureReportController.periodicityNb;
+    self.periodicityUnit = configureReportController.periodicityUnit;
+    self.periodStart = configureReportController.periodStart;
+
 }
 
 - (IBAction) sharePressed:(id)sender
@@ -116,8 +167,8 @@
 - (IBAction)handleSwipeRight:(UISwipeGestureRecognizer *)sender
 {
 	if (sender.state == UIGestureRecognizerStateEnded) {
-		NSLog(@"Current date minus one month");
-        self.currentDate = [TimeUtils decrementMonthForDate:self.currentDate];
+		NSLog(@"Current date minus one period");
+        self.periodStart = [TimeUtils decrementDate:self.periodStart forUnitString:self.periodicityUnit andNb:self.periodicityNb];
         [self loadData];
         [self updateTitle];
     }
@@ -126,8 +177,8 @@
 - (IBAction)handleSwipeLeft:(UISwipeGestureRecognizer *)sender
 {
 	if (sender.state == UIGestureRecognizerStateEnded) {
-		NSLog(@"Current date plus one month");
-        self.currentDate = [TimeUtils incrementMonthForDate:self.currentDate];
+		NSLog(@"Current date plus one period");
+        self.periodStart = [TimeUtils incrementDate:self.periodStart forUnitString:self.periodicityUnit andNb:self.periodicityNb];
         [self loadData];
         [self updateTitle];
     }
@@ -176,7 +227,7 @@
     // filename
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM"];
-    NSString* dateStr = [dateFormatter stringFromDate:self.currentDate];
+    NSString* dateStr = [dateFormatter stringFromDate:self.periodStart];
     NSString* fileName = [NSString stringWithFormat:@"activities-%@.csv", dateStr];
     
     NSString* title = [NSString stringWithFormat:@"Time tracking for %@", dateStr];
@@ -186,7 +237,7 @@
 
 - (void) exportAllActivitiesInCsv
 {
-    NSArray* activities = [[CoreDataWrapper shared] fetchActivitiesByDayForMonth:self.currentDate];
+    NSArray* activities = [[CoreDataWrapper shared] fetchActivitiesByDayForMonth:self.periodStart];
     [self exportActivitiesInCsv:activities withFileName:@"all-activities.csv" andSubject:@"All activities"];
 }
 
@@ -239,16 +290,27 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NewActivityController* controller = (NewActivityController*)segue.destinationViewController;
-    // don't set controller.currentDate -> taken from the activity
     
     if ([segue.identifier isEqualToString:@"EditActivity"]) {
+
+        NewActivityController* controller = (NewActivityController*)segue.destinationViewController;
+        // don't set controller.currentDate -> taken from the activity
         
         NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
         Activity* activity = [[self.activitiesByDay objectAtIndex:indexPath.section] objectAtIndex:indexPath.row - 1];
         controller.activity = activity;
         
     }
+    else if ([segue.identifier isEqualToString:@"ConfigureReport"]) {
+        
+        ConfigureReportController* controller = (ConfigureReportController*)segue.destinationViewController;
+        
+        controller.periodStart = self.periodStart;
+        controller.periodicityNb = self.periodicityNb;
+        controller.periodicityUnit = self.periodicityUnit;
+        
+    }
+
 }
 
 
@@ -267,7 +329,7 @@
 {
     [super viewDidLoad];
     
-    [self initCurrentDate];
+    [self initDateAndPeriodicity];
     
     _dateFormatter = [[NSDateFormatter alloc] init];
     [_dateFormatter setDateFormat:@"EEEE d"];

@@ -50,6 +50,7 @@
 		43627713183C073A00825199 /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4362770E183C073A00825199 /* TPKeyboardAvoidingTableView.m */; };
 		43627714183C073A00825199 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 43627710183C073A00825199 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		43627720183D5E6E00825199 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4362771F183D5E6E00825199 /* libz.dylib */; };
+		4365BC6318E8B8940028C43D /* Project+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4365BC6218E8B8940028C43D /* Project+Additions.m */; };
 		4379431D176F706D00188F99 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4379431C176F706D00188F99 /* Entitlements.plist */; };
 		437943201770384600188F99 /* CurrentListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4379431F1770384600188F99 /* CurrentListController.m */; };
 		437943211770384600188F99 /* CurrentListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4379431F1770384600188F99 /* CurrentListController.m */; };
@@ -86,6 +87,7 @@
 		43EF209A18E71E1800AF4702 /* CalendarTodaysDate.png in Resources */ = {isa = PBXBuildFile; fileRef = 43EF208E18E71E1800AF4702 /* CalendarTodaysDate.png */; };
 		43EF209B18E71E1800AF4702 /* CalendarTodaysDate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 43EF208F18E71E1800AF4702 /* CalendarTodaysDate@2x.png */; };
 		43EF209C18E71E1800AF4702 /* TSQTACalendarRowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 43EF209118E71E1800AF4702 /* TSQTACalendarRowCell.m */; };
+		43EF209F18E75FE400AF4702 /* ConfigureReportController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43EF209E18E75FE400AF4702 /* ConfigureReportController.m */; };
 		43FECC2217D0823E003179B6 /* UIConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FECC2117D0823E003179B6 /* UIConstants.m */; };
 		43FECC2417D08525003179B6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43FECC2317D08525003179B6 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
@@ -156,6 +158,9 @@
 		4362770F183C073A00825199 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
 		43627710183C073A00825199 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
 		4362771F183D5E6E00825199 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		4365BC5D18E8AE330028C43D /* PrefsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefsConstants.h; sourceTree = "<group>"; };
+		4365BC6118E8B8940028C43D /* Project+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Project+Additions.h"; sourceTree = "<group>"; };
+		4365BC6218E8B8940028C43D /* Project+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Project+Additions.m"; sourceTree = "<group>"; };
 		4379431C176F706D00188F99 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		4379431E1770384600188F99 /* CurrentListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentListController.h; sourceTree = "<group>"; };
 		4379431F1770384600188F99 /* CurrentListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentListController.m; sourceTree = "<group>"; };
@@ -209,6 +214,8 @@
 		43EF208F18E71E1800AF4702 /* CalendarTodaysDate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CalendarTodaysDate@2x.png"; sourceTree = "<group>"; };
 		43EF209018E71E1800AF4702 /* TSQTACalendarRowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSQTACalendarRowCell.h; path = TimeSquareCustomize/TSQTACalendarRowCell.h; sourceTree = "<group>"; };
 		43EF209118E71E1800AF4702 /* TSQTACalendarRowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSQTACalendarRowCell.m; path = TimeSquareCustomize/TSQTACalendarRowCell.m; sourceTree = "<group>"; };
+		43EF209D18E75FE400AF4702 /* ConfigureReportController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigureReportController.h; sourceTree = "<group>"; };
+		43EF209E18E75FE400AF4702 /* ConfigureReportController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigureReportController.m; sourceTree = "<group>"; };
 		43FECC2017D0823E003179B6 /* UIConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIConstants.h; sourceTree = "<group>"; };
 		43FECC2117D0823E003179B6 /* UIConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIConstants.m; sourceTree = "<group>"; };
 		43FECC2317D08525003179B6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -276,6 +283,7 @@
 				43DDFE2E17E24F940037F9E0 /* UIUtils.h */,
 				43DDFE2F17E24F940037F9E0 /* UIUtils.m */,
 				4335F3AB18DCE444006294FE /* NotificationConstants.h */,
+				4365BC5D18E8AE330028C43D /* PrefsConstants.h */,
 			);
 			name = misc;
 			sourceTree = "<group>";
@@ -341,6 +349,7 @@
 				431535401770A1B000B5D825 /* view */,
 				4323D4A9176F0A7300A083AB /* controller */,
 				4323D4A8176F0A6300A083AB /* model */,
+				4365BC6018E8B84C0028C43D /* modelAdditions */,
 				4323D469176EF79500A083AB /* AppDelegate.h */,
 				4323D46A176EF79500A083AB /* AppDelegate.m */,
 				4323D46C176EF79500A083AB /* Main.storyboard */,
@@ -412,6 +421,8 @@
 				43E6027017821A8500EAA813 /* ReportController.m */,
 				43BAFD6D17CF89C700B6A4FC /* SelectDayController.h */,
 				43BAFD6E17CF89C700B6A4FC /* SelectDayController.m */,
+				43EF209D18E75FE400AF4702 /* ConfigureReportController.h */,
+				43EF209E18E75FE400AF4702 /* ConfigureReportController.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -429,6 +440,15 @@
 				43627710183C073A00825199 /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
 			);
 			path = TPKeyboardAvoiding;
+			sourceTree = "<group>";
+		};
+		4365BC6018E8B84C0028C43D /* modelAdditions */ = {
+			isa = PBXGroup;
+			children = (
+				4365BC6118E8B8940028C43D /* Project+Additions.h */,
+				4365BC6218E8B8940028C43D /* Project+Additions.m */,
+			);
+			name = modelAdditions;
 			sourceTree = "<group>";
 		};
 		438C696218D4F90300BF1F58 /* Flurry-iOS-4.3.2 */ = {
@@ -638,6 +658,7 @@
 				4323D46B176EF79500A083AB /* AppDelegate.m in Sources */,
 				43FECC2217D0823E003179B6 /* UIConstants.m in Sources */,
 				4323D498176F04BE00A083AB /* ProjectListController.m in Sources */,
+				43EF209F18E75FE400AF4702 /* ConfigureReportController.m in Sources */,
 				43E6027117821A8500EAA813 /* ReportController.m in Sources */,
 				432B79D117CFF3CD00041A7D /* DTCustomColoredAccessory.m in Sources */,
 				438C6AA618D5BDBA00BF1F58 /* TSQCalendarCell.m in Sources */,
@@ -663,6 +684,7 @@
 				431535431770A1D600B5D825 /* GraduationView.m in Sources */,
 				4345FA41176F3FFA002BBDB0 /* TimeWarp.xcdatamodel in Sources */,
 				4323D467176EF79500A083AB /* main.m in Sources */,
+				4365BC6318E8B8940028C43D /* Project+Additions.m in Sources */,
 				43627714183C073A00825199 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				43BAFD6F17CF89C700B6A4FC /* SelectDayController.m in Sources */,
 				431535491773060800B5D825 /* SlotInterval.m in Sources */,

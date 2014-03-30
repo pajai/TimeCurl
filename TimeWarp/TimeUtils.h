@@ -27,4 +27,8 @@
 + (NSDate*) decrementYearForDate:(NSDate*) date;
 + (NSDate*) incrementYearForDate:(NSDate*) date;
 
++ (NSDate*) decrementDate:(NSDate*)date forUnitString:(NSString*)unitString andNb:(NSInteger)nb;
++ (NSDate*) incrementDate:(NSDate*)date forUnitString:(NSString*)unitString andNb:(NSInteger)nb;
++ (NSDateComponents*)dateComponentForUnitString:(NSString*)unitString withNb:(NSInteger)nb;
+
 @end

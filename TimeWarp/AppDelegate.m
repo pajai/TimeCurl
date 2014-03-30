@@ -10,6 +10,8 @@
 #import "TestFlight.h"
 #import "Flurry.h"
 #import "ModelSerializer.h"
+#import "TimeUtils.h"
+#import "PrefsConstants.h"
 
 @interface AppDelegate ()
 
@@ -58,6 +60,8 @@
 {
     [TestFlight takeOff:@"5c072121-1334-494b-893f-3b412fd77af1"];
     
+    [self writeDefaultPrefs];
+    
     [self customizeAppearance];
     
     [self setupFlurry];
@@ -67,6 +71,28 @@
     return YES;
 }
 
+- (void) writeDefaultPrefs
+{
+    NSUserDefaults* prefs = [NSUserDefaults standardUserDefaults];
+    BOOL changed = NO;
+    if ([prefs integerForKey:PREFS_PERIODICITY_NB] == 0) {
+        [prefs setInteger:1 forKey:PREFS_PERIODICITY_NB];
+        changed = YES;
+    }
+    if (![prefs stringForKey:PREFS_PERIODICITY_UNIT]) {
+        [prefs setObject:@"month" forKey:PREFS_PERIODICITY_UNIT];
+        changed = YES;
+    }
+    if (![prefs objectForKey:PREFS_PERIOD_START]) {
+        NSDate* date = [NSDate date];
+        NSDate* month = [TimeUtils monthForDate:date];
+        [prefs setObject:month forKey:PREFS_PERIOD_START];
+        changed = YES;
+    }
+    if (changed) {
+        [prefs synchronize];
+    }
+}
 
 - (BOOL) application:(UIApplication *)application handleOpenURL:(NSURL *)url
 {

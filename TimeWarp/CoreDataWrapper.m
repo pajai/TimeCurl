@@ -257,17 +257,24 @@ NSString * const DPUbiquitousName   = @"com~timecurl~coredataicloud";
 
 - (NSArray*) fetchActivitiesForMonth:(NSDate*) date
 {
-    NSLog(@"Fetch activities for month %@", date);
+    //NSLog(@"Fetch activities for month %@", date);
     
+    NSDate* month      = [TimeUtils monthForDate:date];
+    NSDate* monthAfter = [TimeUtils incrementMonthForDate:month];
+    return [self fetchActivitiesBetweenDate:month andExclusiveDate:monthAfter];
+}
+
+- (NSArray*) fetchActivitiesBetweenDate:(NSDate*)fromDate andExclusiveDate:(NSDate*)toDate
+{
+    NSLog(@"Fetch activities between %@ and %@ exclusive", fromDate, toDate);
+
     NSManagedObjectContext* managedObjectContext = [self managedObjectContext];
     NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription* entity = [NSEntityDescription entityForName:@"Activity" inManagedObjectContext:managedObjectContext];
     [fetchRequest setEntity:entity];
     
-    NSDate* month      = [TimeUtils monthForDate:date];
-    NSDate* monthAfter = [TimeUtils incrementMonthForDate:month];
     // TODO perhaps not the most efficient query
-    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"self.date >= %@ AND self.date < %@", month, monthAfter];
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"self.date >= %@ AND self.date < %@", fromDate, toDate];
     [fetchRequest setPredicate:predicate];
     
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO];
@@ -277,7 +284,7 @@ NSString * const DPUbiquitousName   = @"com~timecurl~coredataicloud";
     NSError* error = nil;
     NSArray* result = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
-    if ([self logError:error withMessage:@"fetch activities for month"]) {
+    if ([self logError:error withMessage:@"fetch activities between"]) {
         return nil;
     }
     

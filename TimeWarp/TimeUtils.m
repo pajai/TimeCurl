@@ -97,4 +97,34 @@
     return [cal dateByAddingComponents:oneMonth toDate:date options:0];
 }
 
++ (NSDate*) decrementDate:(NSDate*)date forUnitString:(NSString*)unitString andNb:(NSInteger)nb
+{
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDateComponents* dateComponents = [self dateComponentForUnitString:unitString withNb:-1 * nb];
+    return [cal dateByAddingComponents:dateComponents toDate:date options:0];
+}
+
++ (NSDate*) incrementDate:(NSDate*)date forUnitString:(NSString*)unitString andNb:(NSInteger)nb
+{
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDateComponents* dateComponents = [self dateComponentForUnitString:unitString withNb:nb];
+    return [cal dateByAddingComponents:dateComponents toDate:date options:0];
+}
+
++ (NSDateComponents*)dateComponentForUnitString:(NSString*)unitString withNb:(NSInteger)nb
+{
+    NSDateComponents* dateComponents = [[NSDateComponents alloc] init];
+    
+    if ([unitString isEqualToString:@"day"]) {
+        [dateComponents setDay:nb];
+    }
+    else if ([unitString isEqualToString:@"week"]) {
+        [dateComponents setWeek:nb];
+    }
+    else /* month */ {
+        [dateComponents setMonth:nb];
+    }
+    return dateComponents;
+}
+
 @end
