@@ -89,6 +89,15 @@
     }
 }
 
+- (void) persisteReportSettings
+{
+    NSUserDefaults* prefs = [NSUserDefaults standardUserDefaults];
+    [prefs setObject:self.periodicityUnit forKey:PREFS_PERIODICITY_UNIT];
+    [prefs setInteger:self.periodicityNb forKey:PREFS_PERIODICITY_NB];
+    [prefs setObject:self.periodStart forKey:PREFS_PERIOD_START];
+    [prefs synchronize];
+}
+
 - (NSDate*) computeCurrentPeriodStart:(NSDate*)date withNb:(NSInteger)nb andUnitString:(NSString*)unitString
 {
     NSCalendar *cal = [NSCalendar currentCalendar];
@@ -107,20 +116,12 @@
 
 - (void) updateTitle
 {
-    // total hours for that month
-    double totTime = 0.0;
-    for (NSArray* dayActivities in self.activitiesByDay) {
-        for (Activity* activity in dayActivities) {
-            totTime += [activity duration];
-        }
-    }
-    
     // date
     NSString* dateString = [self getDateString];
     
     // change the nav title
     // rem: if we change self.title, we change also the tab title
-    self.navigationController.navigationBar.topItem.title = [NSString stringWithFormat:@"%@ (%.2f)", dateString, totTime];
+    self.navigationItem.title = dateString;
 }
 
 - (NSString*) getDateString
@@ -136,7 +137,7 @@
         [dateFormatter setDateStyle:NSDateFormatterShortStyle];
         dateString = [dateFormatter stringFromDate:self.periodStart];
         NSString* plural = self.periodicityNb == 1 ? @"" : @"s";
-        dateString = [NSString stringWithFormat:@"%@, %i %@%@", dateString, self.periodicityNb, self.periodicityUnit, plural];
+        dateString = [NSString stringWithFormat:@"%@, %li %@%@", dateString, (long)self.periodicityNb, self.periodicityUnit, plural];
     }
     return dateString;
 }
@@ -150,6 +151,7 @@
     self.periodicityUnit = configureReportController.periodicityUnit;
     self.periodStart = configureReportController.periodStart;
 
+    [self persisteReportSettings];
 }
 
 - (IBAction) sharePressed:(id)sender
