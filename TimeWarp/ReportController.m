@@ -23,10 +23,13 @@
 #import "Project+Additions.h"
 
 
-#define kDayCellHeight 30
+#define kDayCellHeight 23
 #define kActivityCellHeightNonEmptyNote 70
 #define kActivityCellHeightEmptyNote 52
 
+#define kReportHeaderHeight 59
+#define kReportLineHeight 27
+#define kReportFooterHeight 10
 
 
 @interface ReportController ()
@@ -299,7 +302,7 @@
         // don't set controller.currentDate -> taken from the activity
         
         NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
-        Activity* activity = [[self.activitiesByDay objectAtIndex:indexPath.section] objectAtIndex:indexPath.row - 1];
+        Activity* activity = [[self.activitiesByDay objectAtIndex:indexPath.section - 1] objectAtIndex:indexPath.row - 1];
         controller.activity = activity;
         
     }
@@ -397,39 +400,26 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // sections for each day
-    if (section < [self.activitiesByDay count]) {
-        // +1 is for the day title cell
-        return [[self.activitiesByDay objectAtIndex:section] count] + 1;
-    }
     // section for report
-    else {
+    if (section == 0) {
         return [self.reportDictionary count] == 0 ?
-                // no entries in the report -> header cell, 'no report' cell and footer cell
-                3 :
-                // otherwise, number of entries + header cell + footer cell
-                [self.reportDictionary count] + 2;
+        // no entries in the report -> header cell, 'no report' cell and footer cell
+        3 :
+        // otherwise, number of entries + header cell + footer cell
+        [self.reportDictionary count] + 2;
+    }
+    // sections for each day
+    else {
+        // +1 is for the day title cell
+        return [[self.activitiesByDay objectAtIndex:section - 1] count] + 1;
     }
     
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // day sections
-    if (indexPath.section < [self.activitiesByDay count]) {
-        // case day title cell
-        if (indexPath.row == 0) {
-            
-            return [self createDayHeaderCell:indexPath forTableView:tableView];
-        }
-        // case day activity
-        else {
-            
-            return [self createDayActivityCell:indexPath forTableView:tableView];
-        }
-    }
     // report section
-    else {
+    if (indexPath.section == 0) {
         if (indexPath.row == 0) {
             return [self createReportHeaderCell:indexPath forTableView:tableView];
         }
@@ -453,6 +443,19 @@
             }
         }
     }
+    // day sections
+    else {
+        // case day title cell
+        if (indexPath.row == 0) {
+            
+            return [self createDayHeaderCell:indexPath forTableView:tableView];
+        }
+        // case day activity
+        else {
+            
+            return [self createDayActivityCell:indexPath forTableView:tableView];
+        }
+    }
 }
 
 - (UITableViewCell*) createDayHeaderCell:(NSIndexPath*)indexPath forTableView:(UITableView*)tableView
@@ -463,7 +466,7 @@
     UILabel* dayLabel      = (UILabel*)[cell viewWithTag:100];
     UILabel* durationLabel = (UILabel*)[cell viewWithTag:101];
     
-    NSArray* activitiesForDay = [self.activitiesByDay objectAtIndex:indexPath.section];
+    NSArray* activitiesForDay = [self.activitiesByDay objectAtIndex:indexPath.section - 1];
     
     Activity* activity = (Activity*)activitiesForDay[0];
     NSString* dateString = [_dateFormatter stringFromDate:activity.date];
@@ -483,7 +486,7 @@
     static NSString *CellIdentifier = @"ActivityCell";
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    Activity* activity = (Activity*)[self.activitiesByDay objectAtIndex:indexPath.section][indexPath.row - 1];
+    Activity* activity = (Activity*)[self.activitiesByDay objectAtIndex:indexPath.section - 1][indexPath.row - 1];
     
     UILabel* titleLabel    = (UILabel*)[cell viewWithTag:100];
     UILabel* durationLabel = (UILabel*)[cell viewWithTag:101];
@@ -544,7 +547,10 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section < [self.activitiesByDay count]) {
+    if (indexPath.section == 0) {
+        return [self heightForReportCell:indexPath];
+    }
+    else {
         if (indexPath.row == 0) {
             return kDayCellHeight;
         }
@@ -552,15 +558,11 @@
             return [self heightForDayActivity:indexPath];
         }
     }
-    // report section
-    else {
-        return [self heightForReportCell:indexPath];
-    }
 }
 
 - (CGFloat) heightForDayActivity:(NSIndexPath*)indexPath
 {
-    Activity* activity = (Activity*)[self.activitiesByDay objectAtIndex:indexPath.section][indexPath.row - 1];
+    Activity* activity = (Activity*)[self.activitiesByDay objectAtIndex:indexPath.section - 1][indexPath.row - 1];
     NSString* trimmedNote = [activity.note stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     if ([trimmedNote length] > 0) {
         return kActivityCellHeightNonEmptyNote;
@@ -573,10 +575,16 @@
 - (CGFloat) heightForReportCell:(NSIndexPath*)indexPath
 {
     if (indexPath.row == 0) {
-        return 71.0;
+        return kReportHeaderHeight;
     }
     else {
-        return 27.0;
+        NSInteger nbReportRows = [self tableView:self.tableView numberOfRowsInSection:indexPath.section];
+        if (indexPath.row + 1 < nbReportRows) {
+            return kReportLineHeight;
+        }
+        else {
+            return kReportFooterHeight;
+        }
     }
 }
 
