@@ -21,6 +21,7 @@
 #import "ConfigureReportController.h"
 #import "PrefsConstants.h"
 #import "Project+Additions.h"
+#import "OrderedDictionary.h"
 
 
 #define kDayCellHeight 23
@@ -66,7 +67,8 @@
 
 - (void) createReportForActivities:(NSArray*)activities
 {
-    NSMutableDictionary* report = [NSMutableDictionary dictionaryWithCapacity:10];
+    // sum of activities of each project
+    OrderedDictionary* report = [[OrderedDictionary alloc] initWithCapacity:10];
     for (Activity* activity in activities) {
         NSString* projectLabel = [activity.project label];
         if (!report[projectLabel]) {
@@ -74,6 +76,15 @@
         }
         report[projectLabel] = [NSNumber numberWithDouble:[report[projectLabel] doubleValue] + activity.duration];
     }
+    
+    // total of all projects
+    double total = 0.0;
+    for (NSString* key in [report allKeys]) {
+        NSNumber* projectTotal = report[key];
+        total += [projectTotal doubleValue];
+    }
+    report[@"Total"] = [NSNumber numberWithDouble:total];
+    
     self.reportDictionary = report;
 }
 
@@ -418,13 +429,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // report section
-    if (indexPath.section == 0) {
+    if ([self isReportSection:indexPath]) {
         if (indexPath.row == 0) {
             return [self createReportHeaderCell:indexPath forTableView:tableView];
         }
         else {
-            if ([self.reportDictionary count] == 0) {
+            if ([self reportHasOnlyTotal]) {
                 if (indexPath.row == 1) {
                     return [self createReportNoneCell:indexPath forTableView:tableView];
                 }
@@ -456,6 +466,16 @@
             return [self createDayActivityCell:indexPath forTableView:tableView];
         }
     }
+}
+
+- (BOOL)isReportSection:(NSIndexPath*)indexPath
+{
+    return indexPath.section == 0;
+}
+
+- (BOOL)reportHasOnlyTotal
+{
+    return [self.reportDictionary count] == 1;
 }
 
 - (UITableViewCell*) createDayHeaderCell:(NSIndexPath*)indexPath forTableView:(UITableView*)tableView

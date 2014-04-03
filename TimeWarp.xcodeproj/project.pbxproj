@@ -52,6 +52,7 @@
 		4365BC6518ECA0D80028C43D /* ProjectIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4365BC6418ECA0D80028C43D /* ProjectIcons.xcassets */; };
 		4365BC6818ED471F0028C43D /* IconSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4365BC6718ED471F0028C43D /* IconSelectionController.m */; };
 		4365BC7018ED8C4C0028C43D /* TimeWarp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4365BC6D18ED8C4C0028C43D /* TimeWarp.xcdatamodeld */; };
+		4365BC7518EDF8E80028C43D /* OrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 4365BC7418EDF8E80028C43D /* OrderedDictionary.m */; };
 		4379431D176F706D00188F99 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4379431C176F706D00188F99 /* Entitlements.plist */; };
 		437943201770384600188F99 /* CurrentListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4379431F1770384600188F99 /* CurrentListController.m */; };
 		437943211770384600188F99 /* CurrentListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4379431F1770384600188F99 /* CurrentListController.m */; };
@@ -166,6 +167,8 @@
 		4365BC6718ED471F0028C43D /* IconSelectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconSelectionController.m; sourceTree = "<group>"; };
 		4365BC6E18ED8C4C0028C43D /* TimeWarp1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TimeWarp1.1.xcdatamodel; sourceTree = "<group>"; };
 		4365BC6F18ED8C4C0028C43D /* TimeWarp1.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TimeWarp1.0.xcdatamodel; sourceTree = "<group>"; };
+		4365BC7318EDF8E80028C43D /* OrderedDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderedDictionary.h; path = OrderedDictionary/OrderedDictionary.h; sourceTree = "<group>"; };
+		4365BC7418EDF8E80028C43D /* OrderedDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderedDictionary.m; path = OrderedDictionary/OrderedDictionary.m; sourceTree = "<group>"; };
 		4379431C176F706D00188F99 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		4379431E1770384600188F99 /* CurrentListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentListController.h; sourceTree = "<group>"; };
 		4379431F1770384600188F99 /* CurrentListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentListController.m; sourceTree = "<group>"; };
@@ -342,6 +345,7 @@
 		4323D460176EF79500A083AB /* TimeWarp */ = {
 			isa = PBXGroup;
 			children = (
+				4365BC7218EDF8CF0028C43D /* OrderedDictionary */,
 				4365BC6D18ED8C4C0028C43D /* TimeWarp.xcdatamodeld */,
 				43EF208418E71D2F00AF4702 /* TimesSquareCustomize */,
 				438C6A9B18D5BDBA00BF1F58 /* TimesSquare */,
@@ -489,6 +493,15 @@
 				43BAFD6E17CF89C700B6A4FC /* SelectDayController.m */,
 			);
 			name = misc;
+			sourceTree = "<group>";
+		};
+		4365BC7218EDF8CF0028C43D /* OrderedDictionary */ = {
+			isa = PBXGroup;
+			children = (
+				4365BC7318EDF8E80028C43D /* OrderedDictionary.h */,
+				4365BC7418EDF8E80028C43D /* OrderedDictionary.m */,
+			);
+			name = OrderedDictionary;
 			sourceTree = "<group>";
 		};
 		438C696218D4F90300BF1F58 /* Flurry-iOS-4.3.2 */ = {
@@ -711,6 +724,7 @@
 				438C6AA918D5BDBA00BF1F58 /* TSQCalendarView.m in Sources */,
 				43E70435178DC2F000CB5AA2 /* MailComposeHandler.m in Sources */,
 				4323D4B4176F0B0100A083AB /* Activity.m in Sources */,
+				4365BC7518EDF8E80028C43D /* OrderedDictionary.m in Sources */,
 				4323D4B0176F0B0100A083AB /* Project.m in Sources */,
 				43DDFE3017E24F940037F9E0 /* UIUtils.m in Sources */,
 				43C6E41017E1BD7B004A953A /* UITextFieldWithInset.m in Sources */,
