@@ -11,6 +11,7 @@
 #import "CoreDataWrapper.h"
 #import "UIConstants.h"
 #import "Flurry.h"
+#import "IconSelectionController.h"
 
 @interface NewProjectController ()
 
@@ -55,6 +56,12 @@
         
         [self.navigationController popViewControllerAnimated:YES];
     }
+}
+
+- (IBAction) selectingIconDone:(UIStoryboardSegue *)segue
+{
+    IconSelectionController* controller = segue.sourceViewController;
+    NSLog(@"Done selecting icon: %@", controller.selectedIconName);
 }
 
 

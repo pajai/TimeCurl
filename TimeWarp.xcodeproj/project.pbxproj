@@ -51,6 +51,8 @@
 		43627714183C073A00825199 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 43627710183C073A00825199 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		43627720183D5E6E00825199 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4362771F183D5E6E00825199 /* libz.dylib */; };
 		4365BC6318E8B8940028C43D /* Project+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4365BC6218E8B8940028C43D /* Project+Additions.m */; };
+		4365BC6518ECA0D80028C43D /* ProjectIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4365BC6418ECA0D80028C43D /* ProjectIcons.xcassets */; };
+		4365BC6818ED471F0028C43D /* IconSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4365BC6718ED471F0028C43D /* IconSelectionController.m */; };
 		4379431D176F706D00188F99 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4379431C176F706D00188F99 /* Entitlements.plist */; };
 		437943201770384600188F99 /* CurrentListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4379431F1770384600188F99 /* CurrentListController.m */; };
 		437943211770384600188F99 /* CurrentListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4379431F1770384600188F99 /* CurrentListController.m */; };
@@ -161,6 +163,9 @@
 		4365BC5D18E8AE330028C43D /* PrefsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefsConstants.h; sourceTree = "<group>"; };
 		4365BC6118E8B8940028C43D /* Project+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Project+Additions.h"; sourceTree = "<group>"; };
 		4365BC6218E8B8940028C43D /* Project+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Project+Additions.m"; sourceTree = "<group>"; };
+		4365BC6418ECA0D80028C43D /* ProjectIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ProjectIcons.xcassets; sourceTree = "<group>"; };
+		4365BC6618ED471F0028C43D /* IconSelectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconSelectionController.h; sourceTree = "<group>"; };
+		4365BC6718ED471F0028C43D /* IconSelectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconSelectionController.m; sourceTree = "<group>"; };
 		4379431C176F706D00188F99 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		4379431E1770384600188F99 /* CurrentListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentListController.h; sourceTree = "<group>"; };
 		4379431F1770384600188F99 /* CurrentListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentListController.m; sourceTree = "<group>"; };
@@ -354,6 +359,7 @@
 				4323D46A176EF79500A083AB /* AppDelegate.m */,
 				4323D46C176EF79500A083AB /* Main.storyboard */,
 				4323D475176EF79500A083AB /* Images.xcassets */,
+				4365BC6418ECA0D80028C43D /* ProjectIcons.xcassets */,
 				4323D461176EF79500A083AB /* Supporting Files */,
 			);
 			path = TimeWarp;
@@ -407,22 +413,10 @@
 		4323D4A9176F0A7300A083AB /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				4323D496176F04BE00A083AB /* ProjectListController.h */,
-				4323D497176F04BE00A083AB /* ProjectListController.m */,
-				4323D4B6176F0E6100A083AB /* NewProjectController.h */,
-				4323D4B7176F0E6100A083AB /* NewProjectController.m */,
-				4379431E1770384600188F99 /* CurrentListController.h */,
-				4379431F1770384600188F99 /* CurrentListController.m */,
-				4315354B17735D0100B5D825 /* NewActivityController.h */,
-				4315354C17735D0100B5D825 /* NewActivityController.m */,
-				43DDFE3117E258A00037F9E0 /* SelectTimeController.h */,
-				4379432417705E1400188F99 /* SelectTimeController.m */,
-				43E6026F17821A8500EAA813 /* ReportController.h */,
-				43E6027017821A8500EAA813 /* ReportController.m */,
-				43BAFD6D17CF89C700B6A4FC /* SelectDayController.h */,
-				43BAFD6E17CF89C700B6A4FC /* SelectDayController.m */,
-				43EF209D18E75FE400AF4702 /* ConfigureReportController.h */,
-				43EF209E18E75FE400AF4702 /* ConfigureReportController.m */,
+				4365BC6C18ED58D30028C43D /* misc */,
+				4365BC6B18ED58950028C43D /* current */,
+				4365BC6A18ED58890028C43D /* report */,
+				4365BC6918ED58800028C43D /* project */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -449,6 +443,52 @@
 				4365BC6218E8B8940028C43D /* Project+Additions.m */,
 			);
 			name = modelAdditions;
+			sourceTree = "<group>";
+		};
+		4365BC6918ED58800028C43D /* project */ = {
+			isa = PBXGroup;
+			children = (
+				4323D496176F04BE00A083AB /* ProjectListController.h */,
+				4323D497176F04BE00A083AB /* ProjectListController.m */,
+				4323D4B6176F0E6100A083AB /* NewProjectController.h */,
+				4323D4B7176F0E6100A083AB /* NewProjectController.m */,
+				4365BC6618ED471F0028C43D /* IconSelectionController.h */,
+				4365BC6718ED471F0028C43D /* IconSelectionController.m */,
+			);
+			name = project;
+			sourceTree = "<group>";
+		};
+		4365BC6A18ED58890028C43D /* report */ = {
+			isa = PBXGroup;
+			children = (
+				43E6026F17821A8500EAA813 /* ReportController.h */,
+				43E6027017821A8500EAA813 /* ReportController.m */,
+				43EF209D18E75FE400AF4702 /* ConfigureReportController.h */,
+				43EF209E18E75FE400AF4702 /* ConfigureReportController.m */,
+			);
+			name = report;
+			sourceTree = "<group>";
+		};
+		4365BC6B18ED58950028C43D /* current */ = {
+			isa = PBXGroup;
+			children = (
+				4379431E1770384600188F99 /* CurrentListController.h */,
+				4379431F1770384600188F99 /* CurrentListController.m */,
+				4315354B17735D0100B5D825 /* NewActivityController.h */,
+				4315354C17735D0100B5D825 /* NewActivityController.m */,
+				43DDFE3117E258A00037F9E0 /* SelectTimeController.h */,
+				4379432417705E1400188F99 /* SelectTimeController.m */,
+			);
+			name = current;
+			sourceTree = "<group>";
+		};
+		4365BC6C18ED58D30028C43D /* misc */ = {
+			isa = PBXGroup;
+			children = (
+				43BAFD6D17CF89C700B6A4FC /* SelectDayController.h */,
+				43BAFD6E17CF89C700B6A4FC /* SelectDayController.m */,
+			);
+			name = misc;
 			sourceTree = "<group>";
 		};
 		438C696218D4F90300BF1F58 /* Flurry-iOS-4.3.2 */ = {
@@ -633,6 +673,7 @@
 				43EF209818E71E1800AF4702 /* CalendarSelectedDate.png in Resources */,
 				43EF209318E71E1800AF4702 /* CalendarPreviousMonth@2x.png in Resources */,
 				43EF209A18E71E1800AF4702 /* CalendarTodaysDate.png in Resources */,
+				4365BC6518ECA0D80028C43D /* ProjectIcons.xcassets in Resources */,
 				43EF209618E71E1800AF4702 /* CalendarRowBottom.png in Resources */,
 				4323D46E176EF79500A083AB /* Main.storyboard in Resources */,
 			);
@@ -665,6 +706,7 @@
 				43627711183C073A00825199 /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				438C6AA718D5BDBA00BF1F58 /* TSQCalendarMonthHeaderCell.m in Sources */,
 				438C6AA818D5BDBA00BF1F58 /* TSQCalendarRowCell.m in Sources */,
+				4365BC6818ED471F0028C43D /* IconSelectionController.m in Sources */,
 				43627712183C073A00825199 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				438C6AA918D5BDBA00BF1F58 /* TSQCalendarView.m in Sources */,
 				43E70435178DC2F000CB5AA2 /* MailComposeHandler.m in Sources */,
