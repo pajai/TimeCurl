@@ -15,4 +15,15 @@
     return [NSString stringWithFormat:@"%@, %@", self.name, self.subname];
 }
 
+- (UIImage*)  imageWithDefaultName:(NSString*)defaultName
+{
+    if (self.icon) {
+        return [UIImage imageNamed:self.icon];
+    }
+    else {
+        return [UIImage imageNamed:defaultName];
+    }
+
+}
+
 @end

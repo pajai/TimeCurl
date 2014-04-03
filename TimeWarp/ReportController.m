@@ -491,6 +491,7 @@
     UILabel* titleLabel    = (UILabel*)[cell viewWithTag:100];
     UILabel* durationLabel = (UILabel*)[cell viewWithTag:101];
     UILabel* noteLabel     = (UILabel*)[cell viewWithTag:102];
+    UIImageView* iconView  = (UIImageView*)[cell viewWithTag:103];
     
     cell.accessoryView = [DTCustomColoredAccessory accessoryWithSingleColor:[UIConstants shared].deepBlueColor];
     
@@ -501,6 +502,8 @@
     durationLabel.text = [NSString stringWithFormat:@"%.2f", [activity duration]];
     noteLabel.text = activity.note;
     [noteLabel sizeToFit];
+    iconView.image = [project imageWithDefaultName:@"icon-report-list"];
+    
     return cell;
 }
 

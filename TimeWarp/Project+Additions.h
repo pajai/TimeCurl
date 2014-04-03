@@ -11,5 +11,6 @@
 @interface Project (ProjectAdditions)
 
 - (NSString*) label;
+- (UIImage*)  imageWithDefaultName:(NSString*)defaultName;
 
 @end

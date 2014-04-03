@@ -48,7 +48,7 @@
                                             <color key="textColor" red="0.62745098039215685" green="0.62745098039215685" blue="0.62745098039215685" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-activity-list" id="wkJ-uC-ia0">
+                                        <imageView userInteractionEnabled="NO" tag="103" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-activity-list" id="wkJ-uC-ia0">
                                             <rect key="frame" x="15" y="6" width="39" height="43"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -70,11 +70,11 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="82"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="frame-new" id="qPT-ZE-ufY">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="frame-rounded-thick" id="qPT-ZE-ufY">
                                             <rect key="frame" x="15" y="19" width="291" height="44"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Activity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fv7-Ku-7bd">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NEW ACTIVITY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fv7-Ku-7bd">
                                             <rect key="frame" x="46" y="31" width="228" height="21"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -301,7 +301,7 @@
                                             <color key="textColor" red="0.62745098040000002" green="0.62745098040000002" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-report-list" id="Tsf-Kf-hgw">
+                                        <imageView userInteractionEnabled="NO" tag="103" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-report-list" id="Tsf-Kf-hgw">
                                             <rect key="frame" x="15" y="4" width="39" height="43"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -472,7 +472,7 @@
                                             <color key="textColor" red="0.62745098039215685" green="0.62745098039215685" blue="0.62745098039215685" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-project-list" id="u34-PB-4wt">
+                                        <imageView userInteractionEnabled="NO" tag="102" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-project-list" id="u34-PB-4wt">
                                             <rect key="frame" x="17" y="0.0" width="39" height="43"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -494,11 +494,11 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="82"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="frame-new" id="iSC-Ns-dBG">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="frame-rounded-thick" id="iSC-Ns-dBG">
                                             <rect key="frame" x="15" y="19" width="291" height="44"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Project" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5Kl-SN-iSF">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NEW PROJECT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5Kl-SN-iSF">
                                             <rect key="frame" x="46" y="31" width="228" height="21"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -560,7 +560,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="13" background="frame-rounded" clearButtonMode="whileEditing" id="W0I-vo-eVO" customClass="UITextFieldWithInset">
-                                        <rect key="frame" x="20" y="49" width="280" height="30"/>
+                                        <rect key="frame" x="20" y="49" width="200" height="30"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <color key="textColor" red="0.32549019610000002" green="0.35294117650000001" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -587,6 +587,28 @@
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="UdW-HU-heR">
+                                        <rect key="frame" x="241" y="21" width="59" height="59"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose icon" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="g1f-BT-YV5">
+                                        <rect key="frame" x="241" y="21" width="59" height="59"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                        <color key="textColor" red="0.0" green="0.47450980390000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1RN-Gq-jsV">
+                                        <rect key="frame" x="241" y="21" width="59" height="59"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" backgroundImage="frame-rounded">
+                                            <color key="titleColor" red="0.0" green="0.47450980390000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="JpC-0c-Mpv" kind="push" identifier="ChooseIcon" id="eHW-Uc-laZ"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -594,11 +616,6 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="New Project" id="Urg-cS-yAx">
-                        <barButtonItem key="leftBarButtonItem" title="Icon" id="vrA-t1-J85">
-                            <connections>
-                                <segue destination="JpC-0c-Mpv" kind="push" id="q81-3y-EBV"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="xdV-UX-6Bn">
                             <connections>
                                 <action selector="donePressed:" destination="hLD-yb-vPw" id="Ruu-bY-60g"/>
@@ -606,6 +623,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="iconButton" destination="1RN-Gq-jsV" id="COr-z0-DE0"/>
+                        <outlet property="iconLabel" destination="g1f-BT-YV5" id="mR8-nK-AYE"/>
+                        <outlet property="iconView" destination="UdW-HU-heR" id="Km3-fD-bWC"/>
                         <outlet property="name" destination="W0I-vo-eVO" id="sld-BC-nfB"/>
                         <outlet property="note" destination="QkP-fB-8hK" id="2kj-lt-6W9"/>
                         <outlet property="subname" destination="YBs-XT-Nuw" id="vph-uf-feb"/>
@@ -734,11 +754,11 @@
             <objects>
                 <viewController restorationIdentifier="NewActivityController" hidesBottomBarWhenPushed="YES" id="uhY-qe-vyJ" customClass="NewActivityController" sceneMemberID="viewController">
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="pW8-R5-3Qu">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" keyboardDismissMode="onDrag" id="xyx-TS-gnf" customClass="TPKeyboardAvoidingScrollView">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <pickerView contentMode="scaleToFill" id="3DD-DP-als">
@@ -936,8 +956,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="frame-new" width="3" height="3"/>
         <image name="frame-rounded" width="16" height="16"/>
+        <image name="frame-rounded-thick" width="16" height="16"/>
         <image name="icon-activity-list" width="14" height="22"/>
         <image name="icon-project-list" width="20" height="22"/>
         <image name="icon-report-list" width="19" height="22"/>
@@ -951,7 +971,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="LuN-3Y-cu5"/>
+        <segue reference="sNZ-04-jCE"/>
         <segue reference="sRH-ER-JoI"/>
     </inferredMetricsTieBreakers>
 </document>

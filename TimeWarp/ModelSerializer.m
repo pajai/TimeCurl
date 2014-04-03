@@ -67,7 +67,12 @@
     NSMutableDictionary* projDict = [NSMutableDictionary dictionaryWithCapacity:4];
     projDict[@"name"] = project.name;
     projDict[@"subname"] = project.subname;
-    projDict[@"note"] = project.note;
+    if (project.note) {
+        projDict[@"note"] = project.note;
+    }
+    if (project.icon) {
+        projDict[@"icon"] = project.icon;
+    }
     NSMutableArray* array = [NSMutableArray arrayWithCapacity:[project.activities count]];
     for (Activity* activity in project.activities) {
         NSDictionary* actDict = [self mapActivity:activity];
@@ -151,7 +156,12 @@
         Project* project = [[CoreDataWrapper shared] newProject];
         project.name = projDict[@"name"];
         project.subname = projDict[@"subname"];
-        project.note = projDict[@"note"];
+        if (projDict[@"note"]) {
+            project.note = projDict[@"note"];
+        }
+        if (projDict[@"icon"]) {
+            project.icon = projDict[@"icon"];
+        }
         [[CoreDataWrapper shared] saveContext];
         [self mapToActivities:projDict[@"activities"] forProject:project];
     }

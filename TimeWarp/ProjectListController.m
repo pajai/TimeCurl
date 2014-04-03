@@ -7,7 +7,7 @@
 //
 
 #import "ProjectListController.h"
-#import "Project.h"
+#import "Project+Additions.h"
 #import "AppDelegate.h"
 #import "NewProjectController.h"
 #import "CoreDataWrapper.h"
@@ -172,10 +172,12 @@
         
         UILabel* nameLabel    = (UILabel*)[cell viewWithTag:100];
         UILabel* subnameLabel = (UILabel*)[cell viewWithTag:101];
+        UIImageView* iconView = (UIImageView*)[cell viewWithTag:102];
         
         Project* project = [self.projects objectAtIndex:indexPath.row];
         nameLabel.text = project.name;
         subnameLabel.text = project.subname;
+        iconView.image = [project imageWithDefaultName:@"icon-project-list"];
 
     }
     else {

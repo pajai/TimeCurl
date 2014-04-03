@@ -16,6 +16,7 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * subname;
 @property (nonatomic, retain) NSString * note;
+@property (nonatomic, retain) NSString * icon;
 @property (nonatomic, retain) NSSet *activities;
 @end
 

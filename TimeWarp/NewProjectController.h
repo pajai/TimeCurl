@@ -19,5 +19,8 @@
 @property (nonatomic, strong) IBOutlet UITextField* name;
 @property (nonatomic, strong) IBOutlet UITextField* subname;
 @property (nonatomic, strong) IBOutlet UITextView* note;
+@property (weak, nonatomic) IBOutlet UIImageView *iconView;
+@property (weak, nonatomic) IBOutlet UILabel *iconLabel;
+@property (weak, nonatomic) IBOutlet UIButton *iconButton;
 
 @end

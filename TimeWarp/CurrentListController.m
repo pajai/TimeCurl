@@ -9,7 +9,7 @@
 #import "CurrentListController.h"
 #import "AppDelegate.h"
 #import "Activity.h"
-#import "Project.h"
+#import "Project+Additions.h"
 #import "NewActivityController.h"
 #import "CoreDataWrapper.h"
 #import "SlotInterval.h"
@@ -330,6 +330,7 @@
         UILabel* titleLabel      = (UILabel*)[cell viewWithTag:100];
         UILabel* durationLabel   = (UILabel*)[cell viewWithTag:101];
         UITextView* noteTextView = (UITextView*)[cell viewWithTag:102];
+        UIImageView* iconView    = (UIImageView*)[cell viewWithTag:103];
         
         cell.accessoryView = [DTCustomColoredAccessory accessoryWithSingleColor:[UIConstants shared].deepBlueColor];
         
@@ -337,6 +338,7 @@
         titleLabel.text = [NSString stringWithFormat:@"%@ (%@)", project.name, project.subname];
         durationLabel.text = [NSString stringWithFormat:@"%.2f", [activity duration]];
         noteTextView.text = activity.note;
+        iconView.image = [project imageWithDefaultName:@"icon-activity-list"];
         
     }
     else {

@@ -15,6 +15,7 @@
 @dynamic name;
 @dynamic subname;
 @dynamic note;
+@dynamic icon;
 @dynamic activities;
 
 @end

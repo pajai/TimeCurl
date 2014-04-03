@@ -11,7 +11,7 @@
 #import <CoreData/CoreData.h>
 #import "TimeUtils.h"
 
-NSString * const DPModelName        = @"ItemModel";
+NSString * const DPModelName        = @"TimeWarp";
 NSString * const DPStoreName        = @"TimeCurl.sqlite";
 NSString * const DPUbiquitousName   = @"com~timecurl~coredataicloud";
 
@@ -67,11 +67,11 @@ NSString * const DPUbiquitousName   = @"com~timecurl~coredataicloud";
     }
     
     // new
-    //NSURL *modelURL = [[NSBundle mainBundle] URLForResource:DPModelName withExtension:@"momd"];
-    //_managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:DPModelName withExtension:@"momd"];
+    _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     
     // old
-    _managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
+    //_managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
     
     return _managedObjectModel;
 }
@@ -90,12 +90,13 @@ NSString * const DPUbiquitousName   = @"com~timecurl~coredataicloud";
                                NSInferMappingModelAutomaticallyOption : @YES,
                                NSPersistentStoreUbiquitousContentNameKey : DPUbiquitousName
                                };
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
-                                                   configuration:nil
-                                                             URL:storeURL
-                                                         options:options
-                                                           error:&error])
-    {
+    
+    NSPersistentStore *store = [_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
+                                                             configuration:nil
+                                                                       URL:storeURL
+                                                                   options:options
+                                                                     error:&error];
+    if (!store) {
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }

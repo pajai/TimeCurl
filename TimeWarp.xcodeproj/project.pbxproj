@@ -43,8 +43,6 @@
 		4335F3AA18DB90A5006294FE /* ModelSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4335F3A918DB90A5006294FE /* ModelSerializer.m */; };
 		4345FA3D176F31FE002BBDB0 /* NewProjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4323D4B7176F0E6100A083AB /* NewProjectController.m */; };
 		4345FA3E176F31FF002BBDB0 /* NewProjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4323D4B7176F0E6100A083AB /* NewProjectController.m */; };
-		4345FA41176F3FFA002BBDB0 /* TimeWarp.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 4345FA40176F3FFA002BBDB0 /* TimeWarp.xcdatamodel */; };
-		4345FA42176F3FFA002BBDB0 /* TimeWarp.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 4345FA40176F3FFA002BBDB0 /* TimeWarp.xcdatamodel */; };
 		43627711183C073A00825199 /* TPKeyboardAvoidingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4362770A183C073A00825199 /* TPKeyboardAvoidingCollectionView.m */; };
 		43627712183C073A00825199 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4362770C183C073A00825199 /* TPKeyboardAvoidingScrollView.m */; };
 		43627713183C073A00825199 /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4362770E183C073A00825199 /* TPKeyboardAvoidingTableView.m */; };
@@ -53,6 +51,7 @@
 		4365BC6318E8B8940028C43D /* Project+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4365BC6218E8B8940028C43D /* Project+Additions.m */; };
 		4365BC6518ECA0D80028C43D /* ProjectIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4365BC6418ECA0D80028C43D /* ProjectIcons.xcassets */; };
 		4365BC6818ED471F0028C43D /* IconSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4365BC6718ED471F0028C43D /* IconSelectionController.m */; };
+		4365BC7018ED8C4C0028C43D /* TimeWarp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4365BC6D18ED8C4C0028C43D /* TimeWarp.xcdatamodeld */; };
 		4379431D176F706D00188F99 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4379431C176F706D00188F99 /* Entitlements.plist */; };
 		437943201770384600188F99 /* CurrentListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4379431F1770384600188F99 /* CurrentListController.m */; };
 		437943211770384600188F99 /* CurrentListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4379431F1770384600188F99 /* CurrentListController.m */; };
@@ -150,7 +149,6 @@
 		4335F3A818DB90A5006294FE /* ModelSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelSerializer.h; sourceTree = "<group>"; };
 		4335F3A918DB90A5006294FE /* ModelSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelSerializer.m; sourceTree = "<group>"; };
 		4335F3AB18DCE444006294FE /* NotificationConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationConstants.h; sourceTree = "<group>"; };
-		4345FA40176F3FFA002BBDB0 /* TimeWarp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TimeWarp.xcdatamodel; sourceTree = "<group>"; };
 		43627709183C073A00825199 /* TPKeyboardAvoidingCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingCollectionView.h; sourceTree = "<group>"; };
 		4362770A183C073A00825199 /* TPKeyboardAvoidingCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingCollectionView.m; sourceTree = "<group>"; };
 		4362770B183C073A00825199 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
@@ -166,6 +164,8 @@
 		4365BC6418ECA0D80028C43D /* ProjectIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ProjectIcons.xcassets; sourceTree = "<group>"; };
 		4365BC6618ED471F0028C43D /* IconSelectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconSelectionController.h; sourceTree = "<group>"; };
 		4365BC6718ED471F0028C43D /* IconSelectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconSelectionController.m; sourceTree = "<group>"; };
+		4365BC6E18ED8C4C0028C43D /* TimeWarp1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TimeWarp1.1.xcdatamodel; sourceTree = "<group>"; };
+		4365BC6F18ED8C4C0028C43D /* TimeWarp1.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TimeWarp1.0.xcdatamodel; sourceTree = "<group>"; };
 		4379431C176F706D00188F99 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		4379431E1770384600188F99 /* CurrentListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentListController.h; sourceTree = "<group>"; };
 		4379431F1770384600188F99 /* CurrentListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentListController.m; sourceTree = "<group>"; };
@@ -342,6 +342,7 @@
 		4323D460176EF79500A083AB /* TimeWarp */ = {
 			isa = PBXGroup;
 			children = (
+				4365BC6D18ED8C4C0028C43D /* TimeWarp.xcdatamodeld */,
 				43EF208418E71D2F00AF4702 /* TimesSquareCustomize */,
 				438C6A9B18D5BDBA00BF1F58 /* TimesSquare */,
 				438C6A9118D5049600BF1F58 /* TestFlightSDK3 */,
@@ -397,7 +398,6 @@
 		4323D4A8176F0A6300A083AB /* model */ = {
 			isa = PBXGroup;
 			children = (
-				4345FA40176F3FFA002BBDB0 /* TimeWarp.xcdatamodel */,
 				4323D4B2176F0B0100A083AB /* Activity.h */,
 				4323D4B3176F0B0100A083AB /* Activity.m */,
 				4323D4AE176F0B0100A083AB /* Project.h */,
@@ -716,6 +716,7 @@
 				43C6E41017E1BD7B004A953A /* UITextFieldWithInset.m in Sources */,
 				431535561773936000B5D825 /* CoreDataWrapper.m in Sources */,
 				43E70430178DBF5B00CB5AA2 /* CHCSVParser.m in Sources */,
+				4365BC7018ED8C4C0028C43D /* TimeWarp.xcdatamodeld in Sources */,
 				43EF209C18E71E1800AF4702 /* TSQTACalendarRowCell.m in Sources */,
 				4315354D17735D0100B5D825 /* NewActivityController.m in Sources */,
 				437943201770384600188F99 /* CurrentListController.m in Sources */,
@@ -724,7 +725,6 @@
 				4335F3AA18DB90A5006294FE /* ModelSerializer.m in Sources */,
 				4379432517705E1400188F99 /* SelectTimeController.m in Sources */,
 				431535431770A1D600B5D825 /* GraduationView.m in Sources */,
-				4345FA41176F3FFA002BBDB0 /* TimeWarp.xcdatamodel in Sources */,
 				4323D467176EF79500A083AB /* main.m in Sources */,
 				4365BC6318E8B8940028C43D /* Project+Additions.m in Sources */,
 				43627714183C073A00825199 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
@@ -754,7 +754,6 @@
 				43E70431178DBF5B00CB5AA2 /* CHCSVParser.m in Sources */,
 				4315355217738F5D00B5D825 /* TimeUtils.m in Sources */,
 				4323D489176EF79500A083AB /* TimeWarpTests.m in Sources */,
-				4345FA42176F3FFA002BBDB0 /* TimeWarp.xcdatamodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -987,6 +986,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4365BC6D18ED8C4C0028C43D /* TimeWarp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4365BC6E18ED8C4C0028C43D /* TimeWarp1.1.xcdatamodel */,
+				4365BC6F18ED8C4C0028C43D /* TimeWarp1.0.xcdatamodel */,
+			);
+			currentVersion = 4365BC6E18ED8C4C0028C43D /* TimeWarp1.1.xcdatamodel */;
+			path = TimeWarp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4323D44F176EF79500A083AB /* Project object */;
 }
