@@ -11,6 +11,7 @@
 @interface UIConstants : NSObject
 
 @property (strong, nonatomic) UIColor* deepBlueColor;
+@property (strong, nonatomic) UIColor* middleBlueColor;
 @property (strong, nonatomic) UIColor* lightBlueColor;
 
 + (instancetype)shared;

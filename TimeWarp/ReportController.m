@@ -27,9 +27,9 @@
 #define kActivityCellHeightNonEmptyNote 70
 #define kActivityCellHeightEmptyNote 52
 
-#define kReportHeaderHeight 59
+#define kReportHeaderHeight 43
 #define kReportLineHeight 27
-#define kReportFooterHeight 10
+#define kReportFooterHeight 16
 
 
 @interface ReportController ()
@@ -264,7 +264,7 @@
     for (NSArray* dayActivities in activities) {
         for (Activity* activity in dayActivities) {
             [writer writeField:[activityDateFormatter stringFromDate:activity.date]];
-            [writer writeField:[NSString stringWithFormat:@"%@ (%@)", activity.project.name, activity.project.subname]];
+            [writer writeField:[activity.project label]];
             [writer writeField:activity.note];
             [writer writeField:[NSString stringWithFormat:@"%.2f", [activity duration]]];
             [writer finishLine];
@@ -460,8 +460,8 @@
 
 - (UITableViewCell*) createDayHeaderCell:(NSIndexPath*)indexPath forTableView:(UITableView*)tableView
 {
-    static NSString *CellIdentifier = @"DayTitleCell";
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *cellIdentifier = @"DayTitleCell";
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
     UILabel* dayLabel      = (UILabel*)[cell viewWithTag:100];
     UILabel* durationLabel = (UILabel*)[cell viewWithTag:101];
@@ -483,8 +483,8 @@
 
 - (UITableViewCell*) createDayActivityCell:(NSIndexPath*)indexPath forTableView:(UITableView*)tableView
 {
-    static NSString *CellIdentifier = @"ActivityCell";
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *cellIdentifier = @"ActivityCell";
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
     Activity* activity = (Activity*)[self.activitiesByDay objectAtIndex:indexPath.section - 1][indexPath.row - 1];
     
@@ -493,12 +493,12 @@
     UILabel* noteLabel     = (UILabel*)[cell viewWithTag:102];
     UIImageView* iconView  = (UIImageView*)[cell viewWithTag:103];
     
-    cell.accessoryView = [DTCustomColoredAccessory accessoryWithSingleColor:[UIConstants shared].deepBlueColor];
+    cell.accessoryView = [DTCustomColoredAccessory accessoryWithSingleColor:[UIConstants shared].middleBlueColor];
     
     // TODO dynamic height? -> cf CurrentListController
     
     Project* project = activity.project;
-    titleLabel.text = [NSString stringWithFormat:@"%@ (%@)", project.name, project.subname];
+    titleLabel.text = [project label];
     durationLabel.text = [NSString stringWithFormat:@"%.2f", [activity duration]];
     noteLabel.text = activity.note;
     [noteLabel sizeToFit];
@@ -509,8 +509,8 @@
 
 - (UITableViewCell*) createReportHeaderCell:(NSIndexPath*)indexPath forTableView:(UITableView*)tableView
 {
-    static NSString *CellIdentifier = @"ReportHeader";
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *cellIdentifier = @"ReportHeader";
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
     UILabel* reportLabel = (UILabel*) [cell viewWithTag:100];
     NSString* dateString = [self getDateString];
@@ -522,9 +522,13 @@
 
 - (UITableViewCell*) createReportLineCell:(NSIndexPath*)indexPath forTableView:(UITableView*)tableView
 {
-    static NSString *CellIdentifier = @"ReportLine";
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    NSString* text  = [self.reportDictionary allKeys][indexPath.row - 1];
+    static NSString *cellIdentifierNotLast = @"ReportLine";
+    static NSString *cellIdentifierLast    = @"ReportLineLast";
+    
+    NSInteger lineIndex = indexPath.row - 1;
+    NSString *cellIdentifier = [self isLastReportLine:indexPath] ? cellIdentifierLast : cellIdentifierNotLast;
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    NSString* text  = [self.reportDictionary allKeys][lineIndex];
     NSNumber* hours = self.reportDictionary[text];
     
     UILabel* projectLabel = (UILabel*) [cell viewWithTag:100];
@@ -536,16 +540,23 @@
     return cell;
 }
 
+- (BOOL)isLastReportLine:(NSIndexPath*)indexPath
+{
+    NSInteger lineIndex = indexPath.row - 1;
+    NSArray* keys = [self.reportDictionary allKeys];
+    return lineIndex + 1 == [keys count];
+}
+
 - (UITableViewCell*) createReportNoneCell:(NSIndexPath*)indexPath forTableView:(UITableView*)tableView
 {
-    static NSString *CellIdentifier = @"ReportNone";
-    return [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *cellIdentifier = @"ReportNone";
+    return [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
 }
 
 - (UITableViewCell*) createReportFooterCell:(NSIndexPath*)indexPath forTableView:(UITableView*)tableView
 {
-    static NSString *CellIdentifier = @"ReportFooter";
-    return [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *cellIdentifier = @"ReportFooter";
+    return [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

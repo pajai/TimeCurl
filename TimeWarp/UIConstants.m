@@ -29,7 +29,8 @@
     self = [super init];
     if (self) {
         // initialization
-        _deepBlueColor = [UIColor colorWithRed:0.0 green:(121.0/255) blue:1.0 alpha:1.0];
+        _deepBlueColor  = [UIColor colorWithRed:0.0 green:(121.0/255) blue:1.0 alpha:1.0];
+        _middleBlueColor = [UIColor colorWithRed:(177.0/255) green:(210.0/255) blue:1.0 alpha:1.0];
         _lightBlueColor = [UIColor colorWithRed:(191.0/255) green:(221.0/255) blue:1.0 alpha:1.0];
     }
     return self;

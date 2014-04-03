@@ -168,15 +168,13 @@
         static NSString *CellIdentifier = @"ProjectCell";
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
         
-        cell.accessoryView = [DTCustomColoredAccessory accessoryWithSingleColor:[UIConstants shared].deepBlueColor];
+        cell.accessoryView = [DTCustomColoredAccessory accessoryWithSingleColor:[UIConstants shared].middleBlueColor];
         
         UILabel* nameLabel    = (UILabel*)[cell viewWithTag:100];
-        UILabel* subnameLabel = (UILabel*)[cell viewWithTag:101];
-        UIImageView* iconView = (UIImageView*)[cell viewWithTag:102];
+        UIImageView* iconView = (UIImageView*)[cell viewWithTag:101];
         
         Project* project = [self.projects objectAtIndex:indexPath.row];
-        nameLabel.text = project.name;
-        subnameLabel.text = project.subname;
+        nameLabel.text = [project label];
         iconView.image = [project imageWithDefaultName:@"icon-project-list"];
 
     }

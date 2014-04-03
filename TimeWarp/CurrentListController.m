@@ -332,10 +332,10 @@
         UITextView* noteTextView = (UITextView*)[cell viewWithTag:102];
         UIImageView* iconView    = (UIImageView*)[cell viewWithTag:103];
         
-        cell.accessoryView = [DTCustomColoredAccessory accessoryWithSingleColor:[UIConstants shared].deepBlueColor];
+        cell.accessoryView = [DTCustomColoredAccessory accessoryWithSingleColor:[UIConstants shared].middleBlueColor];
         
         Project* project = activity.project;
-        titleLabel.text = [NSString stringWithFormat:@"%@ (%@)", project.name, project.subname];
+        titleLabel.text = [project label];
         durationLabel.text = [NSString stringWithFormat:@"%.2f", [activity duration]];
         noteTextView.text = activity.note;
         iconView.image = [project imageWithDefaultName:@"icon-activity-list"];
