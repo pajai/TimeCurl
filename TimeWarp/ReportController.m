@@ -25,8 +25,6 @@
 
 
 #define kDayCellHeight 23
-#define kActivityCellHeightNonEmptyNote 70
-#define kActivityCellHeightEmptyNote 52
 
 #define kReportHeaderHeight 43
 #define kReportLineHeight 27
@@ -34,6 +32,8 @@
 
 
 @interface ReportController ()
+
+@property (strong, nonatomic) NSMutableDictionary* offscreenCells;
 
 @property (nonatomic, strong) MailComposeHandler* mailComposeHandler;
 @property (nonatomic, strong) NSArray* activitiesByDay;
@@ -426,6 +426,60 @@
     
 }
 
+- (UITableViewCell*)retrieveOffscreenCellForIdentifier:(NSString*)reuseIdentifier
+{
+    UITableViewCell* cell = self.offscreenCells[reuseIdentifier];
+    if (!cell) {
+        cell = [self.tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
+        [self.offscreenCells setObject:cell forKey:reuseIdentifier];
+    }
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0) {
+        return [self heightForReportCell:indexPath];
+    }
+    else {
+        if (indexPath.row == 0) {
+            return kDayCellHeight;
+        }
+        else {
+            return [self heightForDayActivity:indexPath];
+        }
+    }
+}
+
+- (CGFloat) heightForDayActivity:(NSIndexPath*)indexPath
+{
+    NSString* identifier = @"ActivityCell";
+    
+    UITableViewCell* cell = [self retrieveOffscreenCellForIdentifier:identifier];
+    [self configureActivityCell:cell forIndexPath:indexPath];
+    
+    [cell setNeedsLayout];
+    [cell layoutIfNeeded];
+    
+    return [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 1.0f;
+}
+
+- (CGFloat) heightForReportCell:(NSIndexPath*)indexPath
+{
+    if (indexPath.row == 0) {
+        return kReportHeaderHeight;
+    }
+    else {
+        NSInteger nbReportRows = [self tableView:self.tableView numberOfRowsInSection:indexPath.section];
+        if (indexPath.row + 1 < nbReportRows) {
+            return kReportLineHeight;
+        }
+        else {
+            return kReportFooterHeight;
+        }
+    }
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([self isReportSection:indexPath]) {
@@ -504,7 +558,13 @@
 {
     static NSString *cellIdentifier = @"ActivityCell";
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    [self configureActivityCell:cell forIndexPath:indexPath];
     
+    return cell;
+}
+
+- (void)configureActivityCell:(UITableViewCell*)cell forIndexPath:(NSIndexPath*)indexPath
+{
     Activity* activity = (Activity*)[self.activitiesByDay objectAtIndex:indexPath.section - 1][indexPath.row - 1];
     
     UILabel* titleLabel    = (UILabel*)[cell viewWithTag:100];
@@ -514,16 +574,12 @@
     
     cell.accessoryView = [DTCustomColoredAccessory accessoryWithSingleColor:[UIConstants shared].middleBlueColor];
     
-    // TODO dynamic height? -> cf CurrentListController
-    
     Project* project = activity.project;
     titleLabel.text = [project label];
     durationLabel.text = [NSString stringWithFormat:@"%.2f", [activity duration]];
     noteLabel.text = activity.note;
     [noteLabel sizeToFit];
     iconView.image = [project imageWithDefaultName:@"icon-report-list"];
-    
-    return cell;
 }
 
 - (UITableViewCell*) createReportHeaderCell:(NSIndexPath*)indexPath forTableView:(UITableView*)tableView
@@ -576,49 +632,6 @@
 {
     static NSString *cellIdentifier = @"ReportFooter";
     return [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.section == 0) {
-        return [self heightForReportCell:indexPath];
-    }
-    else {
-        if (indexPath.row == 0) {
-            return kDayCellHeight;
-        }
-        else {
-            return [self heightForDayActivity:indexPath];
-        }
-    }
-}
-
-- (CGFloat) heightForDayActivity:(NSIndexPath*)indexPath
-{
-    Activity* activity = (Activity*)[self.activitiesByDay objectAtIndex:indexPath.section - 1][indexPath.row - 1];
-    NSString* trimmedNote = [activity.note stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    if ([trimmedNote length] > 0) {
-        return kActivityCellHeightNonEmptyNote;
-    }
-    else {
-        return kActivityCellHeightEmptyNote;
-    }
-}
-
-- (CGFloat) heightForReportCell:(NSIndexPath*)indexPath
-{
-    if (indexPath.row == 0) {
-        return kReportHeaderHeight;
-    }
-    else {
-        NSInteger nbReportRows = [self tableView:self.tableView numberOfRowsInSection:indexPath.section];
-        if (indexPath.row + 1 < nbReportRows) {
-            return kReportLineHeight;
-        }
-        else {
-            return kReportFooterHeight;
-        }
-    }
 }
 
 /*
