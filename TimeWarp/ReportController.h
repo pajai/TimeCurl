@@ -12,10 +12,7 @@
 #import "StoreChangeDelegate.h"
 
 
-@interface ReportController : UITableViewController <UIAlertViewDelegate, MailComposeCallbackDelegate, StoreChangeDelegate> {
-    
-    NSDateFormatter* _dateFormatter;
-    
-}
+@interface ReportController : UITableViewController <UIAlertViewDelegate, MailComposeCallbackDelegate, StoreChangeDelegate>
+
 
 @end

@@ -43,9 +43,8 @@
 @property (readwrite) NSInteger periodicityNb;
 @property (strong, nonatomic) NSString* periodicityUnit;
 
-- (void) loadData;
-- (void) initDateAndPeriodicity;
-- (void) updateTitle;
+@property (strong, nonatomic) NSDateFormatter* dateFormatter;
+
 @end
 
 @implementation ReportController
@@ -347,8 +346,8 @@
     
     [self initDateAndPeriodicity];
     
-    _dateFormatter = [[NSDateFormatter alloc] init];
-    [_dateFormatter setDateFormat:@"EEEE d"];
+    self.dateFormatter = [[NSDateFormatter alloc] init];
+    self.dateFormatter.dateStyle = NSDateFormatterFullStyle;
 
     [UIUtils setEmptyFooterView:self.tableView];
     
