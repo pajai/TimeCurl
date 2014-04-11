@@ -76,6 +76,9 @@
     NSMutableArray* array = [NSMutableArray arrayWithCapacity:[project.activities count]];
     for (Activity* activity in project.activities) {
         NSDictionary* actDict = [self mapActivity:activity];
+        if (!actDict) {
+            continue;
+        }
         [array addObject:actDict];
     }
     projDict[@"activities"] = array;
@@ -84,9 +87,17 @@
 
 - (NSDictionary*) mapActivity:(Activity*)activity
 {
+    /*
+     * An activity without date cannot be found anymore -> skip
+     */
+    if (activity.date) {
+        return nil;
+    }
     NSMutableDictionary* actDict = [NSMutableDictionary dictionaryWithCapacity:3];
     actDict[@"date"] = [self.dateFormatter stringFromDate:activity.date];
-    actDict[@"note"] = activity.note;
+    if (activity.note) {
+        actDict[@"note"] = activity.note;
+    }
     NSMutableArray* array = [NSMutableArray arrayWithCapacity:[activity.timeslots count]];
     for (TimeSlot* timeslot in activity.timeslots) {
         NSDictionary* timeSlotDict = [self mapTimeSlot:timeslot];
