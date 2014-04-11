@@ -22,27 +22,14 @@
 #import "NotificationConstants.h"
 
 
-// TODO can we parameterize this?
-#define kTextViewWidthPortrait  228.0
-#define kTextViewWidthLandscape 476.0
-#define kBodyFontSize 12.0
-#define kMinCellTextViewHeight 32.0
-#define kCellHeightAdditionWrtTextView 52.0
-#define kNewCellHeight 82.0
-
-
 @interface CurrentListController ()
 
 @property (nonatomic,readwrite) NSInteger textViewWidth;
 
-- (void) loadData;
-- (void) initCurrentDate;
-- (void) updateTitle;
-- (BOOL) isToday;
-- (CGFloat) textViewHeightForActivity:(Activity*)activity;
-- (CGFloat) heightOfText:(NSString *)textToMesure widthOfTextView:(CGFloat)width withFont:(UIFont*)font;
+@property (strong, nonatomic) NSMutableDictionary* offscreenCells;
 
 @end
+
 
 @implementation CurrentListController
 
@@ -248,7 +235,7 @@
     
     [UIUtils setEmptyFooterView:self.tableView];
 
-    self.textViewWidth = kTextViewWidthPortrait;
+    self.offscreenCells = [NSMutableDictionary dictionaryWithCapacity:1];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -287,15 +274,6 @@
     [self loadData];
 }
 
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
-    
-    self.textViewWidth = UIInterfaceOrientationIsPortrait(toInterfaceOrientation) ? kTextViewWidthPortrait : kTextViewWidthLandscape;
-    
-    NSLog(@"Interface orientation change");
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -319,72 +297,65 @@
     }
 }
 
+- (NSString*)reuseIdentifierForIndexPath:(NSIndexPath*)indexPath
+{
+    static NSString *activityId = @"ActivityCell";
+    static NSString *newCellId  = @"NewCell";
+    return indexPath.section == 0 ? activityId : newCellId;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = nil;
+    NSString* cellIdentifier = [self reuseIdentifierForIndexPath:indexPath];
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    [self configureCell:cell forIndexPath:indexPath];
+    return cell;
+}
+
+- (void)configureCell:(UITableViewCell*)cell forIndexPath:(NSIndexPath*)indexPath
+{
     if (indexPath.section == 0) {
-        
-        static NSString *CellIdentifier = @"ActivityCell";
-        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-        
         Activity* activity = [self.activities objectAtIndex:indexPath.row];
         UILabel* titleLabel      = (UILabel*)[cell viewWithTag:100];
         UILabel* durationLabel   = (UILabel*)[cell viewWithTag:101];
-        UITextView* noteTextView = (UITextView*)[cell viewWithTag:102];
+        UILabel* noteTextLabel   = (UILabel*)[cell viewWithTag:102];
         UIImageView* iconView    = (UIImageView*)[cell viewWithTag:103];
         
         cell.accessoryView = [DTCustomColoredAccessory accessoryWithSingleColor:[UIConstants shared].middleBlueColor];
         
         Project* project = activity.project;
         titleLabel.text = [project label];
-        durationLabel.text = [NSString stringWithFormat:@"%.2f", [activity duration]];
-        noteTextView.text = activity.note;
+        durationLabel.text = [activity formattedDuration];
+        noteTextLabel.text = activity.note ? activity.note : @" ";
         iconView.image = [project imageWithDefaultName:@"icon-activity-list"];
-        
     }
     else {
-        
-        static NSString *CellIdentifier = @"NewCell";
-        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-        
+        cell.contentView.translatesAutoresizingMaskIntoConstraints = NO;
     }
-    
+}
+
+- (UITableViewCell*)retrieveOffscreenCellForIdentifier:(NSString*)reuseIdentifier
+{
+    UITableViewCell* cell = self.offscreenCells[reuseIdentifier];
+    if (!cell) {
+        cell = [self.tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
+        [self.offscreenCells setObject:cell forKey:reuseIdentifier];
+    }
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0) {
-        Activity* activity = [self.activities objectAtIndex:indexPath.row];
-        
-        // cell size: add kCellHeightAdditionWrtTextView point to text view height
-        CGFloat height = [self textViewHeightForActivity:activity] + kCellHeightAdditionWrtTextView;
-        return height;
-    }
-    else {
-        return kNewCellHeight;
-    }
-}
-
-- (CGFloat) textViewHeightForActivity:(Activity*)activity
-{
-    /*
-     * TODO: we could use dynamic font size, see e.g. [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
-     *       sticking to fix size system fonts for now
-     */
+    NSString* identifier = indexPath.section == 0 ? @"ActivityCell" : @"NewCell";
     
-    // size of text view, but at least kMinCellTextViewHeight
-    UIFont * bodyFont = [UIFont systemFontOfSize:kBodyFontSize];
-    CGFloat textViewHeight = [self heightOfText:activity.note widthOfTextView:self.textViewWidth withFont:bodyFont];
-    textViewHeight = textViewHeight < kMinCellTextViewHeight ? kMinCellTextViewHeight : textViewHeight;
-    return textViewHeight;
-}
-
-- (CGFloat) heightOfText:(NSString *)textToMesure widthOfTextView:(CGFloat)width withFont:(UIFont*)font
-{
-    NSDictionary *stringAttributes = [NSDictionary dictionaryWithObject:font forKey: NSFontAttributeName];
-    CGRect rect = [textToMesure boundingRectWithSize:CGSizeMake(width, FLT_MAX) options:(NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading) attributes:stringAttributes context:nil];
-    return rect.size.height;
+    UITableViewCell* cell = [self retrieveOffscreenCellForIdentifier:identifier];
+    [self configureCell:cell forIndexPath:indexPath];
+    
+    [cell setNeedsLayout];
+    [cell layoutIfNeeded];
+    
+    return [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 1.0f;
+    
 }
 
 // Override to support conditional editing of the table view.
@@ -408,6 +379,7 @@
         
         [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         
+        [self updateTitle];
     }
 }
 
