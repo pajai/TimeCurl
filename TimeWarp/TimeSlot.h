@@ -17,6 +17,4 @@
 @property (nonatomic, retain) NSNumber * end;
 @property (nonatomic, retain) Activity * activity;
 
-- (double)duration;
-
 @end

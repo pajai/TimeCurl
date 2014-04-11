@@ -16,10 +16,4 @@
 @dynamic end;
 @dynamic activity;
 
-// in hours
-- (double)duration
-{
-    return [self.end doubleValue] - [self.start doubleValue];
-}
-
 @end

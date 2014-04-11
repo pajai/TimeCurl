@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "Activity.h"
 #import "Project+Additions.h"
+#import "Activity+Additions.h"
 #import "NewActivityController.h"
 #import "CoreDataWrapper.h"
 #import "SlotInterval.h"

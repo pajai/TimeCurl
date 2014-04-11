@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4312E70218F7E50B00C23B01 /* Activity+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4312E70118F7E50B00C23B01 /* Activity+Additions.m */; };
+		4312E70518F7E5EE00C23B01 /* TimeSlot+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4312E70418F7E5EE00C23B01 /* TimeSlot+Additions.m */; };
 		431535431770A1D600B5D825 /* GraduationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 431535421770A1D600B5D825 /* GraduationView.m */; };
 		431535441770A1D600B5D825 /* GraduationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 431535421770A1D600B5D825 /* GraduationView.m */; };
 		431535491773060800B5D825 /* SlotInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 431535481773060700B5D825 /* SlotInterval.m */; };
@@ -105,6 +107,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4312E70018F7E50B00C23B01 /* Activity+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Activity+Additions.h"; sourceTree = "<group>"; };
+		4312E70118F7E50B00C23B01 /* Activity+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Activity+Additions.m"; sourceTree = "<group>"; };
+		4312E70318F7E5EE00C23B01 /* TimeSlot+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TimeSlot+Additions.h"; sourceTree = "<group>"; };
+		4312E70418F7E5EE00C23B01 /* TimeSlot+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TimeSlot+Additions.m"; sourceTree = "<group>"; };
 		431535411770A1D600B5D825 /* GraduationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraduationView.h; sourceTree = "<group>"; };
 		431535421770A1D600B5D825 /* GraduationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraduationView.m; sourceTree = "<group>"; };
 		431535461770A62800B5D825 /* GeometryConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeometryConstants.h; sourceTree = "<group>"; };
@@ -445,6 +451,10 @@
 			children = (
 				4365BC6118E8B8940028C43D /* Project+Additions.h */,
 				4365BC6218E8B8940028C43D /* Project+Additions.m */,
+				4312E70018F7E50B00C23B01 /* Activity+Additions.h */,
+				4312E70118F7E50B00C23B01 /* Activity+Additions.m */,
+				4312E70318F7E5EE00C23B01 /* TimeSlot+Additions.h */,
+				4312E70418F7E5EE00C23B01 /* TimeSlot+Additions.m */,
 			);
 			name = modelAdditions;
 			sourceTree = "<group>";
@@ -713,6 +723,7 @@
 				43FECC2217D0823E003179B6 /* UIConstants.m in Sources */,
 				4323D498176F04BE00A083AB /* ProjectListController.m in Sources */,
 				43EF209F18E75FE400AF4702 /* ConfigureReportController.m in Sources */,
+				4312E70218F7E50B00C23B01 /* Activity+Additions.m in Sources */,
 				43E6027117821A8500EAA813 /* ReportController.m in Sources */,
 				432B79D117CFF3CD00041A7D /* DTCustomColoredAccessory.m in Sources */,
 				438C6AA618D5BDBA00BF1F58 /* TSQCalendarCell.m in Sources */,
@@ -744,6 +755,7 @@
 				43627714183C073A00825199 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				43BAFD6F17CF89C700B6A4FC /* SelectDayController.m in Sources */,
 				431535491773060800B5D825 /* SlotInterval.m in Sources */,
+				4312E70518F7E5EE00C23B01 /* TimeSlot+Additions.m in Sources */,
 				4345FA3D176F31FE002BBDB0 /* NewProjectController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -901,7 +913,7 @@
 					"$(PROJECT_DIR)/TimeWarp/TestFlightSDK3",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1102B035-B0FC-444B-BF93-4242E8597C13";
+				PROVISIONING_PROFILE = "D2EA172B-8740-46A9-BCD6-5BB30E3AABAD";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -924,7 +936,7 @@
 					"$(PROJECT_DIR)/TimeWarp/TestFlightSDK3",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1102B035-B0FC-444B-BF93-4242E8597C13";
+				PROVISIONING_PROFILE = "D2EA172B-8740-46A9-BCD6-5BB30E3AABAD";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
