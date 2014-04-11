@@ -24,8 +24,6 @@
 
 @interface CurrentListController ()
 
-@property (nonatomic,readwrite) NSInteger textViewWidth;
-
 @property (strong, nonatomic) NSMutableDictionary* offscreenCells;
 
 @end
