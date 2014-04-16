@@ -1025,11 +1025,11 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" canCancelContentTouches="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dm1-re-PAc">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" canCancelContentTouches="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dm1-re-PAc">
                                 <rect key="frame" x="-5" y="0.0" width="325" height="460"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <view multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EWb-eh-9Iq" customClass="GraduationView">
+                                    <view multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EWb-eh-9Iq" customClass="GraduationView">
                                         <rect key="frame" x="80" y="0.0" width="240" height="1000"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <subviews>
@@ -1049,12 +1049,22 @@
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1000" id="ASf-mj-EdC"/>
+                                            <constraint firstAttribute="width" constant="240" id="zQH-eu-3oo"/>
+                                        </constraints>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="gXe-ni-zeg" appends="YES" id="T0G-0o-Q9R"/>
                                             <outletCollection property="gestureRecognizers" destination="IMk-by-boY" appends="YES" id="Iaq-qr-8IV"/>
                                         </connections>
                                     </view>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="EWb-eh-9Iq" firstAttribute="top" secondItem="dm1-re-PAc" secondAttribute="top" id="4pC-VZ-0Zx"/>
+                                    <constraint firstAttribute="bottom" secondItem="EWb-eh-9Iq" secondAttribute="bottom" id="9D1-fY-uD5"/>
+                                    <constraint firstAttribute="trailing" secondItem="EWb-eh-9Iq" secondAttribute="trailing" constant="5" id="C9l-iq-7nI"/>
+                                    <constraint firstItem="EWb-eh-9Iq" firstAttribute="leading" secondItem="dm1-re-PAc" secondAttribute="leading" constant="80" id="qev-K4-KcB"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="size" keyPath="contentSize">
                                         <size key="value" width="320" height="1000"/>
@@ -1063,6 +1073,12 @@
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dm1-re-PAc" firstAttribute="top" secondItem="K0v-ec-VLF" secondAttribute="bottom" id="4TQ-1d-v3O"/>
+                            <constraint firstItem="dm1-re-PAc" firstAttribute="leading" secondItem="m2s-wa-de7" secondAttribute="leading" constant="-5" id="7Mq-Sl-7h1"/>
+                            <constraint firstItem="aUy-K3-R1O" firstAttribute="top" secondItem="dm1-re-PAc" secondAttribute="bottom" id="Mlu-QO-S0o"/>
+                            <constraint firstAttribute="trailing" secondItem="dm1-re-PAc" secondAttribute="trailing" id="V2M-4K-p0h"/>
+                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>

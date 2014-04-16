@@ -25,8 +25,6 @@ typedef NS_ENUM(NSInteger, TimeLabelType) {
 
 - (void) initDailyCalendar
 {
-    self.scrollView.scrollEnabled = YES;
-    self.scrollView.contentSize = CGSizeMake(320, 1000);
     self.scrollView.contentOffset = CGPointMake(0, 319);
     
     self.slotLabelStart.alpha = 0;
@@ -40,7 +38,7 @@ typedef NS_ENUM(NSInteger, TimeLabelType) {
     self.slotLabelEnd.font   = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1];
 }
 
-- (void) initLabels
+- (void) initGraduationLabels
 {
     double startY = STARTY;
     double dY     = DELTAY;
@@ -221,9 +219,9 @@ typedef NS_ENUM(NSInteger, TimeLabelType) {
     label.text = [self timeToString:roundedTime];
     label.alpha = 1.0;
     
-    if (labelType == TimeLabelStart) {
-        NSLog(@"%@", label);
-    }
+    //if (labelType == TimeLabelStart) {
+    //    NSLog(@"%@", label);
+    //}
 }
 
 - (NSString*) timeToString:(double)time
@@ -355,7 +353,7 @@ typedef NS_ENUM(NSInteger, TimeLabelType) {
     }
 
     [self initDailyCalendar];
-    [self initLabels];
+    [self initGraduationLabels];
     
     state = kStateNothing;
 }
