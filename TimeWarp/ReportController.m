@@ -436,6 +436,22 @@
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0) {
+        return [self heightForReportCell:indexPath];
+    }
+    else {
+        if (indexPath.row == 0) {
+            return kDayCellHeight;
+        }
+        else {
+            // don't do the full computation for an activity cell
+            return 80.0f;
+        }
+    }
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
