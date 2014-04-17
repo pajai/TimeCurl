@@ -163,6 +163,7 @@
 
 - (void) mapToProjects:(NSArray*)projArray
 {
+    NSInteger sortOrder = 0;
     for (NSDictionary* projDict in projArray) {
         Project* project = [[CoreDataWrapper shared] newProject];
         project.name = projDict[@"name"];
@@ -173,8 +174,10 @@
         if (projDict[@"icon"]) {
             project.icon = projDict[@"icon"];
         }
+        project.sortOrder = [NSNumber numberWithInteger:sortOrder];
         [[CoreDataWrapper shared] saveContext];
         [self mapToActivities:projDict[@"activities"] forProject:project];
+        sortOrder += 1;
     }
 }
 

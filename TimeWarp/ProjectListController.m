@@ -220,12 +220,14 @@
     }
 }
 
-/*
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
+    Project* p = [self.projects objectAtIndex:fromIndexPath.row];
+    [self.projects removeObject:p];
+    [self.projects insertObject:p atIndex:toIndexPath.row];
+    [[CoreDataWrapper shared] setProjectSortOrder:self.projects];
 }
-*/
 
 /*
 // Override to support conditional rearranging of the table view.

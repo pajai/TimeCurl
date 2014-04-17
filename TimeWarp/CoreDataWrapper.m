@@ -183,6 +183,11 @@ NSString * const DPUbiquitousName   = @"com~timecurl~coredataicloud";
     NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription* entity = [NSEntityDescription entityForName:@"Project" inManagedObjectContext:managedObjectContext];
     [fetchRequest setEntity:entity];
+    
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"sortOrder" ascending:YES];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
     NSError* error = nil;
     NSArray* result = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
 
@@ -190,8 +195,30 @@ NSString * const DPUbiquitousName   = @"com~timecurl~coredataicloud";
         return nil;
     }
     else {
+        if ([self anyProjectWithoutSortOrder:result]) {
+            [self setProjectSortOrder:result];
+        }
         return result;
     }
+}
+
+- (void) setProjectSortOrder:(NSArray*)projects
+{
+    NSInteger idx = 0;
+    for (Project* project in projects) {
+        project.sortOrder = [NSNumber numberWithInteger:idx];
+        idx++;
+    }
+
+    [self saveContext];
+}
+
+- (BOOL)anyProjectWithoutSortOrder:(NSArray*)projects
+{
+    NSUInteger idx = [projects indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL* stop){
+        return ((Project*)obj).sortOrder == nil;
+    }];
+    return idx != NSNotFound;
 }
 
 - (NSArray*) fetchAllActivities

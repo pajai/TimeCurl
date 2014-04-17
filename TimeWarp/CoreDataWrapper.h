@@ -30,6 +30,7 @@
 - (void)storesDidChange:(NSNotification *)n;
 
 - (NSArray*) fetchAllProjects;
+- (void) setProjectSortOrder:(NSArray*)projects;
 
 - (NSArray*) fetchAllActivities;
 - (NSArray*) fetchActivitiesBetweenDate:(NSDate*)fromDate andExclusiveDate:(NSDate*)toDate;

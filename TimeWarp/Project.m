@@ -16,6 +16,7 @@
 @dynamic subname;
 @dynamic note;
 @dynamic icon;
+@dynamic sortOrder;
 @dynamic activities;
 
 @end

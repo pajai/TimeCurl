@@ -200,6 +200,7 @@
 		438C6AA418D5BDBA00BF1F58 /* TSQCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSQCalendarView.h; sourceTree = "<group>"; };
 		438C6AA518D5BDBA00BF1F58 /* TSQCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSQCalendarView.m; sourceTree = "<group>"; };
 		4391EF2C17901DAC00581C11 /* TimeCurl.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TimeCurl.entitlements; sourceTree = "<group>"; };
+		43A75B41190075C100665435 /* TimeWarp1.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TimeWarp1.2.xcdatamodel; sourceTree = "<group>"; };
 		43BAFD6D17CF89C700B6A4FC /* SelectDayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectDayController.h; sourceTree = "<group>"; };
 		43BAFD6E17CF89C700B6A4FC /* SelectDayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectDayController.m; sourceTree = "<group>"; };
 		43C6E40E17E1BD7B004A953A /* UITextFieldWithInset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITextFieldWithInset.h; sourceTree = "<group>"; };
@@ -360,12 +361,12 @@
 				43627708183C073A00825199 /* TPKeyboardAvoiding */,
 				4391EF2C17901DAC00581C11 /* TimeCurl.entitlements */,
 				43E7042D178DBF5B00CB5AA2 /* CHCSVParser */,
+				4323D4A8176F0A6300A083AB /* model */,
+				4365BC6018E8B84C0028C43D /* modelAdditions */,
 				431535531773933500B5D825 /* persistence */,
 				431535451770A5E800B5D825 /* misc */,
 				431535401770A1B000B5D825 /* view */,
 				4323D4A9176F0A7300A083AB /* controller */,
-				4323D4A8176F0A6300A083AB /* model */,
-				4365BC6018E8B84C0028C43D /* modelAdditions */,
 				4323D469176EF79500A083AB /* AppDelegate.h */,
 				4323D46A176EF79500A083AB /* AppDelegate.m */,
 				4323D46C176EF79500A083AB /* Main.storyboard */,
@@ -1017,10 +1018,11 @@
 		4365BC6D18ED8C4C0028C43D /* TimeWarp.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				43A75B41190075C100665435 /* TimeWarp1.2.xcdatamodel */,
 				4365BC6E18ED8C4C0028C43D /* TimeWarp1.1.xcdatamodel */,
 				4365BC6F18ED8C4C0028C43D /* TimeWarp1.0.xcdatamodel */,
 			);
-			currentVersion = 4365BC6E18ED8C4C0028C43D /* TimeWarp1.1.xcdatamodel */;
+			currentVersion = 43A75B41190075C100665435 /* TimeWarp1.2.xcdatamodel */;
 			path = TimeWarp.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
