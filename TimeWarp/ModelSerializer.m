@@ -90,7 +90,7 @@
     /*
      * An activity without date cannot be found anymore -> skip
      */
-    if (activity.date) {
+    if (!activity.date) {
         return nil;
     }
     NSMutableDictionary* actDict = [NSMutableDictionary dictionaryWithCapacity:3];
