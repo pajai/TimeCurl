@@ -17,4 +17,6 @@
 @property (readwrite) double end;
 @property (nonatomic, weak) UIView* view;
 
+- (double) duration;
+
 @end

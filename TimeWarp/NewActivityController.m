@@ -41,11 +41,13 @@
 - (void) updateTimeField
 {
     NSString* timeString = nil;
+    double tot = 0.0;
     for (SlotInterval* slotInterval in self.timeSlotIntervals) {
         NSString* slotString = [slotInterval description];
         timeString = timeString == nil ? slotString : [NSString stringWithFormat:@"%@, %@", timeString, slotString];
+        tot += slotInterval.duration;
     }
-    self.timeTextField.text = timeString;
+    self.timeTextField.text = [NSString stringWithFormat:@"%.2fh: %@", tot, timeString];
 }
 
 - (IBAction)donePressed:(id)sender

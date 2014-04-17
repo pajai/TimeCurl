@@ -11,6 +11,11 @@
 
 @implementation SlotInterval
 
+- (double) duration
+{
+    return self.end - self.begin;
+}
+
 - (NSString*) description
 {
     return [NSString stringWithFormat:@"%@-%@",
