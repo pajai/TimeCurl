@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import "Project.h"
+#import "SAMTextView.h"
 
 @interface NewProjectController : UIViewController <NSFetchedResultsControllerDelegate>
 
@@ -18,7 +19,7 @@
 
 @property (nonatomic, strong) IBOutlet UITextField* name;
 @property (nonatomic, strong) IBOutlet UITextField* subname;
-@property (nonatomic, strong) IBOutlet UITextView* note;
+@property (nonatomic, strong) IBOutlet SAMTextView* note;
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
 @property (weak, nonatomic) IBOutlet UILabel *iconLabel;
 @property (weak, nonatomic) IBOutlet UIButton *iconButton;

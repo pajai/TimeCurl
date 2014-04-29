@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Activity.h"
+#import "SAMTextView.h"
 
 @interface NewActivityController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, UIAlertViewDelegate>
 
@@ -18,7 +19,7 @@
 @property (nonatomic, strong) NSDate* currentDate;
 
 @property (nonatomic, strong) IBOutlet UITextField* timeTextField;
-@property (nonatomic, strong) IBOutlet UITextView*  noteTextView;
+@property (nonatomic, strong) IBOutlet SAMTextView* noteTextView;
 @property (nonatomic, strong) IBOutlet UIPickerView* pickerView;
 
 @end

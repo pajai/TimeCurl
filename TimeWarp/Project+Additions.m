@@ -12,7 +12,12 @@
 
 - (NSString*) label
 {
-    return [NSString stringWithFormat:@"%@, %@", self.name, self.subname];
+    if (self.subname.length == 0) {
+        return self.name;
+    }
+    else {
+        return [NSString stringWithFormat:@"%@, %@", self.name, self.subname];
+    }
 }
 
 - (UIImage*)  imageWithDefaultName:(NSString*)defaultName

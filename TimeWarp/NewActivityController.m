@@ -196,6 +196,8 @@
 
     [self loadProjects];
 
+    self.noteTextView.placeholder = @"Optional";
+    
     if ([self.projects count] > 0) {
         self.selectedProject = [self.projects objectAtIndex:0];
         
