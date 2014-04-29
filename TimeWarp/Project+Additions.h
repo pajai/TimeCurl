@@ -12,5 +12,6 @@
 
 - (NSString*) label;
 - (UIImage*)  imageWithDefaultName:(NSString*)defaultName;
+- (NSString*) projectId;
 
 @end

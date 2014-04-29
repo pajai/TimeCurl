@@ -31,4 +31,9 @@
 
 }
 
+- (NSString*) projectId
+{
+    return [[[self objectID] URIRepresentation] absoluteString];
+}
+
 @end

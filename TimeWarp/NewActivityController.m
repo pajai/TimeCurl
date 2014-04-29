@@ -12,8 +12,9 @@
 #import "AppDelegate.h"
 #import "TimeUtils.h"
 #import "CoreDataWrapper.h"
-#import "Project.h"
+#import "Project+Additions.h"
 #import "Flurry.h"
+#import "PrefsConstants.h"
 
 
 @interface NewActivityController ()
@@ -175,6 +176,14 @@
 - (void) pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     self.selectedProject = [self.projects objectAtIndex:row];
+    
+    [self saveSelectedProjectInPrefs];
+}
+
+- (void) saveSelectedProjectInPrefs
+{
+    NSString* projectId = [self.selectedProject projectId];
+    [[NSUserDefaults standardUserDefaults] setObject:projectId forKey:PREFS_CURRENT_PROJECT];
 }
 
 #pragma mark standard methods from UIViewController
@@ -195,9 +204,13 @@
     self.resetTimeInProgress = NO;
 
     [self loadProjects];
+    [self fillData];
 
     self.noteTextView.placeholder = @"Optional";
-    
+}
+
+- (void) fillData
+{
     if ([self.projects count] > 0) {
         self.selectedProject = [self.projects objectAtIndex:0];
         
@@ -222,14 +235,27 @@
             
             self.title = @"Edit Activity";
         }
+        else {
+            [self setDefaultProject];
+        }
         
         // editing case -> take the currentDate from the activity
         if (self.activity != nil && self.currentDate == nil) {
             self.currentDate = self.activity.date;
         }
     }
-    
-    self.noteTextView.tintColor = [UIColor blackColor];
+}
+
+- (void) setDefaultProject
+{
+    NSString* currentProjectId = [[NSUserDefaults standardUserDefaults] objectForKey:PREFS_CURRENT_PROJECT];
+    NSUInteger index = [self.projects indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
+        Project* project = (Project*)obj;
+        return [project.projectId isEqualToString:currentProjectId];
+    }];
+    if (index != NSNotFound) {
+        [self.pickerView selectRow:index inComponent:0 animated:NO];
+    }
 }
 
 - (double)doubleHourFromDate:(NSDate*)date
