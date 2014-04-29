@@ -47,7 +47,13 @@
         timeString = timeString == nil ? slotString : [NSString stringWithFormat:@"%@, %@", timeString, slotString];
         tot += slotInterval.duration;
     }
-    self.timeTextField.text = [NSString stringWithFormat:@"%.2fh: %@", tot, timeString];
+    
+    NSString* text = [NSString stringWithFormat:@"%.2fh", tot];
+    if (timeString) {
+        text = [NSString stringWithFormat:@"%@: %@", text, timeString];
+    }
+    
+    self.timeTextField.text = text;
 }
 
 - (IBAction)donePressed:(id)sender

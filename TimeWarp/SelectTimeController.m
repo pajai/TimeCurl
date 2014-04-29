@@ -77,9 +77,19 @@ typedef NS_ENUM(NSInteger, TimeLabelType) {
 {
     slotInterval.begin = [self roundToQuarterHour:slotInterval.begin];
     slotInterval.end   = [self roundToQuarterHour:slotInterval.end];
+    [self correctNegativeInterval:slotInterval];
     [self adaptViewForSlot:slotInterval];
     [self mergeSlots];
     [self hideTimeLabels];
+}
+
+- (void) correctNegativeInterval:(SlotInterval*)slotInterval
+{
+    if (slotInterval.end < slotInterval.begin) {
+        double tmp = slotInterval.begin;
+        slotInterval.begin = slotInterval.end;
+        slotInterval.end = tmp;
+    }
 }
 
 - (int) getSlotIndex:(UILongPressGestureRecognizer*)sender
