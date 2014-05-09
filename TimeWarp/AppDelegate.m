@@ -12,6 +12,7 @@
 #import "ModelSerializer.h"
 #import "TimeUtils.h"
 #import "PrefsConstants.h"
+#import "UIUtils.h"
 
 @interface AppDelegate ()
 
@@ -36,6 +37,8 @@
       [UIColor whiteColor],
       NSForegroundColorAttributeName,
       nil]];
+    [[UINavigationBar appearance] setBarTintColor:[UIUtils colorDarkGrey]];
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTintColor:[UIColor whiteColor]];
 
     [[UITabBar appearance] setBackgroundImage:[UIImage imageNamed:@"tabbar-background"]];
     [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"tabbar-selected"]];

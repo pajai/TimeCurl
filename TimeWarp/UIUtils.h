@@ -11,5 +11,6 @@
 @interface UIUtils : NSObject
 
 + (void) setEmptyFooterView:(UITableView*) tableView;
++ (UIColor*) colorDarkGrey;
 
 @end

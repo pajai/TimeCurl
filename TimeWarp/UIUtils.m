@@ -10,20 +10,16 @@
 
 @implementation UIUtils
 
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        // initialization
-    }
-    return self;
-}
-
 + (void) setEmptyFooterView:(UITableView*) tableView
 {
     // not sure why we need to set the footer to an empty view, we get otherwise the separator repeating
     // itself when there are just few cells in the table
     [tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
+}
+
++ (UIColor*) colorDarkGrey
+{
+    return [UIColor colorWithRed:83.0/255 green:90.0/255 blue:106.0/255 alpha:1.0];
 }
 
 @end
