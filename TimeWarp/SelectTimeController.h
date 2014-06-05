@@ -10,20 +10,24 @@
 #import "GraduationView.h"
 #import "SlotInterval.h"
 
-// states of our state machine to manage setting the slots begin and end time
-#define kStateNothing      0
-#define kStateSetSlotBegin 1
-#define kStateSetSlotEnd   2
-#define kStateSlotDone     3
+
+typedef NS_ENUM(NSInteger, TimeControllerState) {
+    TimeControllerStateNothing,
+    TimeControllerStateSetSlotBegin,
+    TimeControllerStateSetSlotEnd,
+    TimeControllerStateSlotDone,
+    TimeControllerStateTuneSlot,
+};
 
 
 @interface SelectTimeController : UIViewController <UIGestureRecognizerDelegate> {
 
     SlotInterval* _currentSlotInterval;
     BOOL _currentWasLargerThanOriginalMin; // original min is 1 hour
-    int  state;
 
 }
+
+@property (nonatomic, readwrite) TimeControllerState state;
 
 @property (nonatomic, strong) IBOutlet UIScrollView* scrollView;
 @property (nonatomic, strong) IBOutlet GraduationView* graduationView;

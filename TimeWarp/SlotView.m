@@ -36,6 +36,8 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    //NSLog(@"Touch begin slot");
+    self.selectTimeController.state = TimeControllerStateTuneSlot;
     self.touchStart = [[touches anyObject] locationInView:self];
     self.isResizingTop    = self.touchStart.y < kResizeThumbSize;
     self.isResizingBottom = self.bounds.size.height - self.touchStart.y < kResizeThumbSize;
@@ -43,7 +45,9 @@
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    //NSLog(@">>> END moving slot");
+    //NSLog(@"Touch end slot");
+    self.isResizingTop = NO;
+    self.isResizingBottom = NO;
     [self.selectTimeController moveEndSlot:self.slotInterval];
 }
 
