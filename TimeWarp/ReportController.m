@@ -224,7 +224,7 @@
 {
     self.mailComposeHandler = [[MailComposeHandler alloc] init];
     self.mailComposeHandler.subject = [NSString stringWithFormat:@"All activities"];
-    self.mailComposeHandler.attachmentName = @"AllActivities.timecurl";
+    self.mailComposeHandler.attachmentName = [self filenameCustom];
     
     NSArray* projects = [[CoreDataWrapper shared] fetchAllProjects];
     NSData* data = [[[ModelSerializer alloc] init] serializeProjects:projects];
@@ -235,6 +235,14 @@
     //
     [self.mailComposeHandler prepareMailComposeViewController];
     [self presentViewController:self.mailComposeHandler.mailComposeController animated:YES completion:nil];
+}
+
+- (NSString*)filenameCustom
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSString* dateStr = [dateFormatter stringFromDate:[NSDate date]];
+    return [NSString stringWithFormat:@"AllActivities-%@.timecurl", dateStr];
 }
 
 - (void) exportCurrentMonthInCsv
