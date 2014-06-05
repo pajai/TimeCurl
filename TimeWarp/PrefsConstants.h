@@ -7,7 +7,8 @@
 //
 
 
-#define PREFS_PERIODICITY_NB   @"report.periodicity.nb"
-#define PREFS_PERIODICITY_UNIT @"report.periodicity.unit"
-#define PREFS_PERIOD_START     @"report.period.start"
-#define PREFS_CURRENT_PROJECT  @"new.activity.current.project"
+#define PREFS_PERIODICITY_NB          @"report.periodicity.nb"
+#define PREFS_PERIODICITY_UNIT        @"report.periodicity.unit"
+#define PREFS_PERIOD_START            @"report.period.start"
+#define PREFS_CURRENT_PROJECT         @"new.activity.current.project"
+#define PREFS_FIRST_LAUNCH_SELECT_TAB @"first.launch.select.tab"

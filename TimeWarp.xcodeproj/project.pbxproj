@@ -50,6 +50,7 @@
 		43627713183C073A00825199 /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4362770E183C073A00825199 /* TPKeyboardAvoidingTableView.m */; };
 		43627714183C073A00825199 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 43627710183C073A00825199 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		43627720183D5E6E00825199 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4362771F183D5E6E00825199 /* libz.dylib */; };
+		436473561940DC80008E99FE /* CustomTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 436473551940DC80008E99FE /* CustomTabBarController.m */; };
 		4365BC6318E8B8940028C43D /* Project+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4365BC6218E8B8940028C43D /* Project+Additions.m */; };
 		4365BC6518ECA0D80028C43D /* ProjectIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4365BC6418ECA0D80028C43D /* ProjectIcons.xcassets */; };
 		4365BC6818ED471F0028C43D /* IconSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4365BC6718ED471F0028C43D /* IconSelectionController.m */; };
@@ -166,6 +167,8 @@
 		4362770F183C073A00825199 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
 		43627710183C073A00825199 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
 		4362771F183D5E6E00825199 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		436473541940DC80008E99FE /* CustomTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabBarController.h; sourceTree = "<group>"; };
+		436473551940DC80008E99FE /* CustomTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabBarController.m; sourceTree = "<group>"; };
 		4365BC5D18E8AE330028C43D /* PrefsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefsConstants.h; sourceTree = "<group>"; };
 		4365BC6118E8B8940028C43D /* Project+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Project+Additions.h"; sourceTree = "<group>"; };
 		4365BC6218E8B8940028C43D /* Project+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Project+Additions.m"; sourceTree = "<group>"; };
@@ -507,6 +510,8 @@
 			children = (
 				43BAFD6D17CF89C700B6A4FC /* SelectDayController.h */,
 				43BAFD6E17CF89C700B6A4FC /* SelectDayController.m */,
+				436473541940DC80008E99FE /* CustomTabBarController.h */,
+				436473551940DC80008E99FE /* CustomTabBarController.m */,
 			);
 			name = misc;
 			sourceTree = "<group>";
@@ -734,6 +739,7 @@
 			files = (
 				43EF206E18E3802800AF4702 /* SlotView.m in Sources */,
 				4315355117738F5D00B5D825 /* TimeUtils.m in Sources */,
+				436473561940DC80008E99FE /* CustomTabBarController.m in Sources */,
 				4323D46B176EF79500A083AB /* AppDelegate.m in Sources */,
 				43FECC2217D0823E003179B6 /* UIConstants.m in Sources */,
 				4323D498176F04BE00A083AB /* ProjectListController.m in Sources */,
