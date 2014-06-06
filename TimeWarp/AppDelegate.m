@@ -23,6 +23,10 @@
 @end
 
 
+// play a movie on app start
+// http://stackoverflow.com/questions/12209944/showing-intro-video-at-app-launch
+
+
 @implementation AppDelegate
 
 #pragma mark custom private methods
