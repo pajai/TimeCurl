@@ -255,6 +255,7 @@
     }];
     if (index != NSNotFound) {
         [self.pickerView selectRow:index inComponent:0 animated:NO];
+        self.selectedProject = self.projects[index];
     }
 }
 
