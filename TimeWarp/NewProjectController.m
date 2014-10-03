@@ -13,6 +13,7 @@
 #import "Flurry.h"
 #import "IconSelectionController.h"
 #import "UIApplication+AppDimensions.h"
+#import "DeviceInfo.h"
 
 
 @interface NewProjectController ()
@@ -139,10 +140,19 @@
 {
     [super viewWillAppear:animated];
 
-    self.subviewWidthConstraint.constant = self.view.frame.size.width + 16.0f; // 16.0f for the negative inset of the scroll view
+    self.subviewWidthConstraint.constant = self.view.frame.size.width + [self horizontalOffset];
     
     [Flurry logEvent:@"Add Project"];
     
+}
+
+- (CGFloat)horizontalOffset
+{
+    /*
+     * In iOS 8, we dont need to have the horizontal constraint larger than the parrent view,
+     * while in iOS 7 we do need it.
+     */
+    return [DeviceInfo iosVersionAsFloat] >= 8.0f ? 0.0f : 16.0f;
 }
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
@@ -150,7 +160,7 @@
     [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
     
     CGSize newSize = [UIApplication sizeInOrientation:toInterfaceOrientation];
-    self.subviewWidthConstraint.constant = newSize.width + 16.0f; // 16.0f for the negative inset of the scroll view
+    self.subviewWidthConstraint.constant = newSize.width + [self horizontalOffset];
     
     [self.view setNeedsUpdateConstraints];
     [UIView animateWithDuration:duration animations:^{
