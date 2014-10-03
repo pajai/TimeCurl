@@ -327,9 +327,6 @@
         noteTextLabel.text = activity.note ? activity.note : @" ";
         iconView.image = [project imageWithDefaultName:@"icon-activity-list"];
     }
-    else {
-        cell.contentView.translatesAutoresizingMaskIntoConstraints = NO;
-    }
 }
 
 - (UITableViewCell*)retrieveOffscreenCellForIdentifier:(NSString*)reuseIdentifier
