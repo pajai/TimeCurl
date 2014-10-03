@@ -14,4 +14,6 @@
 
 - (void) importFileFromUrl:(NSURL*)url;
 
+- (void) deleteAllData;
+
 @end

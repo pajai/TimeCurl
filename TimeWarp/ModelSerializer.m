@@ -150,6 +150,7 @@
     
     NSArray* projArray = dict[@"data"];
     [self mapToProjects:projArray];
+    [[CoreDataWrapper shared] saveContext];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:DATA_REFRESH_AFTER_IMPORT object:nil];
     
@@ -214,6 +215,16 @@
 }
 
 
+#pragma mark - delete
+
+- (void) deleteAllData
+{
+    NSArray* projects = [[CoreDataWrapper shared] fetchAllProjects];
+    for (Project *project in projects) {
+        [[CoreDataWrapper shared] deleteObject:project];
+    }
+    [[CoreDataWrapper shared] saveContext];
+}
 
 @end
 

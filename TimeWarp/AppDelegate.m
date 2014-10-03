@@ -119,21 +119,50 @@
     }
 }
 
+#define PHASE_IMPORT_CONFIRMATION 1
+#define PHASE_DELETE_CONFIRMATION 2
+
 - (void) showImportConfirmation
 {
-    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Import" message:@"Are you sure that you want to import this data set?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Import" message:@"Are you sure that you want to import this data set?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete existing data and import", @"Don't modify existing data and import", nil];
+    alert.tag = PHASE_IMPORT_CONFIRMATION;
     [alert show];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 1) {
-        NSURL* tmpFileURL = self.tmpFileURL;
-        self.tmpFileURL = nil;
-        [[[ModelSerializer alloc] init] importFileFromUrl:tmpFileURL];
+    if (alertView.tag == PHASE_IMPORT_CONFIRMATION) {
+        if (buttonIndex == 1) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Confirmation" message:@"Are you sure you want to overwrite the current data (cannot be undone)?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+            alert.tag = PHASE_DELETE_CONFIRMATION;
+            [alert show];
+        }
+        else if (buttonIndex == 2) {
+            [self importData];
+        }
+    }
+    else if (alertView.tag == PHASE_DELETE_CONFIRMATION) {
+        if (buttonIndex == 1) {
+            [self deleteAndImportData];
+        }
     }
 }
 
+- (void)importData
+{
+    NSURL* tmpFileURL = self.tmpFileURL;
+    self.tmpFileURL = nil;
+    [[[ModelSerializer alloc] init] importFileFromUrl:tmpFileURL];
+}
+
+- (void)deleteAndImportData
+{
+    NSURL* tmpFileURL = self.tmpFileURL;
+    self.tmpFileURL = nil;
+    ModelSerializer *modelSerializer = [[ModelSerializer alloc] init];
+    [modelSerializer deleteAllData];
+    [modelSerializer importFileFromUrl:tmpFileURL];
+}
 
 - (void)setupFlurry
 {
