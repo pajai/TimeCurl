@@ -11,11 +11,15 @@
 #import "Project.h"
 #import "SAMTextView.h"
 
+@class TPKeyboardAvoidingScrollView;
+
 @interface NewProjectController : UIViewController <NSFetchedResultsControllerDelegate>
 
 - (IBAction)donePressed:(id) sender;
 
 @property (nonatomic, strong) Project* project;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *subviewWidthConstraint;
 
 @property (nonatomic, strong) IBOutlet UITextField* name;
 @property (nonatomic, strong) IBOutlet UITextField* subname;

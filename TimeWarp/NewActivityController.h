@@ -18,6 +18,8 @@
 @property (nonatomic, strong) NSArray* timeSlotIntervals;
 @property (nonatomic, strong) NSDate* currentDate;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *subviewWidthConstraint;
+
 @property (nonatomic, strong) IBOutlet UITextField* timeTextField;
 @property (nonatomic, strong) IBOutlet SAMTextView* noteTextView;
 @property (nonatomic, strong) IBOutlet UIPickerView* pickerView;

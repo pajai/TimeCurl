@@ -81,6 +81,7 @@
 		43E70431178DBF5B00CB5AA2 /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E7042F178DBF5B00CB5AA2 /* CHCSVParser.m */; };
 		43E70435178DC2F000CB5AA2 /* MailComposeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E70433178DC2F000CB5AA2 /* MailComposeHandler.m */; };
 		43E70436178DC2F000CB5AA2 /* MailComposeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E70433178DC2F000CB5AA2 /* MailComposeHandler.m */; };
+		43E76CC719DED42100EF5F10 /* UIApplication+AppDimensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E76CC619DED42100EF5F10 /* UIApplication+AppDimensions.m */; };
 		43EF206E18E3802800AF4702 /* SlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 43EF206D18E3802800AF4702 /* SlotView.m */; };
 		43EF209218E71E1800AF4702 /* CalendarPreviousMonth.png in Resources */ = {isa = PBXBuildFile; fileRef = 43EF208618E71E1800AF4702 /* CalendarPreviousMonth.png */; };
 		43EF209318E71E1800AF4702 /* CalendarPreviousMonth@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 43EF208718E71E1800AF4702 /* CalendarPreviousMonth@2x.png */; };
@@ -222,6 +223,8 @@
 		43E70432178DC2F000CB5AA2 /* MailComposeHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailComposeHandler.h; sourceTree = "<group>"; };
 		43E70433178DC2F000CB5AA2 /* MailComposeHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailComposeHandler.m; sourceTree = "<group>"; };
 		43E70434178DC2F000CB5AA2 /* MailComposeCallbackDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailComposeCallbackDelegate.h; sourceTree = "<group>"; };
+		43E76CC519DED42100EF5F10 /* UIApplication+AppDimensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+AppDimensions.h"; sourceTree = "<group>"; };
+		43E76CC619DED42100EF5F10 /* UIApplication+AppDimensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+AppDimensions.m"; sourceTree = "<group>"; };
 		43EF206C18E3802800AF4702 /* SlotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlotView.h; sourceTree = "<group>"; };
 		43EF206D18E3802800AF4702 /* SlotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlotView.m; sourceTree = "<group>"; };
 		43EF208618E71E1800AF4702 /* CalendarPreviousMonth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CalendarPreviousMonth.png; sourceTree = "<group>"; };
@@ -306,6 +309,8 @@
 				43DDFE2F17E24F940037F9E0 /* UIUtils.m */,
 				4335F3AB18DCE444006294FE /* NotificationConstants.h */,
 				4365BC5D18E8AE330028C43D /* PrefsConstants.h */,
+				43E76CC519DED42100EF5F10 /* UIApplication+AppDimensions.h */,
+				43E76CC619DED42100EF5F10 /* UIApplication+AppDimensions.m */,
 			);
 			name = misc;
 			sourceTree = "<group>";
@@ -753,6 +758,7 @@
 				438C6AA818D5BDBA00BF1F58 /* TSQCalendarRowCell.m in Sources */,
 				4365BC6818ED471F0028C43D /* IconSelectionController.m in Sources */,
 				43627712183C073A00825199 /* TPKeyboardAvoidingScrollView.m in Sources */,
+				43E76CC719DED42100EF5F10 /* UIApplication+AppDimensions.m in Sources */,
 				438C6AA918D5BDBA00BF1F58 /* TSQCalendarView.m in Sources */,
 				43BC1455190FD0BA002C343E /* SAMTextView.m in Sources */,
 				43E70435178DC2F000CB5AA2 /* MailComposeHandler.m in Sources */,
@@ -935,7 +941,7 @@
 					"$(PROJECT_DIR)/TimeWarp/TestFlightSDK3",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "E085D5C5-1E8F-4B6E-B97A-3402278F6AD0";
+				PROVISIONING_PROFILE = "bba5e120-3fb7-4519-a797-70923a4edbeb";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -958,7 +964,7 @@
 					"$(PROJECT_DIR)/TimeWarp/TestFlightSDK3",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "F50F69C6-4A37-45E7-8A59-A61073958F17";
+				PROVISIONING_PROFILE = "cfd2a039-30a0-4bc9-9c52-ddde90afa59c";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -12,6 +12,7 @@
 #import "UIConstants.h"
 #import "Flurry.h"
 #import "IconSelectionController.h"
+#import "UIApplication+AppDimensions.h"
 
 
 @interface NewProjectController ()
@@ -137,8 +138,24 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+
+    self.subviewWidthConstraint.constant = self.view.frame.size.width + 16.0f; // 16.0f for the negative inset of the scroll view
     
     [Flurry logEvent:@"Add Project"];
+    
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
+    
+    CGSize newSize = [UIApplication sizeInOrientation:toInterfaceOrientation];
+    self.subviewWidthConstraint.constant = newSize.width + 16.0f; // 16.0f for the negative inset of the scroll view
+    
+    [self.view setNeedsUpdateConstraints];
+    [UIView animateWithDuration:duration animations:^{
+        [self.view layoutIfNeeded];
+    }];
 }
 
 - (void)didReceiveMemoryWarning
