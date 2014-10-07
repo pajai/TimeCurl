@@ -61,11 +61,6 @@ typedef NS_ENUM(NSInteger, TimeLabelType) {
 
 - (void) moveSlotTop:(SlotInterval*)slotInterval withDelta:(CGFloat)delta
 {
-    /*
-     * We register the state, adjusting an existing slot -> we won't add a new slot
-     */
-    self.state = TimeControllerStateTuneSlot;
-    
     slotInterval.begin += delta/DELTAY;
     [self adaptViewForSlot:slotInterval];
     [self showTimeLabels:slotInterval];
@@ -73,11 +68,6 @@ typedef NS_ENUM(NSInteger, TimeLabelType) {
 
 - (void) moveSlotBottom:(SlotInterval*)slotInterval withDelta:(CGFloat)delta
 {
-    /*
-     * We register the state, adjusting an existing slot -> we won't add a new slot
-     */
-    self.state = TimeControllerStateTuneSlot;
-    
     slotInterval.end += delta/DELTAY;
     [self adaptViewForSlot:slotInterval];
     [self showTimeLabels:slotInterval];
@@ -91,12 +81,44 @@ typedef NS_ENUM(NSInteger, TimeLabelType) {
     [self adaptViewForSlot:slotInterval];
     [self mergeSlots];
     [self hideTimeLabels];
-    
-    /*
-     * We go back to state nothing
-     */
-    self.state = TimeControllerStateNothing;
 }
+
+- (void) defineSlotStart:(NSSet*)touches
+{
+    int slotIndex = [self getSlotIndexForTouches:touches];
+    [self createSlotIntervalWithBegin:(0.25 * slotIndex) andEnd:(0.25 * slotIndex + 1)];
+    [self setCurrentSlotViewHighlighted:YES];
+    [self adaptViewForSlot:_currentSlotInterval];
+    [self showTimeLabels:_currentSlotInterval];
+}
+
+- (void) defineSlotMove:(NSSet*)touches
+{
+    // start of the slot is adapted
+    int slotIndex = [self getSlotIndexForTouches:touches];
+    _currentSlotInterval.begin = 0.25 * slotIndex;
+    _currentSlotInterval.end = 0.25 * slotIndex + 1;
+    [self correctNegativeInterval:_currentSlotInterval];
+    [self adaptViewForSlot:_currentSlotInterval];
+    [self showTimeLabels:_currentSlotInterval];
+}
+
+- (void) defineSlotEnd:(NSSet*)touches
+{
+    [self setCurrentSlotViewHighlighted:NO];
+    _currentSlotInterval = nil;
+    [self mergeSlots];
+    [self hideTimeLabels];
+}
+
+- (void) setCurrentSlotViewHighlighted:(BOOL)highlighted
+{
+    if (_currentSlotInterval) {
+        SlotView* slotView = (SlotView*)_currentSlotInterval.view;
+        slotView.highlighted = highlighted;
+    }
+}
+
 
 - (void) correctNegativeInterval:(SlotInterval*)slotInterval
 {
@@ -105,6 +127,13 @@ typedef NS_ENUM(NSInteger, TimeLabelType) {
         slotInterval.begin = slotInterval.end;
         slotInterval.end = tmp;
     }
+}
+
+- (int) getSlotIndexForTouches:(NSSet*)touches
+{
+    CGPoint location = [[touches anyObject] locationInView:self.graduationView];
+    int slotIndex      = [self computeSlotIndex:location.y];
+    return slotIndex;
 }
 
 - (int) getSlotIndex:(UILongPressGestureRecognizer*)sender
@@ -123,104 +152,6 @@ typedef NS_ENUM(NSInteger, TimeLabelType) {
 - (int) computeSlotIndex:(CGFloat)y
 {
     return (int)((y - STARTY)/(DELTAY/4));
-}
-
-- (void) logPressEvent:(UILongPressGestureRecognizer*)sender withTime:(double)time
-{
-    NSUInteger numberOfTouches = [sender numberOfTouches];
-    NSString* stateStr = nil;
-    if (sender.state == UIGestureRecognizerStateBegan) {
-        stateStr = @"began";
-    }
-    else if (sender.state == UIGestureRecognizerStateEnded) {
-        stateStr = @"ended";
-    }
-    else if (sender.state == UIGestureRecognizerStateChanged) {
-        stateStr = @"changed";
-    }
-    NSLog(@"press (%lu, %0f, %@)", (unsigned long)numberOfTouches, time, stateStr);
-}
-
-- (IBAction)handlePress:(UILongPressGestureRecognizer*)sender
-{
-    /*
-     * Tuning the start or end of an existing slot? -> do nothing in this method
-     */
-    if (self.state == TimeControllerStateTuneSlot) {
-        return;
-    }
-    
-    int slotIndex = [self getSlotIndex:sender];
-    double time = 0.25 * slotIndex;
-    [self logPressEvent:sender withTime:time];
-    
-    NSUInteger numberOfTouches = [sender numberOfTouches];
-    //
-    // kStateNothing -> kStateSetSlotBegin
-    if (self.state == TimeControllerStateNothing && numberOfTouches == 1 && sender.state == UIGestureRecognizerStateBegan) {
-        self.state = TimeControllerStateSetSlotBegin;
-
-        [self createSlotIntervalWithBegin:(0.25 * slotIndex) andEnd:(0.25 * slotIndex + 1)];
-        
-        _currentWasLargerThanOriginalMin = NO;
-
-    }
-
-    // kStateSetSlotBegin -> kStateSetSlotBegin
-    if (self.state == TimeControllerStateSetSlotBegin && numberOfTouches == 1 && sender.state == UIGestureRecognizerStateChanged) {
-        // state remains the same
-        
-        // start of the slot is adapted
-        _currentSlotInterval.begin = 0.25 * slotIndex;
-        _currentSlotInterval.end = 0.25 * slotIndex + 1;
-    }
-
-    // kStateSetSlotBegin -> kStateSetSlotEnd
-    if (self.state == TimeControllerStateSetSlotBegin && numberOfTouches == 2 && sender.state == UIGestureRecognizerStateBegan) {
-        self.state = TimeControllerStateSetSlotEnd;
-    }
-
-    // kStateSetSlotEnd -> kStateSetSlotEnd
-    if (self.state == TimeControllerStateSetSlotEnd && numberOfTouches == 2 &&
-        (sender.state == UIGestureRecognizerStateBegan || sender.state == UIGestureRecognizerStateChanged)) {
-        // state does not change
-
-        // modify the end time, cannot be less than 0.5 hour
-        double originalMin = _currentWasLargerThanOriginalMin ? 0.5 : 1.0;
-        BOOL beyondMin = slotIndex >= _currentSlotInterval.begin + originalMin;
-        if (beyondMin) {
-            _currentSlotInterval.end = 0.25 * slotIndex;
-            _currentWasLargerThanOriginalMin = YES;
-        }
-        
-    }
-    
-    // kStateSetSlotBegin -> kStateNothing ||
-    // kStateSetSlotEnd -> kStateSlotDone
-    if ((self.state == TimeControllerStateSetSlotBegin && numberOfTouches == 1 && sender.state == UIGestureRecognizerStateEnded) ||
-        (self.state == TimeControllerStateSetSlotEnd && numberOfTouches == 2 && sender.state == UIGestureRecognizerStateEnded)) {
-        
-        self.state = TimeControllerStateNothing;
-        
-        _currentSlotInterval = nil;
-        
-        [self mergeSlots];
-
-    }
-    
-    // if we are editing the begin or end -> adapt view
-    if ((self.state == TimeControllerStateSetSlotBegin || self.state == TimeControllerStateSetSlotEnd) && _currentSlotInterval != nil) {
-
-        [self adaptViewForSlot:_currentSlotInterval];
-
-    }
-    
-    if (self.state == TimeControllerStateSetSlotBegin || self.state == TimeControllerStateSetSlotEnd) {
-        [self showTimeLabels:_currentSlotInterval];
-    }
-    else {
-        [self hideTimeLabels];
-    }
 }
 
 - (void) showTimeLabels:(SlotInterval*)slotInterval
@@ -383,7 +314,7 @@ typedef NS_ENUM(NSInteger, TimeLabelType) {
     [self initDailyCalendar];
     [self initGraduationLabels];
     
-    self.state = TimeControllerStateNothing;
+    self.graduationView.delegate = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated

@@ -24,7 +24,7 @@
 
 - (id)init
 {
-    self = [super initWithImage:[UIImage imageNamed:@"timeslot"]];
+    self = [super initWithImage:[UIImage imageNamed:@"timeslot"] highlightedImage:[UIImage imageNamed:@"timeslot_pressed"]];
     if (self) {
         // Initialization code
         self.userInteractionEnabled = YES;
@@ -37,21 +37,28 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     //NSLog(@"Touch begin slot");
-    self.selectTimeController.state = TimeControllerStateTuneSlot;
     self.touchStart = [[touches anyObject] locationInView:self];
     self.isResizingTop    = self.touchStart.y < kResizeThumbSize;
     self.isResizingBottom = self.bounds.size.height - self.touchStart.y < kResizeThumbSize;
-}
-
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    //NSLog(@"Touch end slot");
-    self.isResizingTop = NO;
-    self.isResizingBottom = NO;
-    [self.selectTimeController moveEndSlot:self.slotInterval];
+    
+    if (self.isResizingTop) {
+        NSLog(@"is resizing top start");
+    }
+    if (self.isResizingBottom) {
+        NSLog(@"is resizing bottom start");
+    }
+    if (self.isResizingTop || self.isResizingBottom) {
+        self.highlighted = YES;
+    }
+    [self handleTouchMoved:touches];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self handleTouchMoved:touches];
+}
+
+- (void)handleTouchMoved:(NSSet*)touches
 {
     CGPoint currentPoint  = [[touches anyObject] locationInView:self];
     CGPoint previousPoint = [[touches anyObject] previousLocationInView:self];
@@ -65,6 +72,35 @@
         //NSLog(@">>> BOTTOM delta is %f, delta tot is %f", deltaHeight, self.deltaHeightTotal);
         [self.selectTimeController moveSlotBottom:self.slotInterval withDelta:deltaHeight];
     }
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self handleTouchEnd];
+}
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    NSLog(@"touches cancelled");
+    
+    [self handleTouchEnd];
+}
+
+- (void)handleTouchEnd
+{
+    if (self.isResizingTop) {
+        NSLog(@"is resizing top end");
+    }
+    if (self.isResizingBottom) {
+        NSLog(@"is resizing bottom end");
+    }
+
+    self.highlighted = NO;
+    
+    //NSLog(@"Touch end slot");
+    self.isResizingTop = NO;
+    self.isResizingBottom = NO;
+    [self.selectTimeController moveEndSlot:self.slotInterval];
 }
 
 @end

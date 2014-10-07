@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A379a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -1145,13 +1144,11 @@
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label start" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xCR-hW-ueN">
                                                 <rect key="frame" x="0.0" y="12" width="56" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                <color key="textColor" red="0.1333333333" green="0.4823529412" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label end" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kjQ-lr-n9Z">
                                                 <rect key="frame" x="0.0" y="42" width="56" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                <color key="textColor" red="0.1333333333" green="0.4823529412" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -1160,10 +1157,6 @@
                                             <constraint firstAttribute="height" constant="1000" id="ASf-mj-EdC"/>
                                             <constraint firstAttribute="width" constant="240" id="zQH-eu-3oo"/>
                                         </constraints>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="gXe-ni-zeg" appends="YES" id="T0G-0o-Q9R"/>
-                                            <outletCollection property="gestureRecognizers" destination="IMk-by-boY" appends="YES" id="Iaq-qr-8IV"/>
-                                        </connections>
                                     </view>
                                 </subviews>
                                 <constraints>

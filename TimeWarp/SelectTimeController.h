@@ -11,23 +11,13 @@
 #import "SlotInterval.h"
 
 
-typedef NS_ENUM(NSInteger, TimeControllerState) {
-    TimeControllerStateNothing,
-    TimeControllerStateSetSlotBegin,
-    TimeControllerStateSetSlotEnd,
-    TimeControllerStateSlotDone,
-    TimeControllerStateTuneSlot,
-};
 
-
-@interface SelectTimeController : UIViewController <UIGestureRecognizerDelegate> {
+@interface SelectTimeController : UIViewController <UIGestureRecognizerDelegate, GraduationViewDelegate> {
 
     SlotInterval* _currentSlotInterval;
     BOOL _currentWasLargerThanOriginalMin; // original min is 1 hour
 
 }
-
-@property (nonatomic, readwrite) TimeControllerState state;
 
 @property (nonatomic, strong) IBOutlet UIScrollView* scrollView;
 @property (nonatomic, strong) IBOutlet GraduationView* graduationView;
