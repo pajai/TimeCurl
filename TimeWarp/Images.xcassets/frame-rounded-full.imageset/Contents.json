@@ -37,6 +37,10 @@
       "idiom" : "universal",
       "filename" : "frame-rounded-full@2x.png",
       "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {
