@@ -147,7 +147,7 @@
 {
     if ([segue.identifier isEqualToString:@"EditTime"]) {
 
-        if (self.activity != nil) {
+        if (self.timeSlotIntervals.count > 0) {
             SelectTimeController* controller = (SelectTimeController*)segue.destinationViewController;
             controller.timeSlotIntervals = [NSMutableArray array];
             [controller.timeSlotIntervals addObjectsFromArray:self.timeSlotIntervals];
