@@ -14,6 +14,7 @@
 NSString * const DPModelName        = @"TimeWarp";
 NSString * const DPStoreName        = @"TimeCurl.sqlite";
 NSString * const DPUbiquitousName   = @"com~timecurl~coredataicloud";
+NSString * const iCloudStoreMigrated = @"store.migrated";
 
 
 @interface CoreDataWrapper ()
@@ -56,6 +57,7 @@ NSString * const DPUbiquitousName   = @"com~timecurl~coredataicloud";
     if (coordinator != nil) {
         _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
         [_managedObjectContext setPersistentStoreCoordinator:coordinator];
+        _managedObjectContext.mergePolicy = [[NSMergePolicy alloc] initWithMergeType:NSMergeByPropertyObjectTrumpMergePolicyType];
     }
     return _managedObjectContext;
 }
@@ -82,14 +84,12 @@ NSString * const DPUbiquitousName   = @"com~timecurl~coredataicloud";
         return _persistentStoreCoordinator;
     }
     
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:DPStoreName];
+    NSURL *storeURL = [self storeUrl];
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
-    NSDictionary *options = @{ NSMigratePersistentStoresAutomaticallyOption : @YES,
-                               NSInferMappingModelAutomaticallyOption : @YES,
-                               NSPersistentStoreUbiquitousContentNameKey : DPUbiquitousName
-                               };
+    
+    NSDictionary *options = [self isStoreMigrated] ? [self localOptions] : [self icloudOptions];
     
     NSPersistentStore *store = [_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
                                                              configuration:nil
@@ -101,6 +101,84 @@ NSString * const DPUbiquitousName   = @"com~timecurl~coredataicloud";
         abort();
     }
     
+    if (![self isStoreMigrated]) {
+        [self migrateiCloudStoreToLocalStore];
+    }
+    
+    return _persistentStoreCoordinator;
+}
+
+- (BOOL)isStoreMigrated
+{
+    return [[NSUserDefaults standardUserDefaults] boolForKey:iCloudStoreMigrated];
+}
+
+- (NSURL*)storeUrl
+{
+    return [[self applicationDocumentsDirectory] URLByAppendingPathComponent:DPStoreName];
+}
+
+- (void)migrateiCloudStoreToLocalStore
+{
+    NSLog(@"Migrating store from iCloud to local");
+    NSPersistentStore* store = [self.persistentStoreCoordinator persistentStores].firstObject;
+    
+    NSDictionary *options = @{ NSMigratePersistentStoresAutomaticallyOption : @YES,
+                               NSInferMappingModelAutomaticallyOption : @YES,
+                               NSPersistentStoreRemoveUbiquitousMetadataOption : @YES
+                               };
+
+    NSError *error = nil;
+    NSPersistentStore *newStore = [self.persistentStoreCoordinator migratePersistentStore:store toURL:[self storeUrl] options:options withType:NSSQLiteStoreType error:&error];
+    
+    if (error) {
+        NSLog(@"Error happened while migrating store from iCloud to local: %@", error);
+    }
+    else {
+        [self reloadStore:newStore withOptions:options];
+    }
+}
+
+- (NSDictionary*)localOptions
+{
+    return @{ NSMigratePersistentStoresAutomaticallyOption : @YES,
+              NSInferMappingModelAutomaticallyOption : @YES,
+              NSPersistentStoreRemoveUbiquitousMetadataOption : @YES
+            };
+}
+
+- (NSDictionary*)icloudOptions
+{
+    return @{ NSMigratePersistentStoresAutomaticallyOption : @YES,
+              NSInferMappingModelAutomaticallyOption : @YES,
+              NSPersistentStoreUbiquitousContentNameKey : DPUbiquitousName
+            };
+}
+
+- (void)reloadStore:(NSPersistentStore *)store withOptions:(NSDictionary*)options
+{
+    if (store) {
+        [self.persistentStoreCoordinator removePersistentStore:store error:nil];
+    }
+    
+    [self.persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
+                               configuration:nil
+                                         URL:[self storeUrl]
+                                     options:options
+                                       error:nil];
+    
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:iCloudStoreMigrated];
+}
+
+- (NSURL *)applicationDocumentsDirectory
+{
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+# pragma iCloud Support
+
+- (void)registerUbiquitousCallbacks
+{
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(persistentStoreDidImportUbiquitiousContentChanges:)
                                                  name:NSPersistentStoreDidImportUbiquitousContentChangesNotification
@@ -113,16 +191,7 @@ NSString * const DPUbiquitousName   = @"com~timecurl~coredataicloud";
                                              selector:@selector(storesDidChange:)
                                                  name:NSPersistentStoreCoordinatorStoresDidChangeNotification
                                                object:_persistentStoreCoordinator];
-    
-    return _persistentStoreCoordinator;
 }
-
-- (NSURL *)applicationDocumentsDirectory
-{
-    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-}
-
-# pragma iCloud Support
 
 - (void)persistentStoreDidImportUbiquitiousContentChanges:(NSNotification *)changeNotification
 {
@@ -357,14 +426,26 @@ NSString * const DPUbiquitousName   = @"com~timecurl~coredataicloud";
     return [NSEntityDescription insertNewObjectForEntityForName:@"TimeSlot" inManagedObjectContext:managedObjectContext];
 }
 
+#define TCMaxSaveAttempts 5
+
 - (void) saveContext
 {
     NSError* error = nil;
     if (![[self managedObjectContext] save:&error]) {
         NSLog(@"Error happened while saving context: %@", [error localizedDescription]);
+        NSString *title = NSLocalizedString(@"A problem arose. Could not save changes.", @"Save fail");
+        NSString *message = NSLocalizedString(@"You should quit as soon as possible, "
+                                              @"because continuing could cause other problems.", @"");
+        [self showAlertWithTitle:title andMessage:message];
     }
-    
 }
+
+- (void)showAlertWithTitle:(NSString*)title andMessage:(NSString*)message
+{
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [alert show];
+}
+
 
 - (void) deleteObject:(id)obj
 {
