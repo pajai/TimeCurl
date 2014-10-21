@@ -638,6 +638,7 @@
 				4323D453176EF79500A083AB /* Sources */,
 				4323D454176EF79500A083AB /* Frameworks */,
 				4323D455176EF79500A083AB /* Resources */,
+				43809B7319F6E92C005633E1 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -741,6 +742,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		43809B7319F6E92C005633E1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# change long version to include the revision number\nREV=`git log --pretty=format:'%h' -n 1`\nBASEVERNUM=`/usr/libexec/PlistBuddy -c \"Print :CFBundleShortVersionString\" \"${INFOPLIST_FILE}\"`\nCONCATNUM=`echo $BASEVERNUM | sed 's/\\\\.//g'`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion ${CONCATNUM}.${REV}\" \"${INFOPLIST_FILE}\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4323D453176EF79500A083AB /* Sources */ = {
