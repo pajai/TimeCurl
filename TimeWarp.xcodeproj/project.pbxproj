@@ -638,7 +638,6 @@
 				4323D453176EF79500A083AB /* Sources */,
 				4323D454176EF79500A083AB /* Frameworks */,
 				4323D455176EF79500A083AB /* Resources */,
-				43809B7319F6E92C005633E1 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -742,22 +741,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		43809B7319F6E92C005633E1 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# change long version to include the revision number\nREV=`git log --pretty=format:'%h' -n 1`\nBASEVERNUM=`/usr/libexec/PlistBuddy -c \"Print :CFBundleShortVersionString\" \"${INFOPLIST_FILE}\"`\nCONCATNUM=`echo $BASEVERNUM | sed 's/\\\\.//g'`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion ${CONCATNUM}.${REV}\" \"${INFOPLIST_FILE}\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4323D453176EF79500A083AB /* Sources */ = {
@@ -964,7 +947,7 @@
 					"$(PROJECT_DIR)/TimeWarp/TestFlightSDK3",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "bba5e120-3fb7-4519-a797-70923a4edbeb";
+				PROVISIONING_PROFILE = "6603d965-87c5-4e75-b8b2-7c8ba5f1da66";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -987,7 +970,7 @@
 					"$(PROJECT_DIR)/TimeWarp/TestFlightSDK3",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "cfd2a039-30a0-4bc9-9c52-ddde90afa59c";
+				PROVISIONING_PROFILE = "a6641ebb-64b6-4bc5-be9d-e4063089b6fb";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
