@@ -255,20 +255,17 @@
     
     NSString* title = [NSString stringWithFormat:@"Time tracking for %@", dateStr];
     
-    [self exportActivitiesInCsv:self.activitiesByDay withFileName:fileName andSubject:title];
+    [self exportActivitiesInCsv:self.activitiesByDay withFileName:fileName andSubject:title all:NO];
 }
 
 - (void) exportAllActivitiesInCsv
 {
-    NSArray* activities = [[CoreDataWrapper shared] fetchActivitiesByDayForMonth:self.periodStart];
-    [self exportActivitiesInCsv:activities withFileName:@"all-activities.csv" andSubject:@"All activities"];
+    NSArray* activities = [[CoreDataWrapper shared] fetchAllActivities];
+    [self exportActivitiesInCsv:activities withFileName:@"all-activities.csv" andSubject:@"All activities" all:YES];
 }
 
-- (void) exportActivitiesInCsv:(NSArray*)activities withFileName:(NSString*)fileName andSubject:(NSString*)title
+- (void) exportActivitiesInCsv:(NSArray*)activities withFileName:(NSString*)fileName andSubject:(NSString*)title all:(BOOL)all
 {
-    // date formatter for activity date (with day precision)
-    NSDateFormatter *activityDateFormatter = [[NSDateFormatter alloc] init];
-    [activityDateFormatter setDateStyle:NSDateFormatterShortStyle];
     
     // construct CSV file
     NSString* tempPath = [NSTemporaryDirectory() stringByAppendingPathComponent:fileName];
@@ -279,13 +276,17 @@
     [writer writeField:@"Activity Note"];
     [writer writeField:@"Duration [h]"];
     [writer finishLine];
-    for (NSArray* dayActivities in activities) {
-        for (Activity* activity in dayActivities) {
-            [writer writeField:[activityDateFormatter stringFromDate:activity.date]];
-            [writer writeField:[activity.project label]];
-            [writer writeField:activity.note];
-            [writer writeField:[NSString stringWithFormat:@"%.2f", [activity duration]]];
-            [writer finishLine];
+    
+    if (all) {
+        for (Activity *activity in activities) {
+            [self writeActivity:activity forWriter:writer];
+        }
+    }
+    else {
+        for (NSArray* dayActivities in activities) {
+            for (Activity* activity in dayActivities) {
+                [self writeActivity:activity forWriter:writer];
+            }
         }
     }
     [writer closeStream];
@@ -299,6 +300,28 @@
     //
     [self.mailComposeHandler prepareMailComposeViewController];
     [self presentViewController:self.mailComposeHandler.mailComposeController animated:YES completion:nil];
+}
+
+- (void)writeActivity:(Activity*)activity forWriter:(CHCSVWriter*)writer
+{
+    NSDateFormatter *dateFormatter = [self dayDateFormatter];
+    [writer writeField:[dateFormatter stringFromDate:activity.date]];
+    [writer writeField:[activity.project label]];
+    [writer writeField:activity.note];
+    [writer writeField:[NSString stringWithFormat:@"%.2f", [activity duration]]];
+    [writer finishLine];
+}
+
+- (NSDateFormatter*)dayDateFormatter
+{
+    static NSDateFormatter *activityDateFormatter = nil;
+    
+    if (!activityDateFormatter) {
+        activityDateFormatter = [[NSDateFormatter alloc] init];
+        [activityDateFormatter setDateStyle:NSDateFormatterShortStyle];
+    }
+
+    return activityDateFormatter;
 }
 
 #pragma mark callback method from MailComposeCallbackDelegate
