@@ -688,7 +688,7 @@
         <!--New Project-->
         <scene sceneID="Tik-Sq-O8E">
             <objects>
-                <viewController restorationIdentifier="AddProjectController" id="hLD-yb-vPw" customClass="NewProjectController" sceneMemberID="viewController">
+                <viewController restorationIdentifier="AddProjectController" hidesBottomBarWhenPushed="YES" id="hLD-yb-vPw" customClass="NewProjectController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jXa-in-9OX"/>
                         <viewControllerLayoutGuide type="bottom" id="Pz0-z9-QvX"/>
