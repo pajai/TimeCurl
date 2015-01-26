@@ -88,8 +88,9 @@ NSString * const iCloudStoreMigrated = @"store.migrated";
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
-    
-    NSDictionary *options = [self isStoreMigrated] ? [self localOptions] : [self icloudOptions];
+
+    // not using the icloud options anymore
+    NSDictionary *options = [self localOptions];
     
     NSPersistentStore *store = [_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
                                                              configuration:nil
@@ -101,9 +102,10 @@ NSString * const iCloudStoreMigrated = @"store.migrated";
         abort();
     }
     
-    if (![self isStoreMigrated]) {
-        [self migrateiCloudStoreToLocalStore];
-    }
+    // no migration to do
+    //if (![self isStoreMigrated]) {
+    //    [self migrateiCloudStoreToLocalStore];
+    //}
     
     return _persistentStoreCoordinator;
 }
