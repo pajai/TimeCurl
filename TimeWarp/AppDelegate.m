@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "TestFlight.h"
 #import "Flurry.h"
 #import "ModelSerializer.h"
 #import "TimeUtils.h"
@@ -65,8 +64,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [TestFlight takeOff:@"5c072121-1334-494b-893f-3b412fd77af1"];
-    
     [self writeDefaultPrefs];
     
     [self customizeAppearance];

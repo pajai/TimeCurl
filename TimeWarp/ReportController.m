@@ -38,7 +38,7 @@
 @property (nonatomic, strong) MailComposeHandler* mailComposeHandler;
 @property (nonatomic, strong) NSArray* activitiesByDay;
 @property (nonatomic, strong) NSDate* periodStart;
-@property (strong, nonatomic) NSMutableDictionary* reportDictionary;
+@property (strong, nonatomic) NSDictionary* reportDictionary;
 
 @property (readwrite) NSInteger periodicityNb;
 @property (strong, nonatomic) NSString* periodicityUnit;
@@ -67,7 +67,7 @@
 - (void) createReportForActivities:(NSArray*)activities
 {
     // sum of activities of each project
-    OrderedDictionary* report = [[OrderedDictionary alloc] initWithCapacity:10];
+    MutableOrderedDictionary* report = [[MutableOrderedDictionary alloc] init];
     for (Activity* activity in activities) {
         NSString* projectLabel = [activity.project label];
         if (!report[projectLabel]) {

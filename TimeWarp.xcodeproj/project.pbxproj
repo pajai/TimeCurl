@@ -45,40 +45,24 @@
 		4335F3AA18DB90A5006294FE /* ModelSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4335F3A918DB90A5006294FE /* ModelSerializer.m */; };
 		4345FA3D176F31FE002BBDB0 /* NewProjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4323D4B7176F0E6100A083AB /* NewProjectController.m */; };
 		4345FA3E176F31FF002BBDB0 /* NewProjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4323D4B7176F0E6100A083AB /* NewProjectController.m */; };
-		43627711183C073A00825199 /* TPKeyboardAvoidingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4362770A183C073A00825199 /* TPKeyboardAvoidingCollectionView.m */; };
-		43627712183C073A00825199 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4362770C183C073A00825199 /* TPKeyboardAvoidingScrollView.m */; };
-		43627713183C073A00825199 /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4362770E183C073A00825199 /* TPKeyboardAvoidingTableView.m */; };
-		43627714183C073A00825199 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 43627710183C073A00825199 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		43627720183D5E6E00825199 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4362771F183D5E6E00825199 /* libz.dylib */; };
 		436473561940DC80008E99FE /* CustomTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 436473551940DC80008E99FE /* CustomTabBarController.m */; };
 		4365BC6318E8B8940028C43D /* Project+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4365BC6218E8B8940028C43D /* Project+Additions.m */; };
 		4365BC6518ECA0D80028C43D /* ProjectIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4365BC6418ECA0D80028C43D /* ProjectIcons.xcassets */; };
 		4365BC6818ED471F0028C43D /* IconSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4365BC6718ED471F0028C43D /* IconSelectionController.m */; };
 		4365BC7018ED8C4C0028C43D /* TimeWarp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4365BC6D18ED8C4C0028C43D /* TimeWarp.xcdatamodeld */; };
-		4365BC7518EDF8E80028C43D /* OrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 4365BC7418EDF8E80028C43D /* OrderedDictionary.m */; };
 		4379431D176F706D00188F99 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4379431C176F706D00188F99 /* Entitlements.plist */; };
 		437943201770384600188F99 /* CurrentListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4379431F1770384600188F99 /* CurrentListController.m */; };
 		437943211770384600188F99 /* CurrentListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4379431F1770384600188F99 /* CurrentListController.m */; };
 		4379432517705E1400188F99 /* SelectTimeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4379432417705E1400188F99 /* SelectTimeController.m */; };
 		4379432617705E1400188F99 /* SelectTimeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4379432417705E1400188F99 /* SelectTimeController.m */; };
-		438C69FC18D4F90300BF1F58 /* libFlurry_4.3.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 438C696518D4F90300BF1F58 /* libFlurry_4.3.2.a */; };
 		438C6A8E18D4F97200BF1F58 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 438C6A8D18D4F97200BF1F58 /* SystemConfiguration.framework */; };
 		438C6A9018D4F98500BF1F58 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 438C6A8F18D4F98500BF1F58 /* Security.framework */; };
-		438C6A9818D5049600BF1F58 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 438C6A9218D5049600BF1F58 /* libTestFlight.a */; };
-		438C6A9918D5049600BF1F58 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 438C6A9318D5049600BF1F58 /* README.md */; };
-		438C6A9A18D5049600BF1F58 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 438C6A9418D5049600BF1F58 /* release_notes.md */; };
-		438C6AA618D5BDBA00BF1F58 /* TSQCalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 438C6A9F18D5BDBA00BF1F58 /* TSQCalendarCell.m */; };
-		438C6AA718D5BDBA00BF1F58 /* TSQCalendarMonthHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 438C6AA118D5BDBA00BF1F58 /* TSQCalendarMonthHeaderCell.m */; };
-		438C6AA818D5BDBA00BF1F58 /* TSQCalendarRowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 438C6AA318D5BDBA00BF1F58 /* TSQCalendarRowCell.m */; };
-		438C6AA918D5BDBA00BF1F58 /* TSQCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 438C6AA518D5BDBA00BF1F58 /* TSQCalendarView.m */; };
 		43BAFD6F17CF89C700B6A4FC /* SelectDayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BAFD6E17CF89C700B6A4FC /* SelectDayController.m */; };
-		43BC1455190FD0BA002C343E /* SAMTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BC1454190FD0BA002C343E /* SAMTextView.m */; };
 		43C6E41017E1BD7B004A953A /* UITextFieldWithInset.m in Sources */ = {isa = PBXBuildFile; fileRef = 43C6E40F17E1BD7B004A953A /* UITextFieldWithInset.m */; };
 		43DDFE3017E24F940037F9E0 /* UIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DDFE2F17E24F940037F9E0 /* UIUtils.m */; };
 		43E6027117821A8500EAA813 /* ReportController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E6027017821A8500EAA813 /* ReportController.m */; };
 		43E6027217821A8500EAA813 /* ReportController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E6027017821A8500EAA813 /* ReportController.m */; };
-		43E70430178DBF5B00CB5AA2 /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E7042F178DBF5B00CB5AA2 /* CHCSVParser.m */; };
-		43E70431178DBF5B00CB5AA2 /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E7042F178DBF5B00CB5AA2 /* CHCSVParser.m */; };
 		43E70435178DC2F000CB5AA2 /* MailComposeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E70433178DC2F000CB5AA2 /* MailComposeHandler.m */; };
 		43E70436178DC2F000CB5AA2 /* MailComposeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E70433178DC2F000CB5AA2 /* MailComposeHandler.m */; };
 		43E76CC719DED42100EF5F10 /* UIApplication+AppDimensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E76CC619DED42100EF5F10 /* UIApplication+AppDimensions.m */; };
@@ -98,6 +82,7 @@
 		43EF209F18E75FE400AF4702 /* ConfigureReportController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43EF209E18E75FE400AF4702 /* ConfigureReportController.m */; };
 		43FECC2217D0823E003179B6 /* UIConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FECC2117D0823E003179B6 /* UIConstants.m */; };
 		43FECC2417D08525003179B6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43FECC2317D08525003179B6 /* QuartzCore.framework */; };
+		8F6F6B1E0A174A8954E6A313 /* libPods-TimeCurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9149A1090F1F3266D1416073 /* libPods-TimeCurl.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,14 +145,6 @@
 		4335F3A818DB90A5006294FE /* ModelSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelSerializer.h; sourceTree = "<group>"; };
 		4335F3A918DB90A5006294FE /* ModelSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelSerializer.m; sourceTree = "<group>"; };
 		4335F3AB18DCE444006294FE /* NotificationConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationConstants.h; sourceTree = "<group>"; };
-		43627709183C073A00825199 /* TPKeyboardAvoidingCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingCollectionView.h; sourceTree = "<group>"; };
-		4362770A183C073A00825199 /* TPKeyboardAvoidingCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingCollectionView.m; sourceTree = "<group>"; };
-		4362770B183C073A00825199 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
-		4362770C183C073A00825199 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
-		4362770D183C073A00825199 /* TPKeyboardAvoidingTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingTableView.h; sourceTree = "<group>"; };
-		4362770E183C073A00825199 /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingTableView.m; sourceTree = "<group>"; };
-		4362770F183C073A00825199 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
-		43627710183C073A00825199 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
 		4362771F183D5E6E00825199 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		436473541940DC80008E99FE /* CustomTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabBarController.h; sourceTree = "<group>"; };
 		436473551940DC80008E99FE /* CustomTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabBarController.m; sourceTree = "<group>"; };
@@ -179,39 +156,17 @@
 		4365BC6718ED471F0028C43D /* IconSelectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconSelectionController.m; sourceTree = "<group>"; };
 		4365BC6E18ED8C4C0028C43D /* TimeWarp1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TimeWarp1.1.xcdatamodel; sourceTree = "<group>"; };
 		4365BC6F18ED8C4C0028C43D /* TimeWarp1.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TimeWarp1.0.xcdatamodel; sourceTree = "<group>"; };
-		4365BC7318EDF8E80028C43D /* OrderedDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderedDictionary.h; path = OrderedDictionary/OrderedDictionary.h; sourceTree = "<group>"; };
-		4365BC7418EDF8E80028C43D /* OrderedDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderedDictionary.m; path = OrderedDictionary/OrderedDictionary.m; sourceTree = "<group>"; };
 		4379431C176F706D00188F99 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		4379431E1770384600188F99 /* CurrentListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentListController.h; sourceTree = "<group>"; };
 		4379431F1770384600188F99 /* CurrentListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentListController.m; sourceTree = "<group>"; };
 		4379432417705E1400188F99 /* SelectTimeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectTimeController.m; sourceTree = "<group>"; };
-		438C696418D4F90300BF1F58 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
-		438C696518D4F90300BF1F58 /* libFlurry_4.3.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_4.3.2.a; sourceTree = "<group>"; };
 		438C6A8D18D4F97200BF1F58 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		438C6A8F18D4F98500BF1F58 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		438C6A9218D5049600BF1F58 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
-		438C6A9318D5049600BF1F58 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		438C6A9418D5049600BF1F58 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
-		438C6A9518D5049600BF1F58 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
-		438C6A9618D5049600BF1F58 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
-		438C6A9718D5049600BF1F58 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
-		438C6A9C18D5BDBA00BF1F58 /* TimesSquare-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TimesSquare-Prefix.pch"; sourceTree = "<group>"; };
-		438C6A9D18D5BDBA00BF1F58 /* TimesSquare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimesSquare.h; sourceTree = "<group>"; };
-		438C6A9E18D5BDBA00BF1F58 /* TSQCalendarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSQCalendarCell.h; sourceTree = "<group>"; };
-		438C6A9F18D5BDBA00BF1F58 /* TSQCalendarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSQCalendarCell.m; sourceTree = "<group>"; };
-		438C6AA018D5BDBA00BF1F58 /* TSQCalendarMonthHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSQCalendarMonthHeaderCell.h; sourceTree = "<group>"; };
-		438C6AA118D5BDBA00BF1F58 /* TSQCalendarMonthHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSQCalendarMonthHeaderCell.m; sourceTree = "<group>"; };
-		438C6AA218D5BDBA00BF1F58 /* TSQCalendarRowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSQCalendarRowCell.h; sourceTree = "<group>"; };
-		438C6AA318D5BDBA00BF1F58 /* TSQCalendarRowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSQCalendarRowCell.m; sourceTree = "<group>"; };
-		438C6AA418D5BDBA00BF1F58 /* TSQCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSQCalendarView.h; sourceTree = "<group>"; };
-		438C6AA518D5BDBA00BF1F58 /* TSQCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSQCalendarView.m; sourceTree = "<group>"; };
 		4391EF2C17901DAC00581C11 /* TimeCurl.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TimeCurl.entitlements; sourceTree = "<group>"; };
 		43A75B41190075C100665435 /* TimeWarp1.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TimeWarp1.2.xcdatamodel; sourceTree = "<group>"; };
 		43BAFD6D17CF89C700B6A4FC /* SelectDayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectDayController.h; sourceTree = "<group>"; };
 		43BAFD6E17CF89C700B6A4FC /* SelectDayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectDayController.m; sourceTree = "<group>"; };
 		43BC1451190FCA0F002C343E /* TimeWarp1.3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TimeWarp1.3.xcdatamodel; sourceTree = "<group>"; };
-		43BC1453190FD0BA002C343E /* SAMTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMTextView.h; sourceTree = "<group>"; };
-		43BC1454190FD0BA002C343E /* SAMTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMTextView.m; sourceTree = "<group>"; };
 		43C6E40E17E1BD7B004A953A /* UITextFieldWithInset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITextFieldWithInset.h; sourceTree = "<group>"; };
 		43C6E40F17E1BD7B004A953A /* UITextFieldWithInset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITextFieldWithInset.m; sourceTree = "<group>"; };
 		43DDFE2E17E24F940037F9E0 /* UIUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIUtils.h; sourceTree = "<group>"; };
@@ -219,8 +174,6 @@
 		43DDFE3117E258A00037F9E0 /* SelectTimeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectTimeController.h; sourceTree = "<group>"; };
 		43E6026F17821A8500EAA813 /* ReportController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportController.h; sourceTree = "<group>"; };
 		43E6027017821A8500EAA813 /* ReportController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportController.m; sourceTree = "<group>"; };
-		43E7042E178DBF5B00CB5AA2 /* CHCSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCSVParser.h; sourceTree = "<group>"; };
-		43E7042F178DBF5B00CB5AA2 /* CHCSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCSVParser.m; sourceTree = "<group>"; };
 		43E70432178DC2F000CB5AA2 /* MailComposeHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailComposeHandler.h; sourceTree = "<group>"; };
 		43E70433178DC2F000CB5AA2 /* MailComposeHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailComposeHandler.m; sourceTree = "<group>"; };
 		43E70434178DC2F000CB5AA2 /* MailComposeCallbackDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailComposeCallbackDelegate.h; sourceTree = "<group>"; };
@@ -247,6 +200,9 @@
 		43FECC2017D0823E003179B6 /* UIConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIConstants.h; sourceTree = "<group>"; };
 		43FECC2117D0823E003179B6 /* UIConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIConstants.m; sourceTree = "<group>"; };
 		43FECC2317D08525003179B6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		7117E2903C12617AA604C0F4 /* Pods-TimeCurl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeCurl.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimeCurl/Pods-TimeCurl.release.xcconfig"; sourceTree = "<group>"; };
+		9149A1090F1F3266D1416073 /* libPods-TimeCurl.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TimeCurl.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6A953C572A3DEE1F39E063D /* Pods-TimeCurl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeCurl.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimeCurl/Pods-TimeCurl.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,11 +215,10 @@
 				43627720183D5E6E00825199 /* libz.dylib in Frameworks */,
 				43FECC2417D08525003179B6 /* QuartzCore.framework in Frameworks */,
 				4323D49B176F078400A083AB /* CoreData.framework in Frameworks */,
-				438C6A9818D5049600BF1F58 /* libTestFlight.a in Frameworks */,
 				4323D45D176EF79500A083AB /* CoreGraphics.framework in Frameworks */,
 				4323D45F176EF79500A083AB /* UIKit.framework in Frameworks */,
 				4323D45B176EF79500A083AB /* Foundation.framework in Frameworks */,
-				438C69FC18D4F90300BF1F58 /* libFlurry_4.3.2.a in Frameworks */,
+				8F6F6B1E0A174A8954E6A313 /* libPods-TimeCurl.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +293,7 @@
 				4323D482176EF79500A083AB /* TimeWarpTests */,
 				4323D459176EF79500A083AB /* Frameworks */,
 				4323D458176EF79500A083AB /* Products */,
+				AD8CA87CD6BD86E773F6F60C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -362,6 +318,7 @@
 				4323D45C176EF79500A083AB /* CoreGraphics.framework */,
 				4323D45E176EF79500A083AB /* UIKit.framework */,
 				4323D47C176EF79500A083AB /* XCTest.framework */,
+				9149A1090F1F3266D1416073 /* libPods-TimeCurl.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -369,16 +326,9 @@
 		4323D460176EF79500A083AB /* TimeWarp */ = {
 			isa = PBXGroup;
 			children = (
-				43BC1452190FD09E002C343E /* SAMTextView */,
-				4365BC7218EDF8CF0028C43D /* OrderedDictionary */,
 				4365BC6D18ED8C4C0028C43D /* TimeWarp.xcdatamodeld */,
 				43EF208418E71D2F00AF4702 /* TimesSquareCustomize */,
-				438C6A9B18D5BDBA00BF1F58 /* TimesSquare */,
-				438C6A9118D5049600BF1F58 /* TestFlightSDK3 */,
-				438C696218D4F90300BF1F58 /* Flurry-iOS-4.3.2 */,
-				43627708183C073A00825199 /* TPKeyboardAvoiding */,
 				4391EF2C17901DAC00581C11 /* TimeCurl.entitlements */,
-				43E7042D178DBF5B00CB5AA2 /* CHCSVParser */,
 				4323D4A8176F0A6300A083AB /* model */,
 				4365BC6018E8B84C0028C43D /* modelAdditions */,
 				431535531773933500B5D825 /* persistence */,
@@ -450,21 +400,6 @@
 			name = controller;
 			sourceTree = "<group>";
 		};
-		43627708183C073A00825199 /* TPKeyboardAvoiding */ = {
-			isa = PBXGroup;
-			children = (
-				43627709183C073A00825199 /* TPKeyboardAvoidingCollectionView.h */,
-				4362770A183C073A00825199 /* TPKeyboardAvoidingCollectionView.m */,
-				4362770B183C073A00825199 /* TPKeyboardAvoidingScrollView.h */,
-				4362770C183C073A00825199 /* TPKeyboardAvoidingScrollView.m */,
-				4362770D183C073A00825199 /* TPKeyboardAvoidingTableView.h */,
-				4362770E183C073A00825199 /* TPKeyboardAvoidingTableView.m */,
-				4362770F183C073A00825199 /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
-				43627710183C073A00825199 /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
-			);
-			path = TPKeyboardAvoiding;
-			sourceTree = "<group>";
-		};
 		4365BC6018E8B84C0028C43D /* modelAdditions */ = {
 			isa = PBXGroup;
 			children = (
@@ -526,80 +461,6 @@
 			name = misc;
 			sourceTree = "<group>";
 		};
-		4365BC7218EDF8CF0028C43D /* OrderedDictionary */ = {
-			isa = PBXGroup;
-			children = (
-				4365BC7318EDF8E80028C43D /* OrderedDictionary.h */,
-				4365BC7418EDF8E80028C43D /* OrderedDictionary.m */,
-			);
-			name = OrderedDictionary;
-			sourceTree = "<group>";
-		};
-		438C696218D4F90300BF1F58 /* Flurry-iOS-4.3.2 */ = {
-			isa = PBXGroup;
-			children = (
-				438C696318D4F90300BF1F58 /* Flurry */,
-			);
-			path = "Flurry-iOS-4.3.2";
-			sourceTree = "<group>";
-		};
-		438C696318D4F90300BF1F58 /* Flurry */ = {
-			isa = PBXGroup;
-			children = (
-				438C696418D4F90300BF1F58 /* Flurry.h */,
-				438C696518D4F90300BF1F58 /* libFlurry_4.3.2.a */,
-			);
-			path = Flurry;
-			sourceTree = "<group>";
-		};
-		438C6A9118D5049600BF1F58 /* TestFlightSDK3 */ = {
-			isa = PBXGroup;
-			children = (
-				438C6A9218D5049600BF1F58 /* libTestFlight.a */,
-				438C6A9318D5049600BF1F58 /* README.md */,
-				438C6A9418D5049600BF1F58 /* release_notes.md */,
-				438C6A9518D5049600BF1F58 /* TestFlight+AsyncLogging.h */,
-				438C6A9618D5049600BF1F58 /* TestFlight+ManualSessions.h */,
-				438C6A9718D5049600BF1F58 /* TestFlight.h */,
-			);
-			path = TestFlightSDK3;
-			sourceTree = "<group>";
-		};
-		438C6A9B18D5BDBA00BF1F58 /* TimesSquare */ = {
-			isa = PBXGroup;
-			children = (
-				438C6A9C18D5BDBA00BF1F58 /* TimesSquare-Prefix.pch */,
-				438C6A9D18D5BDBA00BF1F58 /* TimesSquare.h */,
-				438C6A9E18D5BDBA00BF1F58 /* TSQCalendarCell.h */,
-				438C6A9F18D5BDBA00BF1F58 /* TSQCalendarCell.m */,
-				438C6AA018D5BDBA00BF1F58 /* TSQCalendarMonthHeaderCell.h */,
-				438C6AA118D5BDBA00BF1F58 /* TSQCalendarMonthHeaderCell.m */,
-				438C6AA218D5BDBA00BF1F58 /* TSQCalendarRowCell.h */,
-				438C6AA318D5BDBA00BF1F58 /* TSQCalendarRowCell.m */,
-				438C6AA418D5BDBA00BF1F58 /* TSQCalendarView.h */,
-				438C6AA518D5BDBA00BF1F58 /* TSQCalendarView.m */,
-			);
-			path = TimesSquare;
-			sourceTree = "<group>";
-		};
-		43BC1452190FD09E002C343E /* SAMTextView */ = {
-			isa = PBXGroup;
-			children = (
-				43BC1453190FD0BA002C343E /* SAMTextView.h */,
-				43BC1454190FD0BA002C343E /* SAMTextView.m */,
-			);
-			name = SAMTextView;
-			sourceTree = "<group>";
-		};
-		43E7042D178DBF5B00CB5AA2 /* CHCSVParser */ = {
-			isa = PBXGroup;
-			children = (
-				43E7042E178DBF5B00CB5AA2 /* CHCSVParser.h */,
-				43E7042F178DBF5B00CB5AA2 /* CHCSVParser.m */,
-			);
-			path = CHCSVParser;
-			sourceTree = "<group>";
-		};
 		43EF208418E71D2F00AF4702 /* TimesSquareCustomize */ = {
 			isa = PBXGroup;
 			children = (
@@ -628,6 +489,15 @@
 			path = TimeSquareCustomize/images;
 			sourceTree = "<group>";
 		};
+		AD8CA87CD6BD86E773F6F60C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D6A953C572A3DEE1F39E063D /* Pods-TimeCurl.debug.xcconfig */,
+				7117E2903C12617AA604C0F4 /* Pods-TimeCurl.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -635,9 +505,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4323D48C176EF79500A083AB /* Build configuration list for PBXNativeTarget "TimeCurl" */;
 			buildPhases = (
+				FF026B708521D1EA9F7898E9 /* Check Pods Manifest.lock */,
 				4323D453176EF79500A083AB /* Sources */,
 				4323D454176EF79500A083AB /* Frameworks */,
 				4323D455176EF79500A083AB /* Resources */,
+				AB0CFE53E9009CD1147D593A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -712,14 +584,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				438C6A9A18D5049600BF1F58 /* release_notes.md in Resources */,
 				43EF209218E71E1800AF4702 /* CalendarPreviousMonth.png in Resources */,
 				43EF209B18E71E1800AF4702 /* CalendarTodaysDate@2x.png in Resources */,
 				4379431D176F706D00188F99 /* Entitlements.plist in Resources */,
 				43EF209918E71E1800AF4702 /* CalendarSelectedDate@2x.png in Resources */,
 				4323D476176EF79500A083AB /* Images.xcassets in Resources */,
 				43EF209718E71E1800AF4702 /* CalendarRowBottom@2x.png in Resources */,
-				438C6A9918D5049600BF1F58 /* README.md in Resources */,
 				43EF209518E71E1800AF4702 /* CalendarRow@2x.png in Resources */,
 				4323D465176EF79500A083AB /* InfoPlist.strings in Resources */,
 				43EF209418E71E1800AF4702 /* CalendarRow.png in Resources */,
@@ -742,6 +612,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		AB0CFE53E9009CD1147D593A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TimeCurl/Pods-TimeCurl-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FF026B708521D1EA9F7898E9 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4323D453176EF79500A083AB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -758,35 +661,24 @@
 				4312E70218F7E50B00C23B01 /* Activity+Additions.m in Sources */,
 				43E6027117821A8500EAA813 /* ReportController.m in Sources */,
 				432B79D117CFF3CD00041A7D /* DTCustomColoredAccessory.m in Sources */,
-				438C6AA618D5BDBA00BF1F58 /* TSQCalendarCell.m in Sources */,
-				43627711183C073A00825199 /* TPKeyboardAvoidingCollectionView.m in Sources */,
-				438C6AA718D5BDBA00BF1F58 /* TSQCalendarMonthHeaderCell.m in Sources */,
-				438C6AA818D5BDBA00BF1F58 /* TSQCalendarRowCell.m in Sources */,
 				4365BC6818ED471F0028C43D /* IconSelectionController.m in Sources */,
-				43627712183C073A00825199 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				43E76CC719DED42100EF5F10 /* UIApplication+AppDimensions.m in Sources */,
-				438C6AA918D5BDBA00BF1F58 /* TSQCalendarView.m in Sources */,
-				43BC1455190FD0BA002C343E /* SAMTextView.m in Sources */,
 				43E70435178DC2F000CB5AA2 /* MailComposeHandler.m in Sources */,
 				4323D4B4176F0B0100A083AB /* Activity.m in Sources */,
-				4365BC7518EDF8E80028C43D /* OrderedDictionary.m in Sources */,
 				4323D4B0176F0B0100A083AB /* Project.m in Sources */,
 				43DDFE3017E24F940037F9E0 /* UIUtils.m in Sources */,
 				43C6E41017E1BD7B004A953A /* UITextFieldWithInset.m in Sources */,
 				431535561773936000B5D825 /* CoreDataWrapper.m in Sources */,
-				43E70430178DBF5B00CB5AA2 /* CHCSVParser.m in Sources */,
 				4365BC7018ED8C4C0028C43D /* TimeWarp.xcdatamodeld in Sources */,
 				43EF209C18E71E1800AF4702 /* TSQTACalendarRowCell.m in Sources */,
 				4315354D17735D0100B5D825 /* NewActivityController.m in Sources */,
 				437943201770384600188F99 /* CurrentListController.m in Sources */,
 				4323D4AC176F0B0000A083AB /* TimeSlot.m in Sources */,
-				43627713183C073A00825199 /* TPKeyboardAvoidingTableView.m in Sources */,
 				4335F3AA18DB90A5006294FE /* ModelSerializer.m in Sources */,
 				4379432517705E1400188F99 /* SelectTimeController.m in Sources */,
 				431535431770A1D600B5D825 /* GraduationView.m in Sources */,
 				4323D467176EF79500A083AB /* main.m in Sources */,
 				4365BC6318E8B8940028C43D /* Project+Additions.m in Sources */,
-				43627714183C073A00825199 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				43BAFD6F17CF89C700B6A4FC /* SelectDayController.m in Sources */,
 				431535491773060800B5D825 /* SlotInterval.m in Sources */,
 				4312E70518F7E5EE00C23B01 /* TimeSlot+Additions.m in Sources */,
@@ -811,7 +703,6 @@
 				4323D4B5176F0B0100A083AB /* Activity.m in Sources */,
 				4345FA3E176F31FF002BBDB0 /* NewProjectController.m in Sources */,
 				437943211770384600188F99 /* CurrentListController.m in Sources */,
-				43E70431178DBF5B00CB5AA2 /* CHCSVParser.m in Sources */,
 				4315355217738F5D00B5D825 /* TimeUtils.m in Sources */,
 				4323D489176EF79500A083AB /* TimeWarpTests.m in Sources */,
 			);
@@ -931,6 +822,7 @@
 		};
 		4323D48D176EF79500A083AB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6A953C572A3DEE1F39E063D /* Pods-TimeCurl.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -941,11 +833,7 @@
 				GCC_PREFIX_HEADER = "TimeWarp/TimeWarp-Prefix.pch";
 				INFOPLIST_FILE = "TimeWarp/TimeWarp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/TimeWarp/Flurry-iOS-4.3.2/Flurry",
-					"$(PROJECT_DIR)/TimeWarp/TestFlightSDK3",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "6603d965-87c5-4e75-b8b2-7c8ba5f1da66";
 				WRAPPER_EXTENSION = app;
@@ -954,6 +842,7 @@
 		};
 		4323D48E176EF79500A083AB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7117E2903C12617AA604C0F4 /* Pods-TimeCurl.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -964,11 +853,7 @@
 				GCC_PREFIX_HEADER = "TimeWarp/TimeWarp-Prefix.pch";
 				INFOPLIST_FILE = "TimeWarp/TimeWarp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/TimeWarp/Flurry-iOS-4.3.2/Flurry",
-					"$(PROJECT_DIR)/TimeWarp/TestFlightSDK3",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "a6641ebb-64b6-4bc5-be9d-e4063089b6fb";
 				WRAPPER_EXTENSION = app;
