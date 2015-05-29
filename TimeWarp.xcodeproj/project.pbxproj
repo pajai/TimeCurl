@@ -41,7 +41,6 @@
 		4323D4B1176F0B0100A083AB /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 4323D4AF176F0B0100A083AB /* Project.m */; };
 		4323D4B4176F0B0100A083AB /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 4323D4B3176F0B0100A083AB /* Activity.m */; };
 		4323D4B5176F0B0100A083AB /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 4323D4B3176F0B0100A083AB /* Activity.m */; };
-		432B79D117CFF3CD00041A7D /* DTCustomColoredAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 432B79D017CFF3CD00041A7D /* DTCustomColoredAccessory.m */; };
 		4335F3AA18DB90A5006294FE /* ModelSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4335F3A918DB90A5006294FE /* ModelSerializer.m */; };
 		4345FA3D176F31FE002BBDB0 /* NewProjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4323D4B7176F0E6100A083AB /* NewProjectController.m */; };
 		4345FA3E176F31FF002BBDB0 /* NewProjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4323D4B7176F0E6100A083AB /* NewProjectController.m */; };
@@ -140,8 +139,6 @@
 		4323D4B6176F0E6100A083AB /* NewProjectController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewProjectController.h; sourceTree = "<group>"; };
 		4323D4B7176F0E6100A083AB /* NewProjectController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewProjectController.m; sourceTree = "<group>"; };
 		4326CE11179E7D820053F781 /* StoreChangeDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreChangeDelegate.h; sourceTree = "<group>"; };
-		432B79CF17CFF3CD00041A7D /* DTCustomColoredAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTCustomColoredAccessory.h; sourceTree = "<group>"; };
-		432B79D017CFF3CD00041A7D /* DTCustomColoredAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTCustomColoredAccessory.m; sourceTree = "<group>"; };
 		4335F3A818DB90A5006294FE /* ModelSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelSerializer.h; sourceTree = "<group>"; };
 		4335F3A918DB90A5006294FE /* ModelSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelSerializer.m; sourceTree = "<group>"; };
 		4335F3AB18DCE444006294FE /* NotificationConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationConstants.h; sourceTree = "<group>"; };
@@ -259,8 +256,6 @@
 				431535481773060700B5D825 /* SlotInterval.m */,
 				4315354F17738F5D00B5D825 /* TimeUtils.h */,
 				4315355017738F5D00B5D825 /* TimeUtils.m */,
-				432B79CF17CFF3CD00041A7D /* DTCustomColoredAccessory.h */,
-				432B79D017CFF3CD00041A7D /* DTCustomColoredAccessory.m */,
 				43FECC2017D0823E003179B6 /* UIConstants.h */,
 				43FECC2117D0823E003179B6 /* UIConstants.m */,
 				43DDFE2E17E24F940037F9E0 /* UIUtils.h */,
@@ -660,7 +655,6 @@
 				43EF209F18E75FE400AF4702 /* ConfigureReportController.m in Sources */,
 				4312E70218F7E50B00C23B01 /* Activity+Additions.m in Sources */,
 				43E6027117821A8500EAA813 /* ReportController.m in Sources */,
-				432B79D117CFF3CD00041A7D /* DTCustomColoredAccessory.m in Sources */,
 				4365BC6818ED471F0028C43D /* IconSelectionController.m in Sources */,
 				43E76CC719DED42100EF5F10 /* UIApplication+AppDimensions.m in Sources */,
 				43E70435178DC2F000CB5AA2 /* MailComposeHandler.m in Sources */,

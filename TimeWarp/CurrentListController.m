@@ -15,7 +15,6 @@
 #import "CoreDataWrapper.h"
 #import "SlotInterval.h"
 #import "SelectDayController.h"
-#import "DTCustomColoredAccessory.h"
 #import "UIConstants.h"
 #import "UIUtils.h"
 #import "Flurry.h"
@@ -316,7 +315,7 @@
         UILabel* noteTextLabel   = (UILabel*)[cell viewWithTag:102];
         UIImageView* iconView    = (UIImageView*)[cell viewWithTag:103];
         
-        cell.accessoryView = [DTCustomColoredAccessory accessoryWithSingleColor:[UIConstants shared].middleBlueColor];
+        cell.accessoryView = [UIUtils accessoryView];
         
         Project* project = activity.project;
         titleLabel.text = [project label];

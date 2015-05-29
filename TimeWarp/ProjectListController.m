@@ -11,7 +11,6 @@
 #import "AppDelegate.h"
 #import "NewProjectController.h"
 #import "CoreDataWrapper.h"
-#import "DTCustomColoredAccessory.h"
 #import "UIConstants.h"
 #import "UIUtils.h"
 #import "Flurry.h"
@@ -168,7 +167,7 @@
         static NSString *CellIdentifier = @"ProjectCell";
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
         
-        cell.accessoryView = [DTCustomColoredAccessory accessoryWithSingleColor:[UIConstants shared].middleBlueColor];
+        cell.accessoryView = [UIUtils accessoryView];
         
         UILabel* nameLabel    = (UILabel*)[cell viewWithTag:100];
         UIImageView* iconView = (UIImageView*)[cell viewWithTag:101];

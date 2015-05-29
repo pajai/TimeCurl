@@ -10,7 +10,8 @@
 
 @interface UIUtils : NSObject
 
-+ (void) setEmptyFooterView:(UITableView*) tableView;
-+ (UIColor*) colorDarkGrey;
++ (void)setEmptyFooterView:(UITableView*) tableView;
++ (UIColor*)colorDarkGrey;
++ (UIView*)accessoryView;
 
 @end
