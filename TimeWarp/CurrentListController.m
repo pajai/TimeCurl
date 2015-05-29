@@ -23,9 +23,6 @@
 
 
 @interface CurrentListController ()
-
-@property (strong, nonatomic) NSMutableDictionary* offscreenCells;
-
 @end
 
 
@@ -232,8 +229,8 @@
     [self initCurrentDate];
     
     [UIUtils setEmptyFooterView:self.tableView];
-
-    self.offscreenCells = [NSMutableDictionary dictionaryWithCapacity:1];
+    
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -327,30 +324,6 @@
         noteTextLabel.text = activity.note ? activity.note : @" ";
         iconView.image = [project imageWithDefaultName:@"icon-activity-list"];
     }
-}
-
-- (UITableViewCell*)retrieveOffscreenCellForIdentifier:(NSString*)reuseIdentifier
-{
-    UITableViewCell* cell = self.offscreenCells[reuseIdentifier];
-    if (!cell) {
-        cell = [self.tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
-        [self.offscreenCells setObject:cell forKey:reuseIdentifier];
-    }
-    return cell;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSString* identifier = indexPath.section == 0 ? @"ActivityCell" : @"NewCell";
-    
-    UITableViewCell* cell = [self retrieveOffscreenCellForIdentifier:identifier];
-    [self configureCell:cell forIndexPath:indexPath];
-    
-    [cell setNeedsLayout];
-    [cell layoutIfNeeded];
-    
-    return [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 1.0f;
-    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
