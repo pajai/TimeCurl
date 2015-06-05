@@ -416,11 +416,10 @@
 
 - (void)viewDidDisappear:(BOOL)animated
 {
-    [super viewDidDisappear:animated];
-    
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:DATA_REFRESH_AFTER_IMPORT
                                                   object:nil];
+    [super viewDidDisappear:animated];
 }
 
 - (void)dataRefreshedAfterImport
