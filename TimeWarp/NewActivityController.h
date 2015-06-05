@@ -23,5 +23,6 @@
 @property (nonatomic, strong) IBOutlet UITextField* timeTextField;
 @property (nonatomic, strong) IBOutlet SAMTextView* noteTextView;
 @property (nonatomic, strong) IBOutlet UIPickerView* pickerView;
+@property (weak, nonatomic) IBOutlet UIButton *timeButton;
 
 @end

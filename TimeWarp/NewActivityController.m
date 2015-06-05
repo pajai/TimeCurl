@@ -206,8 +206,16 @@
 
     [self loadProjects];
     [self fillData];
+    [self initAutoScreenshots];
 
     self.noteTextView.placeholder = @"Optional";
+}
+
+- (void)initAutoScreenshots
+{
+#ifdef AUTOSCREENSHOTS
+    self.timeButton.accessibilityLabel = @"TimeButton";
+#endif
 }
 
 - (void) fillData

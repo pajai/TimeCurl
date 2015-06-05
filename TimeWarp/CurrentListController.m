@@ -20,6 +20,7 @@
 #import "UIUtils.h"
 #import "Flurry.h"
 #import "NotificationConstants.h"
+#import "AutoscreenshotsUtils.h"
 
 
 @interface CurrentListController ()
@@ -83,7 +84,11 @@
 
 - (void) initCurrentDate
 {
+#ifdef AUTOSCREENSHOTS
+    self.currentDate = [AutoscreenshotsUtils dateForScreenshots];
+#else
     self.currentDate = [NSDate date];
+#endif
 }
 
 - (void) updateTitle
