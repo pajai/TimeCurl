@@ -17,7 +17,7 @@
                BlueprintIdentifier = "4323D456176EF79500A083AB"
                BuildableName = "TimeCurl.app"
                BlueprintName = "TimeCurl"
-               ReferencedContainer = "container:TimeWarp.xcodeproj">
+               ReferencedContainer = "container:TimeCurl.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4323D47A176EF79500A083AB"
-               BuildableName = "TimeWarpTests.xctest"
-               BlueprintName = "TimeWarpTests"
-               ReferencedContainer = "container:TimeWarp.xcodeproj">
+               BuildableName = "TimeCurlTests.xctest"
+               BlueprintName = "TimeCurlTests"
+               ReferencedContainer = "container:TimeCurl.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -45,7 +45,7 @@
             BlueprintIdentifier = "4323D456176EF79500A083AB"
             BuildableName = "TimeCurl.app"
             BlueprintName = "TimeCurl"
-            ReferencedContainer = "container:TimeWarp.xcodeproj">
+            ReferencedContainer = "container:TimeCurl.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -54,7 +54,7 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "AutoScreenshots"
+      buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
@@ -65,7 +65,7 @@
             BlueprintIdentifier = "4323D456176EF79500A083AB"
             BuildableName = "TimeCurl.app"
             BlueprintName = "TimeCurl"
-            ReferencedContainer = "container:TimeWarp.xcodeproj">
+            ReferencedContainer = "container:TimeCurl.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -84,7 +84,7 @@
             BlueprintIdentifier = "4323D456176EF79500A083AB"
             BuildableName = "TimeCurl.app"
             BlueprintName = "TimeCurl"
-            ReferencedContainer = "container:TimeWarp.xcodeproj">
+            ReferencedContainer = "container:TimeCurl.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

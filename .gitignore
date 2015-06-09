@@ -1,9 +1,9 @@
 Pods/
 fastlane/screenshots/
 fastlane/report.xml
-TimeWarp.xcodeproj/project.xcworkspace/xcuserdata/
-TimeWarp.xcodeproj/xcuserdata/
-TimeWarp.xcworkspace/
+TimeCurl.xcodeproj/project.xcworkspace/xcuserdata/
+TimeCurl.xcodeproj/xcuserdata/
+TimeCurl.xcworkspace/
 *.dSYM.zip
 *.ipa
 *.mobileprovision
