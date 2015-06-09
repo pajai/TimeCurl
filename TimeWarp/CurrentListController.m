@@ -19,6 +19,7 @@
 #import "UIUtils.h"
 #import "Flurry.h"
 #import "NotificationConstants.h"
+#import "AutoscreenshotsUtils.h"
 
 
 @interface CurrentListController ()
@@ -82,7 +83,11 @@
 
 - (void) initCurrentDate
 {
+#ifdef AUTOSCREENSHOTS
+    self.currentDate = [AutoscreenshotsUtils dateForScreenshots];
+#else
     self.currentDate = [NSDate date];
+#endif
 }
 
 - (void) updateTitle
@@ -113,9 +118,9 @@
 - (BOOL) isToday
 {
     NSCalendar *cal = [NSCalendar currentCalendar];
-    NSDateComponents *components = [cal components:(NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit) fromDate:[NSDate date]];
+    NSDateComponents *components = [cal components:(NSCalendarUnitEra|NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay) fromDate:[NSDate date]];
     NSDate *today = [cal dateFromComponents:components];
-    components = [cal components:(NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit) fromDate:self.currentDate];
+    components = [cal components:(NSCalendarUnitEra|NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay) fromDate:self.currentDate];
     NSDate *otherDate = [cal dateFromComponents:components];
     
     return [today isEqual:otherDate];
@@ -256,11 +261,10 @@
 
 - (void)viewDidDisappear:(BOOL)animated
 {
-    [super viewDidDisappear:animated];
-
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:DATA_REFRESH_AFTER_IMPORT
                                                   object:nil];
+    [super viewDidDisappear:animated];
 }
 
 - (void)dataRefreshedAfterImport

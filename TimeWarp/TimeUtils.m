@@ -35,7 +35,7 @@
 + (NSDate*) dateForDate:(NSDate*)date andHour:(double)hDouble
 {
     NSCalendar *cal = [NSCalendar currentCalendar];
-    NSDateComponents *components = [cal components:(NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit) fromDate:date];
+    NSDateComponents *components = [cal components:(NSCalendarUnitEra|NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay) fromDate:date];
     [components setHour:[TimeUtils hourFromDouble:hDouble]];
     [components setMinute:[TimeUtils minuteFromDouble:hDouble]];
     return [cal dateFromComponents:components];
@@ -45,7 +45,7 @@
 + (NSDate*) dayForDate:(NSDate*) date
 {
     NSCalendar *cal = [NSCalendar currentCalendar];
-    NSDateComponents *components = [cal components:(NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit) fromDate:date];
+    NSDateComponents *components = [cal components:(NSCalendarUnitEra|NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay) fromDate:date];
     return [cal dateFromComponents:components];
 }
 
@@ -53,7 +53,7 @@
 + (NSDate*) monthForDate:(NSDate*) date
 {
     NSCalendar *cal = [NSCalendar currentCalendar];
-    NSDateComponents *components = [cal components:(NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit) fromDate:date];
+    NSDateComponents *components = [cal components:(NSCalendarUnitEra|NSCalendarUnitYear|NSCalendarUnitMonth) fromDate:date];
     return [cal dateFromComponents:components];
 }
 
@@ -119,7 +119,7 @@
         [dateComponents setDay:nb];
     }
     else if ([unitString isEqualToString:@"week"]) {
-        [dateComponents setWeek:nb];
+        [dateComponents setWeekOfYear:nb];
     }
     else /* month */ {
         [dateComponents setMonth:nb];

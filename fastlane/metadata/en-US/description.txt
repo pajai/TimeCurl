@@ -1,0 +1,13 @@
+Sleek & handy time tracking app for your project work.
+
+• Manage your project list and associate a nice icon with each one
+• Easy time input
+• Overview of all project activities within a period
+• User defined report periods — calendar months or custom sprint length
+• Generate report for each period 
+
+In addition
+• Export to Excel-friendly CSV format
+• Import/Export of the complete data set
+
+Enjoy! Please send us your suggestions at the address patrick.jayet@zuehlke.com.

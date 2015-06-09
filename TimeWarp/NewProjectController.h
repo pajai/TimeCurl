@@ -21,9 +21,9 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *subviewWidthConstraint;
 
-@property (nonatomic, strong) IBOutlet UITextField* name;
-@property (nonatomic, strong) IBOutlet UITextField* subname;
-@property (nonatomic, strong) IBOutlet SAMTextView* note;
+@property (weak, nonatomic) IBOutlet UITextField* name;
+@property (weak, nonatomic) IBOutlet UITextField* subname;
+@property (weak, nonatomic) IBOutlet SAMTextView* note;
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
 @property (weak, nonatomic) IBOutlet UILabel *iconLabel;
 @property (weak, nonatomic) IBOutlet UIButton *iconButton;

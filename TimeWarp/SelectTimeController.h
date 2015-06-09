@@ -19,10 +19,10 @@
 
 }
 
-@property (nonatomic, strong) IBOutlet UIScrollView* scrollView;
-@property (nonatomic, strong) IBOutlet GraduationView* graduationView;
-@property (nonatomic, strong) IBOutlet UILabel* slotLabelStart;
-@property (nonatomic, strong) IBOutlet UILabel* slotLabelEnd;
+@property (weak, nonatomic) IBOutlet UIScrollView* scrollView;
+@property (weak, nonatomic) IBOutlet GraduationView* graduationView;
+@property (weak, nonatomic) IBOutlet UILabel* slotLabelStart;
+@property (weak, nonatomic) IBOutlet UILabel* slotLabelEnd;
 
 @property (nonatomic, strong) NSMutableArray* timeSlotIntervals; // as array of DoublePair*
 

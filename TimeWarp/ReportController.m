@@ -21,6 +21,7 @@
 #import "PrefsConstants.h"
 #import "Project+Additions.h"
 #import "OrderedDictionary.h"
+#import "AutoscreenshotsUtils.h"
 
 
 #define kDayCellHeight 23
@@ -88,10 +89,16 @@
 
 - (void) initDateAndPeriodicity
 {
+
+#ifdef AUTOSCREENSHOTS
+    self.periodicityNb = 1;
+    self.periodicityUnit = @"month";
+    self.periodStart = [AutoscreenshotsUtils monthlyDateForScreenshots];
+#else
     NSUserDefaults* prefs = [NSUserDefaults standardUserDefaults];
     self.periodicityNb   = [prefs integerForKey:PREFS_PERIODICITY_NB];
     self.periodicityUnit = [prefs stringForKey: PREFS_PERIODICITY_UNIT];
-
+    
     self.periodStart = [prefs objectForKey:PREFS_PERIOD_START];
     NSDate* newPeriodStart = [self computeCurrentPeriodStart:self.periodStart withNb:self.periodicityNb andUnitString:self.periodicityUnit];
     if (![newPeriodStart isEqualToDate:self.periodStart]) {
@@ -99,6 +106,8 @@
         [prefs synchronize];
         self.periodStart = newPeriodStart;
     }
+#endif
+    
 }
 
 - (void) persisteReportSettings
@@ -406,11 +415,10 @@
 
 - (void)viewDidDisappear:(BOOL)animated
 {
-    [super viewDidDisappear:animated];
-    
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:DATA_REFRESH_AFTER_IMPORT
                                                   object:nil];
+    [super viewDidDisappear:animated];
 }
 
 - (void)dataRefreshedAfterImport

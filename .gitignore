@@ -1,2 +1,10 @@
 Pods/
+fastlane/screenshots/
+fastlane/report.xml
+TimeWarp.xcodeproj/project.xcworkspace/xcuserdata/
+TimeWarp.xcodeproj/xcuserdata/
 TimeWarp.xcworkspace/
+*.dSYM.zip
+*.ipa
+*.mobileprovision
+**/*.xccheckout

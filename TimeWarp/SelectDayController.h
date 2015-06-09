@@ -12,8 +12,8 @@
 
 @interface SelectDayController : UIViewController <TSQCalendarViewDelegate>
 
-@property (strong,nonatomic) IBOutlet TSQCalendarView* calendarView;
+@property (weak, nonatomic) IBOutlet TSQCalendarView* calendarView;
 
-@property (strong,nonatomic) NSDate* currentDate;
+@property (strong, nonatomic) NSDate* currentDate;
 
 @end

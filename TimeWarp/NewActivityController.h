@@ -20,8 +20,9 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *subviewWidthConstraint;
 
-@property (nonatomic, strong) IBOutlet UITextField* timeTextField;
-@property (nonatomic, strong) IBOutlet SAMTextView* noteTextView;
-@property (nonatomic, strong) IBOutlet UIPickerView* pickerView;
+@property (weak, nonatomic) IBOutlet UITextField* timeTextField;
+@property (weak, nonatomic) IBOutlet SAMTextView* noteTextView;
+@property (weak, nonatomic) IBOutlet UIPickerView* pickerView;
+@property (weak, nonatomic) IBOutlet UIButton *timeButton;
 
 @end

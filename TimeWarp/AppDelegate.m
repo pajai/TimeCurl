@@ -68,6 +68,8 @@
     
     [self handleImportData:launchOptions];
     
+    [self handleAutoscreenshotsDataImport];
+    
     return YES;
 }
 
@@ -110,6 +112,18 @@
         self.tmpFileURL = url;
         [self showImportConfirmation];
     }
+}
+
+- (void) handleAutoscreenshotsDataImport
+{
+#ifdef AUTOSCREENSHOTS
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"data-screenshots" ofType:@"timecurl"];
+    NSURL *url = [NSURL fileURLWithPath:filePath];
+    
+    ModelSerializer *modelSerializer = [[ModelSerializer alloc] init];
+    [modelSerializer deleteAllData];
+    [modelSerializer importFileFromUrl:url];
+#endif
 }
 
 #define PHASE_IMPORT_CONFIRMATION 1
