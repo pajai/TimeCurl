@@ -21,6 +21,7 @@
 
 #define kResizeThumbSize 25
 
+
 @interface SlotView ()
 
 @property (readwrite) BOOL isResizingTop;

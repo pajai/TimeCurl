@@ -28,7 +28,6 @@ NSString * const iCloudStoreMigrated = @"store.migrated";
 
 
 @interface CoreDataWrapper ()
-
 @end
 
 

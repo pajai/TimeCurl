@@ -32,10 +32,8 @@
 
 
 @interface ProjectListController ()
-
-- (void) loadData;
-
 @end
+
 
 @implementation ProjectListController
 

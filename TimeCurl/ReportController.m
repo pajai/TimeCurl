@@ -57,8 +57,8 @@
 
 @end
 
-@implementation ReportController
 
+@implementation ReportController
 
 #pragma mark custom methods
 

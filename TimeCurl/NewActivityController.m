@@ -28,15 +28,13 @@
 #import "UIApplication+AppDimensions.h"
 #import "DeviceInfo.h"
 
+
 @interface NewActivityController ()
 
 @property (readwrite) BOOL resetTimeInProgress;
 
-- (void) updateTimeField;
-- (void) loadProjects;
-- (double)doubleHourFromDate:(NSDate*)date;
-
 @end
+
 
 @implementation NewActivityController
 
@@ -276,15 +274,6 @@
         [self.pickerView selectRow:index inComponent:0 animated:NO];
         self.selectedProject = self.projects[index];
     }
-}
-
-- (double)doubleHourFromDate:(NSDate*)date
-{
-    NSCalendar *cal = [NSCalendar currentCalendar];
-    NSDateComponents *components = [cal components:(NSCalendarUnitEra|NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour|NSCalendarUnitMinute) fromDate:date];
-    NSInteger hour = [components hour];
-    NSInteger min  = [components minute];
-    return (1.0 * hour) + ((min * 1.0) / 60.0);
 }
 
 - (void) viewWillAppear:(BOOL)animated

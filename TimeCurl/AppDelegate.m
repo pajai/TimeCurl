@@ -23,12 +23,12 @@
 #import "PrefsConstants.h"
 #import "UIUtils.h"
 
+
 @interface AppDelegate ()
 
 // used for a data import
 @property (strong, nonatomic) NSURL* tmpFileURL;
 
-- (void) customizeAppearance;
 @end
 
 

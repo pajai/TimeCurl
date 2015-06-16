@@ -20,9 +20,10 @@
 #import "TimeUtils.h"
 #import "TSQTACalendarRowCell.h"
 
-@interface SelectDayController ()
 
+@interface SelectDayController ()
 @end
+
 
 @implementation SelectDayController
 
