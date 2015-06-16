@@ -801,8 +801,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = TimeCurl/TimeCurl.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: patrick jayet (2WXN38VLT5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: patrick jayet (2WXN38VLT5)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: patrick jayet (7Y3Y25X2V9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: patrick jayet (7Y3Y25X2V9)";
+				CURRENT_PROJECT_VERSION = 4;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TimeCurl/TimeCurl-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -814,7 +815,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b997ca56-aac5-43e7-93dc-52a01c043488";
+				PROVISIONING_PROFILE = "d50efe0a-a3f7-4523-b154-344130a9bfdb";
 				WRAPPER_EXTENSION = app;
 			};
 			name = AutoScreenshots;
@@ -920,13 +921,14 @@
 				CODE_SIGN_ENTITLEMENTS = TimeCurl/TimeCurl.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: patrick jayet (7Y3Y25X2V9)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: patrick jayet (7Y3Y25X2V9)";
+				CURRENT_PROJECT_VERSION = 4;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TimeCurl/TimeCurl-Prefix.pch";
 				INFOPLIST_FILE = "TimeCurl/TimeCurl-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6603d965-87c5-4e75-b8b2-7c8ba5f1da66";
+				PROVISIONING_PROFILE = "d50efe0a-a3f7-4523-b154-344130a9bfdb";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -940,6 +942,7 @@
 				CODE_SIGN_ENTITLEMENTS = TimeCurl/TimeCurl.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: patrick jayet (2WXN38VLT5)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: patrick jayet (2WXN38VLT5)";
+				CURRENT_PROJECT_VERSION = 4;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TimeCurl/TimeCurl-Prefix.pch";
 				INFOPLIST_FILE = "TimeCurl/TimeCurl-Info.plist";
