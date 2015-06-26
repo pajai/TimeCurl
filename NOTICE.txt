@@ -1,0 +1,4 @@
+Patrick Jayet - June 26th 2015
+
+Feel free to use and extend this code (see the LICENSE.txt file for more details about the Apache License Version 2). Please give proper credit within your app to this project.
+
