@@ -195,7 +195,7 @@
                                                     message:@"How do you want to share the data?"
                                                    delegate:self
                                           cancelButtonTitle:@"Cancel"
-                                          otherButtonTitles:@"Current month (CSV)", @"All activities (CSV)", @"Complete data set (proprietary)", nil];
+                                          otherButtonTitles:@"Current report (CSV)", @"All activities (CSV)", @"Complete data set (proprietary)", nil];
     [alert show];
 
 }
