@@ -52,6 +52,7 @@
 
 @property (readwrite) NSInteger periodicityNb;
 @property (strong, nonatomic) NSString* periodicityUnit;
+@property (strong, nonatomic) NSArray* selectedProjects;
 
 @property (strong, nonatomic) NSDateFormatter* dateFormatter;
 
@@ -66,7 +67,7 @@
 {
     NSDate* nextPeriodStart = [TimeUtils incrementDate:self.periodStart forUnitString:self.periodicityUnit andNb:self.periodicityNb];
     
-    NSArray* activities = [[CoreDataWrapper shared] fetchActivitiesBetweenDate:self.periodStart andExclusiveDate:nextPeriodStart];
+    NSArray* activities = [[CoreDataWrapper shared] fetchActivitiesBetweenDate:self.periodStart andExclusiveDate:nextPeriodStart forProjects:self.selectedProjects];
     [self createReportForActivities:activities];
     
     self.activitiesByDay = [[CoreDataWrapper shared] groupActivitiesByDay:activities];
@@ -126,6 +127,7 @@
     [prefs setObject:self.periodicityUnit forKey:PREFS_PERIODICITY_UNIT];
     [prefs setInteger:self.periodicityNb forKey:PREFS_PERIODICITY_NB];
     [prefs setObject:self.periodStart forKey:PREFS_PERIOD_START];
+	//selectedProjects: we don't want to store entities, since they are huge and can become stale
     [prefs synchronize];
 }
 
@@ -181,6 +183,7 @@
     self.periodicityNb = configureReportController.periodicityNb;
     self.periodicityUnit = configureReportController.periodicityUnit;
     self.periodStart = configureReportController.periodStart;
+	self.selectedProjects = configureReportController.selectedProjects;
 
     [self persisteReportSettings];
 }
@@ -372,6 +375,8 @@
         controller.periodStart = self.periodStart;
         controller.periodicityNb = self.periodicityNb;
         controller.periodicityUnit = self.periodicityUnit;
+		controller.selectedProjects = self.selectedProjects;
+		controller.hidesBottomBarWhenPushed = YES;
         
     }
 

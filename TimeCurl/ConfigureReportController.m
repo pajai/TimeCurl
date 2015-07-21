@@ -18,6 +18,7 @@
 
 #import "ConfigureReportController.h"
 #import "SelectDayController.h"
+#import "ProjectSelectorController.h"
 
 
 @interface ConfigureReportController ()
@@ -95,6 +96,10 @@
         SelectDayController* controller = (SelectDayController*) segue.destinationViewController;
         controller.currentDate = self.periodStart;
     }
+	else if ([segue.identifier isEqualToString:@"embeddedProjectSelector"]) {
+		ProjectSelectorController* controller = (ProjectSelectorController*) segue.destinationViewController;
+		controller.configController = self;
+	}
 }
 
 - (IBAction)doneSelectingDay:(UIStoryboardSegue *)segue

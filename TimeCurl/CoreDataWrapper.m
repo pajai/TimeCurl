@@ -374,6 +374,11 @@ NSString * const iCloudStoreMigrated = @"store.migrated";
 
 - (NSArray*) fetchActivitiesBetweenDate:(NSDate*)fromDate andExclusiveDate:(NSDate*)toDate
 {
+	return [self fetchActivitiesBetweenDate:fromDate andExclusiveDate:toDate forProjects:nil];
+}
+
+- (NSArray*) fetchActivitiesBetweenDate:(NSDate*)fromDate andExclusiveDate:(NSDate*)toDate forProjects:(NSArray*)projects
+{
     NSLog(@"Fetch activities between %@ and %@ exclusive", fromDate, toDate);
 
     NSManagedObjectContext* managedObjectContext = [self managedObjectContext];
@@ -383,6 +388,11 @@ NSString * const iCloudStoreMigrated = @"store.migrated";
     
     // TODO perhaps not the most efficient query
     NSPredicate* predicate = [NSPredicate predicateWithFormat:@"self.date >= %@ AND self.date < %@", fromDate, toDate];
+	
+	if (projects) {
+		predicate = [NSPredicate predicateWithFormat:@"self.date >= %@ AND self.date < %@ AND project IN %@", fromDate, toDate, projects];
+	}
+	
     [fetchRequest setPredicate:predicate];
     
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO];

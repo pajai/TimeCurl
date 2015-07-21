@@ -44,6 +44,7 @@
 
 - (NSArray*) fetchAllActivities;
 - (NSArray*) fetchActivitiesBetweenDate:(NSDate*)fromDate andExclusiveDate:(NSDate*)toDate;
+- (NSArray*) fetchActivitiesBetweenDate:(NSDate*)fromDate andExclusiveDate:(NSDate*)toDate forProjects:(NSArray*)projects;
 - (NSArray*) fetchActivitiesForMonth:(NSDate*) date;
 - (NSArray*) fetchActivitiesForDate:(NSDate*) date;
 - (NSArray*) fetchActivitiesByDayForMonth:(NSDate*) date;
