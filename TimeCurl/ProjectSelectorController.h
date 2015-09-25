@@ -1,6 +1,6 @@
 /*
  
- Copyright 2013-2015 Patrick Jayet
+ Copyright 2015 Jérémie Blaser
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -14,15 +14,14 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  
-*/
+ */
 
 #import <UIKit/UIKit.h>
+#import "ConfigureReportController.h"
 
-@interface ConfigureReportController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 
-@property (strong, nonatomic) NSDate* periodStart;
-@property (readwrite) NSInteger periodicityNb;
-@property (strong, nonatomic) NSString* periodicityUnit;
-@property (strong, nonatomic) NSArray* selectedProjects;
+@interface ProjectSelectorController : UITableViewController
+
+@property (nonatomic, strong) ConfigureReportController* configController;
 
 @end

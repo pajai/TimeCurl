@@ -83,6 +83,7 @@
 		43EF209F18E75FE400AF4702 /* ConfigureReportController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43EF209E18E75FE400AF4702 /* ConfigureReportController.m */; };
 		43FECC2217D0823E003179B6 /* UIConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FECC2117D0823E003179B6 /* UIConstants.m */; };
 		43FECC2417D08525003179B6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43FECC2317D08525003179B6 /* QuartzCore.framework */; };
+		68D7CCA51B55B9F50095D8FD /* ProjectSelectorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D7CCA41B55B9F50095D8FD /* ProjectSelectorController.m */; };
 		8F6F6B1E0A174A8954E6A313 /* libPods-TimeCurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9149A1090F1F3266D1416073 /* libPods-TimeCurl.a */; };
 /* End PBXBuildFile section */
 
@@ -202,6 +203,8 @@
 		43FECC2017D0823E003179B6 /* UIConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIConstants.h; sourceTree = "<group>"; };
 		43FECC2117D0823E003179B6 /* UIConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIConstants.m; sourceTree = "<group>"; };
 		43FECC2317D08525003179B6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		68D7CCA31B55B9F50095D8FD /* ProjectSelectorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectSelectorController.h; sourceTree = "<group>"; };
+		68D7CCA41B55B9F50095D8FD /* ProjectSelectorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectSelectorController.m; sourceTree = "<group>"; };
 		7117E2903C12617AA604C0F4 /* Pods-TimeCurl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeCurl.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimeCurl/Pods-TimeCurl.release.xcconfig"; sourceTree = "<group>"; };
 		89DF0423D2C6E9EFDD2F00E3 /* Pods-TimeCurl.autoscreenshots.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeCurl.autoscreenshots.xcconfig"; path = "Pods/Target Support Files/Pods-TimeCurl/Pods-TimeCurl.autoscreenshots.xcconfig"; sourceTree = "<group>"; };
 		9149A1090F1F3266D1416073 /* libPods-TimeCurl.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TimeCurl.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -445,6 +448,8 @@
 				43E6027017821A8500EAA813 /* ReportController.m */,
 				43EF209D18E75FE400AF4702 /* ConfigureReportController.h */,
 				43EF209E18E75FE400AF4702 /* ConfigureReportController.m */,
+				68D7CCA31B55B9F50095D8FD /* ProjectSelectorController.h */,
+				68D7CCA41B55B9F50095D8FD /* ProjectSelectorController.m */,
 			);
 			name = report;
 			sourceTree = "<group>";
@@ -696,6 +701,7 @@
 				43BAFD6F17CF89C700B6A4FC /* SelectDayController.m in Sources */,
 				431535491773060800B5D825 /* SlotInterval.m in Sources */,
 				4312E70518F7E5EE00C23B01 /* TimeSlot+Additions.m in Sources */,
+				68D7CCA51B55B9F50095D8FD /* ProjectSelectorController.m in Sources */,
 				4345FA3D176F31FE002BBDB0 /* NewProjectController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
