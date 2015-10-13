@@ -250,9 +250,9 @@ typedef NS_ENUM(NSInteger, TimeLabelType) {
     
     SlotInterval* previousSlot = nil;
     NSMutableArray* toRemove = [NSMutableArray array];
-    NSLog(@">>> merging slots");
+    DDLogDebug(@">>> merging slots");
     for (SlotInterval* slot in self.timeSlotIntervals) {
-        NSLog(@"slot %.2f, %.2f", slot.begin, slot.end);
+        DDLogDebug(@"slot %.2f, %.2f", slot.begin, slot.end);
         if (previousSlot != nil) {
             
             // current slot is contained in previous one -> remove current

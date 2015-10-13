@@ -13,4 +13,11 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+
+    #import <CocoaLumberjack/CocoaLumberjack.h>
+    #ifdef DEBUG
+    static const DDLogLevel ddLogLevel = DDLogLevelDebug;
+    #else
+    static const DDLogLevel ddLogLevel = DDLogLevelError;
+    #endif
 #endif

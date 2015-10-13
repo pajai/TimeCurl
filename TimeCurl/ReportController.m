@@ -177,7 +177,7 @@
 
 - (IBAction) configureReportDone:(UIStoryboardSegue *)segue
 {
-    NSLog(@"Done configuring report");
+    DDLogDebug(@"Done configuring report");
     
     ConfigureReportController* configureReportController = (ConfigureReportController*)segue.sourceViewController;
     self.periodicityNb = configureReportController.periodicityNb;
@@ -203,7 +203,7 @@
 - (IBAction)handleSwipeRight:(UISwipeGestureRecognizer *)sender
 {
 	if (sender.state == UIGestureRecognizerStateEnded) {
-		NSLog(@"Current date minus one period");
+		DDLogDebug(@"Current date minus one period");
         self.periodStart = [TimeUtils decrementDate:self.periodStart forUnitString:self.periodicityUnit andNb:self.periodicityNb];
         [self loadData];
         [self updateTitle];
@@ -213,7 +213,7 @@
 - (IBAction)handleSwipeLeft:(UISwipeGestureRecognizer *)sender
 {
 	if (sender.state == UIGestureRecognizerStateEnded) {
-		NSLog(@"Current date plus one period");
+		DDLogDebug(@"Current date plus one period");
         self.periodStart = [TimeUtils incrementDate:self.periodStart forUnitString:self.periodicityUnit andNb:self.periodicityNb];
         [self loadData];
         [self updateTitle];

@@ -42,7 +42,7 @@
 
 - (IBAction)doneSelectingDay:(UIStoryboardSegue *)segue
 {
-    NSLog(@"Done selecting day");
+    DDLogDebug(@"Done selecting day");
     
     SelectDayController* sourceController = segue.sourceViewController;
     self.currentDate = sourceController.currentDate;
@@ -139,7 +139,7 @@
 - (IBAction)handleSwipeRight:(UISwipeGestureRecognizer *)sender
 {
 	if (sender.state == UIGestureRecognizerStateEnded) {
-		NSLog(@"Current date minus one day");
+		DDLogDebug(@"Current date minus one day");
         self.currentDate = [NSDate dateWithTimeInterval:-24*60*60 sinceDate:self.currentDate];
         [self loadData];
         [self updateTitle];
@@ -149,7 +149,7 @@
 - (IBAction)handleSwipeLeft:(UISwipeGestureRecognizer *)sender
 {
 	if (sender.state == UIGestureRecognizerStateEnded) {
-		NSLog(@"Current date plus one day");
+		DDLogDebug(@"Current date plus one day");
         self.currentDate = [NSDate dateWithTimeInterval:24*60*60 sinceDate:self.currentDate];
         [self loadData];
         [self updateTitle];

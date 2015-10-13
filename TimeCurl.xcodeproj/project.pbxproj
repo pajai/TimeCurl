@@ -816,6 +816,7 @@
 					"$(inherited)",
 					"COCOAPODS=1",
 					"AUTOSCREENSHOTS=1",
+					"DEBUG=1",
 				);
 				INFOPLIST_FILE = "TimeCurl/TimeCurl-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

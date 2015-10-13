@@ -81,7 +81,7 @@
     IconSelectionController* controller = segue.sourceViewController;
     self.iconName = controller.selectedIconName;
     [self updateIcon];
-    NSLog(@"Done selecting icon: %@", controller.selectedIconName);
+    DDLogDebug(@"Done selecting icon: %@", controller.selectedIconName);
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

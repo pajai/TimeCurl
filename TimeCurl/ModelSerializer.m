@@ -56,7 +56,7 @@
     
     NSError* error = nil;
     if (![NSJSONSerialization isValidJSONObject:convertedProjects]) {
-        NSLog(@"Projects are not valid JSON objects");
+        DDLogError(@"Projects are not valid JSON objects");
         return nil;
     }
     
@@ -65,7 +65,7 @@
                                                      error:&error];
     
     if (error) {
-        NSLog(@"Error while converting the projects to foundation objects, error: %@", [error localizedDescription]);
+        DDLogError(@"Error while converting the projects to foundation objects, error: %@", [error localizedDescription]);
         return nil;
     }
     
@@ -133,27 +133,27 @@
     NSError* error = nil;
     NSData* data = [NSData dataWithContentsOfURL:url options:NSDataReadingUncached error:&error];
     if (error) {
-        NSLog(@"Failed reading the data from the url %@, error: %@", url, [error localizedDescription]);
+        DDLogError(@"Failed reading the data from the url %@, error: %@", url, [error localizedDescription]);
         [self showError:[NSString stringWithFormat:@"An error occured while importing the file."]];
         return;
     }
     
     NSObject* object = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     if (error) {
-        NSLog(@"Failed to convert the data to JSON objects, error: %@", [error localizedDescription]);
+        DDLogError(@"Failed to convert the data to JSON objects, error: %@", [error localizedDescription]);
         [self showError:[NSString stringWithFormat:@"An error occured while importing the file."]];
         return;
     }
     
     if (![object isKindOfClass:[NSDictionary class]]) {
-        NSLog(@"The imported JSON object is not of the right type, should be a dictionary, is %@", [object class]);
+        DDLogError(@"The imported JSON object is not of the right type, should be a dictionary, is %@", [object class]);
         [self showError:[NSString stringWithFormat:@"An error occured while importing the file."]];
         return;
     }
     
     NSDictionary* dict = (NSDictionary*)object;
     if (![self dataHasValidHeader:dict]) {
-        NSLog(@"The imported data is not compatible with TimeCurl format version 1");
+        DDLogError(@"The imported data is not compatible with TimeCurl format version 1");
         [self showError:[NSString stringWithFormat:@"The imported data is not compatible with the current TimeCurl format version. You can only import data with the same app version used to export it."]];
         return;
     }

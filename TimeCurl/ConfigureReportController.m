@@ -104,7 +104,7 @@
 
 - (IBAction)doneSelectingDay:(UIStoryboardSegue *)segue
 {
-    NSLog(@"Done selecting day");
+    DDLogDebug(@"Done selecting day");
     
     SelectDayController* sourceController = segue.sourceViewController;
     self.periodStart = sourceController.currentDate;

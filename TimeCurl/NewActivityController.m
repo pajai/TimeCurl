@@ -41,7 +41,7 @@
 #pragma mark custom methods
 
 - (IBAction)doneSelectingTime:(UIStoryboardSegue *)segue {
-    NSLog(@"Done selecting time");
+    DDLogDebug(@"Done selecting time");
 
     SelectTimeController* sourceController = segue.sourceViewController;
     self.timeSlotIntervals = sourceController.timeSlotIntervals;
@@ -68,7 +68,7 @@
 
 - (IBAction)donePressed:(id)sender
 {
-    NSLog(@"NewActivityController: done pressed");
+    DDLogDebug(@"NewActivityController: done pressed");
     
     if (self.activity == nil) {
         self.activity = [[CoreDataWrapper shared] newActivity];

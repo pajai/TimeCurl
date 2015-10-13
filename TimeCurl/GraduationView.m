@@ -55,25 +55,25 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    NSLog(@"GradView: touches began");
+    DDLogDebug(@"GradView: touches began");
     [self.delegate defineSlotStart:touches];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    NSLog(@"GradView: touches ended");
+    DDLogDebug(@"GradView: touches ended");
     [self.delegate defineSlotEnd:touches];
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    NSLog(@"GradView: touches cancelled");
+    DDLogDebug(@"GradView: touches cancelled");
     [self.delegate defineSlotEnd:touches];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    //NSLog(@"GradView: touches moved");
+    //DDLogDebug(@"GradView: touches moved");
     [self.delegate defineSlotMove:touches];
 }
 

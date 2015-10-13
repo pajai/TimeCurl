@@ -88,7 +88,7 @@
 			break;
 		case MFMailComposeResultFailed:
 			errMsg = @"An error occured while sending the e-mail";
-			NSLog(@"Error occured while sending mail: MFMailComposeResultFailed");
+			DDLogError(@"Error occured while sending mail: MFMailComposeResultFailed");
 			break;
 	}
 	

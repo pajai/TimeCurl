@@ -107,7 +107,7 @@ NSString * const iCloudStoreMigrated = @"store.migrated";
                                                                    options:options
                                                                      error:&error];
     if (!store) {
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        DDLogError(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
     
@@ -131,7 +131,7 @@ NSString * const iCloudStoreMigrated = @"store.migrated";
 
 - (void)migrateiCloudStoreToLocalStore
 {
-    NSLog(@"Migrating store from iCloud to local");
+    DDLogDebug(@"Migrating store from iCloud to local");
     NSPersistentStore* store = [self.persistentStoreCoordinator persistentStores].firstObject;
     
     NSDictionary *options = @{ NSMigratePersistentStoresAutomaticallyOption : @YES,
@@ -143,7 +143,7 @@ NSString * const iCloudStoreMigrated = @"store.migrated";
     NSPersistentStore *newStore = [self.persistentStoreCoordinator migratePersistentStore:store toURL:[self storeUrl] options:options withType:NSSQLiteStoreType error:&error];
     
     if (error) {
-        NSLog(@"Error happened while migrating store from iCloud to local: %@", error);
+        DDLogError(@"Error happened while migrating store from iCloud to local: %@", error);
     }
     else {
         [self reloadStore:newStore withOptions:options];
@@ -206,19 +206,19 @@ NSString * const iCloudStoreMigrated = @"store.migrated";
 
 - (void)persistentStoreDidImportUbiquitiousContentChanges:(NSNotification *)changeNotification
 {
-    NSLog(@">>>> MERGE CANDIDATE");
+    DDLogDebug(@">>>> MERGE CANDIDATE");
 
     NSManagedObjectContext *moc = [self managedObjectContext];
     [moc performBlock:^{
         NSDictionary *userInfo = [changeNotification userInfo];
-        NSLog(@">>>> BEGIN");
-        NSLog(@"%@", userInfo);
-        NSLog(@">>>> END");
+        DDLogDebug(@">>>> BEGIN");
+        DDLogDebug(@"%@", userInfo);
+        DDLogDebug(@">>>> END");
         if (([userInfo objectForKey:NSInsertedObjectsKey] > 0) &&
             ([userInfo objectForKey:NSUpdatedObjectsKey] > 0) &&
             ([userInfo objectForKey:NSDeletedObjectsKey] > 0))
         {
-            NSLog(@">>>> MERGE");
+            DDLogDebug(@">>>> MERGE");
             [moc mergeChangesFromContextDidSaveNotification:changeNotification];
             [self.storeChangeDelegate storeDidChange];
         }
@@ -237,21 +237,21 @@ NSString * const iCloudStoreMigrated = @"store.migrated";
     }];
     //reset user interface
     
-    NSLog(@">>>> Stores Will Change, TODO update UI");
-    NSLog(@">>>> BEGIN");
+    DDLogDebug(@">>>> Stores Will Change, TODO update UI");
+    DDLogDebug(@">>>> BEGIN");
     NSDictionary *userInfo = [n userInfo];
-    NSLog(@"%@", userInfo);
-    NSLog(@">>>> END");
+    DDLogDebug(@"%@", userInfo);
+    DDLogDebug(@">>>> END");
 
 }
 
 - (void)storesDidChange:(NSNotification *)n
 {
-    NSLog(@">>>> BEGIN");
+    DDLogDebug(@">>>> BEGIN");
     NSDictionary *userInfo = [n userInfo];
-    NSLog(@"%@", userInfo);
+    DDLogDebug(@"%@", userInfo);
     [self.storeChangeDelegate storeDidChange];
-    NSLog(@">>>> END");
+    DDLogDebug(@">>>> END");
 
 }
 
@@ -303,7 +303,7 @@ NSString * const iCloudStoreMigrated = @"store.migrated";
 
 - (NSArray*) fetchAllActivities
 {
-    NSLog(@"Fetch all activities");
+    DDLogDebug(@"Fetch all activities");
     
     NSManagedObjectContext* managedObjectContext = [self managedObjectContext];
     NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
@@ -327,7 +327,7 @@ NSString * const iCloudStoreMigrated = @"store.migrated";
 
 - (NSArray*) fetchActivitiesForDate:(NSDate*) date
 {
-    NSLog(@"Fetch activities for %@", date);
+    DDLogDebug(@"Fetch activities for %@", date);
     
     NSManagedObjectContext* managedObjectContext = [self managedObjectContext];
     NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
@@ -365,7 +365,7 @@ NSString * const iCloudStoreMigrated = @"store.migrated";
 
 - (NSArray*) fetchActivitiesForMonth:(NSDate*) date
 {
-    //NSLog(@"Fetch activities for month %@", date);
+    //DDLogDebug(@"Fetch activities for month %@", date);
     
     NSDate* month      = [TimeUtils monthForDate:date];
     NSDate* monthAfter = [TimeUtils incrementMonthForDate:month];
@@ -379,7 +379,7 @@ NSString * const iCloudStoreMigrated = @"store.migrated";
 
 - (NSArray*) fetchActivitiesBetweenDate:(NSDate*)fromDate andExclusiveDate:(NSDate*)toDate forProjects:(NSArray*)projects
 {
-    NSLog(@"Fetch activities between %@ and %@ exclusive", fromDate, toDate);
+    DDLogDebug(@"Fetch activities between %@ and %@ exclusive", fromDate, toDate);
 
     NSManagedObjectContext* managedObjectContext = [self managedObjectContext];
     NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
@@ -453,7 +453,7 @@ NSString * const iCloudStoreMigrated = @"store.migrated";
 {
     NSError* error = nil;
     if (![[self managedObjectContext] save:&error]) {
-        NSLog(@"Error happened while saving context: %@", [error localizedDescription]);
+        DDLogError(@"Error happened while saving context: %@", [error localizedDescription]);
         NSString *title = NSLocalizedString(@"A problem arose. Could not save changes.", @"Save fail");
         NSString *message = NSLocalizedString(@"You should quit as soon as possible, "
                                               @"because continuing could cause other problems.", @"");
@@ -476,7 +476,7 @@ NSString * const iCloudStoreMigrated = @"store.migrated";
 
 - (BOOL) logError:(NSError*)error withMessage:(NSString*)msg {
     if (error != nil) {
-        NSLog(@"Error - %@: %@, %@", msg, [error localizedDescription], [error userInfo]);
+        DDLogError(@"Error - %@: %@, %@", msg, [error localizedDescription], [error userInfo]);
         return YES;
     }
     else {

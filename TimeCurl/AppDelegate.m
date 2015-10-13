@@ -70,6 +70,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [self configureLogger];
+    
     [self writeDefaultPrefs];
     
     [self customizeAppearance];
@@ -81,6 +83,18 @@
     [self handleAutoscreenshotsDataImport];
     
     return YES;
+}
+
+- (void) configureLogger
+{
+#ifdef DEBUG
+    DDLogLevel level = DDLogLevelVerbose;
+#else
+    DDLogLevel level = DDLogLevelError;
+#endif
+    
+    [DDLog addLogger:[DDASLLogger sharedInstance] withLevel:level];
+    [DDLog addLogger:[DDTTYLogger sharedInstance] withLevel:level];
 }
 
 - (void) writeDefaultPrefs

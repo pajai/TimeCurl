@@ -47,16 +47,16 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    //NSLog(@"Touch begin slot");
+    //DDLogDebug(@"Touch begin slot");
     self.touchStart = [[touches anyObject] locationInView:self];
     self.isResizingTop    = self.touchStart.y < kResizeThumbSize;
     self.isResizingBottom = self.bounds.size.height - self.touchStart.y < kResizeThumbSize;
     
     if (self.isResizingTop) {
-        NSLog(@"is resizing top start");
+        DDLogDebug(@"is resizing top start");
     }
     if (self.isResizingBottom) {
-        NSLog(@"is resizing bottom start");
+        DDLogDebug(@"is resizing bottom start");
     }
     if (self.isResizingTop || self.isResizingBottom) {
         self.highlighted = YES;
@@ -76,11 +76,11 @@
     
     float deltaHeight = currentPoint.y - previousPoint.y;
     if (self.isResizingTop) {
-        //NSLog(@">>> TOP delta is %f, delta tot is %f", deltaHeight, self.deltaHeightTotal);
+        //DDLogDebug(@">>> TOP delta is %f, delta tot is %f", deltaHeight, self.deltaHeightTotal);
         [self.selectTimeController moveSlotTop:self.slotInterval withDelta:deltaHeight];
     }
     else if (self.isResizingBottom) {
-        //NSLog(@">>> BOTTOM delta is %f, delta tot is %f", deltaHeight, self.deltaHeightTotal);
+        //DDLogDebug(@">>> BOTTOM delta is %f, delta tot is %f", deltaHeight, self.deltaHeightTotal);
         [self.selectTimeController moveSlotBottom:self.slotInterval withDelta:deltaHeight];
     }
 }
@@ -92,7 +92,7 @@
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    NSLog(@"touches cancelled");
+    DDLogDebug(@"touches cancelled");
     
     [self handleTouchEnd];
 }
@@ -100,15 +100,15 @@
 - (void)handleTouchEnd
 {
     if (self.isResizingTop) {
-        NSLog(@"is resizing top end");
+        DDLogDebug(@"is resizing top end");
     }
     if (self.isResizingBottom) {
-        NSLog(@"is resizing bottom end");
+        DDLogDebug(@"is resizing bottom end");
     }
 
     self.highlighted = NO;
     
-    //NSLog(@"Touch end slot");
+    //DDLogDebug(@"Touch end slot");
     self.isResizingTop = NO;
     self.isResizingBottom = NO;
     [self.selectTimeController moveEndSlot:self.slotInterval];
