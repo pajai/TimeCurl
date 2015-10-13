@@ -2,7 +2,7 @@ platform :ios, '8.0'
 
 target 'TimeCurl' do
   pod 'TPKeyboardAvoiding', '~> 1.2.6'
-  pod 'FlurrySDK',          '~> 6.5.0'
+  pod 'Flurry-iOS-SDK',     '~> 7.2.1'
   pod 'SAMTextView',        '~> 0.2.2'
   pod 'OrderedDictionary',  '~> 1.2'
   pod 'CocoaLumberjack',    '~> 2.0.3'

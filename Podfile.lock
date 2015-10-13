@@ -8,9 +8,9 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (2.0.3):
     - CocoaLumberjack/Default
-  - FlurrySDK (6.5.0):
-    - FlurrySDK/FlurrySDK (= 6.5.0)
-  - FlurrySDK/FlurrySDK (6.5.0)
+  - Flurry-iOS-SDK (7.2.1):
+    - Flurry-iOS-SDK/FlurrySDK (= 7.2.1)
+  - Flurry-iOS-SDK/FlurrySDK (7.2.1)
   - OrderedDictionary (1.2)
   - SAMTextView (0.2.2)
   - TimesSquare (1.0.1)
@@ -19,7 +19,7 @@ PODS:
 DEPENDENCIES:
   - CHCSVParser (from `https://github.com/pajai/CHCSVParser.git`)
   - CocoaLumberjack (~> 2.0.3)
-  - FlurrySDK (~> 6.5.0)
+  - Flurry-iOS-SDK
   - OrderedDictionary (~> 1.2)
   - SAMTextView (~> 0.2.2)
   - TimesSquare (from `https://github.com/pajai/objc-TimesSquare.git`)
@@ -36,13 +36,13 @@ CHECKOUT OPTIONS:
     :commit: 1c5dd3d4f7e00b6902c481c0bdffe33d23b8f8d6
     :git: https://github.com/pajai/CHCSVParser.git
   TimesSquare:
-    :commit: f894f7fc1672ee4ec1efa382ce39029f9d3d19d1
+    :commit: 6b15567b50b3563a742caaa03b4153eb64dcdaeb
     :git: https://github.com/pajai/objc-TimesSquare.git
 
 SPEC CHECKSUMS:
   CHCSVParser: 64da26e2b4ddbf7527f7f03120bf91d83d28f354
   CocoaLumberjack: f58d8a19629f4d8379ae14bb3534def24161430e
-  FlurrySDK: 820acaa95f7ec08797517720714783928d3e386b
+  Flurry-iOS-SDK: 014d366cad101f05d4e8c191c0e0c0871d5704f7
   OrderedDictionary: 9cc5d69c5c5314ad696ed1839190724e83d534c7
   SAMTextView: 979c43bb1fa5859ddfbfeb35e9c296a2b0ec55fd
   TimesSquare: 123dd6b3610a21123fdc33b85fab962e0efac936
