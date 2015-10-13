@@ -1,0 +1,37 @@
+PODS:
+  - CHCSVParser (2.1.0)
+  - FlurrySDK (6.5.0):
+    - FlurrySDK/FlurrySDK (= 6.5.0)
+  - FlurrySDK/FlurrySDK (6.5.0)
+  - OrderedDictionary (1.2)
+  - SAMTextView (0.2.2)
+  - TimesSquare (1.0.1)
+  - TPKeyboardAvoiding (1.2.6)
+
+DEPENDENCIES:
+  - CHCSVParser (~> 2.1.0)
+  - FlurrySDK (~> 6.5.0)
+  - OrderedDictionary (~> 1.2)
+  - SAMTextView (~> 0.2.2)
+  - TimesSquare (from `https://github.com/square/objc-TimesSquare.git`, commit `5e394b17eae2016e9f3f545e7945a382f3811e8c`)
+  - TPKeyboardAvoiding (~> 1.2.6)
+
+EXTERNAL SOURCES:
+  TimesSquare:
+    :commit: 5e394b17eae2016e9f3f545e7945a382f3811e8c
+    :git: https://github.com/square/objc-TimesSquare.git
+
+CHECKOUT OPTIONS:
+  TimesSquare:
+    :commit: 5e394b17eae2016e9f3f545e7945a382f3811e8c
+    :git: https://github.com/square/objc-TimesSquare.git
+
+SPEC CHECKSUMS:
+  CHCSVParser: 3bcc7bdb72111a31222e95d57eacceefe4e537e8
+  FlurrySDK: 7e749c1bd22f4fb0a863663e38c58bc841980b25
+  OrderedDictionary: 9cc5d69c5c5314ad696ed1839190724e83d534c7
+  SAMTextView: 979c43bb1fa5859ddfbfeb35e9c296a2b0ec55fd
+  TimesSquare: 123dd6b3610a21123fdc33b85fab962e0efac936
+  TPKeyboardAvoiding: ee4dd35e3bb7bb64bfbda47e7cc9ba872ff10f77
+
+COCOAPODS: 0.36.3
