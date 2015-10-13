@@ -8,7 +8,7 @@
 
 import XCTest
 
-class TimeCurlUITests: XCTestCase {
+class CurrentActivitiesTests: XCTestCase {
         
     override func setUp() {
         super.setUp()
