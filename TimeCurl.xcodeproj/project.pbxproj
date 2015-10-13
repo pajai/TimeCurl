@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00A7D223C2B9B3B5D40D539D /* libPods-TimeCurlTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7CE17A2AD6450F4EB4BCEBA /* libPods-TimeCurlTests.a */; };
 		2ED71AFF1B20DFE500D6AD3F /* data-screenshots.timecurl in Resources */ = {isa = PBXBuildFile; fileRef = 2ED71AFE1B20DFE500D6AD3F /* data-screenshots.timecurl */; };
 		2ED71B051B2191F900D6AD3F /* AutoscreenshotsUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED71B041B2191F900D6AD3F /* AutoscreenshotsUtils.m */; };
 		2EF4D4471BCD1C1700B5CAD8 /* CurrentActivitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF4D4461BCD1C1700B5CAD8 /* CurrentActivitiesTests.swift */; };
@@ -62,12 +63,11 @@
 		43EF209918E71E1800AF4702 /* CalendarSelectedDate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 43EF208D18E71E1800AF4702 /* CalendarSelectedDate@2x.png */; };
 		43EF209A18E71E1800AF4702 /* CalendarTodaysDate.png in Resources */ = {isa = PBXBuildFile; fileRef = 43EF208E18E71E1800AF4702 /* CalendarTodaysDate.png */; };
 		43EF209B18E71E1800AF4702 /* CalendarTodaysDate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 43EF208F18E71E1800AF4702 /* CalendarTodaysDate@2x.png */; };
-		43EF209C18E71E1800AF4702 /* TSQTACalendarRowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 43EF209118E71E1800AF4702 /* TSQTACalendarRowCell.m */; };
 		43EF209F18E75FE400AF4702 /* ConfigureReportController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43EF209E18E75FE400AF4702 /* ConfigureReportController.m */; };
 		43FECC2217D0823E003179B6 /* UIConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FECC2117D0823E003179B6 /* UIConstants.m */; };
 		43FECC2417D08525003179B6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43FECC2317D08525003179B6 /* QuartzCore.framework */; };
 		68D7CCA51B55B9F50095D8FD /* ProjectSelectorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D7CCA41B55B9F50095D8FD /* ProjectSelectorController.m */; };
-		8F6F6B1E0A174A8954E6A313 /* libPods-TimeCurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9149A1090F1F3266D1416073 /* libPods-TimeCurl.a */; };
+		D6985EA929F8222D65366F41 /* libPods-TimeCurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C86C9F664E13BBAD75E8C546 /* libPods-TimeCurl.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -189,8 +189,6 @@
 		43EF208D18E71E1800AF4702 /* CalendarSelectedDate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CalendarSelectedDate@2x.png"; sourceTree = "<group>"; };
 		43EF208E18E71E1800AF4702 /* CalendarTodaysDate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CalendarTodaysDate.png; sourceTree = "<group>"; };
 		43EF208F18E71E1800AF4702 /* CalendarTodaysDate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CalendarTodaysDate@2x.png"; sourceTree = "<group>"; };
-		43EF209018E71E1800AF4702 /* TSQTACalendarRowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSQTACalendarRowCell.h; path = TimeSquareCustomize/TSQTACalendarRowCell.h; sourceTree = "<group>"; };
-		43EF209118E71E1800AF4702 /* TSQTACalendarRowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSQTACalendarRowCell.m; path = TimeSquareCustomize/TSQTACalendarRowCell.m; sourceTree = "<group>"; };
 		43EF209D18E75FE400AF4702 /* ConfigureReportController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigureReportController.h; sourceTree = "<group>"; };
 		43EF209E18E75FE400AF4702 /* ConfigureReportController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigureReportController.m; sourceTree = "<group>"; };
 		43FECC2017D0823E003179B6 /* UIConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIConstants.h; sourceTree = "<group>"; };
@@ -202,7 +200,7 @@
 		7D793029EA20AA25953479F8 /* Pods-TimeCurlTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeCurlTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimeCurlTests/Pods-TimeCurlTests.release.xcconfig"; sourceTree = "<group>"; };
 		898F425E35BFF0688A4803B3 /* Pods-TimeCurlTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeCurlTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimeCurlTests/Pods-TimeCurlTests.debug.xcconfig"; sourceTree = "<group>"; };
 		89DF0423D2C6E9EFDD2F00E3 /* Pods-TimeCurl.autoscreenshots.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeCurl.autoscreenshots.xcconfig"; path = "Pods/Target Support Files/Pods-TimeCurl/Pods-TimeCurl.autoscreenshots.xcconfig"; sourceTree = "<group>"; };
-		9149A1090F1F3266D1416073 /* libPods-TimeCurl.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TimeCurl.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C86C9F664E13BBAD75E8C546 /* libPods-TimeCurl.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TimeCurl.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C86CD45C7EA93428B7E62060 /* Pods-TimeCurlTests.autoscreenshots.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeCurlTests.autoscreenshots.xcconfig"; path = "Pods/Target Support Files/Pods-TimeCurlTests/Pods-TimeCurlTests.autoscreenshots.xcconfig"; sourceTree = "<group>"; };
 		D6A953C572A3DEE1F39E063D /* Pods-TimeCurl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeCurl.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimeCurl/Pods-TimeCurl.debug.xcconfig"; sourceTree = "<group>"; };
 		F7CE17A2AD6450F4EB4BCEBA /* libPods-TimeCurlTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TimeCurlTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -220,6 +218,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00A7D223C2B9B3B5D40D539D /* libPods-TimeCurlTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,7 +234,7 @@
 				4323D45D176EF79500A083AB /* CoreGraphics.framework in Frameworks */,
 				4323D45F176EF79500A083AB /* UIKit.framework in Frameworks */,
 				4323D45B176EF79500A083AB /* Foundation.framework in Frameworks */,
-				8F6F6B1E0A174A8954E6A313 /* libPods-TimeCurl.a in Frameworks */,
+				D6985EA929F8222D65366F41 /* libPods-TimeCurl.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,8 +353,8 @@
 				4323D45C176EF79500A083AB /* CoreGraphics.framework */,
 				4323D45E176EF79500A083AB /* UIKit.framework */,
 				4323D47C176EF79500A083AB /* XCTest.framework */,
-				9149A1090F1F3266D1416073 /* libPods-TimeCurl.a */,
 				F7CE17A2AD6450F4EB4BCEBA /* libPods-TimeCurlTests.a */,
+				C86C9F664E13BBAD75E8C546 /* libPods-TimeCurl.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -487,8 +486,6 @@
 			isa = PBXGroup;
 			children = (
 				43EF208518E71E1800AF4702 /* images */,
-				43EF209018E71E1800AF4702 /* TSQTACalendarRowCell.h */,
-				43EF209118E71E1800AF4702 /* TSQTACalendarRowCell.m */,
 			);
 			name = TimesSquareCustomize;
 			sourceTree = "<group>";
@@ -549,9 +546,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2EF4D4611BCD4F4400B5CAD8 /* Build configuration list for PBXNativeTarget "TimeCurlTests" */;
 			buildPhases = (
+				BCF020A1BE16C41DB0920523 /* Check Pods Manifest.lock */,
 				2EF4D4561BCD4F4400B5CAD8 /* Sources */,
 				2EF4D4571BCD4F4400B5CAD8 /* Frameworks */,
 				2EF4D4581BCD4F4400B5CAD8 /* Resources */,
+				98515C70CF931758A70B67E6 /* Embed Pods Frameworks */,
+				815737382E1DE04A5C7A8367 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -672,6 +672,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		815737382E1DE04A5C7A8367 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TimeCurlTests/Pods-TimeCurlTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		98515C70CF931758A70B67E6 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TimeCurlTests/Pods-TimeCurlTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		AB0CFE53E9009CD1147D593A /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -700,6 +730,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TimeCurl/Pods-TimeCurl-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BCF020A1BE16C41DB0920523 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FF026B708521D1EA9F7898E9 /* Check Pods Manifest.lock */ = {
@@ -760,7 +805,6 @@
 				43C6E41017E1BD7B004A953A /* UITextFieldWithInset.m in Sources */,
 				431535561773936000B5D825 /* CoreDataWrapper.m in Sources */,
 				4365BC7018ED8C4C0028C43D /* TimeWarp.xcdatamodeld in Sources */,
-				43EF209C18E71E1800AF4702 /* TSQTACalendarRowCell.m in Sources */,
 				4315354D17735D0100B5D825 /* NewActivityController.m in Sources */,
 				437943201770384600188F99 /* CurrentListController.m in Sources */,
 				4323D4AC176F0B0000A083AB /* TimeSlot.m in Sources */,
@@ -953,6 +997,7 @@
 		};
 		2EF4D4621BCD4F4400B5CAD8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 898F425E35BFF0688A4803B3 /* Pods-TimeCurlTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -975,6 +1020,7 @@
 		};
 		2EF4D4631BCD4F4400B5CAD8 /* Autoscreenshots */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C86CD45C7EA93428B7E62060 /* Pods-TimeCurlTests.autoscreenshots.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -997,6 +1043,7 @@
 		};
 		2EF4D4641BCD4F4400B5CAD8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D793029EA20AA25953479F8 /* Pods-TimeCurlTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -1157,6 +1204,7 @@
 				2EF4D4641BCD4F4400B5CAD8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4323D452176EF79500A083AB /* Build configuration list for PBXProject "TimeCurl" */ = {
 			isa = XCConfigurationList;
