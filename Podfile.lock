@@ -18,7 +18,7 @@ PODS:
 
 DEPENDENCIES:
   - CHCSVParser (~> 2.1.0)
-  - CocoaLumberjack
+  - CocoaLumberjack (~> 2.0.3)
   - FlurrySDK (~> 6.5.0)
   - OrderedDictionary (~> 1.2)
   - SAMTextView (~> 0.2.2)
@@ -44,4 +44,4 @@ SPEC CHECKSUMS:
   TimesSquare: 123dd6b3610a21123fdc33b85fab962e0efac936
   TPKeyboardAvoiding: 614ebec846ec28b83d548769297fa5fb56468904
 
-COCOAPODS: 0.38.2
+COCOAPODS: 0.39.0

@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4323D47A176EF79500A083AB"
+               BlueprintIdentifier = "2EF4D4591BCD4F4400B5CAD8"
                BuildableName = "TimeCurlTests.xctest"
                BlueprintName = "TimeCurlTests"
                ReferencedContainer = "container:TimeCurl.xcodeproj">

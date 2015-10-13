@@ -11,3 +11,8 @@ target 'TimeCurl' do
   # the regular cocoapod for TimesSquare is outdated -> download it from github
   pod 'TimesSquare', :git => 'https://github.com/square/objc-TimesSquare.git', :commit => '5e394b17eae2016e9f3f545e7945a382f3811e8c'
 end  
+
+target 'TimeCurlTests' do
+  pod 'CocoaLumberjack',    '~> 2.0.3'
+end
+

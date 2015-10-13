@@ -9,19 +9,15 @@
 /* Begin PBXBuildFile section */
 		2ED71AFF1B20DFE500D6AD3F /* data-screenshots.timecurl in Resources */ = {isa = PBXBuildFile; fileRef = 2ED71AFE1B20DFE500D6AD3F /* data-screenshots.timecurl */; };
 		2ED71B051B2191F900D6AD3F /* AutoscreenshotsUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED71B041B2191F900D6AD3F /* AutoscreenshotsUtils.m */; };
-		2EF4D4471BCD1C1700B5CAD8 /* TimeCurlUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF4D4461BCD1C1700B5CAD8 /* TimeCurlUITests.swift */; };
+		2EF4D4471BCD1C1700B5CAD8 /* CurrentActivitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF4D4461BCD1C1700B5CAD8 /* CurrentActivitiesTests.swift */; };
+		2EF4D4651BCD4F6500B5CAD8 /* TimeUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF4D4541BCD490100B5CAD8 /* TimeUtilsTests.swift */; settings = {ASSET_TAGS = (); }; };
 		4312E70218F7E50B00C23B01 /* Activity+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4312E70118F7E50B00C23B01 /* Activity+Additions.m */; };
 		4312E70518F7E5EE00C23B01 /* TimeSlot+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4312E70418F7E5EE00C23B01 /* TimeSlot+Additions.m */; };
 		431535431770A1D600B5D825 /* GraduationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 431535421770A1D600B5D825 /* GraduationView.m */; };
-		431535441770A1D600B5D825 /* GraduationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 431535421770A1D600B5D825 /* GraduationView.m */; };
 		431535491773060800B5D825 /* SlotInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 431535481773060700B5D825 /* SlotInterval.m */; };
-		4315354A1773060800B5D825 /* SlotInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 431535481773060700B5D825 /* SlotInterval.m */; };
 		4315354D17735D0100B5D825 /* NewActivityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4315354C17735D0100B5D825 /* NewActivityController.m */; };
-		4315354E17735D0100B5D825 /* NewActivityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4315354C17735D0100B5D825 /* NewActivityController.m */; };
 		4315355117738F5D00B5D825 /* TimeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4315355017738F5D00B5D825 /* TimeUtils.m */; };
-		4315355217738F5D00B5D825 /* TimeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4315355017738F5D00B5D825 /* TimeUtils.m */; };
 		431535561773936000B5D825 /* CoreDataWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 431535551773936000B5D825 /* CoreDataWrapper.m */; };
-		431535571773936000B5D825 /* CoreDataWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 431535551773936000B5D825 /* CoreDataWrapper.m */; };
 		4323D45B176EF79500A083AB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4323D45A176EF79500A083AB /* Foundation.framework */; };
 		4323D45D176EF79500A083AB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4323D45C176EF79500A083AB /* CoreGraphics.framework */; };
 		4323D45F176EF79500A083AB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4323D45E176EF79500A083AB /* UIKit.framework */; };
@@ -30,23 +26,13 @@
 		4323D46B176EF79500A083AB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4323D46A176EF79500A083AB /* AppDelegate.m */; };
 		4323D46E176EF79500A083AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4323D46C176EF79500A083AB /* Main.storyboard */; };
 		4323D476176EF79500A083AB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4323D475176EF79500A083AB /* Images.xcassets */; };
-		4323D47D176EF79500A083AB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4323D47C176EF79500A083AB /* XCTest.framework */; };
-		4323D47E176EF79500A083AB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4323D45A176EF79500A083AB /* Foundation.framework */; };
-		4323D47F176EF79500A083AB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4323D45E176EF79500A083AB /* UIKit.framework */; };
-		4323D487176EF79500A083AB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4323D485176EF79500A083AB /* InfoPlist.strings */; };
-		4323D489176EF79500A083AB /* TimeWarpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4323D488176EF79500A083AB /* TimeWarpTests.m */; };
 		4323D498176F04BE00A083AB /* ProjectListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4323D497176F04BE00A083AB /* ProjectListController.m */; };
-		4323D499176F04BE00A083AB /* ProjectListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4323D497176F04BE00A083AB /* ProjectListController.m */; };
 		4323D49B176F078400A083AB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4323D49A176F078400A083AB /* CoreData.framework */; };
 		4323D4AC176F0B0000A083AB /* TimeSlot.m in Sources */ = {isa = PBXBuildFile; fileRef = 4323D4AB176F0B0000A083AB /* TimeSlot.m */; };
-		4323D4AD176F0B0000A083AB /* TimeSlot.m in Sources */ = {isa = PBXBuildFile; fileRef = 4323D4AB176F0B0000A083AB /* TimeSlot.m */; };
 		4323D4B0176F0B0100A083AB /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 4323D4AF176F0B0100A083AB /* Project.m */; };
-		4323D4B1176F0B0100A083AB /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 4323D4AF176F0B0100A083AB /* Project.m */; };
 		4323D4B4176F0B0100A083AB /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 4323D4B3176F0B0100A083AB /* Activity.m */; };
-		4323D4B5176F0B0100A083AB /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 4323D4B3176F0B0100A083AB /* Activity.m */; };
 		4335F3AA18DB90A5006294FE /* ModelSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4335F3A918DB90A5006294FE /* ModelSerializer.m */; };
 		4345FA3D176F31FE002BBDB0 /* NewProjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4323D4B7176F0E6100A083AB /* NewProjectController.m */; };
-		4345FA3E176F31FF002BBDB0 /* NewProjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4323D4B7176F0E6100A083AB /* NewProjectController.m */; };
 		43627720183D5E6E00825199 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4362771F183D5E6E00825199 /* libz.dylib */; };
 		436473561940DC80008E99FE /* CustomTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 436473551940DC80008E99FE /* CustomTabBarController.m */; };
 		4365BC6318E8B8940028C43D /* Project+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4365BC6218E8B8940028C43D /* Project+Additions.m */; };
@@ -55,18 +41,14 @@
 		4365BC7018ED8C4C0028C43D /* TimeWarp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4365BC6D18ED8C4C0028C43D /* TimeWarp.xcdatamodeld */; };
 		4379431D176F706D00188F99 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4379431C176F706D00188F99 /* Entitlements.plist */; };
 		437943201770384600188F99 /* CurrentListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4379431F1770384600188F99 /* CurrentListController.m */; };
-		437943211770384600188F99 /* CurrentListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4379431F1770384600188F99 /* CurrentListController.m */; };
 		4379432517705E1400188F99 /* SelectTimeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4379432417705E1400188F99 /* SelectTimeController.m */; };
-		4379432617705E1400188F99 /* SelectTimeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4379432417705E1400188F99 /* SelectTimeController.m */; };
 		438C6A8E18D4F97200BF1F58 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 438C6A8D18D4F97200BF1F58 /* SystemConfiguration.framework */; };
 		438C6A9018D4F98500BF1F58 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 438C6A8F18D4F98500BF1F58 /* Security.framework */; };
 		43BAFD6F17CF89C700B6A4FC /* SelectDayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BAFD6E17CF89C700B6A4FC /* SelectDayController.m */; };
 		43C6E41017E1BD7B004A953A /* UITextFieldWithInset.m in Sources */ = {isa = PBXBuildFile; fileRef = 43C6E40F17E1BD7B004A953A /* UITextFieldWithInset.m */; };
 		43DDFE3017E24F940037F9E0 /* UIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DDFE2F17E24F940037F9E0 /* UIUtils.m */; };
 		43E6027117821A8500EAA813 /* ReportController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E6027017821A8500EAA813 /* ReportController.m */; };
-		43E6027217821A8500EAA813 /* ReportController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E6027017821A8500EAA813 /* ReportController.m */; };
 		43E70435178DC2F000CB5AA2 /* MailComposeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E70433178DC2F000CB5AA2 /* MailComposeHandler.m */; };
-		43E70436178DC2F000CB5AA2 /* MailComposeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E70433178DC2F000CB5AA2 /* MailComposeHandler.m */; };
 		43E76CC719DED42100EF5F10 /* UIApplication+AppDimensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E76CC619DED42100EF5F10 /* UIApplication+AppDimensions.m */; };
 		43E76CCA19DEDE5500EF5F10 /* DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E76CC919DEDE5500EF5F10 /* DeviceInfo.m */; };
 		43EF206E18E3802800AF4702 /* SlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 43EF206D18E3802800AF4702 /* SlotView.m */; };
@@ -96,12 +78,12 @@
 			remoteGlobalIDString = 4323D456176EF79500A083AB;
 			remoteInfo = TimeCurl;
 		};
-		4323D480176EF79500A083AB /* PBXContainerItemProxy */ = {
+		2EF4D45F1BCD4F4400B5CAD8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4323D44F176EF79500A083AB /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 4323D456176EF79500A083AB;
-			remoteInfo = TimeWarp;
+			remoteInfo = TimeCurl;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -110,8 +92,12 @@
 		2ED71B031B2191F900D6AD3F /* AutoscreenshotsUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoscreenshotsUtils.h; sourceTree = "<group>"; };
 		2ED71B041B2191F900D6AD3F /* AutoscreenshotsUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoscreenshotsUtils.m; sourceTree = "<group>"; };
 		2EF4D4441BCD1C1700B5CAD8 /* TimeCurlUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeCurlUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2EF4D4461BCD1C1700B5CAD8 /* TimeCurlUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCurlUITests.swift; sourceTree = "<group>"; };
+		2EF4D4461BCD1C1700B5CAD8 /* CurrentActivitiesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentActivitiesTests.swift; sourceTree = "<group>"; };
 		2EF4D4481BCD1C1700B5CAD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2EF4D4541BCD490100B5CAD8 /* TimeUtilsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeUtilsTests.swift; sourceTree = "<group>"; };
+		2EF4D45A1BCD4F4400B5CAD8 /* TimeCurlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeCurlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EF4D45E1BCD4F4400B5CAD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2EF4D4661BCD502000B5CAD8 /* TimeCurlTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TimeCurlTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		4312E70018F7E50B00C23B01 /* Activity+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Activity+Additions.h"; sourceTree = "<group>"; };
 		4312E70118F7E50B00C23B01 /* Activity+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Activity+Additions.m"; sourceTree = "<group>"; };
 		4312E70318F7E5EE00C23B01 /* TimeSlot+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TimeSlot+Additions.h"; sourceTree = "<group>"; };
@@ -139,11 +125,7 @@
 		4323D46A176EF79500A083AB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4323D46D176EF79500A083AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4323D475176EF79500A083AB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		4323D47B176EF79500A083AB /* TimeCurlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeCurlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4323D47C176EF79500A083AB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		4323D484176EF79500A083AB /* TimeCurlTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TimeCurlTests-Info.plist"; sourceTree = "<group>"; };
-		4323D486176EF79500A083AB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		4323D488176EF79500A083AB /* TimeWarpTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeWarpTests.m; sourceTree = "<group>"; };
 		4323D496176F04BE00A083AB /* ProjectListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectListController.h; sourceTree = "<group>"; };
 		4323D497176F04BE00A083AB /* ProjectListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectListController.m; sourceTree = "<group>"; };
 		4323D49A176F078400A083AB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -217,13 +199,24 @@
 		68D7CCA31B55B9F50095D8FD /* ProjectSelectorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectSelectorController.h; sourceTree = "<group>"; };
 		68D7CCA41B55B9F50095D8FD /* ProjectSelectorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectSelectorController.m; sourceTree = "<group>"; };
 		7117E2903C12617AA604C0F4 /* Pods-TimeCurl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeCurl.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimeCurl/Pods-TimeCurl.release.xcconfig"; sourceTree = "<group>"; };
+		7D793029EA20AA25953479F8 /* Pods-TimeCurlTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeCurlTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimeCurlTests/Pods-TimeCurlTests.release.xcconfig"; sourceTree = "<group>"; };
+		898F425E35BFF0688A4803B3 /* Pods-TimeCurlTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeCurlTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimeCurlTests/Pods-TimeCurlTests.debug.xcconfig"; sourceTree = "<group>"; };
 		89DF0423D2C6E9EFDD2F00E3 /* Pods-TimeCurl.autoscreenshots.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeCurl.autoscreenshots.xcconfig"; path = "Pods/Target Support Files/Pods-TimeCurl/Pods-TimeCurl.autoscreenshots.xcconfig"; sourceTree = "<group>"; };
 		9149A1090F1F3266D1416073 /* libPods-TimeCurl.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TimeCurl.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C86CD45C7EA93428B7E62060 /* Pods-TimeCurlTests.autoscreenshots.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeCurlTests.autoscreenshots.xcconfig"; path = "Pods/Target Support Files/Pods-TimeCurlTests/Pods-TimeCurlTests.autoscreenshots.xcconfig"; sourceTree = "<group>"; };
 		D6A953C572A3DEE1F39E063D /* Pods-TimeCurl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeCurl.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimeCurl/Pods-TimeCurl.debug.xcconfig"; sourceTree = "<group>"; };
+		F7CE17A2AD6450F4EB4BCEBA /* libPods-TimeCurlTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TimeCurlTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		2EF4D4411BCD1C1700B5CAD8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EF4D4571BCD4F4400B5CAD8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -246,16 +239,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4323D478176EF79500A083AB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4323D47D176EF79500A083AB /* XCTest.framework in Frameworks */,
-				4323D47F176EF79500A083AB /* UIKit.framework in Frameworks */,
-				4323D47E176EF79500A083AB /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -270,10 +253,20 @@
 		2EF4D4451BCD1C1700B5CAD8 /* TimeCurlUITests */ = {
 			isa = PBXGroup;
 			children = (
-				2EF4D4461BCD1C1700B5CAD8 /* TimeCurlUITests.swift */,
+				2EF4D4461BCD1C1700B5CAD8 /* CurrentActivitiesTests.swift */,
 				2EF4D4481BCD1C1700B5CAD8 /* Info.plist */,
 			);
 			path = TimeCurlUITests;
+			sourceTree = "<group>";
+		};
+		2EF4D45B1BCD4F4400B5CAD8 /* TimeCurlTests */ = {
+			isa = PBXGroup;
+			children = (
+				2EF4D4541BCD490100B5CAD8 /* TimeUtilsTests.swift */,
+				2EF4D45E1BCD4F4400B5CAD8 /* Info.plist */,
+				2EF4D4661BCD502000B5CAD8 /* TimeCurlTests-Bridging-Header.h */,
+			);
+			path = TimeCurlTests;
 			sourceTree = "<group>";
 		};
 		431535401770A1B000B5D825 /* view */ = {
@@ -331,8 +324,8 @@
 			children = (
 				4379431C176F706D00188F99 /* Entitlements.plist */,
 				4323D460176EF79500A083AB /* TimeCurl */,
-				4323D482176EF79500A083AB /* TimeCurlTests */,
 				2EF4D4451BCD1C1700B5CAD8 /* TimeCurlUITests */,
+				2EF4D45B1BCD4F4400B5CAD8 /* TimeCurlTests */,
 				4323D459176EF79500A083AB /* Frameworks */,
 				4323D458176EF79500A083AB /* Products */,
 				AD8CA87CD6BD86E773F6F60C /* Pods */,
@@ -343,8 +336,8 @@
 			isa = PBXGroup;
 			children = (
 				4323D457176EF79500A083AB /* TimeCurl.app */,
-				4323D47B176EF79500A083AB /* TimeCurlTests.xctest */,
 				2EF4D4441BCD1C1700B5CAD8 /* TimeCurlUITests.xctest */,
+				2EF4D45A1BCD4F4400B5CAD8 /* TimeCurlTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -362,6 +355,7 @@
 				4323D45E176EF79500A083AB /* UIKit.framework */,
 				4323D47C176EF79500A083AB /* XCTest.framework */,
 				9149A1090F1F3266D1416073 /* libPods-TimeCurl.a */,
+				F7CE17A2AD6450F4EB4BCEBA /* libPods-TimeCurlTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -396,24 +390,6 @@
 				4323D463176EF79500A083AB /* InfoPlist.strings */,
 				4323D466176EF79500A083AB /* main.m */,
 				4323D468176EF79500A083AB /* TimeCurl-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		4323D482176EF79500A083AB /* TimeCurlTests */ = {
-			isa = PBXGroup;
-			children = (
-				4323D488176EF79500A083AB /* TimeWarpTests.m */,
-				4323D483176EF79500A083AB /* Supporting Files */,
-			);
-			path = TimeCurlTests;
-			sourceTree = "<group>";
-		};
-		4323D483176EF79500A083AB /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				4323D484176EF79500A083AB /* TimeCurlTests-Info.plist */,
-				4323D485176EF79500A083AB /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -541,6 +517,9 @@
 				D6A953C572A3DEE1F39E063D /* Pods-TimeCurl.debug.xcconfig */,
 				7117E2903C12617AA604C0F4 /* Pods-TimeCurl.release.xcconfig */,
 				89DF0423D2C6E9EFDD2F00E3 /* Pods-TimeCurl.autoscreenshots.xcconfig */,
+				898F425E35BFF0688A4803B3 /* Pods-TimeCurlTests.debug.xcconfig */,
+				C86CD45C7EA93428B7E62060 /* Pods-TimeCurlTests.autoscreenshots.xcconfig */,
+				7D793029EA20AA25953479F8 /* Pods-TimeCurlTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -566,6 +545,24 @@
 			productReference = 2EF4D4441BCD1C1700B5CAD8 /* TimeCurlUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		2EF4D4591BCD4F4400B5CAD8 /* TimeCurlTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2EF4D4611BCD4F4400B5CAD8 /* Build configuration list for PBXNativeTarget "TimeCurlTests" */;
+			buildPhases = (
+				2EF4D4561BCD4F4400B5CAD8 /* Sources */,
+				2EF4D4571BCD4F4400B5CAD8 /* Frameworks */,
+				2EF4D4581BCD4F4400B5CAD8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2EF4D4601BCD4F4400B5CAD8 /* PBXTargetDependency */,
+			);
+			name = TimeCurlTests;
+			productName = TimeCurlTests;
+			productReference = 2EF4D45A1BCD4F4400B5CAD8 /* TimeCurlTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		4323D456176EF79500A083AB /* TimeCurl */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4323D48C176EF79500A083AB /* Build configuration list for PBXNativeTarget "TimeCurl" */;
@@ -575,6 +572,7 @@
 				4323D454176EF79500A083AB /* Frameworks */,
 				4323D455176EF79500A083AB /* Resources */,
 				AB0CFE53E9009CD1147D593A /* Copy Pods Resources */,
+				B486F1DCDAB7DE1305C42D36 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -585,34 +583,21 @@
 			productReference = 4323D457176EF79500A083AB /* TimeCurl.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4323D47A176EF79500A083AB /* TimeCurlTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4323D48F176EF79500A083AB /* Build configuration list for PBXNativeTarget "TimeCurlTests" */;
-			buildPhases = (
-				4323D477176EF79500A083AB /* Sources */,
-				4323D478176EF79500A083AB /* Frameworks */,
-				4323D479176EF79500A083AB /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				4323D481176EF79500A083AB /* PBXTargetDependency */,
-			);
-			name = TimeCurlTests;
-			productName = TimeWarpTests;
-			productReference = 4323D47B176EF79500A083AB /* TimeCurlTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		4323D44F176EF79500A083AB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = zuehlke;
 				TargetAttributes = {
 					2EF4D4431BCD1C1700B5CAD8 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = 4323D456176EF79500A083AB;
+					};
+					2EF4D4591BCD4F4400B5CAD8 = {
 						CreatedOnToolsVersion = 7.0;
 						TestTargetID = 4323D456176EF79500A083AB;
 					};
@@ -623,9 +608,6 @@
 								enabled = 1;
 							};
 						};
-					};
-					4323D47A176EF79500A083AB = {
-						TestTargetID = 4323D456176EF79500A083AB;
 					};
 				};
 			};
@@ -643,14 +625,21 @@
 			projectRoot = "";
 			targets = (
 				4323D456176EF79500A083AB /* TimeCurl */,
-				4323D47A176EF79500A083AB /* TimeCurlTests */,
 				2EF4D4431BCD1C1700B5CAD8 /* TimeCurlUITests */,
+				2EF4D4591BCD4F4400B5CAD8 /* TimeCurlTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		2EF4D4421BCD1C1700B5CAD8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EF4D4581BCD4F4400B5CAD8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -680,14 +669,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4323D479176EF79500A083AB /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4323D487176EF79500A083AB /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -704,6 +685,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TimeCurl/Pods-TimeCurl-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B486F1DCDAB7DE1305C42D36 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TimeCurl/Pods-TimeCurl-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FF026B708521D1EA9F7898E9 /* Check Pods Manifest.lock */ = {
@@ -728,7 +724,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2EF4D4471BCD1C1700B5CAD8 /* TimeCurlUITests.swift in Sources */,
+				2EF4D4471BCD1C1700B5CAD8 /* CurrentActivitiesTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EF4D4561BCD4F4400B5CAD8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EF4D4651BCD4F6500B5CAD8 /* TimeUtilsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -773,28 +777,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4323D477176EF79500A083AB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				43E70436178DC2F000CB5AA2 /* MailComposeHandler.m in Sources */,
-				43E6027217821A8500EAA813 /* ReportController.m in Sources */,
-				4323D4AD176F0B0000A083AB /* TimeSlot.m in Sources */,
-				4379432617705E1400188F99 /* SelectTimeController.m in Sources */,
-				4323D499176F04BE00A083AB /* ProjectListController.m in Sources */,
-				4323D4B1176F0B0100A083AB /* Project.m in Sources */,
-				4315354A1773060800B5D825 /* SlotInterval.m in Sources */,
-				431535571773936000B5D825 /* CoreDataWrapper.m in Sources */,
-				4315354E17735D0100B5D825 /* NewActivityController.m in Sources */,
-				431535441770A1D600B5D825 /* GraduationView.m in Sources */,
-				4323D4B5176F0B0100A083AB /* Activity.m in Sources */,
-				4345FA3E176F31FF002BBDB0 /* NewProjectController.m in Sources */,
-				437943211770384600188F99 /* CurrentListController.m in Sources */,
-				4315355217738F5D00B5D825 /* TimeUtils.m in Sources */,
-				4323D489176EF79500A083AB /* TimeWarpTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -803,10 +785,10 @@
 			target = 4323D456176EF79500A083AB /* TimeCurl */;
 			targetProxy = 2EF4D4491BCD1C1700B5CAD8 /* PBXContainerItemProxy */;
 		};
-		4323D481176EF79500A083AB /* PBXTargetDependency */ = {
+		2EF4D4601BCD4F4400B5CAD8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4323D456176EF79500A083AB /* TimeCurl */;
-			targetProxy = 4323D480176EF79500A083AB /* PBXContainerItemProxy */;
+			targetProxy = 2EF4D45F1BCD4F4400B5CAD8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -825,14 +807,6 @@
 				4323D46D176EF79500A083AB /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		4323D485176EF79500A083AB /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4323D486176EF79500A083AB /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -925,7 +899,7 @@
 		};
 		2EF4D4501BCD292C00B5CAD8 /* Autoscreenshots */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D6A953C572A3DEE1F39E063D /* Pods-TimeCurl.debug.xcconfig */;
+			baseConfigurationReference = 89DF0423D2C6E9EFDD2F00E3 /* Pods-TimeCurl.autoscreenshots.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -947,29 +921,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "d50efe0a-a3f7-4523-b154-344130a9bfdb";
 				WRAPPER_EXTENSION = app;
-			};
-			name = Autoscreenshots;
-		};
-		2EF4D4511BCD292C00B5CAD8 /* Autoscreenshots */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TimeWarp.app/TimeWarp";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(SYSTEM_APPS_DIR)/Xcode5-DP.app/Contents/Developer/Library/Frameworks",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TimeCurl/TimeCurl-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-					"AUTOSCREENSHOTS=1",
-				);
-				INFOPLIST_FILE = "TimeWarpTests/TimeCurlTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Autoscreenshots;
 		};
@@ -999,6 +950,72 @@
 				USES_XCTRUNNER = YES;
 			};
 			name = Autoscreenshots;
+		};
+		2EF4D4621BCD4F4400B5CAD8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = TimeCurlTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extrabright.TimeCurlTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TimeCurlTests/TimeCurlTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TimeCurl.app/TimeCurl";
+			};
+			name = Debug;
+		};
+		2EF4D4631BCD4F4400B5CAD8 /* Autoscreenshots */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = TimeCurlTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extrabright.TimeCurlTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TimeCurlTests/TimeCurlTests-Bridging-Header.h";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TimeCurl.app/TimeCurl";
+			};
+			name = Autoscreenshots;
+		};
+		2EF4D4641BCD4F4400B5CAD8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = TimeCurlTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extrabright.TimeCurlTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TimeCurlTests/TimeCurlTests-Bridging-Header.h";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TimeCurl.app/TimeCurl";
+			};
+			name = Release;
 		};
 		4323D48A176EF79500A083AB /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1119,46 +1136,6 @@
 			};
 			name = Release;
 		};
-		4323D490176EF79500A083AB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TimeWarp.app/TimeWarp";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(SYSTEM_APPS_DIR)/Xcode5-DP.app/Contents/Developer/Library/Frameworks",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TimeCurl/TimeCurl-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "TimeWarpTests/TimeCurlTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		4323D491176EF79500A083AB /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TimeWarp.app/TimeWarp";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(SYSTEM_APPS_DIR)/Xcode5-DP.app/Contents/Developer/Library/Frameworks",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TimeCurl/TimeCurl-Prefix.pch";
-				INFOPLIST_FILE = "TimeWarpTests/TimeCurlTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1168,6 +1145,16 @@
 				2EF4D44C1BCD1C1700B5CAD8 /* Debug */,
 				2EF4D4521BCD292C00B5CAD8 /* Autoscreenshots */,
 				2EF4D44D1BCD1C1700B5CAD8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2EF4D4611BCD4F4400B5CAD8 /* Build configuration list for PBXNativeTarget "TimeCurlTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2EF4D4621BCD4F4400B5CAD8 /* Debug */,
+				2EF4D4631BCD4F4400B5CAD8 /* Autoscreenshots */,
+				2EF4D4641BCD4F4400B5CAD8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
@@ -1187,16 +1174,6 @@
 				4323D48D176EF79500A083AB /* Debug */,
 				2EF4D4501BCD292C00B5CAD8 /* Autoscreenshots */,
 				4323D48E176EF79500A083AB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		4323D48F176EF79500A083AB /* Build configuration list for PBXNativeTarget "TimeCurlTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4323D490176EF79500A083AB /* Debug */,
-				2EF4D4511BCD292C00B5CAD8 /* Autoscreenshots */,
-				4323D491176EF79500A083AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
