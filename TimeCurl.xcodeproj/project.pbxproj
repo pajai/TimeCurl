@@ -1178,7 +1178,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.extrabright.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b997ca56-aac5-43e7-93dc-52a01c043488";
+				PROVISIONING_PROFILE = "a7254da8-f1aa-4aed-b871-834807f5d2ff";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
