@@ -221,7 +221,7 @@
 
 - (void)initAutoScreenshots
 {
-#ifdef AUTOSCREENSHOTS
+#if defined(AUTOSCREENSHOTS) || defined(DEBUG)
     self.timeButton.accessibilityLabel = @"TimeButton";
 #endif
 }

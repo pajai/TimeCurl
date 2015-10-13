@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2ED71AFF1B20DFE500D6AD3F /* data-screenshots.timecurl in Resources */ = {isa = PBXBuildFile; fileRef = 2ED71AFE1B20DFE500D6AD3F /* data-screenshots.timecurl */; };
 		2ED71B051B2191F900D6AD3F /* AutoscreenshotsUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED71B041B2191F900D6AD3F /* AutoscreenshotsUtils.m */; };
+		2EF4D4471BCD1C1700B5CAD8 /* TimeCurlUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF4D4461BCD1C1700B5CAD8 /* TimeCurlUITests.swift */; };
 		4312E70218F7E50B00C23B01 /* Activity+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4312E70118F7E50B00C23B01 /* Activity+Additions.m */; };
 		4312E70518F7E5EE00C23B01 /* TimeSlot+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4312E70418F7E5EE00C23B01 /* TimeSlot+Additions.m */; };
 		431535431770A1D600B5D825 /* GraduationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 431535421770A1D600B5D825 /* GraduationView.m */; };
@@ -88,6 +89,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2EF4D4491BCD1C1700B5CAD8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4323D44F176EF79500A083AB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4323D456176EF79500A083AB;
+			remoteInfo = TimeCurl;
+		};
 		4323D480176EF79500A083AB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4323D44F176EF79500A083AB /* Project object */;
@@ -101,6 +109,9 @@
 		2ED71AFE1B20DFE500D6AD3F /* data-screenshots.timecurl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "data-screenshots.timecurl"; sourceTree = "<group>"; };
 		2ED71B031B2191F900D6AD3F /* AutoscreenshotsUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoscreenshotsUtils.h; sourceTree = "<group>"; };
 		2ED71B041B2191F900D6AD3F /* AutoscreenshotsUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoscreenshotsUtils.m; sourceTree = "<group>"; };
+		2EF4D4441BCD1C1700B5CAD8 /* TimeCurlUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeCurlUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EF4D4461BCD1C1700B5CAD8 /* TimeCurlUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCurlUITests.swift; sourceTree = "<group>"; };
+		2EF4D4481BCD1C1700B5CAD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4312E70018F7E50B00C23B01 /* Activity+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Activity+Additions.h"; sourceTree = "<group>"; };
 		4312E70118F7E50B00C23B01 /* Activity+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Activity+Additions.m"; sourceTree = "<group>"; };
 		4312E70318F7E5EE00C23B01 /* TimeSlot+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TimeSlot+Additions.h"; sourceTree = "<group>"; };
@@ -212,6 +223,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2EF4D4411BCD1C1700B5CAD8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4323D454176EF79500A083AB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -247,6 +265,15 @@
 				2ED71AFE1B20DFE500D6AD3F /* data-screenshots.timecurl */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		2EF4D4451BCD1C1700B5CAD8 /* TimeCurlUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2EF4D4461BCD1C1700B5CAD8 /* TimeCurlUITests.swift */,
+				2EF4D4481BCD1C1700B5CAD8 /* Info.plist */,
+			);
+			path = TimeCurlUITests;
 			sourceTree = "<group>";
 		};
 		431535401770A1B000B5D825 /* view */ = {
@@ -305,6 +332,7 @@
 				4379431C176F706D00188F99 /* Entitlements.plist */,
 				4323D460176EF79500A083AB /* TimeCurl */,
 				4323D482176EF79500A083AB /* TimeCurlTests */,
+				2EF4D4451BCD1C1700B5CAD8 /* TimeCurlUITests */,
 				4323D459176EF79500A083AB /* Frameworks */,
 				4323D458176EF79500A083AB /* Products */,
 				AD8CA87CD6BD86E773F6F60C /* Pods */,
@@ -316,6 +344,7 @@
 			children = (
 				4323D457176EF79500A083AB /* TimeCurl.app */,
 				4323D47B176EF79500A083AB /* TimeCurlTests.xctest */,
+				2EF4D4441BCD1C1700B5CAD8 /* TimeCurlUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -519,6 +548,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		2EF4D4431BCD1C1700B5CAD8 /* TimeCurlUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2EF4D44B1BCD1C1700B5CAD8 /* Build configuration list for PBXNativeTarget "TimeCurlUITests" */;
+			buildPhases = (
+				2EF4D4401BCD1C1700B5CAD8 /* Sources */,
+				2EF4D4411BCD1C1700B5CAD8 /* Frameworks */,
+				2EF4D4421BCD1C1700B5CAD8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2EF4D44A1BCD1C1700B5CAD8 /* PBXTargetDependency */,
+			);
+			name = TimeCurlUITests;
+			productName = TimeCurlUITests;
+			productReference = 2EF4D4441BCD1C1700B5CAD8 /* TimeCurlUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		4323D456176EF79500A083AB /* TimeCurl */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4323D48C176EF79500A083AB /* Build configuration list for PBXNativeTarget "TimeCurl" */;
@@ -565,6 +612,10 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = zuehlke;
 				TargetAttributes = {
+					2EF4D4431BCD1C1700B5CAD8 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = 4323D456176EF79500A083AB;
+					};
 					4323D456176EF79500A083AB = {
 						DevelopmentTeam = 2WXN38VLT5;
 						SystemCapabilities = {
@@ -593,11 +644,19 @@
 			targets = (
 				4323D456176EF79500A083AB /* TimeCurl */,
 				4323D47A176EF79500A083AB /* TimeCurlTests */,
+				2EF4D4431BCD1C1700B5CAD8 /* TimeCurlUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2EF4D4421BCD1C1700B5CAD8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4323D455176EF79500A083AB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -665,6 +724,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2EF4D4401BCD1C1700B5CAD8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EF4D4471BCD1C1700B5CAD8 /* TimeCurlUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4323D453176EF79500A083AB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -731,6 +798,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		2EF4D44A1BCD1C1700B5CAD8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4323D456176EF79500A083AB /* TimeCurl */;
+			targetProxy = 2EF4D4491BCD1C1700B5CAD8 /* PBXContainerItemProxy */;
+		};
 		4323D481176EF79500A083AB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4323D456176EF79500A083AB /* TimeCurl */;
@@ -843,6 +915,72 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
+			};
+			name = AutoScreenshots;
+		};
+		2EF4D44C1BCD1C1700B5CAD8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = TimeCurlUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extrabright.TimeCurlUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "b997ca56-aac5-43e7-93dc-52a01c043488";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TEST_TARGET_NAME = TimeCurl;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		2EF4D44D1BCD1C1700B5CAD8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = TimeCurlUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extrabright.TimeCurlUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "b997ca56-aac5-43e7-93dc-52a01c043488";
+				TEST_TARGET_NAME = TimeCurl;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+		2EF4D44E1BCD1C1700B5CAD8 /* AutoScreenshots */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = TimeCurlUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.extrabright.TimeCurlUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "b997ca56-aac5-43e7-93dc-52a01c043488";
+				TEST_TARGET_NAME = TimeCurl;
+				USES_XCTRUNNER = YES;
 			};
 			name = AutoScreenshots;
 		};
@@ -1008,6 +1146,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2EF4D44B1BCD1C1700B5CAD8 /* Build configuration list for PBXNativeTarget "TimeCurlUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2EF4D44C1BCD1C1700B5CAD8 /* Debug */,
+				2EF4D44D1BCD1C1700B5CAD8 /* Release */,
+				2EF4D44E1BCD1C1700B5CAD8 /* AutoScreenshots */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		4323D452176EF79500A083AB /* Build configuration list for PBXProject "TimeCurl" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -38,6 +38,16 @@
                ReferencedContainer = "container:TimeCurl.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2EF4D4431BCD1C1700B5CAD8"
+               BuildableName = "TimeCurlUITests.xctest"
+               BlueprintName = "TimeCurlUITests"
+               ReferencedContainer = "container:TimeCurl.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

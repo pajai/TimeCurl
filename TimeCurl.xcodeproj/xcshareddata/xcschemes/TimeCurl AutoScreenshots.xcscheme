@@ -23,7 +23,7 @@
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "AutoScreenshots"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
@@ -35,6 +35,16 @@
                BlueprintIdentifier = "4323D47A176EF79500A083AB"
                BuildableName = "TimeCurlTests.xctest"
                BlueprintName = "TimeCurlTests"
+               ReferencedContainer = "container:TimeCurl.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2EF4D4431BCD1C1700B5CAD8"
+               BuildableName = "TimeCurlUITests.xctest"
+               BlueprintName = "TimeCurlUITests"
                ReferencedContainer = "container:TimeCurl.xcodeproj">
             </BuildableReference>
          </TestableReference>
