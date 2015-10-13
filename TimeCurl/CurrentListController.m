@@ -264,6 +264,8 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
+    
     // if we do this call from viewWillAppear, we might get a wrong controller shown,
     // hence we don't change the right navbar title
     [self updateTitle];
