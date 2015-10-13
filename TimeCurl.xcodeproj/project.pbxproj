@@ -562,7 +562,7 @@
 		4323D44F176EF79500A083AB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = zuehlke;
 				TargetAttributes = {
 					4323D456176EF79500A083AB = {
@@ -820,6 +820,7 @@
 				INFOPLIST_FILE = "TimeCurl/TimeCurl-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.extrabright.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "d50efe0a-a3f7-4523-b154-344130a9bfdb";
 				WRAPPER_EXTENSION = app;
@@ -864,6 +865,7 @@
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -933,6 +935,7 @@
 				INFOPLIST_FILE = "TimeCurl/TimeCurl-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.extrabright.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "d50efe0a-a3f7-4523-b154-344130a9bfdb";
 				WRAPPER_EXTENSION = app;
@@ -954,6 +957,7 @@
 				INFOPLIST_FILE = "TimeCurl/TimeCurl-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.extrabright.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "b997ca56-aac5-43e7-93dc-52a01c043488";
 				WRAPPER_EXTENSION = app;
