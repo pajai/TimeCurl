@@ -950,7 +950,7 @@
 				CODE_SIGN_ENTITLEMENTS = TimeCurl/TimeCurl.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: patrick jayet (7Y3Y25X2V9)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: patrick jayet (7Y3Y25X2V9)";
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TimeCurl/TimeCurl-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -964,6 +964,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.extrabright.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "d50efe0a-a3f7-4523-b154-344130a9bfdb";
+				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Autoscreenshots;
@@ -1148,7 +1149,7 @@
 				CODE_SIGN_ENTITLEMENTS = TimeCurl/TimeCurl.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: patrick jayet (7Y3Y25X2V9)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: patrick jayet (7Y3Y25X2V9)";
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TimeCurl/TimeCurl-Prefix.pch";
 				INFOPLIST_FILE = "TimeCurl/TimeCurl-Info.plist";
@@ -1157,6 +1158,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.extrabright.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "d50efe0a-a3f7-4523-b154-344130a9bfdb";
+				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1170,7 +1172,7 @@
 				CODE_SIGN_ENTITLEMENTS = TimeCurl/TimeCurl.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: patrick jayet (2WXN38VLT5)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: patrick jayet (2WXN38VLT5)";
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TimeCurl/TimeCurl-Prefix.pch";
 				INFOPLIST_FILE = "TimeCurl/TimeCurl-Info.plist";
@@ -1179,6 +1181,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.extrabright.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "a7254da8-f1aa-4aed-b871-834807f5d2ff";
+				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
