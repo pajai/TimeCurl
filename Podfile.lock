@@ -19,7 +19,7 @@ PODS:
 DEPENDENCIES:
   - CHCSVParser (from `https://github.com/pajai/CHCSVParser.git`)
   - CocoaLumberjack (~> 2.0.3)
-  - Flurry-iOS-SDK
+  - Flurry-iOS-SDK (~> 7.2.1)
   - OrderedDictionary (~> 1.2)
   - SAMTextView (~> 0.2.2)
   - TimesSquare (from `https://github.com/pajai/objc-TimesSquare.git`)
