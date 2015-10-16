@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00A7D223C2B9B3B5D40D539D /* libPods-TimeCurlTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7CE17A2AD6450F4EB4BCEBA /* libPods-TimeCurlTests.a */; };
 		2ED71AFF1B20DFE500D6AD3F /* data-screenshots.timecurl in Resources */ = {isa = PBXBuildFile; fileRef = 2ED71AFE1B20DFE500D6AD3F /* data-screenshots.timecurl */; };
 		2ED71B051B2191F900D6AD3F /* AutoscreenshotsUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED71B041B2191F900D6AD3F /* AutoscreenshotsUtils.m */; };
 		2EF4D4471BCD1C1700B5CAD8 /* CurrentActivitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF4D4461BCD1C1700B5CAD8 /* CurrentActivitiesTests.swift */; };
@@ -67,7 +66,7 @@
 		43FECC2217D0823E003179B6 /* UIConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FECC2117D0823E003179B6 /* UIConstants.m */; };
 		43FECC2417D08525003179B6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43FECC2317D08525003179B6 /* QuartzCore.framework */; };
 		68D7CCA51B55B9F50095D8FD /* ProjectSelectorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D7CCA41B55B9F50095D8FD /* ProjectSelectorController.m */; };
-		D6985EA929F8222D65366F41 /* libPods-TimeCurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C86C9F664E13BBAD75E8C546 /* libPods-TimeCurl.a */; };
+		703923743F98E23DCD81080C /* libPods-TimeCurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C86C9F664E13BBAD75E8C546 /* libPods-TimeCurl.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -218,7 +217,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00A7D223C2B9B3B5D40D539D /* libPods-TimeCurlTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,7 +232,7 @@
 				4323D45D176EF79500A083AB /* CoreGraphics.framework in Frameworks */,
 				4323D45F176EF79500A083AB /* UIKit.framework in Frameworks */,
 				4323D45B176EF79500A083AB /* Foundation.framework in Frameworks */,
-				D6985EA929F8222D65366F41 /* libPods-TimeCurl.a in Frameworks */,
+				703923743F98E23DCD81080C /* libPods-TimeCurl.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,12 +544,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2EF4D4611BCD4F4400B5CAD8 /* Build configuration list for PBXNativeTarget "TimeCurlTests" */;
 			buildPhases = (
-				BCF020A1BE16C41DB0920523 /* Check Pods Manifest.lock */,
 				2EF4D4561BCD4F4400B5CAD8 /* Sources */,
 				2EF4D4571BCD4F4400B5CAD8 /* Frameworks */,
 				2EF4D4581BCD4F4400B5CAD8 /* Resources */,
-				98515C70CF931758A70B67E6 /* Embed Pods Frameworks */,
-				815737382E1DE04A5C7A8367 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -672,36 +667,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		815737382E1DE04A5C7A8367 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TimeCurlTests/Pods-TimeCurlTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		98515C70CF931758A70B67E6 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TimeCurlTests/Pods-TimeCurlTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		AB0CFE53E9009CD1147D593A /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -730,21 +695,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TimeCurl/Pods-TimeCurl-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BCF020A1BE16C41DB0920523 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FF026B708521D1EA9F7898E9 /* Check Pods Manifest.lock */ = {
@@ -950,7 +900,7 @@
 				CODE_SIGN_ENTITLEMENTS = TimeCurl/TimeCurl.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: patrick jayet (7Y3Y25X2V9)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: patrick jayet (7Y3Y25X2V9)";
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 30;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TimeCurl/TimeCurl-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -998,7 +948,6 @@
 		};
 		2EF4D4621BCD4F4400B5CAD8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 898F425E35BFF0688A4803B3 /* Pods-TimeCurlTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -1021,7 +970,6 @@
 		};
 		2EF4D4631BCD4F4400B5CAD8 /* Autoscreenshots */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C86CD45C7EA93428B7E62060 /* Pods-TimeCurlTests.autoscreenshots.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -1044,7 +992,6 @@
 		};
 		2EF4D4641BCD4F4400B5CAD8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7D793029EA20AA25953479F8 /* Pods-TimeCurlTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -1149,7 +1096,7 @@
 				CODE_SIGN_ENTITLEMENTS = TimeCurl/TimeCurl.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: patrick jayet (7Y3Y25X2V9)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: patrick jayet (7Y3Y25X2V9)";
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 30;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TimeCurl/TimeCurl-Prefix.pch";
 				INFOPLIST_FILE = "TimeCurl/TimeCurl-Info.plist";
@@ -1172,7 +1119,7 @@
 				CODE_SIGN_ENTITLEMENTS = TimeCurl/TimeCurl.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: patrick jayet (2WXN38VLT5)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: patrick jayet (2WXN38VLT5)";
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 30;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TimeCurl/TimeCurl-Prefix.pch";
 				INFOPLIST_FILE = "TimeCurl/TimeCurl-Info.plist";
