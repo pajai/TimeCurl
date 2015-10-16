@@ -24,55 +24,52 @@ default_platform :ios
 platform :ios do
 
   before_all do
-    # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
+    ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
 
     cocoapods
 
     increment_build_number
 
-    ipa(scheme: "TimeCurl") # Build your app - more options available
+    gym(scheme: "TimeCurl Bots", use_legacy_build_api: true) # Build your app - more options available
 
-    # xctool # run the tests of your app
+    #does not work
+    #xctest(scheme: "TimeCurl Bots", workspace: "TimeCurl.xcworkspace", destination: "name=iPhone 5s,OS=9.0")
+  end
+
+  desc "Test lane"
+  lane :test do
+    slack(
+      message: "Successfully uploaded testflight build"
+    )
   end
 
   desc "Takes the screenshots"
-  lane :shot do
+  lane :create_screenshots do
     snapshot
     frameit
   end
 
   desc "Submit a new Beta Build to Apple TestFlight"
   desc "This will also make sure the profile is up to date"
-  lane :beta do
+  lane :testflight do
     sigh
-    deliver(beta: true, skip_deploy: true)
-
-    # sh "your_script.sh"
-    # You can also use other beta testing services here
-  end
-
-  lane :submit do
-    sigh
-    deliver(beta: true, skip_deploy: true)
+    pilot(
+      changelog: "some changelog message"
+    )
+    slack(
+      message: "Successfully uploaded testflight build"
+    )
   end
 
   desc "Deploy a new version to the App Store"
   desc "** Full Markdown** Support: `code`"
-  lane :deploy do
-    snapshot
-    sigh
+  lane :metadata do
     deliver(skip_deploy: true, force: true)
-    # frameit
   end
-
-  # You can define as many lanes as you want
 
   after_all do |lane|
     # This block is called, only if the executed lane was successful
     
-    # slack(
-    #   message: "Successfully deployed new App Update."
-    # )
   end
 
 
