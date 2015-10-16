@@ -30,17 +30,8 @@ platform :ios do
 
     increment_build_number
 
-    gym(scheme: "TimeCurl Bots", use_legacy_build_api: true) # Build your app - more options available
-
-    #does not work
-    #xctest(scheme: "TimeCurl Bots", workspace: "TimeCurl.xcworkspace", destination: "name=iPhone 5s,OS=9.0")
-  end
-
-  desc "Test lane"
-  lane :test do
-    slack(
-      message: "Successfully uploaded testflight build"
-    )
+    gym(scheme: "TimeCurl Bots", use_legacy_build_api: true)
+    xctest(scheme: "TimeCurl Bots", workspace: "TimeCurl.xcworkspace", destination: "name=iPhone 5s,OS=9.0")
   end
 
   desc "Takes the screenshots"
@@ -53,9 +44,10 @@ platform :ios do
   desc "This will also make sure the profile is up to date"
   lane :testflight do
     sigh
-    pilot(
-      changelog: "some changelog message"
-    )
+    deliver(skip_screenshots: true, skip_metadata: true, force: true)
+    #pilot(
+    #  changelog: "some changelog message"
+    #)
     slack(
       message: "Successfully uploaded testflight build"
     )
@@ -64,7 +56,8 @@ platform :ios do
   desc "Deploy a new version to the App Store"
   desc "** Full Markdown** Support: `code`"
   lane :metadata do
-    deliver(skip_deploy: true, force: true)
+    # todo: just upload the metadata & screenshots
+    deliver
   end
 
   after_all do |lane|
@@ -74,10 +67,10 @@ platform :ios do
 
 
   error do |lane, exception|
-    # slack(
-    #   message: exception.message,
-    #   success: false
-    # )
+    slack(
+      message: exception.message,
+      success: false
+    )
   end
 
 end
