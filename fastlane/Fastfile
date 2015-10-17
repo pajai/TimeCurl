@@ -30,8 +30,12 @@ platform :ios do
 
     increment_build_number
 
+    sigh
     gym(scheme: "TimeCurl Bots", use_legacy_build_api: true)
-    xctest(scheme: "TimeCurl Bots", workspace: "TimeCurl.xcworkspace", destination: "name=iPhone 5s,OS=9.0")
+  end
+
+  desc "Just increment the build number"
+  lane :increment do
   end
 
   desc "Takes the screenshots"
@@ -40,10 +44,9 @@ platform :ios do
     frameit
   end
 
-  desc "Submit a new Beta Build to Apple TestFlight"
-  desc "This will also make sure the profile is up to date"
+  desc "Submit a new build TestFlight"
   lane :testflight do
-    sigh
+    xctest(scheme: "TimeCurl Bots", workspace: "TimeCurl.xcworkspace", destination: "name=iPhone 5s,OS=9.0")
     deliver(skip_screenshots: true, skip_metadata: true, force: true)
     #pilot(
     #  changelog: "some changelog message"
@@ -53,8 +56,7 @@ platform :ios do
     )
   end
 
-  desc "Deploy a new version to the App Store"
-  desc "** Full Markdown** Support: `code`"
+  desc "Upload the metadata to iTunes Connect"
   lane :metadata do
     # todo: just upload the metadata & screenshots
     deliver
