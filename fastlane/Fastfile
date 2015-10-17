@@ -46,7 +46,7 @@ platform :ios do
 
   desc "Submit a new build TestFlight"
   lane :testflight do
-    xctest(scheme: "TimeCurl Bots", workspace: "TimeCurl.xcworkspace", destination: "name=iPhone 5s,OS=9.0")
+    #xctest(scheme: "TimeCurl Bots", workspace: "TimeCurl.xcworkspace", destination: "name=iPhone 5s,OS=9.0")
     deliver(skip_screenshots: true, skip_metadata: true, force: true)
     #pilot(
     #  changelog: "some changelog message"
