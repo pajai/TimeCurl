@@ -3,23 +3,14 @@
 # All available actions: https://github.com/KrauseFx/fastlane/blob/master/docs/Actions.md
 # can also be listed using the `fastlane actions` command
 
-# Change the syntax highlighting to Ruby
-# All lines starting with a # are ignored when running `fastlane`
-
-# By default, fastlane will send which actions are used
-# No personal data is shared, more information on https://github.com/fastlane/enhancer
-# Uncomment the following line to opt out
-# opt_out_usage
-
 # If you want to automatically update fastlane if a new version is available:
-# update_fastlane
+update_fastlane
 
 # This is the minimum version number required.
 # Update this, if you use features of a newer version
 fastlane_version "1.3.2"
 
 default_platform :ios
-
 
 platform :ios do
 
@@ -39,18 +30,15 @@ platform :ios do
   end
 
   desc "Takes the screenshots"
-  lane :create_screenshots do
+  lane :screenshots do
     snapshot
     frameit
   end
 
   desc "Submit a new build TestFlight"
   lane :testflight do
-    #xctest(scheme: "TimeCurl Bots", workspace: "TimeCurl.xcworkspace", destination: "name=iPhone 5s,OS=9.0")
+    xctest(scheme: "TimeCurl Bots", workspace: "TimeCurl.xcworkspace", destination: "name=iPhone 5s,OS=9.0")
     deliver(skip_screenshots: true, skip_metadata: true, force: true)
-    #pilot(
-    #  changelog: "some changelog message"
-    #)
     slack(
       message: "Successfully uploaded testflight build"
     )
@@ -63,10 +51,7 @@ platform :ios do
   end
 
   after_all do |lane|
-    # This block is called, only if the executed lane was successful
-    
   end
-
 
   error do |lane, exception|
     slack(
