@@ -900,7 +900,7 @@
 				CODE_SIGN_ENTITLEMENTS = TimeCurl/TimeCurl.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: patrick jayet (7Y3Y25X2V9)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: patrick jayet (7Y3Y25X2V9)";
-				CURRENT_PROJECT_VERSION = 48;
+				CURRENT_PROJECT_VERSION = 49;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TimeCurl/TimeCurl-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1096,7 +1096,7 @@
 				CODE_SIGN_ENTITLEMENTS = TimeCurl/TimeCurl.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: patrick jayet (7Y3Y25X2V9)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: patrick jayet (7Y3Y25X2V9)";
-				CURRENT_PROJECT_VERSION = 48;
+				CURRENT_PROJECT_VERSION = 49;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TimeCurl/TimeCurl-Prefix.pch";
 				INFOPLIST_FILE = "TimeCurl/TimeCurl-Info.plist";
@@ -1119,7 +1119,7 @@
 				CODE_SIGN_ENTITLEMENTS = TimeCurl/TimeCurl.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: patrick jayet (2WXN38VLT5)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: patrick jayet (2WXN38VLT5)";
-				CURRENT_PROJECT_VERSION = 48;
+				CURRENT_PROJECT_VERSION = 49;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TimeCurl/TimeCurl-Prefix.pch";
 				INFOPLIST_FILE = "TimeCurl/TimeCurl-Info.plist";
