@@ -25,16 +25,6 @@ platform :ios do
     gym(scheme: "TimeCurl Bots", use_legacy_build_api: true)
   end
 
-  desc "Just increment the build number"
-  lane :increment do
-  end
-
-  desc "Takes the screenshots"
-  lane :screenshots do
-    snapshot
-    frameit
-  end
-
   desc "Submit a new build TestFlight"
   lane :testflight do
     xctest(scheme: "TimeCurl Bots", workspace: "TimeCurl.xcworkspace", destination: "name=iPhone 5s,OS=9.0")
@@ -44,10 +34,20 @@ platform :ios do
     )
   end
 
+  desc "Takes the screenshots"
+  lane :screenshots do
+    snapshot
+    frameit
+  end
+
   desc "Upload the metadata to iTunes Connect"
   lane :metadata do
     # todo: just upload the metadata & screenshots
     deliver
+  end
+
+  desc "Just increment the build number"
+  lane :increment do
   end
 
   after_all do |lane|
