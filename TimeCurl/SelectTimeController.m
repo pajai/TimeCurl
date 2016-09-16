@@ -241,7 +241,7 @@ typedef NS_ENUM(NSInteger, TimeLabelType) {
     currentSlotView.selectTimeController = self;
     currentSlotView.slotInterval = slotInterval;
     currentSlotView.userInteractionEnabled = !slotInterval.readOnly;
-    currentSlotView.alpha = slotInterval.readOnly ? 0.6 : 1.0;
+    currentSlotView.alpha = slotInterval.readOnly ? 0.7 : 1.0;
     [self.graduationView addSubview:currentSlotView];
     return currentSlotView;
 }
