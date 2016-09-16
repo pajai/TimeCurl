@@ -155,12 +155,14 @@
 {
     if ([segue.identifier isEqualToString:@"EditTime"]) {
 
+        SelectTimeController* controller = (SelectTimeController*)segue.destinationViewController;
+        
         if (self.timeSlotIntervals.count > 0) {
-            SelectTimeController* controller = (SelectTimeController*)segue.destinationViewController;
             controller.timeSlotIntervals = [NSMutableArray array];
             [controller.timeSlotIntervals addObjectsFromArray:self.timeSlotIntervals];
         }
         
+        controller.currentDate = self.currentDate;
     }
 }
 

@@ -21,6 +21,15 @@
 
 @implementation SlotInterval
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        self.readOnly = NO;
+    }
+    return self;
+}
+
 - (double) duration
 {
     return self.end - self.begin;

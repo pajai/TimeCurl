@@ -36,6 +36,8 @@
 
 @property (nonatomic, strong) NSMutableArray* timeSlotIntervals; // as array of DoublePair*
 
+@property (nonatomic, strong) NSDate *currentDate;
+
 - (void) moveSlotTop:(SlotInterval*)slotInterval withDelta:(CGFloat)delta;
 - (void) moveSlotBottom:(SlotInterval*)slotInterval withDelta:(CGFloat)delta;
 - (void) moveEndSlot:(SlotInterval*)slotInterval;

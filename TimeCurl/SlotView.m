@@ -33,9 +33,21 @@
 
 @implementation SlotView
 
-- (id)init
+- (id)initWithReadOnly:(BOOL)readOnly
 {
-    self = [super initWithImage:[UIImage imageNamed:@"timeslot"] highlightedImage:[UIImage imageNamed:@"timeslot_pressed"]];
+    /*
+     * Not read-only: we use the standard slot images
+     */
+    if (!readOnly) {
+        self = [super initWithImage:[UIImage imageNamed:@"timeslot"] highlightedImage:[UIImage imageNamed:@"timeslot_pressed"]];
+    }
+    /*
+     * Read-only: only a solid rounded rect light color
+     */
+    else {
+        self = [super initWithImage:[UIImage imageNamed:@"timeslot_background"]];
+    }
+    
     if (self) {
         // Initialization code
         self.userInteractionEnabled = YES;

@@ -25,6 +25,7 @@
 
 @property (readwrite) double begin;
 @property (readwrite) double end;
+@property (readwrite) BOOL readOnly;
 @property (nonatomic, weak) UIView* view;
 
 - (double) duration;

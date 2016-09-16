@@ -26,4 +26,6 @@
 @property (weak, nonatomic) SelectTimeController* selectTimeController;
 @property (weak, nonatomic) SlotInterval* slotInterval;
 
+- (id)initWithReadOnly:(BOOL)readOnly;
+
 @end
