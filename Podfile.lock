@@ -11,10 +11,10 @@ PODS:
   - Flurry-iOS-SDK (7.2.1):
     - Flurry-iOS-SDK/FlurrySDK (= 7.2.1)
   - Flurry-iOS-SDK/FlurrySDK (7.2.1)
-  - OrderedDictionary (1.2)
+  - OrderedDictionary (1.4)
   - SAMTextView (0.2.2)
   - TimesSquare (1.0.1)
-  - TPKeyboardAvoiding (1.2.10)
+  - TPKeyboardAvoiding (1.2.11)
 
 DEPENDENCIES:
   - CHCSVParser (from `https://github.com/pajai/CHCSVParser.git`)
@@ -43,9 +43,11 @@ SPEC CHECKSUMS:
   CHCSVParser: 64da26e2b4ddbf7527f7f03120bf91d83d28f354
   CocoaLumberjack: f58d8a19629f4d8379ae14bb3534def24161430e
   Flurry-iOS-SDK: 014d366cad101f05d4e8c191c0e0c0871d5704f7
-  OrderedDictionary: 9cc5d69c5c5314ad696ed1839190724e83d534c7
+  OrderedDictionary: 138c8d2e358d3a0c9adda15c6c7db24e8e3b09e6
   SAMTextView: 979c43bb1fa5859ddfbfeb35e9c296a2b0ec55fd
   TimesSquare: 123dd6b3610a21123fdc33b85fab962e0efac936
-  TPKeyboardAvoiding: 614ebec846ec28b83d548769297fa5fb56468904
+  TPKeyboardAvoiding: e5ce146b313de063957bfa75a13f1e9b0ff18ab7
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: e0ebd275a294afa71f8122e97f72f988683f2eaa
+
+COCOAPODS: 1.0.1

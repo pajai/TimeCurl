@@ -10,7 +10,8 @@
 		2ED71AFF1B20DFE500D6AD3F /* data-screenshots.timecurl in Resources */ = {isa = PBXBuildFile; fileRef = 2ED71AFE1B20DFE500D6AD3F /* data-screenshots.timecurl */; };
 		2ED71B051B2191F900D6AD3F /* AutoscreenshotsUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED71B041B2191F900D6AD3F /* AutoscreenshotsUtils.m */; };
 		2EF4D4471BCD1C1700B5CAD8 /* CurrentActivitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF4D4461BCD1C1700B5CAD8 /* CurrentActivitiesTests.swift */; };
-		2EF4D4651BCD4F6500B5CAD8 /* TimeUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF4D4541BCD490100B5CAD8 /* TimeUtilsTests.swift */; settings = {ASSET_TAGS = (); }; };
+		2EF4D4651BCD4F6500B5CAD8 /* TimeUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF4D4541BCD490100B5CAD8 /* TimeUtilsTests.swift */; };
+		412150D8C1D7A3B7ADE21FCF /* libPods-TimeCurlTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C57F7E8F306BD440DEF1FCFE /* libPods-TimeCurlTests.a */; };
 		4312E70218F7E50B00C23B01 /* Activity+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4312E70118F7E50B00C23B01 /* Activity+Additions.m */; };
 		4312E70518F7E5EE00C23B01 /* TimeSlot+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4312E70418F7E5EE00C23B01 /* TimeSlot+Additions.m */; };
 		431535431770A1D600B5D825 /* GraduationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 431535421770A1D600B5D825 /* GraduationView.m */; };
@@ -66,7 +67,7 @@
 		43FECC2217D0823E003179B6 /* UIConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FECC2117D0823E003179B6 /* UIConstants.m */; };
 		43FECC2417D08525003179B6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43FECC2317D08525003179B6 /* QuartzCore.framework */; };
 		68D7CCA51B55B9F50095D8FD /* ProjectSelectorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D7CCA41B55B9F50095D8FD /* ProjectSelectorController.m */; };
-		703923743F98E23DCD81080C /* libPods-TimeCurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C86C9F664E13BBAD75E8C546 /* libPods-TimeCurl.a */; };
+		B9257B3327351870F8A8A9EC /* libPods-TimeCurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4CB54D27F9017DEDEDF47D0 /* libPods-TimeCurl.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0FDA256F9B1C3172E8CE497F /* Pods-TimeCurl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeCurl.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimeCurl/Pods-TimeCurl.debug.xcconfig"; sourceTree = "<group>"; };
+		1B1A02D6E0208C9B4CDABF53 /* Pods-TimeCurlTests.autoscreenshots.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeCurlTests.autoscreenshots.xcconfig"; path = "Pods/Target Support Files/Pods-TimeCurlTests/Pods-TimeCurlTests.autoscreenshots.xcconfig"; sourceTree = "<group>"; };
 		2ED71AFE1B20DFE500D6AD3F /* data-screenshots.timecurl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "data-screenshots.timecurl"; sourceTree = "<group>"; };
 		2ED71B031B2191F900D6AD3F /* AutoscreenshotsUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoscreenshotsUtils.h; sourceTree = "<group>"; };
 		2ED71B041B2191F900D6AD3F /* AutoscreenshotsUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoscreenshotsUtils.m; sourceTree = "<group>"; };
@@ -195,14 +198,12 @@
 		43FECC2317D08525003179B6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		68D7CCA31B55B9F50095D8FD /* ProjectSelectorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectSelectorController.h; sourceTree = "<group>"; };
 		68D7CCA41B55B9F50095D8FD /* ProjectSelectorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectSelectorController.m; sourceTree = "<group>"; };
-		7117E2903C12617AA604C0F4 /* Pods-TimeCurl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeCurl.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimeCurl/Pods-TimeCurl.release.xcconfig"; sourceTree = "<group>"; };
-		7D793029EA20AA25953479F8 /* Pods-TimeCurlTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeCurlTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimeCurlTests/Pods-TimeCurlTests.release.xcconfig"; sourceTree = "<group>"; };
-		898F425E35BFF0688A4803B3 /* Pods-TimeCurlTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeCurlTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimeCurlTests/Pods-TimeCurlTests.debug.xcconfig"; sourceTree = "<group>"; };
-		89DF0423D2C6E9EFDD2F00E3 /* Pods-TimeCurl.autoscreenshots.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeCurl.autoscreenshots.xcconfig"; path = "Pods/Target Support Files/Pods-TimeCurl/Pods-TimeCurl.autoscreenshots.xcconfig"; sourceTree = "<group>"; };
-		C86C9F664E13BBAD75E8C546 /* libPods-TimeCurl.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TimeCurl.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C86CD45C7EA93428B7E62060 /* Pods-TimeCurlTests.autoscreenshots.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeCurlTests.autoscreenshots.xcconfig"; path = "Pods/Target Support Files/Pods-TimeCurlTests/Pods-TimeCurlTests.autoscreenshots.xcconfig"; sourceTree = "<group>"; };
-		D6A953C572A3DEE1F39E063D /* Pods-TimeCurl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeCurl.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimeCurl/Pods-TimeCurl.debug.xcconfig"; sourceTree = "<group>"; };
-		F7CE17A2AD6450F4EB4BCEBA /* libPods-TimeCurlTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TimeCurlTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		927BC7AC8359E2422A822EE9 /* Pods-TimeCurl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeCurl.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimeCurl/Pods-TimeCurl.release.xcconfig"; sourceTree = "<group>"; };
+		A4CB54D27F9017DEDEDF47D0 /* libPods-TimeCurl.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TimeCurl.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC864ED20B9BFA500323EAA2 /* Pods-TimeCurl.autoscreenshots.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeCurl.autoscreenshots.xcconfig"; path = "Pods/Target Support Files/Pods-TimeCurl/Pods-TimeCurl.autoscreenshots.xcconfig"; sourceTree = "<group>"; };
+		C57F7E8F306BD440DEF1FCFE /* libPods-TimeCurlTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TimeCurlTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C89BFF01957911EE19B09E60 /* Pods-TimeCurlTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeCurlTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimeCurlTests/Pods-TimeCurlTests.release.xcconfig"; sourceTree = "<group>"; };
+		E8F0A30041086EE6C4071B02 /* Pods-TimeCurlTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeCurlTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimeCurlTests/Pods-TimeCurlTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +218,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				412150D8C1D7A3B7ADE21FCF /* libPods-TimeCurlTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,7 +234,7 @@
 				4323D45D176EF79500A083AB /* CoreGraphics.framework in Frameworks */,
 				4323D45F176EF79500A083AB /* UIKit.framework in Frameworks */,
 				4323D45B176EF79500A083AB /* Foundation.framework in Frameworks */,
-				703923743F98E23DCD81080C /* libPods-TimeCurl.a in Frameworks */,
+				B9257B3327351870F8A8A9EC /* libPods-TimeCurl.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,7 +327,7 @@
 				2EF4D45B1BCD4F4400B5CAD8 /* TimeCurlTests */,
 				4323D459176EF79500A083AB /* Frameworks */,
 				4323D458176EF79500A083AB /* Products */,
-				AD8CA87CD6BD86E773F6F60C /* Pods */,
+				43F10F4AD161D542B1D56114 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -351,8 +353,8 @@
 				4323D45C176EF79500A083AB /* CoreGraphics.framework */,
 				4323D45E176EF79500A083AB /* UIKit.framework */,
 				4323D47C176EF79500A083AB /* XCTest.framework */,
-				F7CE17A2AD6450F4EB4BCEBA /* libPods-TimeCurlTests.a */,
-				C86C9F664E13BBAD75E8C546 /* libPods-TimeCurl.a */,
+				A4CB54D27F9017DEDEDF47D0 /* libPods-TimeCurl.a */,
+				C57F7E8F306BD440DEF1FCFE /* libPods-TimeCurlTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -506,15 +508,15 @@
 			path = TimeSquareCustomize/images;
 			sourceTree = "<group>";
 		};
-		AD8CA87CD6BD86E773F6F60C /* Pods */ = {
+		43F10F4AD161D542B1D56114 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D6A953C572A3DEE1F39E063D /* Pods-TimeCurl.debug.xcconfig */,
-				7117E2903C12617AA604C0F4 /* Pods-TimeCurl.release.xcconfig */,
-				89DF0423D2C6E9EFDD2F00E3 /* Pods-TimeCurl.autoscreenshots.xcconfig */,
-				898F425E35BFF0688A4803B3 /* Pods-TimeCurlTests.debug.xcconfig */,
-				C86CD45C7EA93428B7E62060 /* Pods-TimeCurlTests.autoscreenshots.xcconfig */,
-				7D793029EA20AA25953479F8 /* Pods-TimeCurlTests.release.xcconfig */,
+				0FDA256F9B1C3172E8CE497F /* Pods-TimeCurl.debug.xcconfig */,
+				BC864ED20B9BFA500323EAA2 /* Pods-TimeCurl.autoscreenshots.xcconfig */,
+				927BC7AC8359E2422A822EE9 /* Pods-TimeCurl.release.xcconfig */,
+				E8F0A30041086EE6C4071B02 /* Pods-TimeCurlTests.debug.xcconfig */,
+				1B1A02D6E0208C9B4CDABF53 /* Pods-TimeCurlTests.autoscreenshots.xcconfig */,
+				C89BFF01957911EE19B09E60 /* Pods-TimeCurlTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -544,9 +546,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2EF4D4611BCD4F4400B5CAD8 /* Build configuration list for PBXNativeTarget "TimeCurlTests" */;
 			buildPhases = (
+				1BD88F0B4C104F8A3E76D49F /* [CP] Check Pods Manifest.lock */,
 				2EF4D4561BCD4F4400B5CAD8 /* Sources */,
 				2EF4D4571BCD4F4400B5CAD8 /* Frameworks */,
 				2EF4D4581BCD4F4400B5CAD8 /* Resources */,
+				3EEAE387CAC70BFBB01FCB4A /* [CP] Embed Pods Frameworks */,
+				C32F0105218E80F68520D031 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -562,12 +567,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4323D48C176EF79500A083AB /* Build configuration list for PBXNativeTarget "TimeCurl" */;
 			buildPhases = (
-				FF026B708521D1EA9F7898E9 /* Check Pods Manifest.lock */,
+				570E7F80A567A5629E62A1D6 /* [CP] Check Pods Manifest.lock */,
 				4323D453176EF79500A083AB /* Sources */,
 				4323D454176EF79500A083AB /* Frameworks */,
 				4323D455176EF79500A083AB /* Resources */,
-				AB0CFE53E9009CD1147D593A /* Copy Pods Resources */,
-				B486F1DCDAB7DE1305C42D36 /* Embed Pods Frameworks */,
+				3F17301945E76F15B4229354 /* [CP] Embed Pods Frameworks */,
+				0C735B3AB960D229E75E3E1D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -667,14 +672,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		AB0CFE53E9009CD1147D593A /* Copy Pods Resources */ = {
+		0C735B3AB960D229E75E3E1D /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -682,14 +687,44 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TimeCurl/Pods-TimeCurl-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B486F1DCDAB7DE1305C42D36 /* Embed Pods Frameworks */ = {
+		1BD88F0B4C104F8A3E76D49F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3EEAE387CAC70BFBB01FCB4A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TimeCurlTests/Pods-TimeCurlTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3F17301945E76F15B4229354 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -697,19 +732,34 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TimeCurl/Pods-TimeCurl-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FF026B708521D1EA9F7898E9 /* Check Pods Manifest.lock */ = {
+		570E7F80A567A5629E62A1D6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C32F0105218E80F68520D031 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TimeCurlTests/Pods-TimeCurlTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -893,7 +943,7 @@
 		};
 		2EF4D4501BCD292C00B5CAD8 /* Autoscreenshots */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89DF0423D2C6E9EFDD2F00E3 /* Pods-TimeCurl.autoscreenshots.xcconfig */;
+			baseConfigurationReference = BC864ED20B9BFA500323EAA2 /* Pods-TimeCurl.autoscreenshots.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -948,6 +998,7 @@
 		};
 		2EF4D4621BCD4F4400B5CAD8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8F0A30041086EE6C4071B02 /* Pods-TimeCurlTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -970,6 +1021,7 @@
 		};
 		2EF4D4631BCD4F4400B5CAD8 /* Autoscreenshots */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B1A02D6E0208C9B4CDABF53 /* Pods-TimeCurlTests.autoscreenshots.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -992,6 +1044,7 @@
 		};
 		2EF4D4641BCD4F4400B5CAD8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C89BFF01957911EE19B09E60 /* Pods-TimeCurlTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -1089,7 +1142,7 @@
 		};
 		4323D48D176EF79500A083AB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D6A953C572A3DEE1F39E063D /* Pods-TimeCurl.debug.xcconfig */;
+			baseConfigurationReference = 0FDA256F9B1C3172E8CE497F /* Pods-TimeCurl.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1112,7 +1165,7 @@
 		};
 		4323D48E176EF79500A083AB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7117E2903C12617AA604C0F4 /* Pods-TimeCurl.release.xcconfig */;
+			baseConfigurationReference = 927BC7AC8359E2422A822EE9 /* Pods-TimeCurl.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
