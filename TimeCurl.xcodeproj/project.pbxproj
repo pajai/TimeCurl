@@ -595,10 +595,12 @@
 				TargetAttributes = {
 					2EF4D4431BCD1C1700B5CAD8 = {
 						CreatedOnToolsVersion = 7.0;
+						LastSwiftMigration = 0800;
 						TestTargetID = 4323D456176EF79500A083AB;
 					};
 					2EF4D4591BCD4F4400B5CAD8 = {
 						CreatedOnToolsVersion = 7.0;
+						LastSwiftMigration = 0800;
 						TestTargetID = 4323D456176EF79500A083AB;
 					};
 					4323D456176EF79500A083AB = {
@@ -873,6 +875,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = TimeCurl;
 				USES_XCTRUNNER = YES;
 			};
@@ -895,6 +898,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.extrabright.TimeCurlUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = TimeCurl;
 				USES_XCTRUNNER = YES;
 			};
@@ -950,7 +954,7 @@
 				CODE_SIGN_ENTITLEMENTS = TimeCurl/TimeCurl.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: patrick jayet (7Y3Y25X2V9)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: patrick jayet (7Y3Y25X2V9)";
-				CURRENT_PROJECT_VERSION = 59;
+				CURRENT_PROJECT_VERSION = 71;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TimeCurl/TimeCurl-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -991,6 +995,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = TimeCurl;
 				USES_XCTRUNNER = YES;
 			};
@@ -1015,6 +1020,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "TimeCurlTests/TimeCurlTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TimeCurl.app/TimeCurl";
 			};
 			name = Debug;
@@ -1038,6 +1044,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.extrabright.TimeCurlTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "TimeCurlTests/TimeCurlTests-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TimeCurl.app/TimeCurl";
 			};
 			name = Autoscreenshots;
@@ -1061,6 +1068,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.extrabright.TimeCurlTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "TimeCurlTests/TimeCurlTests-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TimeCurl.app/TimeCurl";
 			};
 			name = Release;
@@ -1149,7 +1157,7 @@
 				CODE_SIGN_ENTITLEMENTS = TimeCurl/TimeCurl.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: patrick jayet (7Y3Y25X2V9)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: patrick jayet (7Y3Y25X2V9)";
-				CURRENT_PROJECT_VERSION = 59;
+				CURRENT_PROJECT_VERSION = 71;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TimeCurl/TimeCurl-Prefix.pch";
 				INFOPLIST_FILE = "TimeCurl/TimeCurl-Info.plist";
@@ -1172,7 +1180,7 @@
 				CODE_SIGN_ENTITLEMENTS = TimeCurl/TimeCurl.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: patrick jayet (2WXN38VLT5)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: patrick jayet (2WXN38VLT5)";
-				CURRENT_PROJECT_VERSION = 59;
+				CURRENT_PROJECT_VERSION = 71;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TimeCurl/TimeCurl-Prefix.pch";
 				INFOPLIST_FILE = "TimeCurl/TimeCurl-Info.plist";

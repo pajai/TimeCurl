@@ -19,9 +19,9 @@ class TimeUtilsTests: XCTestCase {
     }
     
     func testTimeStringFromDouble() {
-        XCTAssert(TimeUtils.timeStringFromDouble(1.5)  == "1:30")
-        XCTAssert(TimeUtils.timeStringFromDouble(2.25) == "2:15")
-        XCTAssert(TimeUtils.timeStringFromDouble(14.75) == "14:45")
+        XCTAssert(TimeUtils.timeString(from: 1.5)  == "1:30")
+        XCTAssert(TimeUtils.timeString(from: 2.25) == "2:15")
+        XCTAssert(TimeUtils.timeString(from: 14.75) == "14:45")
     }
     
     
