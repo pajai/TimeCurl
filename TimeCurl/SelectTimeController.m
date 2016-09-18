@@ -242,7 +242,14 @@ typedef NS_ENUM(NSInteger, TimeLabelType) {
     currentSlotView.slotInterval = slotInterval;
     currentSlotView.userInteractionEnabled = !slotInterval.readOnly;
     currentSlotView.alpha = slotInterval.readOnly ? 0.7 : 1.0;
-    [self.graduationView addSubview:currentSlotView];
+    
+    if (slotInterval.readOnly) {
+        [self.graduationView insertSubview:currentSlotView belowSubview:self.slotLabelStart];
+    }
+    else {
+        [self.graduationView addSubview:currentSlotView];
+    }
+    
     return currentSlotView;
 }
 
