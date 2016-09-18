@@ -19,9 +19,12 @@
 #import "SelectDayController.h"
 #import "TimeUtils.h"
 #import "TSQTACalendarRowCell.h"
+#import "CoreDataWrapper.h"
 
 
 @interface SelectDayController ()
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultController;
+@property (strong, nonatomic) NSDictionary *dayStringDictionary;
 @end
 
 
@@ -33,6 +36,17 @@
 {
     self.currentDate = date;
     [self performSegueWithIdentifier:@"DaySelectionDone" sender:self];
+}
+
+- (BOOL)calendarView:(TSQCalendarView *)calendarView shouldDisplayEventMarkerForDate:(NSDate *)date
+{
+    static NSDateFormatter *dateFormatter = nil;
+    if (!dateFormatter) {
+        dateFormatter = [[NSDateFormatter alloc] init];
+        dateFormatter.dateFormat = @"yyyy-MM-dd";
+    }
+    NSString *dateString = [dateFormatter stringFromDate:date];
+    return self.dayStringDictionary[dateString] != nil;
 }
 
 #pragma mark standard methods from UIViewController
@@ -50,6 +64,12 @@
 {
     [super viewDidLoad];
 
+    [self initCalendarView];
+    [self loadDaysWithActivities];
+}
+
+- (void)initCalendarView
+{
     self.calendarView.rowCellClass = [TSQTACalendarRowCell class];
     self.calendarView.firstDate = [TimeUtils decrementYearForDate:self.currentDate];
     self.calendarView.lastDate  = [TimeUtils incrementYearForDate:self.currentDate];
@@ -59,7 +79,19 @@
     self.calendarView.contentInset = UIEdgeInsetsMake(0.0f, onePixel, 0.0f, onePixel);
     self.calendarView.selectedDate = self.currentDate;
     self.calendarView.delegate = self;
+}
+
+- (void)loadDaysWithActivities
+{
+    self.fetchedResultController = [[CoreDataWrapper shared] fetchResultControllerForActivitiesByDay];
     
+    [self.fetchedResultController performFetch:nil];
+
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    for (id<NSFetchedResultsSectionInfo> info in [self.fetchedResultController sections]) {
+        dict[[info name]] = @1;
+    }
+    self.dayStringDictionary = dict;
 }
 
 - (void)viewDidLayoutSubviews;

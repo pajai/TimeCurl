@@ -47,6 +47,7 @@
 - (NSArray*) fetchActivitiesBetweenDate:(NSDate*)fromDate andExclusiveDate:(NSDate*)toDate forProjects:(NSArray*)projects;
 - (NSArray*) fetchActivitiesForMonth:(NSDate*) date;
 - (NSArray*) fetchActivitiesForDate:(NSDate*) date;
+- (NSFetchedResultsController*)fetchResultControllerForActivitiesByDay;
 - (NSArray*) fetchActivitiesByDayForMonth:(NSDate*) date;
 
 - (NSArray*) groupActivitiesByDay:(NSArray*)activities;

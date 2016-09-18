@@ -13,7 +13,7 @@ PODS:
   - Flurry-iOS-SDK/FlurrySDK (7.2.1)
   - OrderedDictionary (1.4)
   - SAMTextView (0.2.2)
-  - TimesSquare (1.0.1)
+  - TimesSquare (1.0.2)
   - TPKeyboardAvoiding (1.2.11)
 
 DEPENDENCIES:
@@ -36,7 +36,7 @@ CHECKOUT OPTIONS:
     :commit: 1c5dd3d4f7e00b6902c481c0bdffe33d23b8f8d6
     :git: https://github.com/pajai/CHCSVParser.git
   TimesSquare:
-    :commit: 6b15567b50b3563a742caaa03b4153eb64dcdaeb
+    :commit: 35e1d4453ff9f555ba8dc71ef5fac70f29aebcd3
     :git: https://github.com/pajai/objc-TimesSquare.git
 
 SPEC CHECKSUMS:
@@ -45,7 +45,7 @@ SPEC CHECKSUMS:
   Flurry-iOS-SDK: 014d366cad101f05d4e8c191c0e0c0871d5704f7
   OrderedDictionary: 138c8d2e358d3a0c9adda15c6c7db24e8e3b09e6
   SAMTextView: 979c43bb1fa5859ddfbfeb35e9c296a2b0ec55fd
-  TimesSquare: 123dd6b3610a21123fdc33b85fab962e0efac936
+  TimesSquare: c4c201495df0ff694524659f640b49f0c26321f9
   TPKeyboardAvoiding: e5ce146b313de063957bfa75a13f1e9b0ff18ab7
 
 PODFILE CHECKSUM: e0ebd275a294afa71f8122e97f72f988683f2eaa

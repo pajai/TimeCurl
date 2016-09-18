@@ -351,6 +351,28 @@ NSString * const iCloudStoreMigrated = @"store.migrated";
     }
 }
 
+- (NSFetchedResultsController*)fetchResultControllerForActivitiesByDay
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription
+                                   entityForName:@"Activity" inManagedObjectContext:[self managedObjectContext]];
+    [fetchRequest setEntity:entity];
+    
+    NSSortDescriptor *sort = [[NSSortDescriptor alloc]
+                              initWithKey:@"date" ascending:YES];
+    [fetchRequest setSortDescriptors:@[sort]];
+    
+    [fetchRequest setFetchBatchSize:20];
+    
+    NSFetchedResultsController *fetchedResultsController =
+        [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+                                            managedObjectContext:[self managedObjectContext]
+                                              sectionNameKeyPath:@"day"
+                                                       cacheName:@"root"];
+    
+    return fetchedResultsController;
+}
+
 - (NSArray*) fetchAllActivitiesByDay
 {
     NSArray* allActivities = [self fetchAllActivities];

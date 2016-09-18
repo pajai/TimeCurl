@@ -28,4 +28,15 @@
 @dynamic project;
 @dynamic timeslots;
 
+// transient property
+- (NSString*)day
+{
+    static NSDateFormatter *dateFormatter = nil;
+    if (!dateFormatter) {
+        dateFormatter = [[NSDateFormatter alloc] init];
+        dateFormatter.dateFormat = @"yyyy-MM-dd";
+    }
+    return [dateFormatter stringFromDate:self.date];
+}
+
 @end

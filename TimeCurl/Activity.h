@@ -27,6 +27,10 @@
 @property (nonatomic, retain) NSString *note;
 @property (nonatomic, retain) Project *project;
 @property (nonatomic, retain) NSSet *timeslots;
+
+// transient property
+- (NSString*)day;
+
 @end
 
 @interface Activity (CoreDataGeneratedAccessors)

@@ -19,7 +19,6 @@
 #import <UIKit/UIKit.h>
 #import "TimesSquare.h"
 
-
 @interface SelectDayController : UIViewController <TSQCalendarViewDelegate>
 
 @property (weak, nonatomic) IBOutlet TSQCalendarView* calendarView;
