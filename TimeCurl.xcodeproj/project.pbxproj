@@ -968,6 +968,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.extrabright.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "9587d833-6613-49c0-a248-3f4ce28f01f3";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1166,6 +1167,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.extrabright.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "9587d833-6613-49c0-a248-3f4ce28f01f3";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1189,6 +1191,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.extrabright.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "25463d23-7abb-4b23-9d07-25bb9e34d383";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
