@@ -1186,9 +1186,9 @@
                         <constraints>
                             <constraint firstItem="dm1-re-PAc" firstAttribute="top" secondItem="K0v-ec-VLF" secondAttribute="bottom" id="4TQ-1d-v3O"/>
                             <constraint firstItem="dm1-re-PAc" firstAttribute="leading" secondItem="m2s-wa-de7" secondAttribute="leading" id="7Mq-Sl-7h1"/>
-                            <constraint firstItem="EWb-eh-9Iq" firstAttribute="width" secondItem="m2s-wa-de7" secondAttribute="width" multiplier="12:23" constant="73.043478260869563" id="Eg3-Yp-7B0"/>
                             <constraint firstItem="aUy-K3-R1O" firstAttribute="top" secondItem="dm1-re-PAc" secondAttribute="bottom" id="Mlu-QO-S0o"/>
                             <constraint firstAttribute="trailing" secondItem="dm1-re-PAc" secondAttribute="trailing" id="V2M-4K-p0h"/>
+                            <constraint firstItem="EWb-eh-9Iq" firstAttribute="width" secondItem="m2s-wa-de7" secondAttribute="width" constant="-106" id="fbD-ya-AJM"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
