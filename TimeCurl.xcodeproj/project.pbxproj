@@ -40,6 +40,7 @@
 		4365BC6518ECA0D80028C43D /* ProjectIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4365BC6418ECA0D80028C43D /* ProjectIcons.xcassets */; };
 		4365BC6818ED471F0028C43D /* IconSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4365BC6718ED471F0028C43D /* IconSelectionController.m */; };
 		4365BC7018ED8C4C0028C43D /* TimeWarp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4365BC6D18ED8C4C0028C43D /* TimeWarp.xcdatamodeld */; };
+		436BA70C1D9329DE00CFB7C0 /* iPadLaunch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 436BA70B1D9329DE00CFB7C0 /* iPadLaunch.storyboard */; };
 		4379431D176F706D00188F99 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4379431C176F706D00188F99 /* Entitlements.plist */; };
 		437943201770384600188F99 /* CurrentListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4379431F1770384600188F99 /* CurrentListController.m */; };
 		4379432517705E1400188F99 /* SelectTimeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4379432417705E1400188F99 /* SelectTimeController.m */; };
@@ -154,6 +155,7 @@
 		4365BC6718ED471F0028C43D /* IconSelectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconSelectionController.m; sourceTree = "<group>"; };
 		4365BC6E18ED8C4C0028C43D /* TimeWarp1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TimeWarp1.1.xcdatamodel; sourceTree = "<group>"; };
 		4365BC6F18ED8C4C0028C43D /* TimeWarp1.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TimeWarp1.0.xcdatamodel; sourceTree = "<group>"; };
+		436BA70B1D9329DE00CFB7C0 /* iPadLaunch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = iPadLaunch.storyboard; path = ../iPadLaunch.storyboard; sourceTree = "<group>"; };
 		4379431C176F706D00188F99 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		4379431E1770384600188F99 /* CurrentListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentListController.h; sourceTree = "<group>"; };
 		4379431F1770384600188F99 /* CurrentListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentListController.m; sourceTree = "<group>"; };
@@ -373,6 +375,7 @@
 				4323D4A9176F0A7300A083AB /* controller */,
 				4323D469176EF79500A083AB /* AppDelegate.h */,
 				4323D46A176EF79500A083AB /* AppDelegate.m */,
+				436BA70B1D9329DE00CFB7C0 /* iPadLaunch.storyboard */,
 				4323D46C176EF79500A083AB /* Main.storyboard */,
 				4323D475176EF79500A083AB /* Images.xcassets */,
 				4365BC6418ECA0D80028C43D /* ProjectIcons.xcassets */,
@@ -655,6 +658,7 @@
 				43EF209218E71E1800AF4702 /* CalendarPreviousMonth.png in Resources */,
 				43EF209B18E71E1800AF4702 /* CalendarTodaysDate@2x.png in Resources */,
 				4379431D176F706D00188F99 /* Entitlements.plist in Resources */,
+				436BA70C1D9329DE00CFB7C0 /* iPadLaunch.storyboard in Resources */,
 				43EF209918E71E1800AF4702 /* CalendarSelectedDate@2x.png in Resources */,
 				2ED71AFF1B20DFE500D6AD3F /* data-screenshots.timecurl in Resources */,
 				4323D476176EF79500A083AB /* Images.xcassets in Resources */,
