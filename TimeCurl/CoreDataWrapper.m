@@ -24,7 +24,7 @@
 NSString * const DPModelName        = @"TimeWarp";
 NSString * const DPStoreName        = @"TimeCurl.sqlite";
 NSString * const DPUbiquitousName   = @"com~timecurl~coredataicloud";
-NSString * const iCloudStoreMigrated = @"store.migrated";
+NSString * const TimeCurlAppGroup   = @"group.com.extrabright.TimeCurl";
 
 
 @interface CoreDataWrapper ()
@@ -93,7 +93,9 @@ NSString * const iCloudStoreMigrated = @"store.migrated";
         return _persistentStoreCoordinator;
     }
     
-    NSURL *storeURL = [self storeUrl];
+    [self migrateToSharedContainer];
+
+    NSURL *storeURL = [self sharedStoreUrl];
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
@@ -111,42 +113,33 @@ NSString * const iCloudStoreMigrated = @"store.migrated";
         abort();
     }
     
-    // no migration to do
-    //if (![self isStoreMigrated]) {
-    //    [self migrateiCloudStoreToLocalStore];
-    //}
-    
     return _persistentStoreCoordinator;
 }
 
-- (BOOL)isStoreMigrated
-{
-    return [[NSUserDefaults standardUserDefaults] boolForKey:iCloudStoreMigrated];
-}
-
-- (NSURL*)storeUrl
+- (NSURL*)localStoreUrl
 {
     return [[self applicationDocumentsDirectory] URLByAppendingPathComponent:DPStoreName];
 }
 
-- (void)migrateiCloudStoreToLocalStore
+- (NSURL*)sharedStoreUrl
 {
-    DDLogDebug(@"Migrating store from iCloud to local");
-    NSPersistentStore* store = [self.persistentStoreCoordinator persistentStores].firstObject;
-    
-    NSDictionary *options = @{ NSMigratePersistentStoresAutomaticallyOption : @YES,
-                               NSInferMappingModelAutomaticallyOption : @YES,
-                               NSPersistentStoreRemoveUbiquitousMetadataOption : @YES
-                               };
+    NSURL *containerUrl = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:TimeCurlAppGroup];
+    return [containerUrl URLByAppendingPathComponent:DPStoreName];
+}
 
-    NSError *error = nil;
-    NSPersistentStore *newStore = [self.persistentStoreCoordinator migratePersistentStore:store toURL:[self storeUrl] options:options withType:NSSQLiteStoreType error:&error];
-    
-    if (error) {
-        DDLogError(@"Error happened while migrating store from iCloud to local: %@", error);
-    }
-    else {
-        [self reloadStore:newStore withOptions:options];
+- (void)migrateToSharedContainer
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+
+    if ([fileManager fileExistsAtPath:[self localStoreUrl].path]) {
+        DDLogInfo(@"Moving SQL file from url %@ to %@", [self localStoreUrl], [self sharedStoreUrl]);
+
+        NSError *error = nil;
+        [fileManager moveItemAtURL:[self localStoreUrl] toURL:[self sharedStoreUrl] error:&error];
+
+        if (error) {
+            DDLogError(@"An error occurred while moving DB file. Error: %@", error);
+        }
     }
 }
 
@@ -174,11 +167,9 @@ NSString * const iCloudStoreMigrated = @"store.migrated";
     
     [self.persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
                                configuration:nil
-                                         URL:[self storeUrl]
+                                         URL:[self sharedStoreUrl]
                                      options:options
                                        error:nil];
-    
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:iCloudStoreMigrated];
 }
 
 - (NSURL *)applicationDocumentsDirectory
