@@ -37,6 +37,8 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
 
     }
     
+    var activities: Array<Activity>?
+    
     func widgetPerformUpdate(completionHandler: ((NCUpdateResult) -> Void)) {
         // Perform any setup necessary in order to update the view.
         
@@ -46,6 +48,10 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
         // If there's no update required, use NCUpdateResult.NoData
         // If there's an update, use NCUpdateResult.NewData
 
+        let now = NSDate()
+        let threeDaysAgo = now.addingTimeInterval(-3600*24*3)
+        activities = CoreDataWrapper.shared().fetchActivitiesBetweenDate(threeDaysAgo as Date!, andExclusiveDate: now as Date!) as! Array<Activity>?
+        
         completionHandler(NCUpdateResult.newData)
     }
     
