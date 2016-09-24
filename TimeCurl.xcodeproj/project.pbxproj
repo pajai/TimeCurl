@@ -44,6 +44,7 @@
 		434511B61D95D3CE001B1A85 /* CoreDataWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 431535551773936000B5D825 /* CoreDataWrapper.m */; };
 		434511B71D95D86C001B1A85 /* TimeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4315355017738F5D00B5D825 /* TimeUtils.m */; };
 		4345FA3D176F31FE002BBDB0 /* NewProjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4323D4B7176F0E6100A083AB /* NewProjectController.m */; };
+		435675181D96A02B00E45C27 /* UIConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FECC2117D0823E003179B6 /* UIConstants.m */; };
 		43627720183D5E6E00825199 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4362771F183D5E6E00825199 /* libz.dylib */; };
 		436473561940DC80008E99FE /* CustomTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 436473551940DC80008E99FE /* CustomTabBarController.m */; };
 		4365BC6318E8B8940028C43D /* Project+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4365BC6218E8B8940028C43D /* Project+Additions.m */; };
@@ -60,6 +61,9 @@
 		43BAFD6F17CF89C700B6A4FC /* SelectDayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BAFD6E17CF89C700B6A4FC /* SelectDayController.m */; };
 		43C6E41017E1BD7B004A953A /* UITextFieldWithInset.m in Sources */ = {isa = PBXBuildFile; fileRef = 43C6E40F17E1BD7B004A953A /* UITextFieldWithInset.m */; };
 		43DDFE3017E24F940037F9E0 /* UIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DDFE2F17E24F940037F9E0 /* UIUtils.m */; };
+		43E25D791D969AF800456C62 /* ActivityCellUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E25D781D969AF800456C62 /* ActivityCellUtils.m */; };
+		43E25D7A1D969AF800456C62 /* ActivityCellUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E25D781D969AF800456C62 /* ActivityCellUtils.m */; };
+		43E25D7B1D969F2600456C62 /* UIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DDFE2F17E24F940037F9E0 /* UIUtils.m */; };
 		43E6027117821A8500EAA813 /* ReportController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E6027017821A8500EAA813 /* ReportController.m */; };
 		43E70435178DC2F000CB5AA2 /* MailComposeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E70433178DC2F000CB5AA2 /* MailComposeHandler.m */; };
 		43E76CC719DED42100EF5F10 /* UIApplication+AppDimensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E76CC619DED42100EF5F10 /* UIApplication+AppDimensions.m */; };
@@ -213,6 +217,8 @@
 		43DDFE2E17E24F940037F9E0 /* UIUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIUtils.h; sourceTree = "<group>"; };
 		43DDFE2F17E24F940037F9E0 /* UIUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIUtils.m; sourceTree = "<group>"; };
 		43DDFE3117E258A00037F9E0 /* SelectTimeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectTimeController.h; sourceTree = "<group>"; };
+		43E25D771D969AF800456C62 /* ActivityCellUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityCellUtils.h; sourceTree = "<group>"; };
+		43E25D781D969AF800456C62 /* ActivityCellUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityCellUtils.m; sourceTree = "<group>"; };
 		43E6026F17821A8500EAA813 /* ReportController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportController.h; sourceTree = "<group>"; };
 		43E6027017821A8500EAA813 /* ReportController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportController.m; sourceTree = "<group>"; };
 		43E70432178DC2F000CB5AA2 /* MailComposeHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailComposeHandler.h; sourceTree = "<group>"; };
@@ -522,6 +528,8 @@
 		4365BC6A18ED58890028C43D /* report */ = {
 			isa = PBXGroup;
 			children = (
+				43E25D771D969AF800456C62 /* ActivityCellUtils.h */,
+				43E25D781D969AF800456C62 /* ActivityCellUtils.m */,
 				43E6026F17821A8500EAA813 /* ReportController.h */,
 				43E6027017821A8500EAA813 /* ReportController.m */,
 				43EF209D18E75FE400AF4702 /* ConfigureReportController.h */,
@@ -982,6 +990,7 @@
 				431535431770A1D600B5D825 /* GraduationView.m in Sources */,
 				4323D467176EF79500A083AB /* main.m in Sources */,
 				4365BC6318E8B8940028C43D /* Project+Additions.m in Sources */,
+				43E25D791D969AF800456C62 /* ActivityCellUtils.m in Sources */,
 				43BAFD6F17CF89C700B6A4FC /* SelectDayController.m in Sources */,
 				431535491773060800B5D825 /* SlotInterval.m in Sources */,
 				4312E70518F7E5EE00C23B01 /* TimeSlot+Additions.m in Sources */,
@@ -1000,8 +1009,11 @@
 				434511B61D95D3CE001B1A85 /* CoreDataWrapper.m in Sources */,
 				434511B21D95D3C5001B1A85 /* Activity.m in Sources */,
 				434511B41D95D3C5001B1A85 /* TimeSlot.m in Sources */,
+				43E25D7A1D969AF800456C62 /* ActivityCellUtils.m in Sources */,
 				434511A41D95D38A001B1A85 /* TodayViewController.swift in Sources */,
+				435675181D96A02B00E45C27 /* UIConstants.m in Sources */,
 				434511B31D95D3C5001B1A85 /* Project.m in Sources */,
+				43E25D7B1D969F2600456C62 /* UIUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -32,6 +32,7 @@
 #import "Project+Additions.h"
 #import "OrderedDictionary.h"
 #import "AutoscreenshotsUtils.h"
+#import "ActivityCellUtils.h"
 
 
 #define kDayCellHeight 23
@@ -525,7 +526,9 @@
     NSString* identifier = @"ActivityCell";
     
     UITableViewCell* cell = [self retrieveOffscreenCellForIdentifier:identifier];
-    [self configureActivityCell:cell forIndexPath:indexPath];
+    
+    Activity* activity = (Activity*)[self.activitiesByDay objectAtIndex:indexPath.section - 1][indexPath.row - 1];
+    [ActivityCellUtils configureActivityCell:cell forIndexPath:indexPath andActivity:activity];
     
     [cell setNeedsLayout];
     [cell layoutIfNeeded];
@@ -602,53 +605,14 @@
 
 - (UITableViewCell*) createDayHeaderCell:(NSIndexPath*)indexPath forTableView:(UITableView*)tableView
 {
-    static NSString *cellIdentifier = @"DayTitleCell";
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-    
-    UILabel* dayLabel      = (UILabel*)[cell viewWithTag:100];
-    UILabel* durationLabel = (UILabel*)[cell viewWithTag:101];
-    
     NSArray* activitiesForDay = [self.activitiesByDay objectAtIndex:indexPath.section - 1];
-    
-    Activity* activity = (Activity*)activitiesForDay[0];
-    NSString* dateString = [_dateFormatter stringFromDate:activity.date];
-    dayLabel.text = dateString;
-    
-    // TODO duration
-    double dailyDuration = 0;
-    for (Activity* act in activitiesForDay) {
-        dailyDuration += [act duration];
-    }
-    durationLabel.text = [NSString stringWithFormat:@"%.2f", dailyDuration];
-    return cell;
+    return [ActivityCellUtils createDayHeaderCell:indexPath forTableView:tableView andActivitiesForDay:activitiesForDay];
 }
 
 - (UITableViewCell*) createDayActivityCell:(NSIndexPath*)indexPath forTableView:(UITableView*)tableView
 {
-    static NSString *cellIdentifier = @"ActivityCell";
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-    [self configureActivityCell:cell forIndexPath:indexPath];
-    
-    return cell;
-}
-
-- (void)configureActivityCell:(UITableViewCell*)cell forIndexPath:(NSIndexPath*)indexPath
-{
     Activity* activity = (Activity*)[self.activitiesByDay objectAtIndex:indexPath.section - 1][indexPath.row - 1];
-    
-    UILabel* titleLabel    = (UILabel*)[cell viewWithTag:100];
-    UILabel* durationLabel = (UILabel*)[cell viewWithTag:101];
-    UILabel* noteLabel     = (UILabel*)[cell viewWithTag:102];
-    UIImageView* iconView  = (UIImageView*)[cell viewWithTag:103];
-    
-    cell.accessoryView = [UIUtils accessoryView];
-    
-    Project* project = activity.project;
-    titleLabel.text = [project label];
-    durationLabel.text = [NSString stringWithFormat:@"%.2f", [activity duration]];
-    noteLabel.text = activity.note;
-    [noteLabel sizeToFit];
-    iconView.image = [project imageWithDefaultName:@"icon-report-list"];
+    return [ActivityCellUtils createDayActivityCell:indexPath forTableView:tableView andActivity:activity];
 }
 
 - (UITableViewCell*) createReportHeaderCell:(NSIndexPath*)indexPath forTableView:(UITableView*)tableView
