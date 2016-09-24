@@ -20,7 +20,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 75.0
         
-        //self.table?.intrinsicContentSize
+        self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
     }
     
     override func viewWillAppear(_ animated: Bool) {
