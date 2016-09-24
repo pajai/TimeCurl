@@ -984,8 +984,8 @@
                         <viewControllerLayoutGuide type="top" id="kdF-iO-ehi"/>
                         <viewControllerLayoutGuide type="bottom" id="TbR-N7-IZT"/>
                     </layoutGuides>
-                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="pW8-R5-3Qu">
-                        <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" id="pW8-R5-3Qu">
+                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="xyx-TS-gnf" customClass="TPKeyboardAvoidingScrollView">
@@ -1264,7 +1264,7 @@
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jgc-LJ-7z1" id="311-kA-pcP">
-                                    <frame key="frameInset" width="281" height="43"/>
+                                    <frame key="frameInset" width="281" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3a-u7-WFQ">
@@ -1325,7 +1325,7 @@
         <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="1rH-Wz-ar2"/>
         <segue reference="sRH-ER-JoI"/>
-        <segue reference="sNZ-04-jCE"/>
     </inferredMetricsTieBreakers>
 </document>
