@@ -16,6 +16,10 @@ target 'TimeCurl' do
 
 end  
 
+target 'TodayExtension' do
+  pod 'CocoaLumberjack',    '~> 2.0.3'
+end
+
 target 'TimeCurlTests' do
 end
 

@@ -109,7 +109,7 @@ NSString * const TimeCurlAppGroup   = @"group.com.extrabright.TimeCurl";
                                                                    options:options
                                                                      error:&error];
     if (!store) {
-        DDLogError(@"Unresolved error %@, %@", error, [error userInfo]);
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
     
@@ -129,18 +129,22 @@ NSString * const TimeCurlAppGroup   = @"group.com.extrabright.TimeCurl";
 
 - (void)migrateToSharedContainer
 {
+// don't do the migration from the extension, since the extension cannot move
+// the file from the main app container to the shared container
+#ifndef EXTENSION
     NSFileManager *fileManager = [NSFileManager defaultManager];
 
     if ([fileManager fileExistsAtPath:[self localStoreUrl].path]) {
-        DDLogInfo(@"Moving SQL file from url %@ to %@", [self localStoreUrl], [self sharedStoreUrl]);
+        NSLog(@"Moving SQL file from url %@ to %@", [self localStoreUrl], [self sharedStoreUrl]);
 
         NSError *error = nil;
         [fileManager moveItemAtURL:[self localStoreUrl] toURL:[self sharedStoreUrl] error:&error];
 
         if (error) {
-            DDLogError(@"An error occurred while moving DB file. Error: %@", error);
+            NSLog(@"An error occurred while moving DB file. Error: %@", error);
         }
     }
+#endif
 }
 
 - (NSDictionary*)localOptions
@@ -197,19 +201,19 @@ NSString * const TimeCurlAppGroup   = @"group.com.extrabright.TimeCurl";
 
 - (void)persistentStoreDidImportUbiquitiousContentChanges:(NSNotification *)changeNotification
 {
-    DDLogDebug(@">>>> MERGE CANDIDATE");
+    //DDLogDebug(@">>>> MERGE CANDIDATE");
 
     NSManagedObjectContext *moc = [self managedObjectContext];
     [moc performBlock:^{
         NSDictionary *userInfo = [changeNotification userInfo];
-        DDLogDebug(@">>>> BEGIN");
-        DDLogDebug(@"%@", userInfo);
-        DDLogDebug(@">>>> END");
+        //DDLogDebug(@">>>> BEGIN");
+        //DDLogDebug(@"%@", userInfo);
+        //DDLogDebug(@">>>> END");
         if (([userInfo objectForKey:NSInsertedObjectsKey] > 0) &&
             ([userInfo objectForKey:NSUpdatedObjectsKey] > 0) &&
             ([userInfo objectForKey:NSDeletedObjectsKey] > 0))
         {
-            DDLogDebug(@">>>> MERGE");
+            //DDLogDebug(@">>>> MERGE");
             [moc mergeChangesFromContextDidSaveNotification:changeNotification];
             [self.storeChangeDelegate storeDidChange];
         }
@@ -228,22 +232,21 @@ NSString * const TimeCurlAppGroup   = @"group.com.extrabright.TimeCurl";
     }];
     //reset user interface
     
-    DDLogDebug(@">>>> Stores Will Change, TODO update UI");
-    DDLogDebug(@">>>> BEGIN");
-    NSDictionary *userInfo = [n userInfo];
-    DDLogDebug(@"%@", userInfo);
-    DDLogDebug(@">>>> END");
+    //DDLogDebug(@">>>> Stores Will Change, TODO update UI");
+    //DDLogDebug(@">>>> BEGIN");
+    //NSDictionary *userInfo = [n userInfo];
+    //DDLogDebug(@"%@", userInfo);
+    //DDLogDebug(@">>>> END");
 
 }
 
 - (void)storesDidChange:(NSNotification *)n
 {
-    DDLogDebug(@">>>> BEGIN");
-    NSDictionary *userInfo = [n userInfo];
-    DDLogDebug(@"%@", userInfo);
-    [self.storeChangeDelegate storeDidChange];
-    DDLogDebug(@">>>> END");
-
+    //DDLogDebug(@">>>> BEGIN");
+    //NSDictionary *userInfo = [n userInfo];
+    //DDLogDebug(@"%@", userInfo);
+    //[self.storeChangeDelegate storeDidChange];
+    //DDLogDebug(@">>>> END");
 }
 
 #pragma mark utility methods
@@ -294,7 +297,7 @@ NSString * const TimeCurlAppGroup   = @"group.com.extrabright.TimeCurl";
 
 - (NSArray*) fetchAllActivities
 {
-    DDLogDebug(@"Fetch all activities");
+    //DDLogDebug(@"Fetch all activities");
     
     NSManagedObjectContext* managedObjectContext = [self managedObjectContext];
     NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
@@ -318,7 +321,7 @@ NSString * const TimeCurlAppGroup   = @"group.com.extrabright.TimeCurl";
 
 - (NSArray*) fetchActivitiesForDate:(NSDate*) date
 {
-    DDLogDebug(@"Fetch activities for %@", date);
+    //DDLogDebug(@"Fetch activities for %@", date);
     
     NSManagedObjectContext* managedObjectContext = [self managedObjectContext];
     NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
@@ -392,7 +395,7 @@ NSString * const TimeCurlAppGroup   = @"group.com.extrabright.TimeCurl";
 
 - (NSArray*) fetchActivitiesBetweenDate:(NSDate*)fromDate andExclusiveDate:(NSDate*)toDate forProjects:(NSArray*)projects
 {
-    DDLogDebug(@"Fetch activities between %@ and %@ exclusive", fromDate, toDate);
+    //DDLogDebug(@"Fetch activities between %@ and %@ exclusive", fromDate, toDate);
 
     NSManagedObjectContext* managedObjectContext = [self managedObjectContext];
     NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
@@ -466,7 +469,7 @@ NSString * const TimeCurlAppGroup   = @"group.com.extrabright.TimeCurl";
 {
     NSError* error = nil;
     if (![[self managedObjectContext] save:&error]) {
-        DDLogError(@"Error happened while saving context: %@", [error localizedDescription]);
+        NSLog(@"Error happened while saving context: %@", [error localizedDescription]);
         NSString *title = NSLocalizedString(@"A problem arose. Could not save changes.", @"Save fail");
         NSString *message = NSLocalizedString(@"You should quit as soon as possible, "
                                               @"because continuing could cause other problems.", @"");
@@ -476,8 +479,10 @@ NSString * const TimeCurlAppGroup   = @"group.com.extrabright.TimeCurl";
 
 - (void)showAlertWithTitle:(NSString*)title andMessage:(NSString*)message
 {
+#if !defined(EXTENSION)
     UIAlertView* alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
     [alert show];
+#endif
 }
 
 
@@ -489,7 +494,7 @@ NSString * const TimeCurlAppGroup   = @"group.com.extrabright.TimeCurl";
 
 - (BOOL) logError:(NSError*)error withMessage:(NSString*)msg {
     if (error != nil) {
-        DDLogError(@"Error - %@: %@, %@", msg, [error localizedDescription], [error userInfo]);
+        NSLog(@"Error - %@: %@, %@", msg, [error localizedDescription], [error userInfo]);
         return YES;
     }
     else {

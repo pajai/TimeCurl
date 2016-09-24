@@ -4,6 +4,21 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>TimeCurl AutoScreenshots.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>11</integer>
+		</dict>
+		<key>TimeCurl Bots.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>12</integer>
+		</dict>
+		<key>TimeCurl.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>10</integer>
+		</dict>
 		<key>TimeWarp AppStore.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -13,6 +28,11 @@
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+		<key>TodayExtension.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>15</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -33,6 +53,11 @@
 			<true/>
 		</dict>
 		<key>4323D47A176EF79500A083AB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4345119E1D95D38A001B1A85</key>
 		<dict>
 			<key>primary</key>
 			<true/>

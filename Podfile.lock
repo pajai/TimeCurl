@@ -36,7 +36,7 @@ CHECKOUT OPTIONS:
     :commit: 1c5dd3d4f7e00b6902c481c0bdffe33d23b8f8d6
     :git: https://github.com/pajai/CHCSVParser.git
   TimesSquare:
-    :commit: 35e1d4453ff9f555ba8dc71ef5fac70f29aebcd3
+    :commit: 03ee7d9261fb560307d5e72e666586aee0ca68ef
     :git: https://github.com/pajai/objc-TimesSquare.git
 
 SPEC CHECKSUMS:
@@ -48,6 +48,6 @@ SPEC CHECKSUMS:
   TimesSquare: c4c201495df0ff694524659f640b49f0c26321f9
   TPKeyboardAvoiding: e5ce146b313de063957bfa75a13f1e9b0ff18ab7
 
-PODFILE CHECKSUM: e0ebd275a294afa71f8122e97f72f988683f2eaa
+PODFILE CHECKSUM: a522bc34bb25df32bf411283a0cd219f08c2c3d4
 
 COCOAPODS: 1.0.1
