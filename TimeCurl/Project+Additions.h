@@ -17,6 +17,7 @@
 */
 
 #import "Project.h"
+#import <UIKit/UIKit.h>
 
 @interface Project (ProjectAdditions)
 

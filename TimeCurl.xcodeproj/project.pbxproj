@@ -45,6 +45,10 @@
 		434511B71D95D86C001B1A85 /* TimeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4315355017738F5D00B5D825 /* TimeUtils.m */; };
 		4345FA3D176F31FE002BBDB0 /* NewProjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4323D4B7176F0E6100A083AB /* NewProjectController.m */; };
 		435675181D96A02B00E45C27 /* UIConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FECC2117D0823E003179B6 /* UIConstants.m */; };
+		4356751A1D96A11700E45C27 /* Activity+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4312E70118F7E50B00C23B01 /* Activity+Additions.m */; };
+		4356751B1D96A12400E45C27 /* TimeSlot+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4312E70418F7E5EE00C23B01 /* TimeSlot+Additions.m */; };
+		4356751C1D96A39600E45C27 /* Project+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4365BC6218E8B8940028C43D /* Project+Additions.m */; };
+		4356751D1D96A49900E45C27 /* ProjectIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4365BC6418ECA0D80028C43D /* ProjectIcons.xcassets */; };
 		43627720183D5E6E00825199 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4362771F183D5E6E00825199 /* libz.dylib */; };
 		436473561940DC80008E99FE /* CustomTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 436473551940DC80008E99FE /* CustomTabBarController.m */; };
 		4365BC6318E8B8940028C43D /* Project+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4365BC6218E8B8940028C43D /* Project+Additions.m */; };
@@ -797,6 +801,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4356751D1D96A49900E45C27 /* ProjectIcons.xcassets in Resources */,
 				434511A71D95D38A001B1A85 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1009,11 +1014,14 @@
 				434511B61D95D3CE001B1A85 /* CoreDataWrapper.m in Sources */,
 				434511B21D95D3C5001B1A85 /* Activity.m in Sources */,
 				434511B41D95D3C5001B1A85 /* TimeSlot.m in Sources */,
+				4356751A1D96A11700E45C27 /* Activity+Additions.m in Sources */,
 				43E25D7A1D969AF800456C62 /* ActivityCellUtils.m in Sources */,
+				4356751B1D96A12400E45C27 /* TimeSlot+Additions.m in Sources */,
 				434511A41D95D38A001B1A85 /* TodayViewController.swift in Sources */,
 				435675181D96A02B00E45C27 /* UIConstants.m in Sources */,
 				434511B31D95D3C5001B1A85 /* Project.m in Sources */,
 				43E25D7B1D969F2600456C62 /* UIUtils.m in Sources */,
+				4356751C1D96A39600E45C27 /* Project+Additions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
