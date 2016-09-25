@@ -37,16 +37,12 @@
                                                         <constraint firstAttribute="height" constant="23" id="jL2-pV-hSZ"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kc6-cQ-YcL">
-                                                    <frame key="frameInset" minX="15" minY="1" width="243" height="22"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="100" contentMode="left" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kc6-cQ-YcL">
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="H" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QRh-XN-IlM">
-                                                    <frame key="frameInset" minX="260" minY="1" width="45" height="22"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="H" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QRh-XN-IlM">
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -54,8 +50,17 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="d8z-a1-h1y" secondAttribute="bottom" id="AXJ-FQ-QmJ"/>
+                                                <constraint firstAttribute="bottom" secondItem="d8z-a1-h1y" secondAttribute="bottom" id="Og9-eT-YSD"/>
+                                                <constraint firstItem="d8z-a1-h1y" firstAttribute="leading" secondItem="MiQ-GR-zH0" secondAttribute="leading" id="SaW-r7-VcF"/>
+                                                <constraint firstAttribute="trailing" secondItem="QRh-XN-IlM" secondAttribute="trailing" constant="15" id="TeS-UX-uHd"/>
+                                                <constraint firstAttribute="trailing" secondItem="d8z-a1-h1y" secondAttribute="trailing" id="V3R-Zi-yia"/>
                                                 <constraint firstItem="d8z-a1-h1y" firstAttribute="leading" secondItem="MiQ-GR-zH0" secondAttribute="leading" id="XyV-ZG-BYS"/>
+                                                <constraint firstItem="Kc6-cQ-YcL" firstAttribute="centerY" secondItem="MiQ-GR-zH0" secondAttribute="centerY" id="c1H-h3-RtK"/>
+                                                <constraint firstItem="Kc6-cQ-YcL" firstAttribute="leading" secondItem="MiQ-GR-zH0" secondAttribute="leading" constant="15" id="ete-zQ-L3C"/>
+                                                <constraint firstItem="d8z-a1-h1y" firstAttribute="top" secondItem="MiQ-GR-zH0" secondAttribute="top" id="qm4-bp-Ndo"/>
                                                 <constraint firstItem="d8z-a1-h1y" firstAttribute="top" secondItem="MiQ-GR-zH0" secondAttribute="top" id="sca-Di-PU9"/>
+                                                <constraint firstItem="QRh-XN-IlM" firstAttribute="leading" secondItem="Kc6-cQ-YcL" secondAttribute="trailing" constant="2" id="spP-8v-vD5"/>
+                                                <constraint firstItem="QRh-XN-IlM" firstAttribute="centerY" secondItem="MiQ-GR-zH0" secondAttribute="centerY" id="w2v-Hv-Kjd"/>
                                                 <constraint firstAttribute="trailing" secondItem="d8z-a1-h1y" secondAttribute="trailing" id="wN3-42-hwB"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -89,7 +94,7 @@
                                                         <constraint firstAttribute="height" constant="1" id="2XL-Dr-ubf"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu," lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="221" translatesAutoresizingMaskIntoConstraints="NO" id="4Rx-qe-PXc">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu," lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="221" translatesAutoresizingMaskIntoConstraints="NO" id="4Rx-qe-PXc">
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="3pQ-TG-3R1"/>
                                                     </constraints>
