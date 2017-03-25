@@ -250,6 +250,22 @@
     
     NSArray* projects = [[CoreDataWrapper shared] fetchAllProjects];
     NSData* data = [[[ModelSerializer alloc] init] serializeProjects:projects];
+
+    /*
+    // For saving the data in the simulator folder
+    //
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *dataPath = [documentsDirectory stringByAppendingPathComponent:@"data-screenshots.timecurl"];
+    //
+    // Save it into file system
+    [data writeToFile:dataPath atomically:YES];
+    //
+    // to grab the file:
+    // - set a breakpoint to here
+    // - share the data (full set, propriatary)
+    // - type 'po NSHomeDirectory()' to see where the app documents is located
+    */
     
     self.mailComposeHandler.attachmentData = data;
     self.mailComposeHandler.attachmentMime = @"application/timecurl";
